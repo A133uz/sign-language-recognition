@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sign-language-recognition"
+version = "0.1.0"
+description = "Landmark-based ASL recognition research application"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy>=2,<3", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+vision = ["mediapipe>=0.10,<2", "opencv-contrib-python>=4.10,<6"]
+training = ["scikit-learn>=1.5,<2", "matplotlib>=3.9,<4", "tqdm>=4.66,<5"]
+cpu = ["torch==2.11.0"]
+cuda = ["torch==2.11.0"]
+
+[project.scripts]
+sign-language = "sign_language.cli:main"
+
+[dependency-groups]
+dev = ["ruff==0.17.2", "pytest==9.1.1", "build==1.6.1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sign_language"]
+
+[tool.uv]
+required-version = "==0.13.5"
+environments = [
+    "sys_platform == 'win32' and platform_machine == 'AMD64'",
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+conflicts = [[{ extra = "cpu" }, { extra = "cuda" }]]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu128", extra = "cuda" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-config --strict-markers"
