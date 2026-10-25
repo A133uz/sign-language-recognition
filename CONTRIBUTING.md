@@ -8,7 +8,7 @@ files; notebooks are optional and not needed for the main pipeline.
 ```powershell
 .\scripts\check.ps1
 .\.venv\Scripts\python.exe -m ruff format .
-.\.bootstrap\Scripts\uv.exe --cache-dir .cache/uv build
+uv build
 ```
 
 Run formatting before checks if you changed Python code. New functionality
@@ -20,14 +20,14 @@ claims need actual webcam/GPU checks, not just import or unit-test success.
 Change `pyproject.toml`, then resolve deliberately:
 
 ```powershell
-.\.bootstrap\Scripts\uv.exe --cache-dir .cache/uv lock
+uv lock
 .\scripts\setup.ps1 -Profile cuda
 .\scripts\check.ps1
 ```
 
 Commit `pyproject.toml` and `uv.lock` together. Use `uv lock --upgrade-package NAME`
 for an intentional package upgrade. Update the uv version in `pyproject.toml`,
-setup script, CI, and docs together. CPU and CUDA extras cannot be combined;
+script diagnostics, CI, and installation docs together. CPU and CUDA extras cannot be combined;
 do not use `--all-extras`. Bare `uv sync` selects the development profile and
 removes optional dependencies; use the setup script to retain the full profile.
 

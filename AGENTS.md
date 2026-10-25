@@ -2,6 +2,7 @@
 
 - Read README.md and docs/project-decisions.md before changing project scope.
 - Python 3.12; use the project .venv. Dependencies come from pyproject.toml and uv.lock.
+- Use standalone uv; .venv is the only project environment. Do not add a tooling venv.
 - Use ordinary Python modules under src/sign_language; scripts should be thin entry points.
 - Keep CPU and CUDA extras separate. Bare uv sync removes optional dependencies.
 - Run scripts/check.ps1 on Windows, or the equivalent documented Linux checks.

@@ -11,15 +11,17 @@ try {
     $taskPythonExecutable = & $Python -c "import sys; assert sys.version_info[:2] == (3, 12), 'Python 3.12 is required'; print(sys.executable)"
     if ($LASTEXITCODE -ne 0) { throw 'Select a Python 3.12 interpreter with -Python.' }
 
-    $taskBootstrapPython = Join-Path $taskRoot '.bootstrap/Scripts/python.exe'
-    if (-not (Test-Path -LiteralPath $taskBootstrapPython)) {
-        & $taskPythonExecutable -m venv .bootstrap
-        if ($LASTEXITCODE -ne 0) { throw 'Could not create the bootstrap environment.' }
+    $taskUvCommand = Get-Command uv -CommandType Application -ErrorAction SilentlyContinue
+    if ($taskUvCommand) {
+        $taskUv = $taskUvCommand.Source
     }
-    & $taskBootstrapPython -m pip install --disable-pip-version-check 'uv==0.13.5'
-    if ($LASTEXITCODE -ne 0) { throw 'Could not install the pinned dependency manager.' }
-
-    $taskUv = Join-Path $taskRoot '.bootstrap/Scripts/uv.exe'
+    else {
+        # An already-open terminal may not have the installer's updated PATH yet.
+        $taskUv = Join-Path $env:USERPROFILE '.local/bin/uv.exe'
+        if (-not (Test-Path -LiteralPath $taskUv)) {
+            throw 'Install standalone uv 0.13.5 first; see docs/setup.md.'
+        }
+    }
     $taskArgs = @('--cache-dir', '.cache/uv', 'sync', '--locked', '--python', $taskPythonExecutable)
     if ($Profile -ne 'dev') {
         $taskArgs += @('--extra', 'vision', '--extra', 'training', '--extra', $Profile)

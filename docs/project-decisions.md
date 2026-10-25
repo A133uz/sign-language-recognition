@@ -18,7 +18,9 @@ Agreed on 2026-10-25:
 
 Repository setup uses uv with a committed lockfile rather than parallel manual
 requirements files. Development, full CPU, and full CUDA profiles share one
-package and configuration. No dataset, trained model, or live recognizer exists
+package and configuration. Uv is installed once as a standalone user tool; the
+project uses a single `.venv`, including pip for familiar package inspection.
+No dataset, trained model, or live recognizer exists
 at this foundation milestone.
 
 Next milestone: audit available WLASL clips for the draft vocabulary, establish

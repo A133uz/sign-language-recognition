@@ -20,7 +20,7 @@ cuda = ["torch==2.11.0"]
 sign-language = "sign_language.cli:main"
 
 [dependency-groups]
-dev = ["ruff==0.17.2", "pytest==9.1.1", "build==1.6.1"]
+dev = ["ruff==0.17.2", "pytest==9.1.1", "build==1.6.1", "pip>=24,<27"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sign_language"]
@@ -58,4 +58,4 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra --strict-config --strict-markers"
+addopts = "-ra --strict-config --strict-markers --basetemp=.cache/pytest"

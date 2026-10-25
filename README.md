@@ -23,7 +23,8 @@ is not silently treated as “you're welcome.”
 
 ## Quick start on Windows
 
-Run from a PowerShell terminal in this repository:
+Install standalone uv 0.13.5 once using [the setup guide](docs/setup.md), then
+run from a PowerShell terminal in this repository:
 
 ```powershell
 .\scripts\setup.ps1 -Profile cuda
@@ -31,18 +32,27 @@ Run from a PowerShell terminal in this repository:
 .\.venv\Scripts\python.exe -m sign_language doctor --vision --require-cuda
 ```
 
-The setup script installs uv 0.13.5 in a local `.bootstrap` environment, then
-creates `.venv` from the committed `uv.lock`. CUDA uses the explicit PyTorch
-CUDA 12.8 index. The first full install downloads large binary packages.
-Nothing needs to be installed into the global Python environment.
+Uv is a standalone development tool installed in your user account. The setup
+script creates or updates the single project environment, `.venv`, from the
+committed `uv.lock`. CUDA uses the explicit PyTorch CUDA 12.8 index. The first
+full install downloads large binary packages. Project libraries stay in `.venv`.
 
 Use `-Profile dev` for configuration development without vision/PyTorch, or
 `-Profile cpu` for the full stack with CPU PyTorch. Profiles share one `.venv`;
 running setup switches its installed dependencies. CPU and CUDA are mutually
 exclusive. Scripts use the virtual environment directly; activation is optional.
 
-If local script execution is disabled, use the manual commands in
-[the setup guide](docs/setup.md). They require no execution-policy changes.
+To inspect the installed project libraries, activate the environment and use pip:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip list
+```
+
+Uv itself is external to `.venv`, so it does not appear in that package list.
+Without activation, use `uv pip list --python .venv/Scripts/python.exe`.
+Manual setup commands and VS Code interpreter guidance are in
+[the setup guide](docs/setup.md).
 
 ## Repository layout
 
