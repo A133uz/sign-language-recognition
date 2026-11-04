@@ -22,8 +22,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Formatting failed.' }
     & $taskPython -m pytest
     if ($LASTEXITCODE -ne 0) { throw 'Tests failed.' }
-    & $taskPython -m sign_language check-config configs/vocabulary.yaml
-    if ($LASTEXITCODE -ne 0) { throw 'Vocabulary validation failed.' }
+    foreach ($taskVocabulary in Get-ChildItem -LiteralPath configs -Filter 'vocabulary*.yaml' -File) {
+        & $taskPython -m sign_language check-config $taskVocabulary.FullName
+        if ($LASTEXITCODE -ne 0) { throw "Vocabulary validation failed: $($taskVocabulary.Name)" }
+    }
     & $taskPython -m sign_language doctor
     if ($LASTEXITCODE -ne 0) { throw 'Base environment checks failed.' }
     $taskGitRoot = $taskRoot.Replace('\', '/')

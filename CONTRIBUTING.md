@@ -27,7 +27,7 @@ uv lock
 
 Commit `pyproject.toml` and `uv.lock` together. Use `uv lock --upgrade-package NAME`
 for an intentional package upgrade. Update the uv version in `pyproject.toml`,
-script diagnostics, CI, and installation docs together. CPU and CUDA extras cannot be combined;
+script diagnostics and installation docs together. CPU and CUDA extras cannot be combined;
 do not use `--all-extras`. Bare `uv sync` selects the development profile and
 removes optional dependencies; use the setup script to retain the full profile.
 
@@ -46,8 +46,8 @@ git push -u origin main
 ```
 
 Replace the placeholder before running. A remote is not created by local setup.
-Once hosted, require the CI checks before merging to `main` if branch protection
-is available. No repository-specific identity or remote credentials are embedded.
+Run the local checks before merging to `main`. No repository-specific identity or
+remote credentials are embedded.
 
 For published model artifacts, record the producing commit, vocabulary order,
 feature schema, configuration, dependency lock, metrics, and SHA-256 checksum.

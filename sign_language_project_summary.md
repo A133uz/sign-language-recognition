@@ -2,11 +2,13 @@
 
 Project summary: scope, architecture for the minor and major parts, resources, and paper structure.
 
-**Current decisions (2026-10-25):** ASL first using WLASL, starting with 10 everyday
-signs and expanding to 25. The supervisor accepts ASL-primary/RSL-secondary scope.
+**Current decisions (updated 2026-11-01):** ASL first using WLASL, aiming for all
+available WLASL glosses (WLASL2000). Use 10 everyday signs to test the initial
+pipeline, then expand the vocabulary. Coverage and accuracy need evaluation.
+The supervisor accepts ASL-primary/RSL-secondary scope.
 Local training hardware is an RTX 4060 with 8 GB VRAM. Publication is optional;
 the application and university report take priority. Use ordinary Python files.
-The larger vocabulary and resource targets below are longer-term planning notes.
+The older vocabulary and resource estimates below are longer-term planning notes.
 See [README.md](README.md) for repository setup and current implementation status,
 and [docs/project-decisions.md](docs/project-decisions.md) for the decision record.
 

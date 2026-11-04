@@ -1,7 +1,7 @@
 # Environment setup
 
 Supported development targets are Windows x64 and Linux x86-64 with Python 3.12.
-Windows is the primary webcam/GPU target; Linux development checks run in CI.
+Windows is the primary webcam/GPU target; Linux development checks can be run locally.
 
 ## Windows prerequisites
 
@@ -21,8 +21,7 @@ Foundation verification on that machine passed: 10 automated tests, Ruff lint
 and formatting, vocabulary validation, dependency consistency, source/wheel
 builds, and installation of the built wheel into an isolated environment.
 OpenCV 5.0.0 and MediaPipe 1.1.1 imported successfully. PyTorch 2.11.0+cu128
-completed CPU and RTX 4060 GPU calculations. Hosted CI has been configured but
-has not run until the repository is pushed. Webcam capture and sign recognition
+completed CPU and RTX 4060 GPU calculations. Webcam capture and sign recognition
 are not validated by these setup checks.
 
 ## Install uv once
@@ -83,14 +82,16 @@ uv sync --locked
 .venv/bin/python -m ruff check .
 .venv/bin/python -m ruff format --check .
 .venv/bin/python -m pytest
-.venv/bin/python -m sign_language check-config configs/vocabulary.yaml
+for config in configs/vocabulary*.yaml; do
+  .venv/bin/python -m sign_language check-config "$config" || exit 1
+done
 .venv/bin/python -m sign_language doctor
 uv build
 ```
 
-The vision profile may require system display/audio libraries on Linux. CI
-intentionally validates the development profile without opening a camera or
-assuming GPU access. Linux vision deployment needs its own runtime verification.
+The vision profile may require system display/audio libraries on Linux. The
+development checks do not open a camera or assume GPU access. Linux vision
+deployment needs its own runtime verification.
 
 ## Runtime checks
 
@@ -102,8 +103,8 @@ return a nonzero exit code.
 
 These checks do not open a webcam, install landmark model assets, or establish
 recognition performance. Review the selected MediaPipe Tasks documentation and
-download the matching hand/pose `.task` assets into `assets/models/` when the
-extraction pipeline is implemented. Record model source and checksum there.
+download the matching hand/pose `.task` assets into `assets/models/` for the
+landmark pipeline. Sources and checksums are recorded in `assets/models/README.md`.
 
 Only one OpenCV distribution should be present. This project uses
 `opencv-contrib-python`, which is also required by the selected MediaPipe package;

@@ -1,0 +1,19 @@
+# Experimental expansion of the ten-sign pilot. Keep the two WLASL labels
+# separate: sampled `i` clips show the fingerspelled letter; `me` clips show
+# a gesture toward the signer. This mapping still needs sign-language review.
+schema_version: 1
+language: asl
+dataset: wlasl
+labels:
+  - hello
+  - thank you
+  - goodbye
+  - please
+  - sorry
+  - "yes"
+  - "no"
+  - help
+  - fine
+  - good
+  - i
+  - me
