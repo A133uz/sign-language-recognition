@@ -2,36 +2,18 @@ $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 Push-Location -LiteralPath $taskRoot
 try {
-    $taskPython = Join-Path $taskRoot '.venv/Scripts/python.exe'
-    if (-not (Test-Path -LiteralPath $taskPython)) { throw 'Run scripts/setup.ps1 first.' }
-    $taskUvCommand = Get-Command uv -CommandType Application -ErrorAction SilentlyContinue
-    if ($taskUvCommand) {
-        $taskUv = $taskUvCommand.Source
+    uv --cache-dir .cache/uv lock --check --offline
+    if ($LASTEXITCODE -ne 0) { throw 'Lockfile check failed.' }
+    & ./.venv/Scripts/python.exe -m compileall -q src scripts tests
+    if ($LASTEXITCODE -ne 0) { throw 'Source compilation failed.' }
+    $taskPreviousPythonPath = $env:PYTHONPATH
+    try {
+        $env:PYTHONPATH = Join-Path $taskRoot 'src'
+        & ./.venv/Scripts/python.exe -m unittest discover -s tests -v
+        if ($LASTEXITCODE -ne 0) { throw 'Pipeline tests failed.' }
     }
-    else {
-        $taskUv = Join-Path $env:USERPROFILE '.local/bin/uv.exe'
-        if (-not (Test-Path -LiteralPath $taskUv)) {
-            throw 'Install standalone uv 0.13.5 first; see docs/setup.md.'
-        }
-    }
-    & $taskUv --cache-dir .cache/uv lock --check --offline
-    if ($LASTEXITCODE -ne 0) { throw 'Dependency lock is out of date.' }
-    & $taskPython -m ruff check .
-    if ($LASTEXITCODE -ne 0) { throw 'Lint failed.' }
-    & $taskPython -m ruff format --check .
-    if ($LASTEXITCODE -ne 0) { throw 'Formatting failed.' }
-    & $taskPython -m pytest
-    if ($LASTEXITCODE -ne 0) { throw 'Tests failed.' }
-    foreach ($taskVocabulary in Get-ChildItem -LiteralPath configs -Filter 'vocabulary*.yaml' -File) {
-        & $taskPython -m sign_language check-config $taskVocabulary.FullName
-        if ($LASTEXITCODE -ne 0) { throw "Vocabulary validation failed: $($taskVocabulary.Name)" }
-    }
-    & $taskPython -m sign_language doctor
-    if ($LASTEXITCODE -ne 0) { throw 'Base environment checks failed.' }
-    $taskGitRoot = $taskRoot.Replace('\', '/')
-    git -c "safe.directory=$taskGitRoot" diff --check
-    if ($LASTEXITCODE -ne 0) { throw 'Git whitespace checks failed.' }
+    finally { $env:PYTHONPATH = $taskPreviousPythonPath }
+    & ./.venv/Scripts/python.exe -c "import mediapipe,cv2,numpy; print('mediapipe',mediapipe.__version__,'opencv',cv2.__version__,'numpy',numpy.__version__); print('Import and unit checks do not validate live hand tracking or sign recognition.')"
+    if ($LASTEXITCODE -ne 0) { throw 'Dependency check failed.' }
 }
-finally {
-    Pop-Location
-}
+finally { Pop-Location }

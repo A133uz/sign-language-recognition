@@ -1,232 +1,156 @@
-# Project decisions
+# Project decisions and implementation status
 
-Agreed on 2026-10-25:
+## Decision on 2026-11-06
 
-- ASL first; RSL remains a secondary comparison accepted by the supervisor.
-- WLASL is the initial isolated-sign dataset.
-- Originally planned to start with 10 everyday signs and expand to 25.
-- Desired expressions include hello, thank you, goodbye, you're welcome, and
-  see you. Dataset labels and ASL expressions must be checked individually.
-- The provisional config uses hello, thank you, goodbye, please, sorry, yes,
-  no, help, fine, and good. Review usable clips before freezing this list.
-- Avoid separate bye/goodbye classes until overlap has been reviewed. Do not
-  equate WLASL's welcome label with you're welcome without checking the sign.
-- Local hardware is an RTX 4060 with 8 GB VRAM.
-- Ordinary Python files form the main pipeline. Jupyter is optional.
-- Prioritize implementation and the university report; publication is not required.
-- Use a small landmark-sequence model first; continuous translation is later work.
+The user requested removal of the WLASL/I3D implementation, adoption of ASL Citizen,
+and a MediaPipe webcam preview showing hand skeletons. Classifier training is
+explicitly deferred until the user authorizes it. No training or bulk landmark
+extraction is to be started as part of this setup.
 
-Repository setup uses uv with a committed lockfile rather than parallel manual
-requirements files. Development, full CPU, and full CUDA profiles share one
-package and configuration. Uv is installed once as a standalone user tool; the
-project uses a single `.venv`, including pip for familiar package inspection.
-The local WLASL metadata can be inspected by gloss. Videos and trained models
-are local experiment artifacts and are not committed to Git.
+MediaPipe is a pretrained landmark extractor. The later trainable recognizer is
+a GRU or Transformer using landmark sequences, consistent with the original
+project design. A hand skeleton is not evidence of sign recognition accuracy.
 
-As of 2026-11-01, the intended vocabulary is all WLASL glosses, with WLASL2000
-as the full-dataset target. The current 10-sign draft remains a pipeline pilot;
-it is not a final vocabulary limit. Build label handling and manifests to scale
-from the pilot to all available classes. Audit clip availability and signer
-coverage, then measure per-class performance and report missing or weak classes.
-Full coverage and reliable recognition are goals to validate, not guarantees.
+## Removed and retained
 
-The full local metadata has been audited for counts and recorded signer-ID overlap.
-A bounded direct-MP4 probe decoded the first frame of two `hello` examples; it
-does not establish full-video or dataset-wide availability. The WLASL paper says
-signer IDs were derived from face matching with manual checks, so group by ID but
-keep the possibility of identification errors in mind. Next, investigate signer
-coverage for the pilot. A seeded, metadata-only pilot manifest now keeps signer
-IDs and exact shared media separate and reports class coverage. It is provisional
-until actual usable clips and signer-ID reliability are checked. Next, build a
-verified clip inventory and regenerate the split from usable data before training.
+Removed the WLASL source/data directory, official I3D weights and downloaded
+weight archives, I3D adapter, reference patch, downloader preparation script,
+recognition command and I3D-specific tests. Existing Git history remains. The
+reference summary was preserved during the resets, then updated on 2026-11-07
+under the user's request to refresh all related documents. Old diagnostic
+JSON/logs under ignored `.cache` are
+historical records, not executable recognition code.
 
-As of 2026-11-01, hosted CI is not needed for now. Run the documented checks locally.
+The summary's preserved pre-refresh version had SHA-256
+`79d3867ec1f5f662e9200a50dddca28fd766b4606e1ceb674fda65a666984c95`.
+That is a historical fingerprint, not the hash of the refreshed summary.
 
-The local video inventory records missing files, decoding results and checksums;
-it does not certify labels, frame intervals, or complete decoding. Inventory-based
-splitting remains planned after the handling of clip intervals is established.
+## Official workflow and deliberate adaptation
 
-On 2026-11-04, an experimental isolated-sign pipeline was added: it extracts hand
-landmarks from local, already prepared clips, groups examples by signer and exact
-media identity, trains a GRU, and offers a space-triggered webcam capture. The
-baseline uses hands only; pose and facial features are not yet included. This
-is an experimental milestone, not proof of reliable live recognition. The earlier
-inventory is not consumed by the preparation command, which performs its own
-decode and hand-presence checks. Clip labels and intervals still require review.
+Sources consulted: Microsoft ASL Citizen project page, datasheet, dataset license,
+repository README, ST-GCN README and pose.py. The official pose workflow is:
+download ZIP, unzip, extract MediaPipe Holistic landmarks, train/test ST-GCN.
+Only dataset setup is being followed now. The planned GRU/Transformer is our own
+classifier choice; no official ST-GCN or I3D accuracy is claimed for this project.
 
-User webcam feedback exposed incorrect predictions for `hello`, `thank you` and
-an untrained sign. The project now also supports pose-based context, an experimental
-linear SVM comparison and an uncertainty threshold. These are not validated fixes:
-the threshold cannot reliably reject unknown signs and held-out `hello` results
-were poor. The user prefers trying available dataset clips before collecting their
-own labeled webcam examples. The full WLASL vocabulary remains the long-term goal.
+The official legacy environment is not copied into the project: Python 3.12 and
+the current MediaPipe Tasks hand API are used for the interactive preview.
+Pose/body and face feature requirements will be settled before classifier work.
 
-A pretrained WLASL2000 I3D video model is available as an additional experiment.
-Its unrestricted mode failed an initial live test; its optional ten-label pilot
-mode returned `hello`, `thank you`, `please`, and `sorry` correctly on one user
-attempt each; `yes` and `no` were not first guesses. The
-pilot mode is closed-set and must not be presented as handling all signs or
-rejecting other signs. Further live and signer-disjoint evaluation is needed.
+## Data preparation status
 
-The user clarified that their earlier `I` test meant the pronoun gesture toward
-the signer, rather than the fingerspelled letter. Sampled WLASL examples label
-these separately as `me` and `i`; an optional twelve-label vocabulary retains
-both exact labels without merging them. Recognition of the pronoun remains to
-be improved: on one user webcam attempt, the twelve-label model returned `hello`
-first and `me` third.
+The complete official ZIP was downloaded from the Microsoft URL and dataset
+preparation finished on 2026-11-07.
+It contains 83,406 ZIP entries totaling 49,604,368,459 extracted bytes; archive size
+is 45,924,134,223 bytes. The official split CSV entries were fetched with HTTP
+ranges and CRC-checked while the video archive downloads. Metadata audit passed:
 
-A preprocessing audit found that five locally extracted source videos were
-29.97 FPS while WLASL's annotations refer to 25 FPS. The interval extractor now
-resamples by annotation timestamps. The five clips have been regenerated with
-their previous versions archived; feature archives and local training results
-created before that correction are provisional and require regeneration.
+| Split | Videos | Labels | Participants |
+| --- | ---: | ---: | ---: |
+| Train | 40,154 | 2,731 | 35 |
+| Validation | 10,304 | 2,731 | 6 |
+| Test | 32,941 | 2,731 | 11 |
 
-The corrected-clip landmark archive has now been regenerated from all 132 local
-clips and its video hashes verified. A fresh twelve-label SVM still scores only
-11/21 on validation and is not selected for webcam use. The original archives
-are retained as historical artifacts.
+The participants are disjoint between splits. The first audit was metadata-only;
+the final extracted-file audit also passed for all 83,399 videos. Every ZIP file
+entry was read with CRC verification. This does not establish that all videos
+decode correctly. The exact training-label mapping is saved locally in
+`data/metadata/label-map.json`.
 
-A comparison of I3D resizing, temporal sampling and pooling on 21 validation
-clips favored the existing default (20/21 restricted-label top-one). The reference
-test path scored 7/21; changing preprocessing is not a demonstrated live fix.
-The project now includes a guided, randomized webcam diagnostic that saves
-predictions and timing, without saving pixels or features. It compares variants
-on the same capture and reports prompt agreement, with uncompleted trials visible.
-Its simulated lifecycle and saved-clip CUDA checks passed before the first human
-session. The webcam recognition goal remains incomplete,
-and the full WLASL vocabulary remains the longer-term scope.
+Full setup report: `data/asl_citizen/setup-report.json`. Extracted dataset root:
+`data/asl_citizen/ASL_Citizen/`. Archive SHA-256:
+`349c0e33f13b876f19ad4dee72205f4d2eae02937613e275200aa92283268eab`.
+This is the locally calculated archive fingerprint, not an independently
+published Microsoft SHA-256. The source URL, byte count and server ETag are saved
+in `data/downloads/ASL_Citizen.source.json`.
 
-The first guided human session completed all 15 prompted trials. The user
-confirmed following the prompts without capture problems. Each of the four
-resize/pooling variants returned `hello` and `thank you` first on 3/3 trials each,
-but `yes`, `no` and `me` on 0/3 each. Captures contained 61–62 frames in roughly
-two seconds. This does not establish reliable webcam recognition; no comparison
-variant is selected as a fix. A subsequent body-relative landmark probe also
-failed to improve validation sufficiently and was not deployed. See
-[the live-test record](../reports/2026-11-04-guided-webcam-results.md).
+All five earlier diagnostic labels occur in each split, using exact dataset
+glosses: HELLO (14/4/14 train/val/test), THANKYOU (16/3/12), YES (15/5/10),
+NO (16/3/11) and ME (13/5/13). Their presence does not imply recognition has been
+trained or validated. No class subset has been selected for training.
 
-The user also confirmed that the displayed WLASL reference clips match their
-performed `yes`, `no` and `me` gestures. A separate ASL Citizen pretrained I3D
-baseline is now available for comparison because its source data includes
-everyday recording settings. This is an additional experiment, not a replacement
-for WLASL or the full WLASL vocabulary goal. It uses native class labels and
-source-derived preprocessing with explicit deterministic padding. No datasets
-were merged and no WLASL label aliases were assumed. Ten source-test clip CUDA
-checks passed tensor/prediction parity, but both source `THANKYOU` clips were
-misclassified as `GOOD`. Its subsequent guided human session scored 5/15 top-one:
-HELLO 2/3, THANKYOU 1/3, YES 1/3, NO 0/3 and ME 1/3. It did not improve this
-session and remains an optional experiment.
+## Preview and validation status
 
-A four-prompt WLASL crop diagnostic found detected hands inside the model crop,
-with hand sizes comparable to the training reference. The user's nose appeared
-around model y=91–94 versus a training median 56.6, and shoulder span around
-121–124 versus 103 pixels. This is a measured framing difference, not proof of
-the recognition-error cause. An optional body-alignment comparison now uses one
-fixed per-capture scale/translation from median nose/shoulders to a reference fit
-on 80 training clips only. On 21 exploratory validation clips it scored 21/21,
-versus 20/21 unaligned. Source exposure and repeated validation reuse limit these
-numbers. The full guided path passed a saved-clip replay using real CUDA and
-MediaPipe. The same-capture human comparison completed all four prompts and
-matched only hello, both before and after alignment. Yes, no and me remained
-incorrect. Alignment is not selected as a fix; no default is changed.
-See [the framing record](../reports/2026-11-04-framing-diagnostic.md).
+Implemented `HandTracker` with MediaPipe Tasks VIDEO mode, two hands, RGB input,
+strictly increasing timestamps and a mirrored skeleton preview. Reports contain
+aggregate hand counts and timing, without webcam images or landmark coordinates.
+No sign prediction or training code is invoked by the preview.
 
-For the next hand-shape modeling experiment, a bounded native ASL Citizen pilot
-has been obtained: 177 training, 46 validation and 146 test clips for twelve
-distinct native labels. Its selected signer IDs are disjoint across the three
-source splits (28/5/11 signers). All archive members passed CRC verification;
-full decoding also passed, with one 664-frame training YES clip exceeding the
-current 600-frame preparation limit. It needs explicit handling or exclusion,
-not silent truncation. This data acquisition is not a trained model or proof of
-webcam improvement. Native feature preparation and the new hand-shape training
-experiment were the next step. No WLASL label mapping is assumed.
+The single `.venv` was synced to MediaPipe 1.2.2, OpenCV-contrib 4.11.0 and NumPy
+1.26.4. Torch, torchvision and the old video-download dependencies were removed
+from the installed environment; torch extras remain optional for later work.
+The existing single environment's activation prompt was changed from the old
+baseline name to `sign-language-recognition`; no second environment was created.
+`scripts/check.ps1` passed: compilation, lockfile and four tests covering resumed
+downloads/corrupt prefixes, path containment, skeleton rendering and camera-read
+failure cleanup.
 
-Native preparation is now implemented with estimated world-hand shape centered
-at each wrist and normalized by wrist-to-middle-MCP length. It preserves image-x
-hand pairing and appends valid-world-hand masks to the existing hand/pose data
-(288 values per frame). Original source splits are retained; signer-ID overlap
-and identical file bytes across splits are rejected. The prepared set contains
-173/46/146 train/validation/test clips and 27/5/11 signer IDs. Three training
-clips failed hand detection and one exceeded 600 frames; all twelve labels
-remain represented in every split.
+The user confirmed that both hands and fingers track well in the live preview.
+The detector ran on the TensorFlow Lite CPU delegate. The 120.59-second preview
+processed 2,585 frames (about 21.4 FPS): 1,827 with zero hands reported, 198 with
+one, and 560 with two. These are aggregate detector counts, not recall or accuracy
+measurements; the user was not instructed to keep hands visible for every frame.
+Mean detector time was 17.56 ms. The camera closed normally at the time limit.
+No webcam media or coordinates were saved and no classifier was trained.
+Local report: `.cache/hands-preview-20261106-01.json`.
 
-Four candidates were compared with test scoring disabled. A compact four-bin
-hand-shape summary with a linear SVM was selected by validation macro accuracy:
-40/46 validation, versus 34/46 for summary RBF, 32/46 for raw linear and 27/46
-for the GRU. The selected checkpoint was then evaluated once on the 146 held-out
-clips and scored 104/146 (YES 9/10, NO 10/11, ME 11/13). Weak classes remain;
-FINE2 scored 2/8 and SORRY 6/12. No test outcome was used to select among those
-candidates, and the selected checkpoint remains frozen.
+A CRC-checked official ASL Citizen training clip (`0022932153577568393-HELLO.mp4`)
+was also fully decoded: 92/92 frames. MediaPipe reported hands in 48 frames, with
+21 finite XYZ landmarks for every reported hand. This is one extraction smoke
+check, not a tracking-accuracy measurement or recognition result. No feature
+arrays were saved. Report: `.cache/asl-citizen-hand-smoke.json`.
 
-The new landmark guided backend captures frames first, then extracts the same
-32 full-frame samples as preparation. It reproduced features exactly on three
-saved yes/no/me clips and passed a full saved-clip guided replay. It rejects
-captures with insufficient tracked hands but cannot reject arbitrary untrained
-signs. The first human session completed 15 prompts: YES and NO matched 3/3
-each, HELLO 2/3, THANKYOU 1/3 and ME 0/3 (9/15 overall). This is real progress
-on yes/no but not reliable recognition across the vocabulary. No failed class
-is removed from the task. This does not replace WLASL's
-longer-term vocabulary target or establish reliable webcam recognition.
+The full download, CRC-checked extraction and file-presence/split audit have
+completed successfully. Full-corpus video decoding, bulk landmark extraction,
+classifier training and recognition evaluation have not been performed. Training
+still requires the user's explicit authorization.
 
-A subsequent training/validation-only probe combined frozen WLASL I3D video
-descriptors with the compact native ASL Citizen hand summary. Video-only linear
-classification scored 28/46 validation, linear fusion 35/46 and RBF fusion
-36/46, below the existing hand model's 40/46. None was promoted to webcam use;
-no additional test scoring was performed. Reuse of this small validation set
-limits further model-selection conclusions. See the world-hand experiment report.
+## Colab and classifier plan agreed on 2026-11-07
 
-On 2026-11-05, the user authorized reviewing a few ME and THANKYOU preview
-frames in chat, without adding them to training data. Direct desktop capture
-failed, so an explicit preview-only module sends at most two three-frame boards
-to a temporary loopback receiver in memory. It does not save webcam images or
-landmarks. The ME preview showed the hand clearly, but its depth was ambiguous;
-the user confirmed that the index fingertip pointed into the chest. ME remains
-an unresolved recognition failure, rather than a confirmed signing error.
-The THANKYOU preview showed fingertips near the chin followed by outward motion,
-consistent with the basic ASL University description. Three sampled frames do
-not establish expert sign correctness, classifier behavior or tracking accuracy;
-this preview did not run a recognizer. No obvious signing mismatch was established
-as the cause of either error. The local receiver was closed and its image buffers
-cleared after review; authorized images remain visible in chat. The preview
-process also exited normally and released the camera.
+The user will perform the documented dataset download/extraction in a chosen
+Colab notebook. The dataset belongs to that notebook's connected runtime, not to
+the notebook file. A cloud preparation/training workflow is planned; no remote
+runtime has been accessed or its execution verified by this project.
 
-A timing augmentation experiment selected an optional candidate using three-fold
-training-signer cross-validation (133/173 versus baseline 117/173; ME 9/11 versus
-5/11). The existing validation score decreased to 39/46 from 40/46, so this is not
-a validated general improvement. The candidate preserves the same representation
-and native labels, uses no personal training data, and has no new test score.
-An optional same-capture comparison now shares one landmark extraction between
-compatible checkpoints; the original remains frozen. All 15 human trials
-completed with user-confirmed normal signing/capture. The timing candidate
-matched 9/15 versus 7/15 for the original: HELLO 3/3 versus 2/3 and ME 1/3 versus
-0/3, but THANKYOU 0/3 for both. YES remained 3/3 and NO 2/3. This is insufficient
-for reliable recognition; the candidate stays optional and no default changes.
-Details are in [the timing record](../reports/2026-11-05-timing-augmentation.md).
+GRU is the planned first sign classifier; a small Transformer remains a possible
+comparison. MediaPipe supplies landmarks and is not being retrained to recognize
+sign meanings. OpenCV supplies camera frames. A future GRU would score the full
+2,731-label vocabulary if trained on all dataset classes. No trained classifier,
+bulk feature extractor, training loop or local sign-inference path currently
+exists. Existing CLI commands cover data preparation and hand visualization.
 
-A subsequent optional `body_geometry` representation retains every hand point
-relative to nose/shoulders and rotation-invariant finger-shape measurements.
-Training-signer CV selected geometry plus timing (140/173, ME 11/11), but the
-existing validation result remained 39/46, including THANKYOU 1/3 and BYE 1/3.
-No new test scoring was done and no default changed. Runtime parity/replay and
-104 local tests passed. The shorter human comparison completed ten trials with
-user-confirmed normal capture: geometry matched 3/10 versus original 6/10,
-including YES/NO/THANKYOU regressions. It is rejected as a replacement; source
-cross-validation did not establish live improvement. See
-[the geometry record](../reports/2026-11-05-body-geometry.md).
+The current hand tracker is CPU-based. A T4 assignment alone does not accelerate
+it. A GPU-compatible MediaPipe delegate would need explicit configuration and
+runtime verification. The repo's uv environment constraints and torch indexes
+are currently Windows-specific; no Colab/Linux dependency environment is tested.
 
-A consented annotated preview found no obvious gross 2D finger swap in three
-ME and three THANKYOU frames; it did not establish accurate depth or rule out
-other tracking failures. No personal frames/features were retained in project
-files or training data. A comparison of saved aggregate counts found much more
-continuous hand presence in webcam captures (ME median 32/32) than source
-training clips (ME median 9/32). Active-window trimming reduced training-signer
-CV performance and was not selected or tested live. See
-[the tracking record](../reports/2026-11-05-tracking-review.md).
+Runtime figures discussed are planning estimates, not Colab measurements:
 
-A newer SignRep RGB representation was checked on a public clip with real CUDA
-inference and strict checkpoint loading. Its weights/source remain local and
-ignored. The user cleared the development goal during training/validation feature
-extraction; the process was stopped with a partial cache and no final feature
-archive. No SignRep label classifier, recognition score or webcam functionality
-has been implemented. No dependency or default-model change was made. See
-[the stopped probe record](../reports/2026-11-05-signrep-probe.md).
+- Hands-only extraction for the whole corpus: roughly 1–3 days as an initial
+  budget, possibly longer on the allocated CPU or with body/face tracking.
+  An assumed 90 frames per clip gives about 7.5 million frames; at the measured
+  local detector-only 17.56 ms/frame, that is about 37 hours before other work.
+  The 90-frame corpus average is an assumption, not a measured dataset property.
+- Small GRU on a T4 with cached landmarks: roughly 1–6 hours for 50–100 epochs,
+  assuming two layers, 128–256 hidden units, about 64 frames per sample and batch
+  size 64–128. This is not a benchmark or a promised Colab session duration.
+- Timing a representative extraction sample and several training/validation
+  epochs after authorization is required to replace those budgets with forecasts.
+
+Conservative augmentation is planned for training only: modest consistent
+geometric transforms, timing variation and carefully bounded noise/masking.
+Preserve sign motion and hand shape; validate horizontal flips and left/right
+slot handling before using them. Validation/test preparation stays deterministic
+and signer-disjoint. On-the-fly feature augmentation must not rerun MediaPipe on
+every epoch or manufacture train/test overlap.
+
+Colab processing must save completed feature batches and resumable training
+checkpoints to private persistent storage. Use the runtime's local disk for
+active data reads, check disk capacity and plan for session termination. The
+local export bundle must include trained weights, model configuration, exact
+label mapping, landmark/normalization/sequence settings, extractor versions and
+evaluation metadata. Optimizer/scheduler state and random states are needed for
+resuming training, rather than for local inference alone.
+
+The detailed data-only cells and future-work checklist are in [colab.md](colab.md).
+Updating these documents or pushing the repository does not authorize training.

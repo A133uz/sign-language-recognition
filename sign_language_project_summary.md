@@ -1,232 +1,181 @@
 # Real-Time Sign Language Recognition Using Computer Vision and Deep Learning
 
-Project summary: scope, architecture for the minor and major parts, resources, and paper structure.
+Project summary updated 2026-11-07. This document describes the current direction,
+implemented components and remaining work. The pre-reset reference version was
+preserved during implementation resets and remains available in Git history.
+The current request to refresh all related documents supersedes keeping that
+old reference text unchanged.
 
-**Current decisions (updated 2026-11-01):** ASL first using WLASL, aiming for all
-available WLASL glosses (WLASL2000). Use 10 everyday signs to test the initial
-pipeline, then expand the vocabulary. Coverage and accuracy need evaluation.
-The supervisor accepts ASL-primary/RSL-secondary scope.
-Local training hardware is an RTX 4060 with 8 GB VRAM. Publication is optional;
-the application and university report take priority. Use ordinary Python files.
-The older vocabulary and resource estimates below are longer-term planning notes.
-See [README.md](README.md) for repository setup and current implementation status,
-and [docs/project-decisions.md](docs/project-decisions.md) for the decision record.
+## 1. Objective and scope
 
----
+Develop an application that recognizes individual American Sign Language (ASL)
+signs from a laptop camera and displays their textual meanings. The minor project
+covers isolated signs. Continuous signing, sentence generation and paragraph
+context are later major-project research goals, not implemented functionality.
 
-## 1. Project overview
+ASL is the primary language. The supervisor accepts ASL-primary/RSL-secondary
+scope. A Russian Sign Language experiment would require its own labeled dataset
+and evaluation; ASL Citizen contains ASL, not RSL. The application and university
+report take priority; publication is optional. Project code uses ordinary Python
+modules, with a Colab notebook acting as a possible launcher.
 
-**Goal:** recognize signs shown to a laptop camera, convert them into words, and (in the major part) combine them into sentences and paragraphs.
+## 2. Current implementation and model responsibilities
 
-**Submitted synopsis (summary):** a system that recognizes signs from video and converts them into words or phrases, focused on ASL and RSL. Hand and body features are extracted with computer vision and classified with deep learning. The minor project covers individual signs displayed as text. The outcome is a software application.
+| Component | Role | Current state |
+| --- | --- | --- |
+| OpenCV | Capture webcam frames and decode videos | Implemented |
+| MediaPipe Tasks Hand Landmarker | Locate up to two hands and their finger joints | Implemented; local CPU preview tested |
+| Dataset utilities | Acquire ASL Citizen, unzip, audit official splits and build label mapping | Implemented; local setup completed |
+| GRU | Learn sign classes from landmark sequences | Planned baseline; not implemented or trained |
+| Small Transformer | Possible classifier comparison | Planned option |
+| Local sign output/history | Display recognized meanings using a trained classifier | Not implemented |
+| Segmentation and language generation | Turn continuous signing into sentences | Future research |
 
-**Split of work**
+MediaPipe does not currently classify sign meanings. It supplies hand landmarks.
+The future GRU will analyze hand shape, relative positions and motion over time;
+its classification layer will score sign classes. A saved class-ID/gloss mapping
+will convert the selected output index into text. Training MediaPipe itself is
+not the planned sign-classification step.
 
-| Part | Scope | Output |
-|---|---|---|
-| Minor project (semester 1) | Isolated sign recognition from a webcam, shown as text | Working real-time application and paper 1 |
-| Major project (semester 2) | Continuous signing converted to sentences and paragraphs | Extended application and paper 2 |
+Implemented preview:
 
----
-
-## 2. Language choice
-
-- **ASL is the main language.** It has the most data and published baselines (WLASL, MS-ASL, How2Sign, the Google Kaggle ISLR data).
-- **RSL is a secondary experiment.** Slovo covers isolated RSL signs only. Public continuous RSL data is scarce, so sentence-level RSL work is not realistic for a student project.
-- **Why this matters:** the synopsis says "ASL and RSL" as the primary focus. Doing both fully doubles the work, so agree with the supervisor that ASL is the full pipeline and RSL is a comparison run on a subset of Slovo.
-
----
-
-## 3. Architecture: full pipeline
-
-```
-MINOR PROJECT (isolated signs)
-+---------+    +-----------+    +------------+    +-----------------+
-| Webcam  | -> | MediaPipe | -> | Classifier | -> | Live output     |
-| frames  |    | landmarks |    | GRU / Trf  |    | word+confidence |
-+---------+    +-----------+    +------------+    +-----------------+
-                                                          |
-                                                          v
-MAJOR PROJECT (sentences)
-+--------------+    +----------------+    +---------------------+
-| Segmentation | -> | Text generator | -> | Final output        |
-| sign limits  |    | glosses->text  |    | sentences/paragraph |
-+--------------+    +----------------+    +---------------------+
+```text
+Webcam -> OpenCV frames -> MediaPipe hand landmarks -> hand skeleton display
 ```
 
-The minor project should output a clean list of glosses (word, confidence, timestamp). The major project reads exactly that list, so the two halves connect.
+Planned isolated-sign application:
 
----
+```text
+Webcam -> shared hand/body landmark extraction -> normalization and sequence
+preparation -> trained GRU -> sign label -> local word display/history
+```
 
-## 4. Minor project architecture (isolated signs)
+The shared hand/body schema, sequence preparation, missing-landmark masks and
+recognition/rejection rules still need implementation and validation. Current
+tracking uses hands only. The WLASL/I3D implementation, local clips and weights
+were removed at the user's request. Earlier SVM, I3D and other experiments are
+historical work, not active fallback classifiers.
 
-### 4.1 Pipeline
+## 3. Dataset: ASL Citizen
 
-1. **Capture:** OpenCV reads webcam frames at roughly 20 to 30 fps.
-2. **Landmark extraction:** MediaPipe (Holistic or Hands plus Pose) converts each frame to keypoints. Two hands give about 126 values per frame. Pose points can be added.
-3. **Preprocessing:** normalize landmarks relative to the shoulders or wrist and scale them, fix the sequence length (for example 30 to 60 frames), and handle frames where a hand is missing.
-4. **Classifier:** a sequence model on landmark windows.
-   - Baseline: LSTM or GRU (2 layers, around 128 hidden units, dropout).
-   - Comparison model: a small Transformer encoder.
-5. **Real-time inference:** sliding window, a confidence threshold, and a rule that suppresses repeated predictions of the same sign.
-6. **Interface:** a desktop application showing the live camera, the current prediction, and the recognized word history.
+The current dataset is [Microsoft ASL Citizen](https://www.microsoft.com/en-us/research/project/asl-citizen/):
+83,399 videos covering 2,731 labeled signs from 52 participants. The full
+vocabulary is the eventual training target; label presence does not establish
+recognition accuracy.
 
-### 4.2 Why landmarks instead of raw video
+| Official split | Videos | Participants |
+| --- | ---: | ---: |
+| Train | 40,154 | 35 |
+| Validation | 10,304 | 6 |
+| Test | 32,941 | 11 |
 
-- Training is far lighter (minutes to hours, not days).
-- Runs in real time on a laptop CPU.
-- Less sensitive to background, clothing, and lighting.
-- Matches the format of the Google Kaggle ISLR data.
+Keep the official signer-disjoint splits. Train on training examples, select
+hyperparameters on validation, then evaluate the chosen model on held-out test
+examples. Do not randomly mix videos from the same signer across splits.
 
-### 4.3 Realistic target
+The full archive and extracted files were prepared locally on 2026-11-07.
+ZIP CRC verification and the file-presence/split audit passed for all declared
+videos. Full-corpus decoding and bulk landmark extraction have not been run.
+One training clip was fully decoded as a MediaPipe extraction smoke check.
 
-- 50 to 100 signs from WLASL or the Kaggle ISLR data (ASL).
-- A matching subset from Slovo for the RSL experiment.
-- Evaluation on signers who are not in the training data.
+Archive size: 45,924,134,223 bytes (42.77 GiB). Extracted entries total
+49,604,368,459 bytes; reserve about 100 GB for both plus working space.
+Data, models and feature arrays remain outside Git and subject to the
+[dataset research license](https://www.microsoft.com/en-us/research/project/asl-citizen/dataset-license/).
 
----
+The official pose-based baseline uses legacy MediaPipe Holistic and ST-GCN.
+Our planned GRU/Transformer workflow is an adaptation of the dataset preparation
+approach, not a reproduction of that benchmark. WLASL remains related work only.
 
-## 5. Major project architecture (continuous signing to sentences)
+## 4. Planned Colab preparation and training
 
-### 5.1 Pipeline
+The user plans to download the dataset directly from Microsoft inside a chosen
+Colab notebook. Files belong to its connected VM, not the notebook file. The
+copy-paste data-only steps, disk checks and persistence guidance are in
+[docs/colab.md](docs/colab.md). No Colab session has been accessed or benchmarked
+by this project, and the user has not reported completing that download yet.
 
-1. **Segmentation / continuous recognition:** split a continuous stream into individual signs, or recognize glosses directly. Options:
-   - A "no-sign / rest" class with a sliding window (simplest, builds on the minor project).
-   - Motion-based boundary detection.
-   - A CTC-based continuous recognition model trained on a continuous dataset.
-2. **Text generation:** turn the gloss sequence into fluent English. ASL grammar differs from English, so word-by-word joining gives poor sentences. Options:
-   - A small seq2seq model (T5-type) trained on gloss-to-text pairs.
-   - An LLM with prompting.
-   - A small LLM fine-tuned with LoRA.
-3. **Context for paragraphs:** pass earlier sentences into the generator so it can keep the text coherent.
-4. **Output:** text with optional text-to-speech.
+After authorization:
 
-### 5.2 Research direction to follow
+1. Finalize and quality-check the shared landmark schema and preprocessing.
+2. Benchmark representative video extraction in the actual Colab runtime.
+3. Extract and save resumable landmark batches with split/signer membership,
+   failure records, masks and extractor settings.
+4. Train a small GRU on cached sequences; benchmark actual epoch time.
+5. Compare conservative training-only augmentation using validation results.
+6. Evaluate the final chosen model on the official held-out test set.
+7. Export weights, architecture settings, exact labels, preprocessing schema and
+   version/evaluation metadata; implement and test the local load/inference path.
 
-Recent sentence-level work includes gloss-free translation such as GFSLT-VLP (ICCV 2023), evaluated on German and Chinese sign language benchmarks. It is a good reference for the paper's related work, but reproducing it on ASL is a larger undertaking than the glosses-plus-text-generator route above.
+Completed feature batches and resumable training checkpoints must survive VM
+termination using private persistent storage. Use runtime-local disk for active
+processing. The Windows uv configuration is not a tested Colab/Linux dependency
+environment; cloud extraction/training setup still needs to be implemented.
 
-### 5.3 Realistic target
+Training remains on hold until explicitly authorized. Bulk landmark extraction,
+GRU training and local word recognition commands do not exist yet.
 
-Sentences from a limited vocabulary. Full paragraph translation of open-domain signing is still an open research problem and should be described as future work.
+## 5. Resources and runtime estimates
 
----
+Local hardware includes an RTX 4060 with 8 GB VRAM. The tested hand tracker uses
+the CPU. A two-minute live preview processed 2,585 frames at about 21.4 FPS;
+the user confirmed that both hands and fingers tracked well. These observations
+validate the preview, not sign-recognition accuracy.
 
-## 6. Datasets and existing work (verified links)
+Colab T4 training is a planned option. The current extractor does not request a
+GPU delegate, so selecting a T4 does not automatically speed up MediaPipe.
 
-### ASL
+- Whole-corpus hands-only extraction: roughly 1–3 days as an initial planning
+  budget, potentially longer depending on the CPU, I/O and added body/face work.
+- Small GRU on a T4 with cached landmarks: roughly 1–6 hours for 50–100 epochs,
+  assuming two layers, 128–256 hidden units, about 64 frames per sample and batch
+  size 64–128. No T4 training benchmark has been run.
+- These are estimates, not commitments. A representative extraction sample and
+  several training/validation epochs are needed for reliable forecasts.
 
-| Resource | Notes | Link |
-|---|---|---|
-| WLASL | Word-level, about 2000 glosses | https://github.com/dxli94/WLASL |
-| MS-ASL | 1000 classes, isolated signs | see MS-ASL paper |
-| How2Sign | 80+ hours continuous ASL with English transcripts | http://how2sign.github.io/ |
-| Google ISLR (Kaggle) | Isolated signs as MediaPipe landmarks, 250 words | https://www.kaggle.com/competitions/asl-signs |
-| Google Fingerspelling (Kaggle) | Fingerspelling recognition | https://www.kaggle.com/competitions/asl-fingerspelling |
+The local detector averaged 17.56 ms/frame before decoding/saving overhead.
+Assuming 90 frames per video would imply about 37 hours of detector processing
+for the full corpus at that local rate. The 90-frame average is hypothetical.
+Extract once and reuse cached landmarks across training experiments whenever
+the extraction schema and settings stay compatible.
 
-### RSL
+## 6. Augmentation and evaluation plan
 
-| Resource | Notes | Link |
-|---|---|---|
-| Slovo | 20,000 videos, 1,000 isolated RSL classes, 194 signers | https://arxiv.org/abs/2305.14527 |
-| Slovo code | Official repository | https://github.com/hukenovs/slovo |
-| Sber RSL report | RSL dataset and fine-tuning report | https://arxiv.org/abs/2302.07693 |
+Compare a baseline with modest geometric changes, timing variation and bounded
+landmark noise/masking. Preserve sign-defining motion, hand shape and relative
+positions. Validate mirroring and left/right slot handling before using it.
+Avoid reversed motion, aggressive finger distortions and incomplete-sign crops.
+Augment training samples on the fly; keep validation/test inputs deterministic
+and preserve signer separation. MediaPipe does not need to rerun each epoch.
 
-### Open-source starting points (student/hobby projects, not verified by running)
+Report vocabulary size alongside top-one/top-five accuracy, per-class results
+and confusion matrices. Measure latency/FPS on named hardware and test new
+signers under varied framing, backgrounds and lighting. Check idle/unknown-sign
+behavior before describing the application as a reliable live recognizer.
+No current sign-recognition accuracy or trained-model GPU throughput is claimed.
 
-- https://github.com/SiD-array/SignLens-RealTime-ASL-Recognition
-- https://github.com/Rahul28428/Sign-Language-Detection
-- https://github.com/man0405/Sign-Language-Detection
-- https://github.com/matt-user/sign_language_detection
-- https://github.com/JosephZahar/Google-Isolated-Sign-Language-Recognition-Kaggle
+## 7. Later major-project direction
 
-### Sentence-level research
+Continuous recognition needs sign-boundary handling or an appropriate sequence
+recognizer and continuous-signing data. ASL gloss sequences cannot simply be
+joined word by word to guarantee grammatical English. Sentence generation and
+context handling require separate implementation, data and evaluation. A limited
+vocabulary demonstration is a possible research stage; open-domain paragraph
+translation is not an implemented or promised result.
 
-- GFSLT-VLP paper: https://openaccess.thecvf.com/content/ICCV2023/papers/Zhou_Gloss-Free_Sign_Language_Translation_Improving_from_Visual-Language_Pretraining_ICCV_2023_paper.pdf
-- GFSLT-VLP code: https://github.com/zhoubenjia/GFSLT-VLP
+## 8. Report and working records
 
-Note: accuracy figures in small GitHub demos usually come from 3 to 10 signs and say little about real performance.
+The university report can cover the problem, related work, dataset/splits,
+architecture, preprocessing, training protocol, quantitative results, live tests,
+limitations and future work. Keep planned features separate from measured
+results and record model/configuration changes between experiments.
 
----
-
-## 7. Computing resources (estimates)
-
-| Stage | Needs |
-|---|---|
-| Live demo | Any recent laptop with webcam and about 8 GB RAM. CPU is enough. |
-| Minor: landmark extraction | CPU, can take hours for many videos. Run once and save the arrays. |
-| Minor: training | Free Colab or Kaggle GPU (T4 class). Training takes minutes to a couple of hours. |
-| Minor: storage | Some GB for landmarks. Check that WLASL video links still work, since some are reported dead. The Kaggle data is already landmarks. |
-| Major: continuous recognition | GPU with 16 to 24 GB (RTX 3090/4090 or cloud A100) is preferable. How2Sign is large, so using pose landmarks instead of raw video reduces disk and compute needs sharply. |
-| Major: text generation | Hosted LLM prompting needs no GPU. LoRA fine-tuning of a small model fits on one 16 to 24 GB GPU. |
-
-These are rough estimates. Confirm what GPU access the university provides.
-
----
-
-## 8. Paper structure
-
-### 8.1 Paper 1: minor project (isolated signs)
-
-1. **Abstract:** problem, approach, datasets, main result, real-time performance.
-2. **Introduction:** why sign recognition matters; ASL and RSL are separate languages; objectives and contributions.
-3. **Related work:** datasets (WLASL, MS-ASL, How2Sign, Slovo, Kaggle ISLR); landmark-based vs video-based methods; from isolated recognition to sentence translation.
-4. **Datasets:** subset used, number of signs, samples and signers, train/validation/test split, license notes.
-5. **Methodology:** capture, landmark extraction, normalization, model architecture, training setup, real-time inference logic.
-6. **Experiments and results:** see section 9.
-7. **Discussion and limitations:** error analysis, confusable signs, lighting and signer variation.
-8. **Ethics note:** the tool does not replace interpreters; Deaf community perspective; feedback from signers if possible.
-9. **Conclusion and future work:** sentence-level extension (leads to the major project).
-10. **References.**
-
-### 8.2 Paper 2: major project (sentences)
-
-1. **Abstract.**
-2. **Introduction:** isolated vs continuous signing, why grammar matters, contributions.
-3. **Related work:** continuous recognition, gloss-based vs gloss-free translation, How2Sign, GFSLT-VLP.
-4. **Data:** continuous dataset or constructed gloss-text pairs, preprocessing.
-5. **System architecture:** the minor-project recognizer, segmentation method, text generator, context handling.
-6. **Experiments:** recognition error rate (WER), translation quality (BLEU or similar), ablations (segmentation methods, generator options), latency of the full pipeline.
-7. **Human evaluation:** readability and meaning preservation judged by people, ideally including signers.
-8. **Discussion and limitations.**
-9. **Conclusion and future work.**
-10. **References.**
-
----
-
-## 9. Evaluation checklist
-
-- **Signer-independent split.** Test on signers not present in training. A random split from the same signers inflates accuracy.
-- **Top-1 and top-5 accuracy**, per-class results, and a confusion matrix.
-- **Model comparison:** GRU/LSTM vs small Transformer; with and without normalization; hands only vs hands plus pose.
-- **Real-time numbers:** latency per prediction and FPS on a named laptop.
-- **Live demo test** with new people under varied lighting and backgrounds. Report the drop honestly.
-- **ASL vs RSL comparison** on the same pipeline.
-- **Always state vocabulary size** next to every accuracy number.
-
----
-
-## 10. Wording and scope cautions
-
-- Use "recognition" for the minor project. Use "translation" only for the sentence stage.
-- Do not oversell results on very small vocabularies.
-- Cite exact dataset versions or subsets and check license terms.
-- Agree the ASL-primary, RSL-secondary scope with the supervisor before the first review.
-
----
-
-## 11. Suggested working habits
-
-- Keep an experiment log from day one (model, settings, split, result).
-- Write related work and datasets sections early.
-- Save figures as you go: pipeline diagram, confusion matrix, training curves, demo screenshots.
-- Ask the supervisor for the university's report template and page expectations.
-- Decide early whether the paper is a university report only or also a conference/journal submission. A publishable paper needs a clearer contribution than "we built a system".
-
----
-
-## 12. Open questions to settle
-
-1. Which 10 signs have sufficient available WLASL clips and signer coverage?
-2. Can a signer-disjoint split retain useful coverage for each selected class?
-3. What landmark feature schema and rejection strategy work best for the live demo?
-4. Is additional university compute needed after measuring local training requirements?
+- [README.md](README.md): local setup and commands.
+- [docs/project-decisions.md](docs/project-decisions.md): decisions, actual checks
+  and implementation status.
+- [docs/colab.md](docs/colab.md): cloud preparation guide, resource assumptions,
+  training plan and export requirements.
+- [Official ASL Citizen code](https://github.com/microsoft/ASL-citizen-code):
+  authors' model-specific preparation and baseline references.
+- [Official datasheet](https://www.microsoft.com/en-us/research/project/asl-citizen/datasheet/):
+  dataset composition and collection/split information.

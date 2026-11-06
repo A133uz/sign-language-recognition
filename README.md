@@ -1,185 +1,158 @@
-# Real-time ASL recognition
+# ASL Citizen and MediaPipe hand tracking
 
-Python project for recognizing isolated American Sign Language signs from webcam
-video using landmarks and a sequence model.
+The current application shows live hand skeletons from a webcam. The dataset is
+Microsoft ASL Citizen. The WLASL/I3D recognition implementation and its local
+videos and weights have been removed.
 
-**Current state:** an experimental isolated-sign pipeline can extract hand landmarks
-from local WLASL clips, train a small GRU, and classify a short webcam capture.
-An alternative can run a pretrained WLASL2000 video model. In an initial user
-test, pilot-only video recognition correctly guessed `hello`, `thank you`, `please`
-and `sorry`; `yes` and `no` were not first guesses. The unrestricted model and
-earlier landmark model misclassified `hello` and `thank you`. Both
-approaches are experimental and not reliable general-purpose sign recognizers.
-A newly trained native ASL Citizen hand-shape model is available through the
-guided landmark backend; it scored 104/146 on source held-out clips. In a guided
-webcam test it matched yes/no on 3/3 attempts each, but me on 0/3, with 9/15
-overall prompt agreement. Its native labels and scope are separate from
-the full WLASL target.
-Follow-up same-capture webcam experiments scored 9/15 for a timing-augmented
-candidate versus original 7/15, and 3/10 for a geometry candidate versus original
-6/10. Neither resolves the live failures; the geometry candidate was rejected
-as a replacement. Original weights remain frozen. Records:
-[timing](reports/2026-11-05-timing-augmentation.md) and
-[geometry](reports/2026-11-05-body-geometry.md).
-See [docs/data.md](docs/data.md)
-for data preparation, split limitations, and reproducible commands.
+There is no trained sign classifier yet. Training is on hold until the user
+explicitly authorizes it. MediaPipe supplies a pretrained hand-landmark detector;
+we will later train a GRU classifier on extracted landmarks. A small Transformer
+is a possible comparison model. OpenCV captures frames; MediaPipe finds joints;
+the future classifier will assign sign labels.
 
-## Scope
+## 1. Install the environment
 
-- Aim to support all WLASL glosses, subject to data availability and evaluation.
-- Use the 10 everyday signs as an initial pipeline test, not the final vocabulary.
-- Use WLASL as the initial source; review available clips before finalizing labels.
-- Use MediaPipe landmarks and a PyTorch GRU/LSTM baseline.
-- Target Windows x64, Python 3.12, and an RTX 4060 with 8 GB VRAM.
-- Keep RSL as a later comparison. The supervisor accepts this split.
-- Prioritize the working application and university report; publication is optional.
-
-The draft pilot vocabulary is in `configs/vocabulary.yaml`; it is not the full
-WLASL label set. `goodbye` is the initial
-farewell class; `bye` is not a separate class pending overlap review. `welcome`
-is not silently treated as “you're welcome.”
-
-## Quick start on Windows
-
-Install standalone uv 0.13.5 once using [the setup guide](docs/setup.md), then
-run from a PowerShell terminal in this repository:
+Use Python 3.12 and standalone uv. From the project root:
 
 ```powershell
-.\scripts\setup.ps1 -Profile cuda
-.\scripts\check.ps1
-.\.venv\Scripts\python.exe -m sign_language doctor --vision --require-cuda
+uv --cache-dir .cache/uv sync --locked
+.\scripts\activate.ps1
+python scripts/project.py setup-hands
 ```
 
-Uv is a standalone development tool installed in your user account. The setup
-script creates or updates the single project environment, `.venv`, from the
-committed `uv.lock`. CUDA uses the explicit PyTorch CUDA 12.8 index. The first
-full install downloads large binary packages. Project libraries stay in `.venv`.
+The single project environment is `.venv`. MediaPipe 1.2.2 and OpenCV-contrib
+4.11 provide CPU hand tracking. Optional CPU/CUDA torch extras are reserved for
+later classifier work; they are not required for the preview. No tooling venv is
+used. Run `scripts/check.ps1` for lockfile, compilation and unit checks.
 
-Use `-Profile dev` for configuration development without vision/PyTorch, or
-`-Profile cpu` for the full stack with CPU PyTorch. Profiles share one `.venv`;
-running setup switches its installed dependencies. CPU and CUDA are mutually
-exclusive. Scripts use the virtual environment directly; activation is optional.
+## 2. Download the official dataset
 
-To inspect the installed project libraries, activate the environment and use pip:
+Sources:
+
+- [Microsoft project and download instructions](https://www.microsoft.com/en-us/research/project/asl-citizen/)
+- [Official code and model-specific READMEs](https://github.com/microsoft/ASL-citizen-code)
+- [Pose-based preparation guide](https://github.com/microsoft/ASL-citizen-code/tree/main/ST-GCN)
+- [Dataset license](https://www.microsoft.com/en-us/research/project/asl-citizen/dataset-license/)
+
+The official guide begins by downloading and unzipping ASL Citizen. This project
+uses the exact Microsoft ZIP URL from that guide:
 
 ```powershell
-.\.venv\Scripts\Activate.ps1
-python -m pip list
+python scripts/project.py download-dataset
+python scripts/project.py extract-dataset
+python scripts/project.py audit-dataset
 ```
 
-Uv itself is external to `.venv`, so it does not appear in that package list.
-Without activation, use `uv pip list --python .venv/Scripts/python.exe`.
-Manual setup commands and VS Code interpreter guidance are in
-[the setup guide](docs/setup.md).
+Do not run a second downloader while one is active. Interrupted downloads resume
+from the retained prefix; HTTP ranges and archive version are validated. The
+archive is 45,924,134,223 bytes (42.77 GiB); extracted ZIP entries total
+49,604,368,459 bytes. Allow about 100 GB for archive plus extracted data.
 
-## Repository layout
+The ZIP stays at `data/downloads/ASL_Citizen.zip`. Extraction verifies each member's
+CRC and rejects unsafe paths. The archive SHA-256 and setup audit are recorded in
+`data/asl_citizen/setup-report.json`. This is a local fingerprint; no publisher
+SHA-256 has been independently established. CRC verification is not a claim that
+every video has been decoded successfully.
+
+The expected extracted layout is:
 
 ```text
-src/sign_language/    Shared package and setup CLI
-configs/             Versioned vocabulary and future experiment configuration
-scripts/             Setup and verification commands
-tests/               Configuration and diagnostic failure checks
-data/manifests/      Versioned sample IDs, signer IDs, and split records
-data/raw/            Local videos (ignored)
-data/processed/      Generated landmarks (ignored)
-assets/models/       MediaPipe model files (ignored)
-checkpoints/         Trained model weights (ignored)
-runs/                Generated experiment output (ignored)
-reports/             Curated results and experiment records
+data/asl_citizen/ASL_Citizen/
+  videos/*.mp4
+  splits/train.csv
+  splits/val.csv
+  splits/test.csv
 ```
 
-## Development and Git
+Keep the official splits: 40,154 train / 10,304 validation / 32,941 test videos,
+2,731 labels and 52 participants. The audit checks file presence, counts, class
+coverage, duplicate filenames and participant separation. A label map is created
+from sorted training glosses, preserving the source gloss strings.
 
-Dependencies are declared in `pyproject.toml`; resolved versions and hashes live
-in `uv.lock`. Do not maintain a second handwritten requirements list. Run
-`scripts/check.ps1` locally for lint, formatting, tests, and configuration checks.
-The setup guide describes the separate vision and GPU checks.
-
-To inspect a gloss in the locally downloaded WLASL metadata:
+To audit just the official CSV metadata after extraction, without checking
+every video file:
 
 ```powershell
-.\.venv\Scripts\python.exe -m sign_language inspect-wlasl "hello"
+python scripts/project.py audit-metadata data/asl_citizen/ASL_Citizen/splits
 ```
 
-This counts metadata entries, not confirmed downloadable videos. See
-[docs/data.md](docs/data.md) for details and an alternative metadata path.
+The initial setup also fetched CRC-checked CSV snapshots separately during the
+download under local `data/official-metadata/`. Those ignored snapshots are not
+created by `download-dataset` and are not needed for a fresh installation.
 
-To inspect the full metadata and save per-gloss counts locally:
+Local setup completed on 2026-11-07: the entire archive was downloaded and
+CRC-checked during extraction. All 83,399 video files passed the presence audit,
+with the official counts, 2,731 labels and disjoint participants intact. See
+`data/asl_citizen/setup-report.json` for the local archive fingerprint and audit.
+The full video corpus has not been decoded or passed through MediaPipe yet.
+
+## 3. See your hand skeletons
 
 ```powershell
-.\.venv\Scripts\python.exe -m sign_language audit-wlasl --output runs/wlasl_metadata_audit.json
+python scripts/project.py webcam --report .cache/hands-preview-01.json
 ```
 
-To test a few direct MP4 links and decode their first frame:
+Move both hands into view, spread and curl your fingers, turn your palms and make
+a fist. The window draws 21 points and connecting lines per detected hand, and
+shows hand count, point count and measured FPS. Press **Q** or Escape to close.
+Use `--camera 1` to choose another device; `--duration 60` closes after 60 seconds.
+Use a new report filename for each run.
 
-```powershell
-.\.venv\Scripts\python.exe -m sign_language probe-wlasl "hello" --limit 3
-```
+The image is converted from OpenCV BGR to MediaPipe RGB. Detection uses
+unmirrored input with increasing timestamps; only the completed preview is
+mirrored. No video, frames or landmark coordinates are saved. Optional reports
+contain aggregate tracking counts and timing only. Hand count reflects detector
+output, not independently verified anatomical correctness.
 
-This temporarily downloads small files and removes them after testing. It skips
-YouTube pages and does not establish full-clip or dataset-wide availability.
+The live preview was tested for two minutes, processing 2,585 frames at about
+21.4 FPS on the CPU detector. The user confirmed both hands and fingers tracked
+well. One official dataset training clip also decoded all 92 frames and produced
+finite 21-point hand detections. No classifier was trained by either check.
 
-To create a provisional signer-ID-disjoint pilot manifest:
+## 4. Future training: requires explicit authorization
 
-```powershell
-.\.venv\Scripts\python.exe -m sign_language split-wlasl --output runs/my_pilot_split.json
-```
+The official pose baseline uses legacy MediaPipe Holistic and ST-GCN. Our
+planned application instead uses MediaPipe landmarks with a GRU or small
+Transformer, as proposed in the original project summary. This is a deliberate
+adaptation of the dataset workflow, not a reproduction of Microsoft's ST-GCN
+benchmark. The preview uses the current MediaPipe Tasks API.
 
-The output must be a new file. It lists metadata records, not verified available
-clips; inspect its coverage and limitations before using it for training.
+After authorization, the intended steps are:
 
-To inventory locally obtained files named by WLASL video ID:
+1. Finalize a shared hand/body landmark schema and inspect extraction quality.
+2. Extract dataset landmarks, retaining official split and signer identities.
+3. Define normalization, missing-landmark masks and temporal preparation.
+4. Train a GRU baseline using only the training split, tune on validation, and
+   evaluate on the held-out test split.
+5. Save the classifier, exact label map, feature schema and preprocessing settings.
+6. Add the same processing to webcam inference and evaluate new signers.
 
-```powershell
-.\.venv\Scripts\python.exe -m sign_language inventory-wlasl --videos data/raw/videos --output runs/video_inventory.json
-```
+No bulk landmark extraction, classifier training or training command is included
+in the current run. A 2,731-label target does not mean those signs are already
+recognized. Body landmarks, sign segmentation and sentence translation remain
+future work.
 
-Create the video directory first. This checks local decoding; it does not download
-clips or verify their sign intervals. See [docs/data.md](docs/data.md).
+## 5. Planned Colab workflow
 
-For the experimental pretrained WLASL2000 webcam test, install the CUDA profile,
-obtain the separately distributed checkpoint and class list as described in
-[docs/data.md](docs/data.md), then run:
+The user plans to download ASL Citizen directly into a chosen Colab notebook's
+runtime. Preparation and GRU training may run there; webcam inference will stay
+local. The notebook can launch ordinary Python modules rather than contain a
+second implementation of the model.
 
-```powershell
-.\.venv\Scripts\python.exe -m sign_language webcam-i3d --device cuda --vocabulary configs/vocabulary.yaml
-```
+See [the Colab preparation and training guide](docs/colab.md) for copy-paste
+download/extraction cells, disk requirements, persistent storage, rough runtime
+estimates, augmentation choices and the model export bundle.
 
-Press Space and perform one sign; press Q to close the window. The three displayed
-labels are guesses from the ten-sign pilot, and the model cannot reliably identify
-unknown gestures. Omit `--vocabulary` to choose among the full model's labels;
-the unrestricted mode performed poorly in the initial webcam test.
+The current MediaPipe extractor runs on the CPU. Selecting a T4 runtime does not
+automatically enable GPU landmark extraction. No Colab session, GPU delegate,
+bulk extraction or GRU training has been run or benchmarked by this project.
+The Windows-only uv lock configuration is not a tested Colab/Linux environment.
 
-For a guided check with randomized prompts and a predictions-only JSON report:
+Implementation status and actual runtime checks are in
+[docs/project-decisions.md](docs/project-decisions.md). The original
+[project summary](sign_language_project_summary.md) was refreshed on 2026-11-07
+to reflect ASL Citizen, the planned GRU and the Colab workflow. Its earlier
+reference version is retained in Git history.
 
-```powershell
-.\.venv\Scripts\python.exe -m sign_language test-webcam-i3d --device cuda --output runs/webcam_check.json
-```
-
-Press Space to start a two-second countdown, then perform the prompted sign.
-The check repeats each configured sign three times and compares preprocessing
-on the same capture. Press Q to finish early and save the completed trials.
-It keeps frames in memory and saves labels and timing only. Prompt agreement
-still requires review of the performed signs; it is not independent accuracy.
-
-An optional `--backend citizen` compares the separate ASL Citizen pretrained
-baseline, using its own native vocabulary and preprocessing. It has passed
-saved-clip CUDA checks but has not yet passed a human webcam test. Setup and
-limitations are in [docs/data.md](docs/data.md).
-
-Add `--quality` to the guided check to see the actual model crop and save
-aggregate hand-size and crop-visibility measurements. The optional `--align-body`
-comparison uses a separately generated training-only framing reference; see
-the data guide. It is experimental and does not change the default recognizer.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for commands and Git workflow,
-[docs/data.md](docs/data.md) for dataset rules, and
-[docs/project-decisions.md](docs/project-decisions.md) for current decisions.
-The [original summary](sign_language_project_summary.md) remains the longer
-research proposal; its initial scope has been refined by the decision record.
-
-## Licensing
-
-No open-source code license has been selected yet. Dataset and pretrained-model
-licenses are separate from the application code; see `docs/data.md`. Do not
-redistribute WLASL videos as part of this repository.
+Videos, dataset CSVs, derived features, model files, environments and reports are
+ignored by Git. Dataset materials remain subject to Microsoft's research license.
