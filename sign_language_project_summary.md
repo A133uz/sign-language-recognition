@@ -1,6 +1,6 @@
 # Real-Time Sign Language Recognition Using Computer Vision and Deep Learning
 
-Updated 2026-11-07. This summary records the agreed design, verified work and
+Updated 2026-11-10. This summary records the agreed design, verified work and
 remaining decisions. Historical implementations remain in Git history; they
 are not active fallback recognizers.
 
@@ -24,7 +24,7 @@ the webcam application and the current ASL landmark extraction run locally.
 
 | Language | Dataset | Feature preparation | Status |
 | --- | --- | --- | --- |
-| ASL | [Microsoft ASL Citizen](https://www.microsoft.com/en-us/research/project/asl-citizen/) | Run pretrained MediaPipe over the videos and cache hands/body landmarks | Raw extraction complete; first local GRU training authorized and implemented |
+| ASL | [Microsoft ASL Citizen](https://www.microsoft.com/en-us/research/project/asl-citizen/) | Run pretrained MediaPipe over the videos and cache hands/body landmarks | Extraction, baseline/regularized training and selected regularized model's test evaluation complete |
 | RSL | [Slovo](https://github.com/hukenovs/slovo) | Start with the authors' supplied MediaPipe hand landmarks and label/split metadata | Selected; download, schema audit and integration pending |
 
 ### ASL: Microsoft ASL Citizen
@@ -193,9 +193,10 @@ while retaining our own GRU architecture and preprocessing.
 
 These settings are implemented in the ASL preprocessor and trainer. The raw cache
 retains all decoded frames, so no landmark re-extraction is required. The
-selected normalization needs recognition evaluation; webcam capture/window
-boundaries remain unimplemented. Training time must be benchmarked at this length;
-earlier estimates assuming about 64 frames do not establish a 128-frame budget.
+selected normalization has been evaluated offline with the GRU; webcam
+capture/window boundaries remain unimplemented. Local epoch times at this
+length are recorded in the training reports; earlier estimates assuming
+about 64 frames do not establish a 128-frame budget.
 
 Compare a baseline with conservative training-only augmentation, such as modest
 geometric changes, timing variation and bounded masking/noise. Preserve
@@ -203,22 +204,20 @@ sign-defining motion and finger shape. Mirroring, reversed movement and
 incomplete-sign crops must not be assumed to preserve labels. Fit any learned
 normalization on training data only; keep validation/test preparation deterministic.
 
-GRU training is planned on the local RTX 4060 (8 GB) or a Colab GPU such as T4,
-subject to a verified PyTorch/CUDA setup. CPU DataLoader workers can prepare
-batches while one GPU training process runs. Benchmark worker counts such as
-0, 2 and 4; extraction's multiprocessing speedup does not predict training's.
+GRU training completed on the local RTX 4060 (8 GB), using one GPU training
+process and two CPU DataLoader workers. Colab remains an optional environment;
+no Colab training throughput is claimed. Extraction's multiprocessing speedup
+does not predict training's.
 
 **Local GPU training was authorized on 2026-11-09.** The ASL preprocessor,
 prepared cache, GRU trainer and resumable background launcher are implemented;
 see [the local training guide](docs/local-training.md) for exact settings and
-live status commands. No trained accuracy is claimed by implementation alone.
-Measure warm-up and several full epochs,
-including validation, before promising a duration. Earlier hour-scale estimates
-were unmeasured whole-run planning budgets for roughly 50-100 epochs, not
-hours per epoch. Current epoch times and validation metrics are measured in
-the local run's JSON reports. No held-out test or webcam accuracy is established.
+status commands. Earlier hour-scale estimates were unmeasured whole-run
+planning budgets for roughly 50-100 epochs, not hours per epoch. Completed
+training and the selected regularized model's held-out test results are
+recorded below. Webcam recognition accuracy has not been evaluated.
 
-## 5. Current implementation and running work
+## 5. Current implementation and completed experiments
 
 | Component | Current state |
 | --- | --- |
@@ -226,8 +225,8 @@ the local run's JSON reports. No held-out test or webcam accuracy is established
 | Live MediaPipe hand-skeleton preview | Implemented; user confirmed both hands/fingers track well |
 | Offline raw hands/body extraction | Completed: 83,399 clips, 836 shards, zero failed clip records |
 | Slovo landmark/annotation acquisition and audit | Planned; not performed |
-| Stable hand-slot canonicalization and model preprocessing | ASL baseline implemented; heuristic hand assignment and normalization require recognition evaluation |
-| GRU + linear head, trainer and checkpoint export | First ASL run completed: 33 epochs; selected epoch 23; validation top-1 55.73%, top-5 82.50%; test not evaluated |
+| Stable hand-slot canonicalization and model preprocessing | ASL implementation evaluated offline; live-input compatibility still needs testing |
+| GRU + linear head, trainer and checkpoint export | Baseline, regularized CV/refit and 64-unit comparison complete; regularized epoch 37 selected and tested |
 | ASL/RSL language selector and trained webcam recognition | Planned; not implemented |
 | Continuous recognition and sentence generation | Later research |
 
@@ -247,18 +246,19 @@ gap. These are not held-out test or webcam results. See
 [the results and learning curves](docs/training-results-2026-11-09.md).
 
 A three-fold signer-separated regularized follow-up was authorized and started
-on 2026-11-09. CV uses only the official training split; a subsequent fresh
-official-split run provides a comparable validation result. The candidate uses
+on 2026-11-09, and completed on 2026-11-10. CV used only the official training
+split; a subsequent fresh official-split run provided a comparable validation
+result. The candidate used
 dropout 0.5, AdamW weight decay 0.001 and small training-only geometric
-perturbations. Baseline weights and cached features are preserved. Improvement
-is not assumed; the test set remains unused. See
+perturbations. Baseline weights and cached features are preserved. Test data
+were excluded from CV and checkpoint selection. See
 [the CV protocol and controls](docs/cross-validation.md).
 
 On 2026-11-10 the user selected a separate **two-layer, 64-hidden-unit** GRU
-capacity comparison, queued after the CV study completes successfully. It uses
+capacity comparison, queued after the CV study and now completed. It used
 263,915 parameters and the original baseline's settings (dropout 0.3, weight
 decay 0.0001, no augmentation, identical official splits and feature cache),
-changing hidden size only. The ongoing 256-unit CV engine was frozen to
+changing hidden size only. The 256-unit CV engine was frozen to
 preserve its source/configuration identity. See
 [the small-model comparison and queue controls](docs/small-gru-comparison.md).
 
@@ -278,6 +278,22 @@ evaluated on all **32,941 official test clips / 11 unseen signers** on
 loss **2.44304**. No training, augmentation or weight updates occurred; the
 checkpoint hash is unchanged. Original and 64-unit models have not been tested.
 See [the held-out test report](docs/test-evaluation-2026-11-10.md).
+
+### Archived regularized model (2026-11-10)
+
+The selected epoch-37 weights and epoch-47 resume checkpoint are preserved in
+the local archive
+`models/archives/asl-gru-regularized-256-epoch37-2026-11-10.zip`
+(22,202,898 bytes). It includes the configuration, label map, epoch records,
+frozen training engine, environment versions, CV summary and test reports.
+All 83 archive members passed CRC and SHA-256 verification; original model
+files remain in place. The archive and model/data files remain excluded from
+Git. Project source before archiving was pushed as commit `d7a050c`.
+
+- Selected checkpoint SHA-256:
+  `6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39`.
+- Archive SHA-256 (also saved in the adjacent `.zip.sha256` file):
+  `9cea78e47ea7300d94aa7d7560a9db4d6909c4ff101a951b3a959881e86f4374`.
 
 Full local extraction was explicitly authorized with **two CPU workers** and
 started on 2026-11-07 at 19:04 Asia/Tashkent. Its manifest covers all 83,399 clips
@@ -322,41 +338,109 @@ extraction speedup after an experimental private NVIDIA EGL setup. All GPU clips
 logged a tensor-write error, and a large hand-coordinate disagreement remained
 unresolved. That candidate was not promoted into the full extractor. See
 [the extraction record](docs/landmark-extraction.md) for details. This MediaPipe
-GPU issue does not establish the performance or compatibility of future PyTorch
-GRU training. No GRU GPU throughput or recognition result is claimed.
+GPU issue is separate from PyTorch GRU training, which subsequently completed
+successfully on the RTX 4060 using CUDA with cuDNN disabled. Recognition results
+below concern the trained GRU, not the experimental MediaPipe GPU delegate.
 
-## 7. Performance metrics to demonstrate — discussion pending
+## 7. Evaluation metrics used and measured results
 
-Use standard metrics appropriate to **isolated sign classification** and a
-webcam application. **The final metric list, averaging methods, protocols,
-thresholds and target values have not been agreed and must be discussed
-separately.** The following are candidates, not commitments or measured results:
+### Definitions and aggregation
 
-| Area | Candidate measurements for discussion |
+The implemented evaluation measures **closed-set, isolated-sign classification**.
+Each clip has one true label and the model assigns scores to all 2,731 labels.
+For a class, TP, FP and FN mean true positives, false positives and false
+negatives when treating that class against all others.
+
+| Metric | Calculation and meaning |
 | --- | --- |
-| Recognition quality | Top-1 accuracy; possibly top-k accuracy; precision, recall and F1 with suitable macro/weighted averaging |
-| Error analysis | Per-class results and confusion matrices |
-| Live performance | Inference latency, end-to-end response time and processed FPS on named hardware; distinguish inference time from sign-capture/window delay |
-| Robustness | Held-out signers, lighting/background/framing changes, and idle or untrained-sign behavior under a defined protocol |
-| Resource/training cost | Time per epoch and total training time; model size and CPU/GPU memory/use where relevant |
+| Top-1 accuracy | Number of clips whose highest-scoring label is correct, divided by evaluated clips |
+| Top-5 accuracy | Number of clips whose true label appears among the five highest scores, divided by evaluated clips; this does not mean the displayed first guess is correct |
+| Per-class precision | TP / (TP + FP): how often predictions of that label are correct |
+| Per-class recall | TP / (TP + FN): how many true examples of that label are recovered |
+| Per-class F1 | 2 × precision × recall / (precision + recall) |
+| Macro precision, recall and F1 | Unweighted mean of each respective per-class metric across all 2,731 classes; macro F1 averages class F1 scores, rather than taking the harmonic mean of macro precision and macro recall |
+| Weighted F1 | Mean of per-class F1 weighted by each class's true example count (support) |
+| Cross-entropy loss | Mean negative log probability of the true label, computed from raw logits; lower is better. Minimum validation loss selects the saved checkpoint |
 
-Report ASL and RSL separately, including vocabulary size, dataset split, number
-of evaluated examples, input schema, model configuration and hardware. Landmark
-counts, finite arrays and extraction FPS do not establish sign-recognition
-accuracy. Do not claim full-vocabulary or reliable webcam recognition before
-appropriate evaluation.
+Undefined precision, recall and F1 denominators produce zero. Per-class support,
+precision, recall and F1 are exported to CSV. A confusion matrix records true
+labels on rows and predicted labels on columns. Per-signer clip counts and
+top-1/top-5 accuracy expose differences across participants. Softmax scores
+are model scores; they have not been calibrated as confidence estimates.
+
+### Protocol and results for the selected regularized GRU
+
+Training used the official **40,154 training clips**. The official **10,304
+validation clips** selected epoch 37 by minimum cross-entropy. That fixed
+checkpoint was then evaluated on all **32,941 official test clips**, covering
+**11 unseen test signers** and **2,731 classes**, without excluding examples.
+The official train/validation/test signer groups are disjoint. Inputs use the
+same `asl-body-local-hands-v1` preprocessing, 254 features and up to 128 ordered
+frames. The recognizer is a two-layer, 256-unit GRU with a linear output head.
+
+Test evaluation used `model.eval()` and `torch.inference_mode()`, with dropout
+disabled and no augmentation, training or weight updates. Checkpoint SHA-256
+was unchanged. Further tuning should use training/validation data rather than
+optimizing against the reported test score.
+
+| Metric | Official validation at epoch 37 | Official test |
+| --- | ---: | ---: |
+| Top-1 accuracy | 61.06% | **49.92%** |
+| Top-5 accuracy | 85.90% | **76.24%** |
+| Macro precision | 64.76% | **52.76%** |
+| Macro recall | 61.64% | **49.93%** |
+| Macro F1 | 60.14% | **49.47%** |
+| Weighted F1 | 60.03% | **49.55%** |
+| Cross-entropy loss | 1.65689 | **2.44304** |
+
+Test top-1 was **16,445 / 32,941** correct; top-5 was **25,115 / 32,941**.
+Test top-1 is 11.14 percentage points below validation. Per-signer test top-1
+ranged from approximately 30.40% to 69.39%, showing substantial variation.
+The training-only three-fold signer-separated CV mean was **38.29% +/- 2.42
+percentage points** top-1 (sample standard deviation across folds). Those
+different signer partitions are a development check, not an interchangeable
+estimate of official validation/test accuracy or an independent nested-CV test.
+
+See [the held-out test report](docs/test-evaluation-2026-11-10.md),
+[model comparison](docs/model-comparison-results-2026-11-10.md) and
+[CV protocol](docs/cross-validation.md). Raw local evaluation artifacts are in
+`data/evaluations/asl-gru-regularized-test-v1/`: `report.json`,
+`predictions.jsonl`, `confusion.npz`, `per-class.csv` and `per-signer.json`.
+Training reports retain per-epoch losses, accuracies and validation macro
+metrics, allowing learning curves and the train/validation gap to be reviewed.
+
+### Timing, resources and remaining evaluation decisions
+
+On the RTX 4060, the frozen test evaluation took **64.92 seconds**, including
+**39.88 seconds** of checkpoint/metadata/cache verification and **24.47 seconds**
+for batched inference and prediction export. MediaPipe extraction and video
+decoding had already happened offline. This is not end-to-end webcam latency.
+The evaluation reported **43,666,432 bytes** of peak allocated PyTorch CUDA
+tensor memory; this excludes other CUDA/device allocations. The selected
+weights file occupies **6,018,325 bytes**. Per-epoch and total training times
+are available in the linked training/comparison reports.
+
+The final demonstration metrics, acceptance thresholds and live test protocol
+still need separate agreement. Webcam capture delay, end-to-end latency/FPS,
+lighting/background/framing robustness, new-user performance and idle/unknown
+sign rejection have not been measured. No RSL evaluation has been performed;
+future RSL results must be reported separately with their vocabulary and splits.
+Landmark tracking success and extraction speed do not establish recognition
+accuracy or reliable live recognition across the full vocabulary.
 
 ## 8. Remaining work and later direction
 
-1. Complete and quality-check ASL landmark extraction, including missing-hand
-   cases and the intended left/right canonicalization.
+1. Investigate ASL errors and signer-generalization gaps using the completed
+   evaluation artifacts; keep further model selection on training/validation
+   data. Review missing-hand cases and heuristic hand assignment.
 2. Obtain and audit Slovo's supplied hand landmarks and annotations; define its
    compatible live-input schema and signer-separated validation split.
-3. Finalize and implement each language's preprocessing, isolated-sign capture
-   policy, GRU + linear classifier, training configuration and export format.
+3. Implement RSL preprocessing/training support after the schema audit. Define
+   isolated-sign webcam capture and reuse the corresponding language's saved
+   preprocessing, GRU configuration and label map.
 4. Discuss and agree the demonstration metrics and evaluation protocol.
-5. After explicit training authorization, benchmark epochs, train/tune the
-   models and perform final held-out evaluation.
+5. Agree any further training experiments, including RSL training and its
+   held-out evaluation; preserve the archived ASL model as a comparison.
 6. Implement the language selector and webcam prediction/text display, then
    evaluate latency and new signers using the agreed protocol.
 
@@ -371,7 +455,7 @@ ASL/RSL gloss labels word by word does not guarantee grammatical sentences.
   and [Pose Landmarker](https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker): pretrained landmark detection.
 - [PyTorch](https://pytorch.org/), [GRU](https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html),
   [Linear](https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html) and
-  [CrossEntropyLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html): planned recognizer and training framework.
+  [CrossEntropyLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html): implemented ASL recognizer and training framework; planned for RSL.
 - [NumPy](https://numpy.org/doc/stable/): numeric landmark arrays and feature archives.
 - [Microsoft ASL Citizen project](https://www.microsoft.com/en-us/research/project/asl-citizen/),
   [datasheet](https://www.microsoft.com/en-us/research/project/asl-citizen/datasheet/),
