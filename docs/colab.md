@@ -1,9 +1,16 @@
 # Colab data preparation and future GRU training
 
 Updated 2026-11-07. The user plans to run the data-preparation cells in their own
-chosen notebook. These instructions have not been executed in a Colab runtime.
-They do not start MediaPipe extraction or training. Bulk extraction and classifier
-training remain future work requiring authorization.
+chosen notebook. The user reports completing the first three preparation steps
+and has shared output from the delivered extraction pilot and GPU comparison.
+The data-only cells below do not start MediaPipe extraction or training. The
+user has now authorized landmark extraction after completing the first three
+steps and confirmed `/content/asl_citizen/ASL_Citizen` plus Google Drive access.
+Continue with [the implemented extraction workflow](landmark-extraction.md).
+Local GPU GRU training was subsequently authorized and implemented on
+2026-11-09; see [local-training.md](local-training.md) for the current runnable
+trainer and settings. The Colab training-notebook adaptation below remains
+planning material; it is not a claim that a runnable training notebook exists.
 
 ## What runs where
 
@@ -12,7 +19,7 @@ training remain future work requiring authorization.
 | OpenCV | Read video/webcam frames | Local webcam tested |
 | MediaPipe Tasks | Detect hand joints and skeletons | Local CPU preview tested |
 | Dataset preparation | Download/unzip and check official metadata | Completed locally |
-| Landmark extraction batches | Save reusable hand/body sequences and masks | Planned |
+| Landmark extraction batches | Save raw hand/body sequences and masks | Full local CPU run started with two workers; Colab GPU remains experimental |
 | GRU | Classify a sequence into an ASL sign label | Not implemented or trained |
 | Small Transformer | Possible later classifier comparison | Planned option |
 | Local inference | Use trained classifier with the webcam | Planned |
@@ -25,8 +32,14 @@ cells.
 The current project uv lock/environment constraints and optional torch indexes
 target Windows AMD64. Do not assume `uv sync --locked` reproduces that environment
 on Colab's Linux VM. A pinned, compatible Colab environment for extraction and
-training still needs to be prepared and tested. The data-only cells below use
-Python's standard library and the runtime's `wget` command.
+training is not reproduced by that Windows lockfile. The extractor's isolated
+environment uses separate pins in `requirements-colab.txt`; the user has run
+it on Colab. The separate GPU candidate showed a 2.18x paired extraction speedup
+over one-worker CPU on 100 clips, while logging a tensor write error in all
+GPU clips and an extreme hand-coordinate disagreement in one clip. See the
+[comparison record](landmark-extraction.md#compare-full-clips-on-cpu-and-gpu)
+before choosing a delegate. Full extraction still selects CPU. The data-only cells below use Python's
+standard library and the runtime's `wget` command.
 
 ## 1. Open the intended notebook and check disk space
 
@@ -152,13 +165,22 @@ reassigning videos from the same signers.
 
 ## 5. Future extraction and training stages
 
-Do not start these stages until authorized. No bulk extractor, GRU training
-command or runnable training notebook has been implemented yet.
+Landmark extraction is now authorized and implemented using the linked guide.
+The raw schema retains all hand/body observations, detection-order hand slots,
+reported handedness and explicit masks. Normalization and stable hand-slot
+canonicalization belong to the future trainer/inference preprocessor. No GRU
+training command or runnable training notebook has been implemented yet.
 
-1. Finalize the shared landmark schema, including hand ordering, optional body
-   joints, missing-point masks and how hand positions relative to the body are
-   retained. Settle normalization and temporal preparation before processing the
-   full corpus. Current preview tracks hands only; it does not extract pose/face.
+1. Use and review the versioned raw hand/body schema, including detection order,
+   handedness and missing-point masks. Finalize normalization, stable hand slots
+   and temporal preparation for the future trainer; raw coordinates preserve
+   flexibility for those steps. Current live preview tracks hands only; the
+   offline extractor also saves body pose, without a face mesh.
+   The agreed sequence limit is **128 frames per sign**: uniformly downsample
+   longer signs across their full duration; keep shorter signs' true lengths
+   and ignore right-padding through packed GRU processing. Temporal padding
+   and missing-landmark masks serve different purposes. No extraction rerun
+   is needed; this preprocessing still needs implementation.
 2. Benchmark a representative 100–300-clip sample in the allocated runtime.
    Record frames, elapsed time, tracking coverage and the actual CPU/GPU delegate.
    A T4 selection alone does not use the GPU: the current hand tracker does not
@@ -186,6 +208,10 @@ command or runnable training notebook has been implemented yet.
 | --- | --- | --- |
 | Whole-corpus hands-only extraction | Roughly 1–3 days initially | Unmeasured on Colab; can take longer with a slower CPU or extra landmarks |
 | Small GRU on a T4, 50–100 epochs | Roughly 1–6 hours | Cached features, two layers, 128–256 hidden units, about 64 frames, batch 64–128; unmeasured |
+
+The 2026-11-09 sequence decision uses a **128-frame limit**. The historical
+64-frame estimate above is not a measured budget for the selected configuration;
+benchmark real training and validation epochs before estimating total time.
 
 The local hand detector averaged 17.56 ms/frame, excluding decode/save overhead.
 Assuming 90 frames per clip would produce about 7.5 million frames and roughly

@@ -1,0 +1,5 @@
+# Extraction-only environment; notebook uses an isolated runtime venv.
+# Linux wheels confirmed for Python 3.12/3.13; runtime execution still needs verification.
+mediapipe==1.2.2
+numpy==2.2.6
+opencv-contrib-python==4.11.0.86

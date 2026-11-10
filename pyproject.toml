@@ -12,6 +12,9 @@ dependencies = [
 [project.optional-dependencies]
 cpu = ["torch==2.11.0", "torchvision==0.26.0"]
 cuda = ["torch==2.11.0", "torchvision==0.26.0"]
+training = [
+    "scikit-learn>=1.7,<2",
+]
 
 [tool.uv]
 package = false

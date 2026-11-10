@@ -25,7 +25,9 @@ class HandTracker:
         if not model.is_file():
             raise FileNotFoundError("Hand model missing. Run: python scripts/project.py setup-hands")
         options = mp.tasks.vision.HandLandmarkerOptions(
-            base_options=mp.tasks.BaseOptions(model_asset_path=str(model)),
+            base_options=mp.tasks.BaseOptions(
+                model_asset_path=str(model), delegate=mp.tasks.BaseOptions.Delegate.CPU
+            ),
             running_mode=mp.tasks.vision.RunningMode.VIDEO,
             num_hands=2,
             min_hand_detection_confidence=0.5,

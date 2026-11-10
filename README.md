@@ -4,11 +4,20 @@ The current application shows live hand skeletons from a webcam. The dataset is
 Microsoft ASL Citizen. The WLASL/I3D recognition implementation and its local
 videos and weights have been removed.
 
-There is no trained sign classifier yet. Training is on hold until the user
-explicitly authorizes it. MediaPipe supplies a pretrained hand-landmark detector;
-we will later train a GRU classifier on extracted landmarks. A small Transformer
-is a possible comparison model. OpenCV captures frames; MediaPipe finds joints;
-the future classifier will assign sign labels.
+Local GPU training was authorized on 2026-11-09. The GRU trainer and 128-frame
+landmark preprocessor are implemented; see [local training](docs/local-training.md)
+for current-run status, settings, checkpoints and resume controls. No recognition
+accuracy is claimed before evaluation. MediaPipe supplies pretrained landmark
+detectors, and the GRU with a linear head learns sign labels. Webcam sign
+classification and the RSL extension still need implementation.
+
+The first local baseline completed. A separate signer-grouped CV study with
+stronger regularization is now available; see
+[the cross-validation protocol and controls](docs/cross-validation.md).
+
+The selected regularized model has now completed official test evaluation:
+**49.92% top-1**, **76.24% top-5**, **49.47% macro F1** on 32,941 clips.
+See [the held-out test report](docs/test-evaluation-2026-11-10.md).
 
 ## 1. Install the environment
 
@@ -121,16 +130,38 @@ After authorization, the intended steps are:
 
 1. Finalize a shared hand/body landmark schema and inspect extraction quality.
 2. Extract dataset landmarks, retaining official split and signer identities.
-3. Define normalization, missing-landmark masks and temporal preparation.
+3. Define normalization and missing-landmark masks. The agreed GRU sequence
+   limit is **128 frames per sign**: uniformly downsample longer signs across
+   their full duration; retain shorter signs and pad with true lengths for
+   packed GRU processing. This preparation is planned, not implemented.
 4. Train a GRU baseline using only the training split, tune on validation, and
    evaluate on the held-out test split.
 5. Save the classifier, exact label map, feature schema and preprocessing settings.
 6. Add the same processing to webcam inference and evaluate new signers.
 
-No bulk landmark extraction, classifier training or training command is included
-in the current run. A 2,731-label target does not mean those signs are already
-recognized. Body landmarks, sign segmentation and sentence translation remain
-future work.
+Raw offline landmark extraction is now implemented separately from training;
+see [the extraction guide](docs/landmark-extraction.md). It can save hands and
+body pose, with no normalization or augmentation yet. The live preview still
+draws hands only. Local GPU GRU training is now implemented separately; see
+[local training](docs/local-training.md) for preparation, smoke testing,
+checkpointing, status and resume commands. Webcam sign classification is not
+implemented yet.
+A 2,731-label target does not mean those signs are already recognized.
+Sign segmentation and sentence translation remain future work.
+
+Local CPU benchmark on the i5-9400F: four workers processed 100 complete clips
+with hands and pose in 103.89 seconds, versus 314.28 seconds with one worker.
+That suggests about 24 active hours for the corpus, subject to sample/load
+variation. All configurations had zero failures/no tensor errors and identical
+feature files. See [the benchmark report](docs/local-cpu-benchmark-2026-11-07.md).
+Repeat with `python scripts/benchmark_landmarks.py --clips 100 --workers 1 2 4`.
+
+Full local extraction was started with **two CPU workers** on 2026-11-07,
+using a hidden background supervisor and resumable 100-clip batches. Check live
+progress with `python scripts/local_landmark_job.py status`; see
+[background job controls](docs/local-extraction.md) for output, stop and resume.
+The supervisor prevents automatic idle sleep only while running. No training
+follows automatically.
 
 ## 5. Planned Colab workflow
 
@@ -144,9 +175,16 @@ download/extraction cells, disk requirements, persistent storage, rough runtime
 estimates, augmentation choices and the model export bundle.
 
 The current MediaPipe extractor runs on the CPU. Selecting a T4 runtime does not
-automatically enable GPU landmark extraction. No Colab session, GPU delegate,
-bulk extraction or GRU training has been run or benchmarked by this project.
-The Windows-only uv lock configuration is not a tested Colab/Linux environment.
+automatically enable GPU landmark extraction. A self-contained extraction setup
+cell and notebook can now be generated with `scripts/build_colab_bundle.py`.
+The user has authorized extraction and confirmed the dataset path and Drive
+availability. Local extraction/resume and the 100-clip CPU worker benchmark
+passed. User-run Colab CPU/GPU comparisons also completed, but the GPU candidate
+has a recurring tensor error and an unresolved hand-coordinate outlier.
+Full-corpus local CPU extraction is running; completion is not yet verified.
+Training remains on hold.
+The Windows-only uv lock configuration is not a tested Colab/Linux environment;
+the extractor has separate Linux wheel pins in `requirements-colab.txt`.
 
 Implementation status and actual runtime checks are in
 [docs/project-decisions.md](docs/project-decisions.md). The original

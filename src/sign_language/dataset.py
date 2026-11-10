@@ -22,7 +22,16 @@ def write_json(path: Path, value: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    # Windows readers/antivirus may briefly hold the destination open.
+    # Keep the old complete JSON intact and retry the atomic replacement.
+    for attempt in range(10):
+        try:
+            temporary.replace(path)
+            break
+        except PermissionError:
+            if attempt == 9:
+                raise
+            time.sleep(.1)
 
 
 def download_dataset(workers: int = 6) -> dict:

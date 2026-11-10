@@ -116,13 +116,14 @@ GRU is the planned first sign classifier; a small Transformer remains a possible
 comparison. MediaPipe supplies landmarks and is not being retrained to recognize
 sign meanings. OpenCV supplies camera frames. A future GRU would score the full
 2,731-label vocabulary if trained on all dataset classes. No trained classifier,
-bulk feature extractor, training loop or local sign-inference path currently
-exists. Existing CLI commands cover data preparation and hand visualization.
+training loop or local sign-inference path currently exists. Raw batch
+extraction was subsequently implemented as recorded below.
 
 The current hand tracker is CPU-based. A T4 assignment alone does not accelerate
 it. A GPU-compatible MediaPipe delegate would need explicit configuration and
 runtime verification. The repo's uv environment constraints and torch indexes
-are currently Windows-specific; no Colab/Linux dependency environment is tested.
+are currently Windows-specific. The separate Colab extraction environment was
+subsequently user-tested on a pilot and comparison as recorded below.
 
 Runtime figures discussed are planning estimates, not Colab measurements:
 
@@ -154,3 +155,150 @@ resuming training, rather than for local inference alone.
 
 The detailed data-only cells and future-work checklist are in [colab.md](colab.md).
 Updating these documents or pushing the repository does not authorize training.
+
+## Landmark extraction implementation on 2026-11-07
+
+The user has completed the first three Colab data-preparation steps and now
+requests extraction. They confirmed the dataset root
+`/content/asl_citizen/ASL_Citizen` and availability of Google Drive. This authorizes
+the extraction stage; it does not authorize GRU training.
+
+Implemented a CPU raw extractor using the same MediaPipe hand tracker plus
+pose-lite (33 joints) to retain hand placement relative to the body/head. Trackers
+reset at every clip boundary. Native frames, timestamps, raw XYZ, handedness
+category/score, pose confidence fields and absence/validity masks are preserved.
+Hand arrays are detection-order observations, not stable anatomical slots;
+future preprocessing must canonicalize them before GRU input. Hand and pose z
+values have different origins and are not a shared metric coordinate system.
+
+The extractor writes compressed numeric NPZ entries into split-specific ZIP
+shards and commits a checksummed marker only after a verified copy. It validates
+configuration, model/code/library/CSV fingerprints on resume, rejects mixed runs,
+recomputes damaged/incomplete shards and records failed clips explicitly.
+Default shards hold 100 clips. A local file lock prevents duplicate writers on
+one host/work directory; separate VMs must not write the same Drive output.
+Raw video files are assumed unchanged within a run and are not content-hashed.
+
+Added a builder for a self-contained copy/paste setup cell and notebook. The
+cell preserves the existing raw-data runtime, uses an isolated Linux extraction
+venv, mounts Drive, runs a ten-clip pilot and defines an explicit full-run call.
+It embeds source only, not dataset files, weights or features. It never invokes
+a trainer. The first full-run cell is commented out pending pilot review.
+
+Validation: nine project tests passed, including absent/low-confidence landmark
+handling, incomplete decode rejection, duplicate-writer locking, resume,
+corruption repair, explicit failures and configuration guards.
+Two actual ASL Citizen training clips (220 frames) were extracted with hand and
+body pose using both serial and spawned-worker paths. Both clips completed
+without failure; arrays were finite with expected shapes and increasing
+timestamps. Repeating the same run reused the shard with zero new decoded
+frames. These are local functional checks, not tracking/recognition accuracy,
+cloud performance or full-corpus validation. Subsequent user-run Colab checks:
+the CPU pilot reported 4.95 wall seconds/clip with two workers; a separate
+one-worker-per-delegate comparison completed ten clips/844 frames with no
+failures, CPU 52.5284 seconds versus GPU 22.2775 seconds (2.36x). NVIDIA EGL
+libraries loaded privately and all ten GPU clips reported NVIDIA rendering.
+The tensor write error appeared in every GPU clip and none on CPU; it remains
+unresolved. GPU output agreement and timing are preliminary, not tracking
+accuracy or full-corpus validation. Full extraction still explicitly selects
+CPU; training remains unauthorized. The follow-up 100-clip comparison completed
+all pairs (9,000 frames): CPU 533.3548 seconds versus GPU 245.1075 seconds
+(2.176x). All GPU clips used NVIDIA rendering and logged the tensor write error.
+Hand-count agreement was 96.61%; one clip's hand p95 distance reached 0.39614
+in normalized XY. A saved-feature audit cell now targets worst frames and
+possible opposite-hand matching; full GPU extraction is not selected. The
+compute-only extrapolation is 56.78 hours, with storage and interruption
+overheads excluded.
+
+See [landmark-extraction.md](landmark-extraction.md) for schema, pilot review,
+resume, failures and current limitations. Canonicalization, GRU implementation,
+augmentation, training, evaluation and local classifier export still need work.
+
+## Local CPU benchmark on 2026-11-07
+
+At the user's request, benchmarked the local i5-9400F (six logical CPUs) using
+the same 100 seeded training clips/9,257 frames with hands and pose. Fresh
+one-/two-/four-worker runs took 314.28/161.35/103.89 wall seconds, including
+local shard commits and process startup. Every run succeeded, with no tensor
+write errors. All 100 feature NPZs were byte-identical across worker settings.
+Two-worker overall CPU utilization averaged about 37% in a 30-second sample,
+which justified the additional four-worker run; its sample averaged about 75%.
+Four workers were fastest tested, roughly 24.1 active hours extrapolated across
+the corpus. Added a reusable bounded `scripts/benchmark_landmarks.py` runner.
+Full local extraction/background setup and classifier training were not started.
+See [the detailed report](local-cpu-benchmark-2026-11-07.md) for scope, raw-report
+locations and limits. Use separate output identities for Windows and Colab.
+
+## Full local extraction started on 2026-11-07
+
+The user explicitly requested starting extraction with two workers. Launched
+`scripts/local_landmark_job.py run --workers 2` in a hidden Windows background
+process at 19:04 Asia/Tashkent. The child CLI uses CPU hands plus pose, all
+train/val/test clips, no sample limit, 100-clip shards and a separate full-run
+output folder. Its manifest lists 83,399 clips/836 shards, run ID
+`f55c6cdb4e7e711d7d850cd8c3cbd0776e91ac5a873f98dc2476257b32659cf2`.
+Verified a live heartbeat, advancing video progress and the first committed
+100-clip shard with zero failures. Full completion is pending.
+
+The supervisor provides `status`/`stop` commands, per-attempt stdout/native
+logs, single-instance locking and a scoped Windows idle-sleep prevention
+request. It changes no power-plan settings and allows the display to sleep.
+Stopping terminates its child process tree; committed batches remain resumable.
+No classifier training is started. See [local-extraction.md](local-extraction.md).
+
+## GRU sequence limit agreed on 2026-11-09
+
+The user selected a **128-frame maximum** for the initial GRU recognizer,
+following the limit in the official
+[ASL Citizen ST-GCN loader](https://github.com/microsoft/ASL-citizen-code/blob/main/ST-GCN/asl_citizen_dataset_pose.py).
+This adopts the sequence limit, not the ST-GCN architecture or all of its
+preprocessing choices.
+
+Longer isolated signs will be uniformly sampled to 128 observations across
+their full duration, preserving order and endpoints. Shorter signs retain
+their frames and true sequence length; batch padding must be excluded from
+GRU state updates using packed sequences. Per-landmark detection masks remain
+separate from temporal padding. The same policy must be used for captured
+webcam signs and recorded in the exported preprocessing configuration.
+
+The limit is configurable and still requires implementation and validation.
+It does not choose a fixed capture duration, solve sign segmentation or
+authorize training. Existing raw landmarks remain usable without re-extraction.
+Earlier training-time estimates with roughly 64 frames must be replaced by a
+benchmark of the actual selected configuration.
+
+## Local GPU training authorized on 2026-11-09
+
+The user requested trying training on the local GPU after extraction completed.
+Implemented the ASL normalization/hand-slot adapter, resumable prepared array
+cache and two-layer 256-unit GRU with a 2,731-class linear head. The first run
+uses the agreed 128-frame maximum, official signer-disjoint splits, batch 64,
+AdamW and cross-entropy, up to 50 epochs with validation-loss early stopping.
+The initial run uses no augmentation and does not evaluate the held-out test set.
+
+Installed the existing locked CUDA extra and verified a CUDA forward/backward
+operation on the RTX 4060 with PyTorch 2.11.0+cu128. Raw extraction archives are
+retained unchanged. Separate smoke and baseline outputs prevent diagnostic
+training from seeding the full run. Atomic epoch checkpoints, source/config
+guards, status/stop controls and a hidden sleep-preventing supervisor support
+interruption and resume. See [local-training.md](local-training.md) for details.
+This authorization supersedes older setup-only restrictions for ASL training;
+it does not claim that RSL training or webcam sign recognition is implemented.
+
+## Regularized signer-grouped CV authorized on 2026-11-09
+
+After the baseline's validation plateau and training/validation gap, the user
+requested cross-validation training and regularization. Selected three
+StratifiedGroupKFold folds within official training clips only, grouping by
+signer and validating disjoint subjects, complete held-out coverage and class
+coverage. The candidate increases dropout from 0.3 to 0.5 and weight decay from
+0.0001 to 0.001, adding small training-only scale/roll perturbations that keep
+masks, padding, temporal order and local depth intact. CV is a development
+robustness check, not itself an overfitting remedy.
+
+The background study trains three independent fold models, then a fresh
+regularized model on the official training/validation split for a comparable
+baseline evaluation. All use up to 50 epochs, patience 10 and epoch-level
+resume. The test set, original model and feature cache remain untouched.
+All 37 checks and a regularized CUDA smoke run passed before launch.
+See [cross-validation.md](cross-validation.md) for protocol, timing and controls.
