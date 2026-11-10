@@ -1,0 +1,48 @@
+{
+  "checkpoint_sha256": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+  "architecture": "stgcn27-v1",
+  "epoch": 39,
+  "session_report": ".cache/webcam-stgcn-20261111-01.json",
+  "session_report_sha256": "a3fb0bb9cd1c2f040ef5636f72067e3ef0cc4ab1e12ca52cad26fd3334edef9b",
+  "session_status": "complete",
+  "saved_captures": 29,
+  "user_feedback": "it guessed hello from the second time, it recgonized no, putting it on 5th guess, but no correct first guess for thank you and good signs",
+  "reported_outcomes": {
+    "HELLO": "Recognized on the second attempt",
+    "NO": "Correct label appeared fifth",
+    "THANKYOU": "No correct first guess reported",
+    "GOOD": "No correct first guess reported"
+  },
+  "unlabelled_log_occurrences": {
+    "HELLO": [],
+    "NO": [
+      {
+        "capture": 6,
+        "rank": 1,
+        "score": 0.3311765789985657
+      }
+    ],
+    "THANKYOU": [],
+    "GOOD": [
+      {
+        "capture": 25,
+        "rank": 5,
+        "score": 0.014695352874696255
+      }
+    ]
+  },
+  "limitation": "Captures do not record intended labels. Occurrences cannot be treated as correctness or aligned uniquely with user-reported attempts. No formal webcam accuracy is computed.",
+  "media_saved": false,
+  "coordinates_saved": false,
+  "training_performed": false,
+  "weights_unchanged": true,
+  "feedback_log_alignment": "Unresolved for reported HELLO/NO ranks; corrected session 02 uses capture IDs.",
+  "discrepancies": [
+    "The user reports HELLO recognized on the second attempt, but HELLO never occurs in the saved top-five lists.",
+    "The user reports NO in fifth place; the saved session has one NO occurrence, in first place."
+  ],
+  "clarification_requested": "Was the tested window titled ASL stgcn27-v1 - isolated sign test, or was another recognition window open?",
+  "user_clarification": "well, it was written on webcam window it was gru, but i trusted you after you said that the st-gcn webcam window is working",
+  "ui_label_bug_confirmed": "The processing message was hardcoded to then GRU despite loaded class SignSTGCN. It has been corrected to use the actual loaded model name.",
+  "model_identity_evidence": "Session 01 stdout reports model=SignSTGCN, epoch=39; checkpoint hash matches the trained ST-GCN. The UI defect does not establish that GRU weights ran."
+}

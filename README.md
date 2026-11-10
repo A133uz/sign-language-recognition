@@ -1,15 +1,41 @@
-# ASL Citizen and MediaPipe hand tracking
+# ASL Citizen landmark recognition
 
-The current application shows live hand skeletons from a webcam. The dataset is
-Microsoft ASL Citizen. The WLASL/I3D recognition implementation and its local
-videos and weights have been removed.
+The application provides a live hand-skeleton preview and an experimental
+isolated-sign webcam test using trained ST-GCN by default (GRU is selectable).
+The dataset is
+Microsoft ASL Citizen. The WLASL/I3D implementation was removed.
 
 Local GPU training was authorized on 2026-11-09. The GRU trainer and 128-frame
 landmark preprocessor are implemented; see [local training](docs/local-training.md)
-for current-run status, settings, checkpoints and resume controls. No recognition
-accuracy is claimed before evaluation. MediaPipe supplies pretrained landmark
-detectors, and the GRU with a linear head learns sign labels. Webcam sign
-classification and the RSL extension still need implementation.
+for settings, checkpoints and resume controls. MediaPipe supplies pretrained
+landmark detectors, and the GRU with a linear head learns sign labels.
+The [webcam recognition test](docs/webcam-recognition.md) uses manually bounded
+signs and the selected checkpoint; live recognition remains unreliable in
+the user checks. See [ST-GCN live feedback](docs/stgcn-webcam-test-2026-11-11.md).
+The RSL extension is planned.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/recognize_webcam.py
+```
+
+Press Space, wait for SIGN NOW, perform one sign, then press Space again.
+Q closes the window. It shows five guesses across all 2,731 labels.
+
+The initial GRU live tests failed. The [investigation log](docs/recognition-investigation-2026-11-10.md)
+records reproducible input/weight checks, controlled comparisons and the
+measured hand-visibility, tracking and image-size issues. A working live fix
+has not been established.
+
+A separate **ST-GCN27 comparison** completed on 2026-11-11: **57.25% test
+top-1**, **82.32% top-5**, **56.74% macro F1**, using the validation-selected
+epoch-39 checkpoint. The regularized GRU achieved 49.92% test top-1. Individual
+signs can regress; the first ST-GCN webcam checks also produced incorrect
+first guesses for hello, thank you, no, me and yes. See
+[completed results](docs/stgcn27-results.md) and
+[ST-GCN settings and controls](docs/stgcn-training.md).
+
+Two [reporting notebooks](notebooks/README.md) record the workflow/investigation
+and model metrics, with 15 embedded graphs and completed ST-GCN test results.
 
 The first local baseline completed. A separate signer-grouped CV study with
 stronger regularization is now available; see

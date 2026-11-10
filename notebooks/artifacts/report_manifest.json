@@ -1,0 +1,82 @@
+{
+  "generated_utc": "2026-11-10T20:33:21.779173+00:00",
+  "stgcn_complete": true,
+  "files": {
+    "01_project_workflow_and_investigation.ipynb": {
+      "sha256": "501600f99fbcbb9c8746559bf05e99a035fa5f5708bd236f71946a314e4f847b",
+      "bytes": 447116,
+      "code_cells": 6,
+      "embedded_figures": 4
+    },
+    "02_model_training_and_evaluation.ipynb": {
+      "sha256": "e223201fc291c7775f92714468b5fbb510efe74249e22869d7ae4a3542db6703",
+      "bytes": 1914751,
+      "code_cells": 12,
+      "embedded_figures": 11
+    },
+    "artifacts/figures/01_project_workflow_and_investigation-01.png": {
+      "sha256": "dc978c0665a9ee1e4a079af5af7efdac150cf57012cac0f274a79a12992188b8",
+      "bytes": 44436
+    },
+    "artifacts/figures/01_project_workflow_and_investigation-02.png": {
+      "sha256": "23874ee3dc948fe0d7d7bebd0b47482fa875191c6986a52b057037046368fdd2",
+      "bytes": 58538
+    },
+    "artifacts/figures/01_project_workflow_and_investigation-03.png": {
+      "sha256": "6c93fd718d4ad5df6de908a20f5120cf1a910326223953a3ac29687e99fc5e88",
+      "bytes": 131166
+    },
+    "artifacts/figures/01_project_workflow_and_investigation-04.png": {
+      "sha256": "bd077ee95999cb1359accc5990f6143f9f4f56146973da6179c6cc40c10c0159",
+      "bytes": 84111
+    },
+    "artifacts/figures/02_model_training_and_evaluation-01.png": {
+      "sha256": "0cf671a17018c41bb294d9afc184330bf37d0398edd21ffb20482311c3b29d62",
+      "bytes": 219071
+    },
+    "artifacts/figures/02_model_training_and_evaluation-02.png": {
+      "sha256": "910ad18067de6f0b8d56616f61f46fcd6f458b4568f800d4a9cf08471529c0f1",
+      "bytes": 231678
+    },
+    "artifacts/figures/02_model_training_and_evaluation-03.png": {
+      "sha256": "ae3d3c0c2c557083826bce9f3b9ea42f4924a0d3d9838acac44b14759ac7c615",
+      "bytes": 137600
+    },
+    "artifacts/figures/02_model_training_and_evaluation-04.png": {
+      "sha256": "a1887ee2390055600c1b83ab427c99fe715585a70dc55c604845a75f503c98b4",
+      "bytes": 52924
+    },
+    "artifacts/figures/02_model_training_and_evaluation-05.png": {
+      "sha256": "153c4114e5e39d4a2e74575eb2d16f056f4138b870509af9c2e52cfbb9e79767",
+      "bytes": 38719
+    },
+    "artifacts/figures/02_model_training_and_evaluation-06.png": {
+      "sha256": "356e77c34c3391426b7ea157dfbfee9d110ff36073b248feb73e538d114c1370",
+      "bytes": 39466
+    },
+    "artifacts/figures/02_model_training_and_evaluation-07.png": {
+      "sha256": "9e1cde1b6e552b03edc0df2875d37b07d45e08468f4ebddfc438475c961b45b7",
+      "bytes": 105819
+    },
+    "artifacts/figures/02_model_training_and_evaluation-08.png": {
+      "sha256": "1bd71c421656057892886533f837314b26ab042f3437c30ea255984f6bfc9f12",
+      "bytes": 249013
+    },
+    "artifacts/figures/02_model_training_and_evaluation-09.png": {
+      "sha256": "3714637da9de930338dfedbeafe83fe6f26c8e2a62d073f2c0669fb82c0862f0",
+      "bytes": 108356
+    },
+    "artifacts/figures/02_model_training_and_evaluation-10.png": {
+      "sha256": "892bca80d436dd8bee876925b800315dc1411125dde0288bdc5bc21a39457d80",
+      "bytes": 105731
+    },
+    "artifacts/figures/02_model_training_and_evaluation-11.png": {
+      "sha256": "5950a758b9512929a436d8b64769a7d379270cd2efef4044432ac44bb5781648",
+      "bytes": 128181
+    },
+    "artifacts/experiment_snapshot.json": {
+      "sha256": "1d75f3be04fd304d4704395314644b9ea5fb2b02376f1448789cacf7ccb0cc50",
+      "bytes": 1476938
+    }
+  }
+}

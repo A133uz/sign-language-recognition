@@ -1,0 +1,800 @@
+{
+  "recorded_utc": "2026-11-10T18:22:58.217514+00:00",
+  "checkpoint_sha256": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+  "training_performed": false,
+  "media_saved": false,
+  "coordinates_saved": false,
+  "user_confirmation": {
+    "confirmed_utc": "2026-11-10T18:22:58.217514+00:00",
+    "source": "user reply in chat",
+    "quote": "Completed all six; capture was normal",
+    "completed_trials": 6,
+    "capture_normal": true
+  },
+  "live_variant_counts": {
+    "original": {
+      "top1_correct": 0,
+      "top5_correct": 0,
+      "trials": 6
+    },
+    "first_80pct": {
+      "top1_correct": 0,
+      "top5_correct": 0,
+      "trials": 6
+    },
+    "last_80pct": {
+      "top1_correct": 0,
+      "top5_correct": 0,
+      "trials": 6
+    },
+    "middle_60pct": {
+      "top1_correct": 0,
+      "top5_correct": 0,
+      "trials": 6
+    },
+    "mirrored_pixels": {
+      "top1_correct": 0,
+      "top5_correct": 0,
+      "trials": 6
+    }
+  },
+  "live_input_comparisons": [
+    {
+      "expected": "HELLO",
+      "first_guess": "PHILOSOPHY",
+      "target_rank_min": 9,
+      "hand_frame_fraction": 0.8260869565217391,
+      "hand_presence_by_quarter": [
+        0.34782608695652173,
+        0.9565217391304348,
+        1.0,
+        1.0
+      ],
+      "shoulder_width_image_fraction_median": 0.46899527311325073,
+      "palm_size_pixels_median": 90.79966735839844,
+      "mirrored_hand_frame_fraction": 0.7934782608695652
+    },
+    {
+      "expected": "THANKYOU",
+      "first_guess": "STOMACH",
+      "target_rank_min": 1683,
+      "hand_frame_fraction": 0.0,
+      "hand_presence_by_quarter": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shoulder_width_image_fraction_median": 0.45411351323127747,
+      "palm_size_pixels_median": null,
+      "mirrored_hand_frame_fraction": 0.8152173913043478
+    },
+    {
+      "expected": "NO",
+      "first_guess": "HUMMINGBIRD",
+      "target_rank_min": 490,
+      "hand_frame_fraction": 1.0,
+      "hand_presence_by_quarter": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "shoulder_width_image_fraction_median": 0.24180737137794495,
+      "palm_size_pixels_median": 43.109825134277344,
+      "mirrored_hand_frame_fraction": 1.0
+    },
+    {
+      "expected": "HELLO",
+      "first_guess": "GRENADE",
+      "target_rank_min": 56,
+      "hand_frame_fraction": 0.989010989010989,
+      "hand_presence_by_quarter": [
+        0.9565217391304348,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "shoulder_width_image_fraction_median": 0.23643574118614197,
+      "palm_size_pixels_median": 39.47690963745117,
+      "mirrored_hand_frame_fraction": 0.978021978021978
+    },
+    {
+      "expected": "THANKYOU",
+      "first_guess": "SANDWICH2",
+      "target_rank_min": 79,
+      "hand_frame_fraction": 0.8571428571428571,
+      "hand_presence_by_quarter": [
+        0.8695652173913043,
+        1.0,
+        1.0,
+        0.5454545454545454
+      ],
+      "shoulder_width_image_fraction_median": 0.23071572184562683,
+      "palm_size_pixels_median": 42.323570251464844,
+      "mirrored_hand_frame_fraction": 0.8351648351648352
+    },
+    {
+      "expected": "NO",
+      "first_guess": "CIRCLE",
+      "target_rank_min": 214,
+      "hand_frame_fraction": 0.9120879120879121,
+      "hand_presence_by_quarter": [
+        0.6521739130434783,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "shoulder_width_image_fraction_median": 0.3079213798046112,
+      "palm_size_pixels_median": 62.68931579589844,
+      "mirrored_hand_frame_fraction": 0.9120879120879121
+    }
+  ],
+  "dataset_training_summaries": {
+    "HELLO": {
+      "training_clips": 14,
+      "duration_seconds": {
+        "p05": 1.4183333333333332,
+        "median": 2.25,
+        "p95": 4.950267518861397,
+        "max": 5.600764339603993
+      },
+      "hand_frame_fraction": {
+        "p05": 0.22361764705882353,
+        "median": 0.34090909090909094,
+        "p95": 0.5217391304347826,
+        "max": 0.5217391304347826
+      },
+      "two_hand_frame_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.043816425120772946,
+        "max": 0.044444444444444446
+      },
+      "shoulder_width_image_fraction_median": {
+        "p05": 0.3313848525285721,
+        "median": 0.3973224014043808,
+        "p95": 0.4947550237178802,
+        "max": 0.5774416923522949
+      },
+      "palm_size_pixels_median": {
+        "p05": 63.78140487670898,
+        "median": 92.51293563842773,
+        "p95": 118.0108558654785,
+        "max": 133.61167907714844
+      },
+      "feature_clipped_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "hidden_saturated_fraction": {
+        "p05": 0.18759765625,
+        "median": 0.2138671875,
+        "p95": 0.224609375,
+        "max": 0.224609375
+      }
+    },
+    "THANKYOU": {
+      "training_clips": 16,
+      "duration_seconds": {
+        "p05": 1.617,
+        "median": 2.717,
+        "p95": 5.718337293337293,
+        "max": 7.033333333333333
+      },
+      "hand_frame_fraction": {
+        "p05": 0.2701704545454545,
+        "median": 0.3516381619616732,
+        "p95": 0.4677754677754678,
+        "max": 0.4864864864864865
+      },
+      "two_hand_frame_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.05005055611729019,
+        "max": 0.06976744186046512
+      },
+      "shoulder_width_image_fraction_median": {
+        "p05": 0.31555449962615967,
+        "median": 0.4054742604494095,
+        "p95": 0.47824325412511826,
+        "max": 0.5073941946029663
+      },
+      "palm_size_pixels_median": {
+        "p05": 48.91571617126465,
+        "median": 75.96272277832031,
+        "p95": 106.21245574951172,
+        "max": 116.27641296386719
+      },
+      "feature_clipped_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "hidden_saturated_fraction": {
+        "p05": 0.18701171875,
+        "median": 0.212890625,
+        "p95": 0.22998046875,
+        "max": 0.234375
+      }
+    },
+    "NO": {
+      "training_clips": 16,
+      "duration_seconds": {
+        "p05": 1.4550084094380709,
+        "median": 2.4165,
+        "p95": 3.824002574002574,
+        "max": 5.0
+      },
+      "hand_frame_fraction": {
+        "p05": 0.31605263157894736,
+        "median": 0.3983822042467139,
+        "p95": 0.5256849315068493,
+        "max": 0.6027397260273972
+      },
+      "two_hand_frame_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.018081103678929768,
+        "max": 0.043478260869565216
+      },
+      "shoulder_width_image_fraction_median": {
+        "p05": 0.33657199144363403,
+        "median": 0.4115414470434189,
+        "p95": 0.4540286436676979,
+        "max": 0.4861316680908203
+      },
+      "palm_size_pixels_median": {
+        "p05": 51.72476243972778,
+        "median": 85.72734451293945,
+        "p95": 120.54738426208496,
+        "max": 127.84449768066406
+      },
+      "feature_clipped_fraction": {
+        "p05": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "hidden_saturated_fraction": {
+        "p05": 0.17236328125,
+        "median": 0.21875,
+        "p95": 0.24365234375,
+        "max": 0.248046875
+      }
+    }
+  },
+  "training_mean_hand_presence_by_quarter": {
+    "HELLO": [
+      0.288421888543259,
+      0.797536067832777,
+      0.3156982553787065,
+      0.040372670807453416
+    ],
+    "THANKYOU": [
+      0.2036458080152221,
+      0.8368224399313501,
+      0.32652862763960083,
+      0.045083992094861663
+    ],
+    "NO": [
+      0.30237985698512015,
+      0.8157520933014354,
+      0.44289399601899604,
+      0.05725524475524475
+    ]
+  },
+  "validation_sample_perturbations": {
+    "original": {
+      "samples": 512,
+      "top1": 0.603515625,
+      "top5": 0.859375
+    },
+    "hold_end_25pct": {
+      "samples": 512,
+      "top1": 0.599609375,
+      "top5": 0.853515625,
+      "top1_changed_fraction": 0.14453125
+    },
+    "hold_start_25pct": {
+      "samples": 512,
+      "top1": 0.59765625,
+      "top5": 0.845703125,
+      "top1_changed_fraction": 0.13671875
+    },
+    "double_time_steps": {
+      "samples": 512,
+      "top1": 0.603515625,
+      "top5": 0.8515625,
+      "top1_changed_fraction": 0.17578125
+    },
+    "half_time_steps": {
+      "samples": 512,
+      "top1": 0.53515625,
+      "top5": 0.818359375,
+      "top1_changed_fraction": 0.279296875
+    },
+    "middle_80pct": {
+      "samples": 512,
+      "top1": 0.58203125,
+      "top5": 0.84375,
+      "top1_changed_fraction": 0.171875
+    },
+    "mirror": {
+      "samples": 512,
+      "top1": 0.388671875,
+      "top5": 0.701171875,
+      "top1_changed_fraction": 0.58984375
+    },
+    "fill_tail_hand_context": {
+      "samples": 512,
+      "top1": 0.30859375,
+      "top5": 0.53125,
+      "top1_changed_fraction": 0.634765625
+    },
+    "fill_head_hand_context": {
+      "samples": 512,
+      "top1": 0.388671875,
+      "top5": 0.64453125,
+      "top1_changed_fraction": 0.548828125
+    },
+    "fill_both_hand_context": {
+      "samples": 512,
+      "top1": 0.16015625,
+      "top5": 0.3359375,
+      "top1_changed_fraction": 0.8203125
+    }
+  },
+  "numeric_and_batch_checks": {
+    "fp32": {
+      "samples": 512,
+      "top1": 0.6015625,
+      "top5": 0.859375
+    },
+    "amp_fp32_top1_agreement": 0.998046875,
+    "amp_fp32_mean_abs_logit_difference": 0.003506336361169815,
+    "singleton_batched_top1_agreement": 1.0,
+    "singleton_batched_max_abs_logit_difference": 0.015625
+  },
+  "fresh_video_reproduction_checks": [
+    {
+      "split": "train",
+      "gloss": "HELLO",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    },
+    {
+      "split": "train",
+      "gloss": "THANKYOU",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    },
+    {
+      "split": "train",
+      "gloss": "NO",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    },
+    {
+      "split": "val",
+      "gloss": "HELLO",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    },
+    {
+      "split": "val",
+      "gloss": "THANKYOU",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    },
+    {
+      "split": "val",
+      "gloss": "NO",
+      "raw_to_cache_bitwise_equal": true,
+      "fresh_top5_matches_raw": true,
+      "fresh_max_top5_score_delta": 0.0
+    }
+  ],
+  "resolution_probe": [
+    {
+      "gloss": "HELLO",
+      "split": "train",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "HELLO",
+          "score": 0.9971066117286682
+        },
+        {
+          "label": "NONSENSE",
+          "score": 0.0012235208414494991
+        },
+        {
+          "label": "MAKEBELIEVE",
+          "score": 0.00043968146201223135
+        },
+        {
+          "label": "BOSTON",
+          "score": 0.00035885750548914075
+        },
+        {
+          "label": "WILLGO",
+          "score": 0.0002060745464405045
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.9865450263023376
+          },
+          {
+            "label": "CHRISTMAS2",
+            "score": 0.004095275420695543
+          },
+          {
+            "label": "PHILOSOPHY",
+            "score": 0.0032396293245255947
+          },
+          {
+            "label": "NONSENSE",
+            "score": 0.0021080670412629843
+          },
+          {
+            "label": "ERASE4",
+            "score": 0.0014716681325808167
+          }
+        ],
+        "expected_score": 0.9865450263023376,
+        "expected_rank_min": 1,
+        "expected_in_top5": true,
+        "top1_correct": true,
+        "quality": {
+          "frames": 45,
+          "frames_with_hands": 15,
+          "frames_with_body_anchor": 45
+        },
+        "input_frames": 45,
+        "hidden_abs_mean": 0.6049805879592896,
+        "hidden_saturated_fraction": 0.21484375
+      }
+    },
+    {
+      "gloss": "THANKYOU",
+      "split": "train",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "THANKYOU",
+          "score": 0.9944877028465271
+        },
+        {
+          "label": "GOOD",
+          "score": 0.0025632865726947784
+        },
+        {
+          "label": "INSPIRING",
+          "score": 0.0013298154808580875
+        },
+        {
+          "label": "SPICY",
+          "score": 0.0005372940213419497
+        },
+        {
+          "label": "LUCKY",
+          "score": 0.00017857040802482516
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "INSPIRING",
+            "score": 0.28364941477775574
+          },
+          {
+            "label": "HADENOUGH",
+            "score": 0.19343209266662598
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.12488914281129837
+          },
+          {
+            "label": "ALLGONE",
+            "score": 0.1043488010764122
+          },
+          {
+            "label": "GOOD",
+            "score": 0.07815363258123398
+          }
+        ],
+        "expected_score": 0.12488914281129837,
+        "expected_rank_min": 3,
+        "expected_in_top5": true,
+        "top1_correct": false,
+        "quality": {
+          "frames": 92,
+          "frames_with_hands": 33,
+          "frames_with_body_anchor": 92
+        },
+        "input_frames": 92,
+        "hidden_abs_mean": 0.5940842628479004,
+        "hidden_saturated_fraction": 0.19140625
+      }
+    },
+    {
+      "gloss": "NO",
+      "split": "train",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "NO",
+          "score": 0.8944439888000488
+        },
+        {
+          "label": "BUS",
+          "score": 0.06790280342102051
+        },
+        {
+          "label": "BITE1",
+          "score": 0.025373423472046852
+        },
+        {
+          "label": "SCROLLDOWN",
+          "score": 0.0023600959684699774
+        },
+        {
+          "label": "CLICK",
+          "score": 0.0017814940074458718
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.3870481550693512
+          },
+          {
+            "label": "BITE1",
+            "score": 0.28762978315353394
+          },
+          {
+            "label": "CHILD",
+            "score": 0.10664298385381699
+          },
+          {
+            "label": "SCROLLDOWN",
+            "score": 0.09786110371351242
+          },
+          {
+            "label": "BUS",
+            "score": 0.034085147082805634
+          }
+        ],
+        "expected_score": 0.3870481550693512,
+        "expected_rank_min": 1,
+        "expected_in_top5": true,
+        "top1_correct": true,
+        "quality": {
+          "frames": 58,
+          "frames_with_hands": 21,
+          "frames_with_body_anchor": 58
+        },
+        "input_frames": 58,
+        "hidden_abs_mean": 0.5728806853294373,
+        "hidden_saturated_fraction": 0.1953125
+      }
+    },
+    {
+      "gloss": "HELLO",
+      "split": "val",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "HELLO",
+          "score": 0.5473479628562927
+        },
+        {
+          "label": "NONSENSE",
+          "score": 0.28843212127685547
+        },
+        {
+          "label": "MAKEBELIEVE",
+          "score": 0.10777919739484787
+        },
+        {
+          "label": "WILL",
+          "score": 0.031859468668699265
+        },
+        {
+          "label": "RADIO",
+          "score": 0.007164563983678818
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.4864098131656647
+          },
+          {
+            "label": "NONSENSE",
+            "score": 0.29044854640960693
+          },
+          {
+            "label": "MAKEBELIEVE",
+            "score": 0.15305562317371368
+          },
+          {
+            "label": "WILL",
+            "score": 0.04283536225557327
+          },
+          {
+            "label": "FUTURE",
+            "score": 0.006467172410339117
+          }
+        ],
+        "expected_score": 0.4864098131656647,
+        "expected_rank_min": 1,
+        "expected_in_top5": true,
+        "top1_correct": true,
+        "quality": {
+          "frames": 49,
+          "frames_with_hands": 23,
+          "frames_with_body_anchor": 49
+        },
+        "input_frames": 49,
+        "hidden_abs_mean": 0.6097875833511353,
+        "hidden_saturated_fraction": 0.1953125
+      }
+    },
+    {
+      "gloss": "THANKYOU",
+      "split": "val",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "THANKYOU",
+          "score": 0.9730294942855835
+        },
+        {
+          "label": "GOOD",
+          "score": 0.023243822157382965
+        },
+        {
+          "label": "SWEET",
+          "score": 0.002079186961054802
+        },
+        {
+          "label": "COLOR",
+          "score": 0.0002791975566651672
+        },
+        {
+          "label": "WARM",
+          "score": 0.00022787440684624016
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "GOOD",
+            "score": 0.888519823551178
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.08661144226789474
+          },
+          {
+            "label": "HADENOUGH",
+            "score": 0.0054510426707565784
+          },
+          {
+            "label": "SWEET",
+            "score": 0.004278572741895914
+          },
+          {
+            "label": "SCARF2",
+            "score": 0.0023813843727111816
+          }
+        ],
+        "expected_score": 0.08661144226789474,
+        "expected_rank_min": 2,
+        "expected_in_top5": true,
+        "top1_correct": false,
+        "quality": {
+          "frames": 117,
+          "frames_with_hands": 41,
+          "frames_with_body_anchor": 117
+        },
+        "input_frames": 117,
+        "hidden_abs_mean": 0.6504184603691101,
+        "hidden_saturated_fraction": 0.23828125
+      }
+    },
+    {
+      "gloss": "NO",
+      "split": "val",
+      "scale": 0.6,
+      "native_prediction": [
+        {
+          "label": "BITE1",
+          "score": 0.47329410910606384
+        },
+        {
+          "label": "ITALY",
+          "score": 0.08755061030387878
+        },
+        {
+          "label": "ASK",
+          "score": 0.03146196901798248
+        },
+        {
+          "label": "TV",
+          "score": 0.03025667928159237
+        },
+        {
+          "label": "DEAF1",
+          "score": 0.02776508964598179
+        }
+      ],
+      "resized_prediction": {
+        "top5": [
+          {
+            "label": "LEFT",
+            "score": 0.20534922182559967
+          },
+          {
+            "label": "PEEL3",
+            "score": 0.1574467122554779
+          },
+          {
+            "label": "FOOL",
+            "score": 0.06824809312820435
+          },
+          {
+            "label": "WANDER",
+            "score": 0.049931373447179794
+          },
+          {
+            "label": "OFFEND",
+            "score": 0.03949896991252899
+          }
+        ],
+        "expected_score": 5.902855264139362e-06,
+        "expected_rank_min": 817,
+        "expected_in_top5": false,
+        "top1_correct": false,
+        "quality": {
+          "frames": 59,
+          "frames_with_hands": 41,
+          "frames_with_body_anchor": 59
+        },
+        "input_frames": 59,
+        "hidden_abs_mean": 0.5658175349235535,
+        "hidden_saturated_fraction": 0.126953125
+      }
+    }
+  ],
+  "evidence_sha256": {
+    "scripts/diagnose_recognition.py": "eb1499cbea9f8ed09156f4b372da0ebe6cde99418eafc51b29730c0d9d832e06",
+    "scripts/diagnose_input_statistics.py": "92603040c06879015c7bebba6e2371f639f8a60bf813e0ee811c013cbf225ab5",
+    "scripts/diagnose_video_scale.py": "4b7223b147064f888f58a7405fd6ef762df217c1a4fb5bbbd479fa9bccfbee9f",
+    "scripts/diagnose_webcam.py": "209ceea71afcc4b5098c5f7f1c73d3329969e60879ce1fd22c03ad926da4f1bb",
+    "src/sign_language/recognition.py": "68862678d089e996134313e6a7a2f32c3fead8288aaf503967b8bd8ba5a11593",
+    "src/sign_language/recognition_diagnostics.py": "355ec11104bc782eba8a1f68f2d643605dba287ffa1255fe9d607bf6ef63aa76",
+    ".cache/recognition-investigation-20261110-v1/audit.json": "7e6b9ec44f671dfc1b01df0d77bc0eb3c22324325f79bc92d078f94426923b86",
+    ".cache/recognition-investigation-20261110-v1/dataset-input-statistics.json": "0d762d40e739da56977574307d6cef8c1d49e47bfe3d39bb43e82e46da98728d",
+    ".cache/recognition-investigation-20261110-v1/video-scale.json": "3fc0696c623f0128d6068cf14a4554253c65bcc86a0e643df34eab956c12a9aa",
+    ".cache/recognition-investigation-20261110-context-v2/audit.json": "5c8de57496a6e272aedb9758cead8a65d406ccb287cbec364159a18fa95f8942",
+    ".cache/webcam-diagnosis-20261110-01.json": "28d36c1a43f51431527c8600f80de37282469eca4f650222d39a2bb162d74942",
+    ".cache/recognition-investigation-20261110-v1/user-confirmation.json": "956daeee00464afa852c328c242a21a23a402e2faa7cd74fadf7cb9d2f89eeef"
+  }
+}

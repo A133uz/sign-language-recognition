@@ -44,9 +44,20 @@ def validate_cache(cache, dataset, checkpoint, split):
     source = hashlib.sha256(Path(__file__).with_name('preprocessing.py').read_bytes()).hexdigest()
     if source != manifest['identity']['preprocessing_sha256'] or source != config['source_sha256']['preprocessing.py']:
         raise ValueError('Preprocessing source hash differs')
-    model_source = hashlib.sha256(Path(__file__).with_name('gru_model.py').read_bytes()).hexdigest()
-    if model_source != config['source_sha256']['gru_model.py']:
-        raise ValueError('Model implementation differs from selected checkpoint')
+    architecture = config.get('architecture', 'gru')
+    if architecture == 'stgcn27-v1':
+        from sign_language.stgcn_graph import CONFIG as GRAPH
+        if config.get('graph') != GRAPH:
+            raise ValueError('Graph configuration differs from selected checkpoint')
+        model_files = ('stgcn_model.py', 'stgcn_graph.py')
+    elif architecture == 'gru':
+        model_files = ('gru_model.py',)
+    else:
+        raise ValueError('Unknown checkpoint architecture')
+    for name in model_files:
+        model_source = hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
+        if model_source != config['source_sha256'][name]:
+            raise ValueError('Model implementation differs from selected checkpoint')
     rows, labels, _ = load_rows(dataset)
     expected = [row for _, group in shard_plan(rows, (split,), 100, None) for row in group]
     index = json.loads((cache/f'{split}-index.json').read_text())
@@ -97,7 +108,11 @@ def evaluate(checkpoint_path, cache, dataset, output, *, split='test', batch_siz
                 raise RuntimeError('CUDA unavailable; refusing silent CPU fallback')
             torch.backends.cudnn.enabled = checkpoint['config']['cudnn_enabled']
             torch.set_num_threads(2)
-            model = SignGRU(**checkpoint['config']['model']).cuda().eval()
+            if checkpoint['config'].get('architecture') == 'stgcn27-v1':
+                from sign_language.stgcn_model import SignSTGCN
+                model = SignSTGCN(**checkpoint['config']['model']).cuda().eval()
+            else:
+                model = SignGRU(**checkpoint['config']['model']).cuda().eval()
             model.load_state_dict(checkpoint['model'])
             labels = checkpoint['labels']; names = [None]*len(labels)
             for gloss, class_id in labels.items():

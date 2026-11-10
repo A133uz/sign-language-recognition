@@ -1,6 +1,6 @@
 # Real-Time Sign Language Recognition Using Computer Vision and Deep Learning
 
-Updated 2026-11-10. This summary records the agreed design, verified work and
+Updated 2026-11-11. This summary records the agreed design, verified work and
 remaining decisions. Historical implementations remain in Git history; they
 are not active fallback recognizers.
 
@@ -125,7 +125,7 @@ recognition.
 - **Preprocessing** establishes stable left/right hand identities, normalizes
   coordinates, handles missing points with masks and constructs a bounded
   sequence containing an isolated sign. Temporal resampling/padding is now
-  implemented for the ASL trainer; webcam capture/windowing still needs work.
+  implemented for the ASL trainer and the manually bounded webcam test.
 - **GRU**, a type of RNN, learns hand-shape, position and motion patterns across
   the frames of one sign. It is not reserved for sentence recognition.
 - **A trainable linear layer** maps the GRU representation to one raw score
@@ -145,8 +145,9 @@ idle and acceptance-threshold behavior still needs a separate design and test.
 A closed-set output is not a guarantee that any arbitrary motion is recognized.
 
 SVM, ST-GCN, temporal CNNs, Transformers and pretrained video models were
-discussed as alternatives. None replaces the selected GRU + linear baseline
-at this stage. A pretrained ST-GCN would require its exact keypoint graph and
+discussed as alternatives. ST-GCN is now an authorized, separate training
+comparison; the GRU remains the preserved baseline until results are reviewed.
+A pretrained ST-GCN would require its exact keypoint graph and
 preprocessing; pretrained I3D consumes video pixels instead of our landmark
 cache. Neither should be described as a drop-in trained GRU.
 
@@ -193,8 +194,9 @@ while retaining our own GRU architecture and preprocessing.
 
 These settings are implemented in the ASL preprocessor and trainer. The raw cache
 retains all decoded frames, so no landmark re-extraction is required. The
-selected normalization has been evaluated offline with the GRU; webcam
-capture/window boundaries remain unimplemented. Local epoch times at this
+selected normalization has been evaluated offline with the GRU. Manual webcam
+start/stop capture is implemented; automatic sign boundaries remain future work.
+Local epoch times at this
 length are recorded in the training reports; earlier estimates assuming
 about 64 frames do not establish a 128-frame budget.
 
@@ -227,7 +229,9 @@ recorded below. Webcam recognition accuracy has not been evaluated.
 | Slovo landmark/annotation acquisition and audit | Planned; not performed |
 | Stable hand-slot canonicalization and model preprocessing | ASL implementation evaluated offline; live-input compatibility still needs testing |
 | GRU + linear head, trainer and checkpoint export | Baseline, regularized CV/refit and 64-unit comparison complete; regularized epoch 37 selected and tested |
-| ASL/RSL language selector and trained webcam recognition | Planned; not implemented |
+| ST-GCN27 comparison | Completed: 49 epochs, selected epoch 39; test top-1 57.25%, top-5 82.32%, macro F1 56.74%; first live checks remain unreliable |
+| Trained ASL webcam recognition | Experimental manual start/stop capture and top-five text display implemented; first user check failed on thank you, hello and no |
+| ASL/RSL language selector | Planned; RSL model not implemented |
 | Continuous recognition and sentence generation | Later research |
 
 Current raw ASL features retain both hands (21 joints each), 33 pose joints,
@@ -294,6 +298,90 @@ Git. Project source before archiving was pushed as commit `d7a050c`.
   `6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39`.
 - Archive SHA-256 (also saved in the adjacent `.zip.sha256` file):
   `9cea78e47ea7300d94aa7d7560a9db4d6909c4ff101a951b3a959881e86f4374`.
+
+### Initial trained webcam test (2026-11-10)
+
+`scripts/recognize_webcam.py` now loads those selected epoch-37 weights and
+shows ranked predictions across all 2,731 labels. Space starts a brief
+countdown, then captures one complete sign; Space ends capture. Fresh CPU
+hand/pose trackers process the buffered unmirrored frames, followed by the
+unchanged training preprocessor and frozen CUDA GRU. The display is mirrored
+and includes hand skeletons. No video or landmark coordinates are saved;
+session reports contain predictions, timing and aggregate tracking counts.
+
+All 48 tests passed. A 57-frame training clip produced the same top-five
+labels/scores through fresh extraction as through its prepared training-cache
+features. This verifies compatibility, not new accuracy. In the first human
+webcam check, the user reported THANKYOU → FROWN1, HELLO → NONSENSE and
+NO → THUNDER as first guesses. This is an unsuccessful qualitative check;
+formal webcam accuracy is unmeasured. Tracking-presence counts were high in
+several failed captures, but do not prove landmark correctness or establish
+the root cause. The frozen model and its archive are unchanged. See
+[the webcam test guide](docs/webcam-recognition.md). No automatic sign-boundary
+detection, continuous recognition or unknown-sign rejection is implemented.
+
+A subsequent user-confirmed, six-trial diagnostic also produced no correct
+top-five result under the original, timing-cropped or mirrored-input variants.
+Identity checks and six dataset-video re-extractions reproduced cached
+predictions exactly. The investigation found a large training/live difference
+in hand-visibility/rest context, strong model sensitivity to synthetic changes
+in that context, one complete hand-tracking failure and smaller hand images
+in several live trials. These are supported contributors/weaknesses, not proof
+of a single exclusive cause or a validated fix. See the
+[full investigation record](docs/recognition-investigation-2026-11-10.md)
+for every experiment, exact results and limitations. No retraining occurred.
+
+### Authorized ST-GCN comparison (2026-11-10)
+
+After the diagnosis, the user authorized a separate ST-GCN training experiment.
+It has 27 graph joints, two XY channels, ten spatial/temporal convolution blocks,
+masked temporal/node pooling and a 2,731-label linear head (**3,788,165 parameters**).
+The verified prepared cache already retains the required body/hand XY points;
+an adapter builds graph inputs per batch, without repeating landmark extraction.
+
+This is trained from scratch with project normalization and anatomical hand
+slots. It is not the authors' pretrained checkpoint or an exact reproduction
+of their implementation. It also changes the input representation relative
+to the GRU's 254-feature vector, so the result is a model-plus-input comparison.
+
+The preset is up to 50 epochs, patience 10, batch 32, two loading workers,
+AdamW (learning rate 0.001, weight decay 0.001), head dropout 0.5 and the
+existing small geometric training augmentation. Selection uses official
+validation cross-entropy. Train/validation integrity checks and a separate
+GPU smoke run passed; all 54 project tests passed. CuDNN is enabled for the
+convolutional model after the clean GPU smoke/exit check.
+
+The background job completed successfully on **2026-11-11 at approximately
+01:26 Asia/Tashkent**, with exit code 0. It stopped after **49 epochs** and
+selected **epoch 39** by minimum validation cross-entropy. Selected validation
+top-1 was **67.23%**; official test top-1 **57.25%**, top-5 **82.32%**, macro F1
+**56.74%**, and loss **2.08828** on all 32,941 test clips/11 signers. Test top-1
+improved by **7.33 percentage points** over the regularized GRU. The higher
+last-epoch validation accuracy did not change the minimum-loss selection rule.
+
+Independent prediction/index/confusion/per-class/per-signer checks reproduced
+the reported metrics: **18,858 top-1 correct**, **27,117 top-5 correct**.
+Overall gains do not extend to every label: HELLO fell from 8/14 to 5/14
+correct, THANKYOU from 9/12 to 4/12, and NO stayed at 7/11 in their small test
+subsets. A subsequent ST-GCN live check reported wrong first guesses:
+HELLO→GRANDFATHER, THANKYOU→GOATEE, NO→DEVIL, ME→COMPLAIN and YES→KNOCK.
+Those prediction names occur in the corrected session 02 log, but its captures
+do not store intended labels, so no full-session accuracy is inferred.
+The webcam input was first corrected to match the trained 128-step padded
+grid, and a misleading hardcoded GRU UI label was removed. The current webcam
+default is ST-GCN, with GRU still explicitly selectable. See the
+[live test and corrections](docs/stgcn-webcam-test-2026-11-11.md).
+Artifacts are under
+`models/asl-stgcn27-v1/` and `data/evaluations/asl-stgcn27-test-v1/`.
+All GRU weights/archive remain unchanged. See [completed results](docs/stgcn27-results.md) and
+[ST-GCN configuration, verification and controls](docs/stgcn-training.md).
+
+The two Jupyter records under `notebooks/` now contain completed results and
+15 embedded figures: one explains workflow/decisions/investigation; the other
+plots learning curves, comparisons, CV, class/signer differences and confusion
+analysis. They include a portable snapshot, final selection explanation and
+independent verification record. No training or webcam action occurs on Run All.
+See [notebook contents and regeneration](notebooks/README.md).
 
 Full local extraction was explicitly authorized with **two CPU workers** and
 started on 2026-11-07 at 19:04 Asia/Tashkent. Its manifest covers all 83,399 clips
@@ -435,14 +523,14 @@ accuracy or reliable live recognition across the full vocabulary.
    data. Review missing-hand cases and heuristic hand assignment.
 2. Obtain and audit Slovo's supplied hand landmarks and annotations; define its
    compatible live-input schema and signer-separated validation split.
-3. Implement RSL preprocessing/training support after the schema audit. Define
-   isolated-sign webcam capture and reuse the corresponding language's saved
-   preprocessing, GRU configuration and label map.
+3. Implement RSL preprocessing/training support after the schema audit. Evaluate
+   and refine manual isolated-sign webcam capture, reusing the corresponding
+   language's saved preprocessing, GRU configuration and label map.
 4. Discuss and agree the demonstration metrics and evaluation protocol.
 5. Agree any further training experiments, including RSL training and its
    held-out evaluation; preserve the archived ASL model as a comparison.
-6. Implement the language selector and webcam prediction/text display, then
-   evaluate latency and new signers using the agreed protocol.
+6. Implement the language selector and RSL webcam integration; evaluate ASL
+   webcam predictions, processing delay and new signers under the agreed protocol.
 
 Continuous recognition later requires sign-boundary handling or a continuous
 sequence recognizer, suitable data and separate evaluation. Joining isolated

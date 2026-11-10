@@ -24,6 +24,11 @@ class EvaluationTests(unittest.TestCase):
             classification_metrics(np.zeros((3, 3), dtype=int))
 
     def test_evaluation_is_inference_only_ordered_and_preserves_checkpoint(self):
+        for architecture in ('gru', 'stgcn27-v1'):
+            with self.subTest(architecture=architecture):
+                self.check_frozen_evaluation(architecture)
+
+    def check_frozen_evaluation(self, architecture):
         import torch
         from sign_language.evaluation import evaluate
 
@@ -45,6 +50,8 @@ class EvaluationTests(unittest.TestCase):
             np.save(cache/'test-targets.npy', np.array([0, 1]))
             model = TinyModel(); config = {'model': {}, 'cache_id': 'fixture', 'selection': 'validation loss',
                                          'cudnn_enabled': False, 'amp': False}
+            if architecture != 'gru':
+                config['architecture'] = architecture
             checkpoint = root/'best.pt'; (root/'config.json').write_text(json.dumps(config))
             torch.save({'config': config, 'model': model.state_dict(), 'labels': {str(i): i for i in range(5)},
                         'epoch': 7, 'metrics': {'val': {'top1': .5}}}, checkpoint)
@@ -55,6 +62,7 @@ class EvaluationTests(unittest.TestCase):
             batches = [(frames, torch.tensor([1, 1]), torch.tensor([0, 1]))]
             with patch('sign_language.evaluation.validate_cache', return_value=index), \
                  patch('sign_language.evaluation.SignGRU', return_value=model), \
+                 patch('sign_language.stgcn_model.SignSTGCN', return_value=model), \
                  patch('sign_language.evaluation.DataLoader', return_value=batches), \
                  patch.object(torch.Tensor, 'cuda', lambda tensor, **kwargs: tensor), \
                  patch('torch.cuda.is_available', return_value=True), patch('torch.cuda.synchronize'), \

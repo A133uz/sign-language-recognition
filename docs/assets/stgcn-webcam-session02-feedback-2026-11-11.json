@@ -1,0 +1,262 @@
+{
+  "session_id": "webcam-stgcn-20261111-02",
+  "model_class": "SignSTGCN",
+  "epoch": 39,
+  "checkpoint_sha256": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+  "snapshot_path": ".cache/webcam-stgcn-20261111-02-feedback-snapshot.json",
+  "snapshot_sha256": "10577bca9d9e2d001831435a8e1e57160ac47119a4d66e14193df9ca78ce517e",
+  "captured_records_at_snapshot": 16,
+  "feedback": "hello - grandfather, thank you - goatee, no - devil, me - complain, yes - knock",
+  "reported_pairs": [
+    {
+      "performed_sign_reported": "HELLO",
+      "first_guess_reported": "GRANDFATHER",
+      "reported_correct": false,
+      "matching_unlabelled_log_captures": [
+        {
+          "capture_id": 2,
+          "top5": [
+            {
+              "label": "GRANDFATHER",
+              "score": 0.3805390000343323
+            },
+            {
+              "label": "CONCEPT",
+              "score": 0.2272302210330963
+            },
+            {
+              "label": "MAKEBELIEVE",
+              "score": 0.08229733258485794
+            },
+            {
+              "label": "NONSENSE",
+              "score": 0.07852865755558014
+            },
+            {
+              "label": "THERE",
+              "score": 0.02589600533246994
+            }
+          ],
+          "quality": {
+            "frames": 53,
+            "frames_with_hands": 53,
+            "frames_with_body_anchor": 53
+          }
+        }
+      ]
+    },
+    {
+      "performed_sign_reported": "THANKYOU",
+      "first_guess_reported": "GOATEE",
+      "reported_correct": false,
+      "matching_unlabelled_log_captures": [
+        {
+          "capture_id": 3,
+          "top5": [
+            {
+              "label": "GOATEE",
+              "score": 0.6041608452796936
+            },
+            {
+              "label": "WARM",
+              "score": 0.32338398694992065
+            },
+            {
+              "label": "FROWN2",
+              "score": 0.03862270712852478
+            },
+            {
+              "label": "HONGKONG",
+              "score": 0.01253895740956068
+            },
+            {
+              "label": "GRASS",
+              "score": 0.0067116208374500275
+            }
+          ],
+          "quality": {
+            "frames": 184,
+            "frames_with_hands": 161,
+            "frames_with_body_anchor": 184
+          }
+        },
+        {
+          "capture_id": 10,
+          "top5": [
+            {
+              "label": "GOATEE",
+              "score": 0.761766254901886
+            },
+            {
+              "label": "GOOD",
+              "score": 0.14091259241104126
+            },
+            {
+              "label": "THANKYOU",
+              "score": 0.05874110758304596
+            },
+            {
+              "label": "WARM",
+              "score": 0.019070446491241455
+            },
+            {
+              "label": "COLOR",
+              "score": 0.00679977610707283
+            }
+          ],
+          "quality": {
+            "frames": 137,
+            "frames_with_hands": 77,
+            "frames_with_body_anchor": 137
+          }
+        }
+      ]
+    },
+    {
+      "performed_sign_reported": "NO",
+      "first_guess_reported": "DEVIL",
+      "reported_correct": false,
+      "matching_unlabelled_log_captures": [
+        {
+          "capture_id": 4,
+          "top5": [
+            {
+              "label": "DEVIL",
+              "score": 0.4736085534095764
+            },
+            {
+              "label": "HEARINGAID",
+              "score": 0.23081837594509125
+            },
+            {
+              "label": "HORSE",
+              "score": 0.07039562612771988
+            },
+            {
+              "label": "NOON1",
+              "score": 0.04138345271348953
+            },
+            {
+              "label": "HUMMINGBIRD",
+              "score": 0.029345262795686722
+            }
+          ],
+          "quality": {
+            "frames": 148,
+            "frames_with_hands": 120,
+            "frames_with_body_anchor": 148
+          }
+        }
+      ]
+    },
+    {
+      "performed_sign_reported": "ME",
+      "first_guess_reported": "COMPLAIN",
+      "reported_correct": false,
+      "matching_unlabelled_log_captures": [
+        {
+          "capture_id": 5,
+          "top5": [
+            {
+              "label": "COMPLAIN",
+              "score": 0.35643523931503296
+            },
+            {
+              "label": "SOAP2",
+              "score": 0.19078604876995087
+            },
+            {
+              "label": "SWITZERLAND",
+              "score": 0.15330089628696442
+            },
+            {
+              "label": "TIE2",
+              "score": 0.09593324363231659
+            },
+            {
+              "label": "EGGBEATER",
+              "score": 0.04531565308570862
+            }
+          ],
+          "quality": {
+            "frames": 132,
+            "frames_with_hands": 114,
+            "frames_with_body_anchor": 132
+          }
+        }
+      ]
+    },
+    {
+      "performed_sign_reported": "YES",
+      "first_guess_reported": "KNOCK",
+      "reported_correct": false,
+      "matching_unlabelled_log_captures": [
+        {
+          "capture_id": 6,
+          "top5": [
+            {
+              "label": "KNOCK",
+              "score": 0.4935249388217926
+            },
+            {
+              "label": "PITCHER",
+              "score": 0.07451111823320389
+            },
+            {
+              "label": "YOYO",
+              "score": 0.03805655613541603
+            },
+            {
+              "label": "CARROT1",
+              "score": 0.030579300597310066
+            },
+            {
+              "label": "DRIBBLE",
+              "score": 0.02963847480714321
+            }
+          ],
+          "quality": {
+            "frames": 63,
+            "frames_with_hands": 63,
+            "frames_with_body_anchor": 63
+          }
+        },
+        {
+          "capture_id": 13,
+          "top5": [
+            {
+              "label": "KNOCK",
+              "score": 0.7290858626365662
+            },
+            {
+              "label": "QTIP",
+              "score": 0.03924863040447235
+            },
+            {
+              "label": "BAR",
+              "score": 0.03804107382893562
+            },
+            {
+              "label": "CARROT1",
+              "score": 0.02962641790509224
+            },
+            {
+              "label": "SCREWDRIVER2",
+              "score": 0.023436427116394043
+            }
+          ],
+          "quality": {
+            "frames": 241,
+            "frames_with_hands": 202,
+            "frames_with_body_anchor": 241
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "All five reported first guesses are incorrect; predictions are present in the verified ST-GCN log. Capture IDs were not supplied by the user, and duplicate first guesses make some pair-to-capture associations ambiguous. No full-session accuracy is inferred.",
+  "weights_unchanged": true,
+  "training_performed": false,
+  "media_saved": false,
+  "coordinates_saved": false
+}
