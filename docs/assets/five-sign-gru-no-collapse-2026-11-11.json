@@ -1,0 +1,3739 @@
+{
+  "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+  "model_class": "SignGRU",
+  "epoch": 18,
+  "labels": {
+    "HELLO": 0,
+    "NO": 1,
+    "PLEASE": 2,
+    "THANKYOU": 3,
+    "YES": 4
+  },
+  "model_in_eval_mode": true,
+  "scope": "Existing 75 training and 19 validation rows only; no training, video decode, camera or full audit.",
+  "controls_are_label_preserving": false,
+  "splits": {
+    "train": {
+      "median_hand_frame_fraction": 0.3984375,
+      "fraction_ending_without_hands": 0.9866666666666667,
+      "variants": {
+        "original": {
+          "clips": 75,
+          "correct": 66,
+          "top1": 0.88,
+          "loss": 0.3254864501953125,
+          "predicted_counts": {
+            "HELLO": 14,
+            "NO": 9,
+            "PLEASE": 13,
+            "THANKYOU": 17,
+            "YES": 22
+          },
+          "per_class_correct": {
+            "HELLO": 13,
+            "NO": 9,
+            "PLEASE": 13,
+            "THANKYOU": 16,
+            "YES": 15
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9607157707214355
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.011481067165732384
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007841002196073532
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.17955328524112701
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007600462529808283
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.001638825167901814
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9562572240829468
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.0921061709523201
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.0139690563082695
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0016816069837659597
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.06051251292228699
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3926958739757538
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03583000600337982
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.002726854756474495
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0026088799349963665
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.08738282322883606
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.009576274082064629
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.037010736763477325
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.033101897686719894
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.026744335889816284
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.002250561024993658
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.01003807969391346
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007110040634870529
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.005926627665758133
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.6095632314682007
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.009630750864744186
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007244921755045652
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.012835013680160046
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.11895965784788132
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.007045246660709381
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03107994794845581
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9722175598144531
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.06273619830608368
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.004893349949270487
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0025974044110625982
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.006306701805442572
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007441856432706118
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007263886276632547
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.15523391962051392
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "HELLO",
+              "no_score": 0.1329416036605835
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.011596094816923141
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.007418305147439241
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007293977774679661
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3461306095123291
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.028056111186742783
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.008793363347649574
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9516943693161011
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3686945140361786
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.037179697304964066
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.022076372057199478
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.021778175607323647
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03236597031354904
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.001972914207726717
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.022353017702698708
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.003741372609511018
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.10674606263637543
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.00550823612138629
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.49459826946258545
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006784897297620773
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0035942925605922937
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.01610822044312954
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006773778237402439
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.02270718477666378
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.7083307504653931
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.012289267964661121
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0014294858556240797
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5217160582542419
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4610251188278198
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006304141599684954
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.007292999420315027
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5421563386917114
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0019211586331948638
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006895779632031918
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006292957346886396
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.007385457865893841
+            }
+          ]
+        },
+        "static_final_frame": {
+          "clips": 75,
+          "correct": 17,
+          "top1": 0.22666666666666666,
+          "loss": 2.3679522705078124,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 15,
+            "THANKYOU": 59,
+            "YES": 1
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 3,
+            "THANKYOU": 13,
+            "YES": 1
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.03914202004671097
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.017617488279938698
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017781563103199005
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "PLEASE",
+              "no_score": 0.00954999029636383
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.019945653155446053
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.008875456638634205
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019191520288586617
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.019656406715512276
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.010517396032810211
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.010755380615592003
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01941617764532566
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.02111649140715599
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019631095230579376
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019232766702771187
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.017879018560051918
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.017725294455885887
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.012168035842478275
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.020592637360095978
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018826240673661232
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01880270428955555
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.018588904291391373
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01861800067126751
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.019038211554288864
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.011639470234513283
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019527019932866096
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01781274564564228
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.016427604481577873
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.010769336484372616
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018878038972616196
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01981515623629093
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.017674565315246582
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.03791806101799011
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018789367750287056
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.017688417807221413
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019504830241203308
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.017491620033979416
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.018283018842339516
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01892429031431675
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01769746094942093
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01838148757815361
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.018005698919296265
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.008486061356961727
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.020723428577184677
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01769404299557209
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.011076079681515694
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.020877698436379433
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01989765278995037
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.020390203222632408
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.021063482388854027
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.009681126102805138
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01674158126115799
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01911301538348198
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.016191735863685608
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01641606166958809
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019393423572182655
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.020164379850029945
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019563550129532814
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019087184220552444
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.018178923055529594
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01627497188746929
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.010710174217820168
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017883427441120148
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018916044384241104
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "PLEASE",
+              "no_score": 0.010682801716029644
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.011586311273276806
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.011291650123894215
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01908757910132408
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.021617639809846878
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.011054360307753086
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017965776845812798
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01706339418888092
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01722472719848156
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.020983869209885597
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.008529219776391983
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01761850155889988
+            }
+          ]
+        },
+        "zero_pose_features": {
+          "clips": 75,
+          "correct": 47,
+          "top1": 0.6266666666666667,
+          "loss": 0.8243642171223958,
+          "predicted_counts": {
+            "HELLO": 10,
+            "NO": 9,
+            "PLEASE": 1,
+            "THANKYOU": 28,
+            "YES": 27
+          },
+          "per_class_correct": {
+            "HELLO": 9,
+            "NO": 6,
+            "PLEASE": 1,
+            "THANKYOU": 16,
+            "YES": 15
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3764786720275879
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.014593677595257759
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.0396292582154274
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.308208703994751
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.03615342825651169
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.025540649890899658
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9216413497924805
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.14713260531425476
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3271293342113495
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.042154084891080856
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.10499776154756546
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.43612685799598694
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.3475497364997864
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.023009564727544785
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.03458278626203537
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.13495129346847534
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.018787870183587074
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.34949344396591187
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3273618221282959
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.30930832028388977
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.034236419945955276
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.01333778165280819
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.045495547354221344
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04342306777834892
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5718166828155518
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.016829269006848335
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.0513140894472599
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3211618661880493
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.20890243351459503
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.03554094210267067
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.35832899808883667
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4861811101436615
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.1089601218700409
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.023736946284770966
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.053113263100385666
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.007968829944729805
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04609156399965286
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04796150326728821
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.027957871556282043
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.25489744544029236
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04348133131861687
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.011283913627266884
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.03549933061003685
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4012180268764496
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.08742877095937729
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.040223732590675354
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.949890673160553
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3489363193511963
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3362124562263489
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.06876256316900253
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.08588936924934387
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.32836392521858215
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.04852830991148949
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.291276752948761
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.03646964579820633
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.19329161942005157
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.032364048063755035
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5674499273300171
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.043225422501564026
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.04795674979686737
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.29696327447891235
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04620230942964554
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.026327013969421387
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.29832854866981506
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.33022239804267883
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "HELLO",
+              "no_score": 0.22617140412330627
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5289860963821411
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.33912646770477295
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.04652709513902664
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.05052358657121658
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.565061092376709
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0499659888446331
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.03633426874876022
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.051241591572761536
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.008909489959478378
+            }
+          ]
+        },
+        "zero_hand_features": {
+          "clips": 75,
+          "correct": 18,
+          "top1": 0.24,
+          "loss": 2.4444401041666666,
+          "predicted_counts": {
+            "HELLO": 1,
+            "NO": 0,
+            "PLEASE": 13,
+            "THANKYOU": 61,
+            "YES": 0
+          },
+          "per_class_correct": {
+            "HELLO": 1,
+            "NO": 0,
+            "PLEASE": 3,
+            "THANKYOU": 14,
+            "YES": 0
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.03393617272377014
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.019218809902668
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.023102764040231705
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "PLEASE",
+              "no_score": 0.01377719547599554
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01975708268582821
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.009691471233963966
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.023947006091475487
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01945040374994278
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.012748795561492443
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01107790507376194
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01912456564605236
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.02127036824822426
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018492529168725014
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.018848568201065063
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01764862984418869
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01703811250627041
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.012789727188646793
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019551852717995644
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018497273325920105
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018626702949404716
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.017758680507540703
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018307343125343323
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.018806759268045425
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.011370339430868626
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018850447610020638
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.017312318086624146
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01597762666642666
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.011965889483690262
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01860351860523224
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019282182678580284
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.017592571675777435
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.030483607202768326
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018515845760703087
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.0149208540096879
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01857917010784149
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018684612587094307
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017947478219866753
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.018592294305562973
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.017397668212652206
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018290391191840172
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.022159956395626068
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.012241097167134285
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.020208794623613358
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01708332635462284
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.01197062898427248
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.027264362201094627
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "PLEASE",
+              "no_score": 0.014354231767356396
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.0197896845638752
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.020869582891464233
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "PLEASE",
+              "no_score": 0.01089303009212017
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.016331110149621964
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018558375537395477
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.012395462952554226
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.016202613711357117
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.018891260027885437
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.020094769075512886
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019197937101125717
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01878780499100685
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.0177571140229702
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.015994608402252197
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.011753370054066181
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01736678183078766
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.018553057685494423
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.010054580867290497
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "PLEASE",
+              "no_score": 0.011603104881942272
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.011206083931028843
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01867428794503212
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.02233658917248249
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.011077819392085075
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017983898520469666
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.016609394922852516
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01605389267206192
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.02065834403038025
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.008898059837520123
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.016251839697360992
+            }
+          ]
+        },
+        "crop_to_detected_hand_span": {
+          "clips": 75,
+          "correct": 36,
+          "top1": 0.48,
+          "loss": 2.222939656575521,
+          "predicted_counts": {
+            "HELLO": 1,
+            "NO": 18,
+            "PLEASE": 2,
+            "THANKYOU": 5,
+            "YES": 49
+          },
+          "per_class_correct": {
+            "HELLO": 1,
+            "NO": 15,
+            "PLEASE": 2,
+            "THANKYOU": 3,
+            "YES": 15
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8238075971603394
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.2688026428222656
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.0662035122513771
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5361773371696472
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.010461739264428616
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0045922487042844296
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9479007720947266
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.2876642346382141
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.06017383188009262
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.00497393636032939
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.12213775515556335
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5036135315895081
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.6928447484970093
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.005216089077293873
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0041077048517763615
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.3167717754840851
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.05900018289685249
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.9016683101654053
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.052836447954177856
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.08483780175447464
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.00564162153750658
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.09493114054203033
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.013507436960935593
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.13629430532455444
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9589921236038208
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.0940338671207428
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.02576752007007599
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.07060264050960541
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.4193938076496124
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.013419218361377716
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.8748921155929565
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8741065263748169
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.20682109892368317
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.011392832733690739
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.005570414010435343
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.4342360496520996
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.005834727082401514
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.01844116672873497
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5350096821784973
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5379486680030823
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.09450555592775345
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.008561617694795132
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.018956666812300682
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.6232816576957703
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.22208622097969055
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.060447756201028824
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9341950416564941
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5280285477638245
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.07017908990383148
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.1721491515636444
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03533576801419258
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.17621181905269623
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.004623157437890768
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.03912894055247307
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.004205123987048864
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.38744425773620605
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.00426900340244174
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5638697743415833
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.01603427156805992
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.006024315021932125
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.12857094407081604
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.012742791324853897
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.3661183714866638
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8912007808685303
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.08384906500577927
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0050170039758086205
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5440434217453003
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3469506800174713
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.041652265936136246
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.013030853122472763
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.7776725888252258
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.003892132779583335
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.011855365708470345
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.013560821302235126
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.017298270016908646
+            }
+          ]
+        },
+        "fill_trailing_missing_hands": {
+          "clips": 75,
+          "correct": 32,
+          "top1": 0.4266666666666667,
+          "loss": 2.4497366333007813,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 14,
+            "PLEASE": 2,
+            "THANKYOU": 5,
+            "YES": 54
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 12,
+            "PLEASE": 1,
+            "THANKYOU": 4,
+            "YES": 15
+          },
+          "predictions": [
+            {
+              "video_file": "9979731168048327-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9639449119567871
+            },
+            {
+              "video_file": "1555998439795525-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.019134853035211563
+            },
+            {
+              "video_file": "7535449770372906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.022998493164777756
+            },
+            {
+              "video_file": "9616432008129339-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.6016483306884766
+            },
+            {
+              "video_file": "15769775934939156-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.006574083585292101
+            },
+            {
+              "video_file": "43778843855311433-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0044729141518473625
+            },
+            {
+              "video_file": "5372668319999747-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8406692743301392
+            },
+            {
+              "video_file": "38970444942928073-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.30991825461387634
+            },
+            {
+              "video_file": "6448349493816601-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.05241839587688446
+            },
+            {
+              "video_file": "44272136216354463-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.022952578961849213
+            },
+            {
+              "video_file": "44146024789241256-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.0953095480799675
+            },
+            {
+              "video_file": "09714329486323847-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5469699501991272
+            },
+            {
+              "video_file": "9008261925178431-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.13599705696105957
+            },
+            {
+              "video_file": "9960146118001314-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.004870609380304813
+            },
+            {
+              "video_file": "9117047483562963-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0032227193005383015
+            },
+            {
+              "video_file": "709429051156695-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.40553656220436096
+            },
+            {
+              "video_file": "15689453699180178-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.044659197330474854
+            },
+            {
+              "video_file": "0755679379568106-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.909822404384613
+            },
+            {
+              "video_file": "11225598264242453-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.06414448469877243
+            },
+            {
+              "video_file": "8486809407942575-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.3778328001499176
+            },
+            {
+              "video_file": "5956139983741693-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.007326789665967226
+            },
+            {
+              "video_file": "9009854854743657-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.1341746300458908
+            },
+            {
+              "video_file": "6508465822424006-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.007720959838479757
+            },
+            {
+              "video_file": "6912280773625425-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01871253177523613
+            },
+            {
+              "video_file": "2140134632834978-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.7293757796287537
+            },
+            {
+              "video_file": "6358167662084229-seedYES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.22658559679985046
+            },
+            {
+              "video_file": "3790733585897841-seedTHANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.010545757599174976
+            },
+            {
+              "video_file": "1340650432799635-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.06359212100505829
+            },
+            {
+              "video_file": "8699610978899361-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.40006405115127563
+            },
+            {
+              "video_file": "95072139344285-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.0242752842605114
+            },
+            {
+              "video_file": "25802117645943423-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.014583117328584194
+            },
+            {
+              "video_file": "5082858473744953-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9574823379516602
+            },
+            {
+              "video_file": "16728596536749274-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.24738308787345886
+            },
+            {
+              "video_file": "4782730717831809-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.011956678703427315
+            },
+            {
+              "video_file": "5305284657006966-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.006094533950090408
+            },
+            {
+              "video_file": "0022932153577568393-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.011653102934360504
+            },
+            {
+              "video_file": "0912245735671211-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.0046325018629431725
+            },
+            {
+              "video_file": "6528064521146906-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.017122667282819748
+            },
+            {
+              "video_file": "5309657970849855-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4824174642562866
+            },
+            {
+              "video_file": "7973429116215278-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8096414804458618
+            },
+            {
+              "video_file": "014439537236845323-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.03807651624083519
+            },
+            {
+              "video_file": "15498675309554577-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.007418305147439241
+            },
+            {
+              "video_file": "034197610787212396-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.004201585426926613
+            },
+            {
+              "video_file": "01379619951634381-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.7217001914978027
+            },
+            {
+              "video_file": "9092689562509508-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.20235861837863922
+            },
+            {
+              "video_file": "031705941185190545-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.05353086069226265
+            },
+            {
+              "video_file": "6901051427765104-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.950552225112915
+            },
+            {
+              "video_file": "370678413428154-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4559466242790222
+            },
+            {
+              "video_file": "5254351100197965-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.11891249567270279
+            },
+            {
+              "video_file": "7199140986089654-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.14841002225875854
+            },
+            {
+              "video_file": "7597723277213178-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.048977963626384735
+            },
+            {
+              "video_file": "7613696736100914-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.9156744480133057
+            },
+            {
+              "video_file": "8801721942460268-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.005980136338621378
+            },
+            {
+              "video_file": "180739946524912-seedHELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.027744077146053314
+            },
+            {
+              "video_file": "31545854783740124-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0034317183308303356
+            },
+            {
+              "video_file": "32941176670637984-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.46405914425849915
+            },
+            {
+              "video_file": "04515307711600891-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0035205171443521976
+            },
+            {
+              "video_file": "9644130188424822-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.7363990545272827
+            },
+            {
+              "video_file": "274897834577152-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.009648401290178299
+            },
+            {
+              "video_file": "47017724784893633-seedPLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.007302310783416033
+            },
+            {
+              "video_file": "8841964348021558-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.057616136968135834
+            },
+            {
+              "video_file": "021145910536055412-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.009469818323850632
+            },
+            {
+              "video_file": "050364485120873326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.01638302579522133
+            },
+            {
+              "video_file": "7932042062420475-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3271087110042572
+            },
+            {
+              "video_file": "081380748015633-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.15334297716617584
+            },
+            {
+              "video_file": "6400788027798874-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.007469484116882086
+            },
+            {
+              "video_file": "6137110171725737-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.6405982971191406
+            },
+            {
+              "video_file": "3919396171653571-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4820171296596527
+            },
+            {
+              "video_file": "39425766670939555-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "PLEASE",
+              "no_score": 0.036629971116781235
+            },
+            {
+              "video_file": "8487114823108493-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.010513834655284882
+            },
+            {
+              "video_file": "2688720555507844-seedNO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.9388802647590637
+            },
+            {
+              "video_file": "18053723532999788-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.007165462709963322
+            },
+            {
+              "video_file": "06476990357042611-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.006968361791223288
+            },
+            {
+              "video_file": "5932207271660643-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.008280143141746521
+            },
+            {
+              "video_file": "9953610281521326-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.027772430330514908
+            }
+          ]
+        }
+      }
+    },
+    "val": {
+      "median_hand_frame_fraction": 0.43478260869565216,
+      "fraction_ending_without_hands": 1.0,
+      "variants": {
+        "original": {
+          "clips": 19,
+          "correct": 15,
+          "top1": 0.7894736842105263,
+          "loss": 0.390816939504523,
+          "predicted_counts": {
+            "HELLO": 4,
+            "NO": 1,
+            "PLEASE": 2,
+            "THANKYOU": 5,
+            "YES": 7
+          },
+          "per_class_correct": {
+            "HELLO": 4,
+            "NO": 1,
+            "PLEASE": 2,
+            "THANKYOU": 3,
+            "YES": 5
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.12949319183826447
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03183959051966667
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.004245006013661623
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.2355884611606598
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.026028284803032875
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.0026870036963373423
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.05135326460003853
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.03922804817557335
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.006704043596982956
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.006943123415112495
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.024633128196001053
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.024494700133800507
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.4640323519706726
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.3830493986606598
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.006437194533646107
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.00704796751961112
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.0072058443911373615
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3604132831096649
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5091073513031006
+            }
+          ]
+        },
+        "static_final_frame": {
+          "clips": 19,
+          "correct": 3,
+          "top1": 0.15789473684210525,
+          "loss": 2.5398334703947367,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 0,
+            "THANKYOU": 19,
+            "YES": 0
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 0,
+            "THANKYOU": 3,
+            "YES": 0
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.019223080947995186
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019489876925945282
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.01965601183474064
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.020419251173734665
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01881502941250801
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.016460934653878212
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.016594044864177704
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01955139823257923
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.016698144376277924
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.02028513327240944
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01670290343463421
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01700509339570999
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019512182101607323
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01983802765607834
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.018533742055296898
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.020094789564609528
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017711596563458443
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01655462756752968
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01883661560714245
+            }
+          ]
+        },
+        "zero_pose_features": {
+          "clips": 19,
+          "correct": 12,
+          "top1": 0.631578947368421,
+          "loss": 0.83758544921875,
+          "predicted_counts": {
+            "HELLO": 3,
+            "NO": 1,
+            "PLEASE": 0,
+            "THANKYOU": 7,
+            "YES": 8
+          },
+          "per_class_correct": {
+            "HELLO": 3,
+            "NO": 1,
+            "PLEASE": 0,
+            "THANKYOU": 3,
+            "YES": 5
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.13687296211719513
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3339671194553375
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.020202286541461945
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.30383023619651794
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.033899083733558655
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.03688833862543106
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.09389844536781311
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.3518944978713989
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.045724719762802124
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.02502499707043171
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "HELLO",
+              "no_score": 0.29880860447883606
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.03329381346702576
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.18751704692840576
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.3426685929298401
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.039306964725255966
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.03164778649806976
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.05002255365252495
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3807585835456848
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5454572439193726
+            }
+          ]
+        },
+        "zero_hand_features": {
+          "clips": 19,
+          "correct": 3,
+          "top1": 0.15789473684210525,
+          "loss": 2.5462582236842106,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 0,
+            "THANKYOU": 19,
+            "YES": 0
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 0,
+            "PLEASE": 0,
+            "THANKYOU": 3,
+            "YES": 0
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.02004559524357319
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019476044923067093
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.019848011434078217
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.022575000301003456
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01862052083015442
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.015711257234215736
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01603078469634056
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.019670654088258743
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.01657331921160221
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.02305559068918228
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "THANKYOU",
+              "no_score": 0.01655278541147709
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.01637226529419422
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.04134512320160866
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "THANKYOU",
+              "no_score": 0.02226114831864834
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.018625907599925995
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.02172289602458477
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.017191777005791664
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.015904448926448822
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "THANKYOU",
+              "no_score": 0.018432030454277992
+            }
+          ]
+        },
+        "crop_to_detected_hand_span": {
+          "clips": 19,
+          "correct": 7,
+          "top1": 0.3684210526315789,
+          "loss": 2.4633146587171053,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 6,
+            "PLEASE": 0,
+            "THANKYOU": 3,
+            "YES": 10
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 3,
+            "PLEASE": 0,
+            "THANKYOU": 1,
+            "YES": 3
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "NO",
+              "no_score": 0.9059321880340576
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.07610827684402466
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.004175535403192043
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.8971604108810425
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.16925281286239624
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.004913731478154659
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.219922736287117
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.12036149948835373
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.01494114100933075
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.008097315207123756
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.0376499779522419
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.15624657273292542
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8125516772270203
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "NO",
+              "no_score": 0.8690369129180908
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.010229472070932388
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.021573349833488464
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.01944645307958126
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.5614927411079407
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.6509842872619629
+            }
+          ]
+        },
+        "fill_trailing_missing_hands": {
+          "clips": 19,
+          "correct": 7,
+          "top1": 0.3684210526315789,
+          "loss": 2.660679867393092,
+          "predicted_counts": {
+            "HELLO": 0,
+            "NO": 5,
+            "PLEASE": 1,
+            "THANKYOU": 2,
+            "YES": 11
+          },
+          "per_class_correct": {
+            "HELLO": 0,
+            "NO": 2,
+            "PLEASE": 1,
+            "THANKYOU": 1,
+            "YES": 3
+          },
+          "predictions": [
+            {
+              "video_file": "9161842981344352-YES.mp4",
+              "expected": "YES",
+              "predicted": "NO",
+              "no_score": 0.7574445009231567
+            },
+            {
+              "video_file": "020030442376253177-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.07966336607933044
+            },
+            {
+              "video_file": "05859480723249688-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.0033648493699729443
+            },
+            {
+              "video_file": "05614933522741539-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "NO",
+              "no_score": 0.8928980827331543
+            },
+            {
+              "video_file": "8977694836593926-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.10646841675043106
+            },
+            {
+              "video_file": "6330094542104612-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "YES",
+              "no_score": 0.007305619772523642
+            },
+            {
+              "video_file": "42327270691916885-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.1290479153394699
+            },
+            {
+              "video_file": "20675411351630046-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.11455900222063065
+            },
+            {
+              "video_file": "16870669316247833-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.013864896260201931
+            },
+            {
+              "video_file": "4096147054343935-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "THANKYOU",
+              "no_score": 0.011813522316515446
+            },
+            {
+              "video_file": "16493550450776628-HELLO.mp4",
+              "expected": "HELLO",
+              "predicted": "YES",
+              "no_score": 0.03178825601935387
+            },
+            {
+              "video_file": "26056519285644875-YES.mp4",
+              "expected": "YES",
+              "predicted": "YES",
+              "no_score": 0.14692887663841248
+            },
+            {
+              "video_file": "8323715285073319-NO.mp4",
+              "expected": "NO",
+              "predicted": "YES",
+              "no_score": 0.3544670045375824
+            },
+            {
+              "video_file": "9715589334909431-YES.mp4",
+              "expected": "YES",
+              "predicted": "NO",
+              "no_score": 0.8526247143745422
+            },
+            {
+              "video_file": "42961246858695024-PLEASE.mp4",
+              "expected": "PLEASE",
+              "predicted": "PLEASE",
+              "no_score": 0.005429599899798632
+            },
+            {
+              "video_file": "0006320057552187119-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "THANKYOU",
+              "no_score": 0.008976882323622704
+            },
+            {
+              "video_file": "7976564165646398-THANK YOU.mp4",
+              "expected": "THANKYOU",
+              "predicted": "YES",
+              "no_score": 0.01634812541306019
+            },
+            {
+              "video_file": "4656606080155459-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.650356113910675
+            },
+            {
+              "video_file": "8079226457278508-NO.mp4",
+              "expected": "NO",
+              "predicted": "NO",
+              "no_score": 0.8636378645896912
+            }
+          ]
+        }
+      }
+    }
+  },
+  "invalid_zero_input_control": [
+    {
+      "frames": 70,
+      "predicted": "THANKYOU",
+      "scores": {
+        "HELLO": 0.13074606657028198,
+        "NO": 0.074052594602108,
+        "PLEASE": 0.29060447216033936,
+        "THANKYOU": 0.45897433161735535,
+        "YES": 0.04562247917056084
+      }
+    },
+    {
+      "frames": 128,
+      "predicted": "THANKYOU",
+      "scores": {
+        "HELLO": 0.12859751284122467,
+        "NO": 0.07322795689105988,
+        "PLEASE": 0.2913241386413574,
+        "THANKYOU": 0.4619118273258209,
+        "YES": 0.04493854567408562
+      }
+    },
+    {
+      "frames": 101,
+      "predicted": "THANKYOU",
+      "scores": {
+        "HELLO": 0.12862488627433777,
+        "NO": 0.07322565466165543,
+        "PLEASE": 0.2913149893283844,
+        "THANKYOU": 0.4618973433971405,
+        "YES": 0.0449371337890625
+      }
+    },
+    {
+      "frames": 104,
+      "predicted": "THANKYOU",
+      "scores": {
+        "HELLO": 0.12861119210720062,
+        "NO": 0.07322680205106735,
+        "PLEASE": 0.2913195490837097,
+        "THANKYOU": 0.4619045555591583,
+        "YES": 0.04493783786892891
+      }
+    }
+  ],
+  "existing_test_prediction_counts": {
+    "YES": 17,
+    "PLEASE": 7,
+    "THANKYOU": 17,
+    "HELLO": 13,
+    "NO": 6
+  },
+  "test_rescored": false,
+  "live_session": {
+    "capture_count": 4,
+    "no_first_guesses": 4,
+    "intended_labels_recorded": false,
+    "raw_frames_or_landmarks_available": false
+  },
+  "checkpoint_unchanged": true,
+  "cache_unchanged": true
+}

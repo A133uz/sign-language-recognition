@@ -6,6 +6,8 @@ if HAS_TORCH:
     import torch
     from sign_language.stgcn_graph import adjacency, graph_input
     from sign_language.stgcn_model import SignSTGCN
+    from sign_language.stgcn_graph import CONFIG as GRAPH
+    from sign_language.five_sign_training import classifier
 
 
 @unittest.skipUnless(HAS_TORCH, 'Optional PyTorch extra not installed')
@@ -23,6 +25,18 @@ class STGCNTests(unittest.TestCase):
         self.assertEqual(graph[0,0,0,8], features[0,0,47])  # left thumb tip, joint 4
         self.assertEqual(graph[0,0,0,17], features[0,0,81]) # right hand wrist
         self.assertEqual(graph[0,0,0,26], features[0,0,121]) # right little-finger tip
+
+    def test_pilot_factory_restores_stgcn_graph_and_evaluation_preserves_batchnorm(self):
+        config={'architecture':'stgcn27-v1','graph':GRAPH,'model':{'classes':5,'dropout':.5}}
+        model=classifier(config).eval()
+        self.assertIsInstance(model,SignSTGCN)
+        before={name:value.clone() for name,value in model.named_buffers()}
+        with torch.inference_mode():
+            logits=model(torch.randn(2,128,254),torch.tensor([40,90]))
+        self.assertEqual(tuple(logits.shape),(2,5))
+        for name,value in model.named_buffers():torch.testing.assert_close(value,before[name],rtol=0,atol=0)
+        with self.assertRaises(ValueError):classifier({**config,'graph':{}})
+        with self.assertRaises(ValueError):classifier({**config,'architecture':'unknown'})
 
     def test_adjacency_is_finite_normalized_and_connects_all_nodes(self):
         matrix = adjacency()
@@ -45,6 +59,21 @@ class STGCNTests(unittest.TestCase):
             a, b = model(frames, lengths), model(changed, lengths)
         torch.testing.assert_close(a,b)
         self.assertTrue(torch.isfinite(a).all())
+
+    def test_existing_readout_is_mean_over_valid_reduced_time_and_all_nodes(self):
+        model=SignSTGCN(classes=5,dropout=.5).eval();captured={}
+        def final_block(module,args,output):captured['final']=output.detach().clone()
+        def head_input(module,args):captured['pooled']=args[0].detach().clone()
+        a=model.blocks[-1].register_forward_hook(final_block)
+        b=model.classifier.register_forward_pre_hook(head_input)
+        lengths=torch.tensor([17,41]);reduced=lengths.clone()
+        for block in model.blocks:reduced=(reduced+block.stride-1)//block.stride
+        try:
+            with torch.inference_mode():model(torch.randn(2,64,254),lengths)
+            expected=torch.stack([captured['final'][i,:,:int(n),:].mean((1,2)) for i,n in enumerate(reduced)])
+            torch.testing.assert_close(captured['pooled'],expected,rtol=1e-5,atol=1e-6)
+            self.assertEqual(tuple(captured['pooled'].shape),(2,256))
+        finally:a.remove();b.remove()
 
     def test_backward_reaches_early_frames_and_classifier(self):
         model = SignSTGCN(classes=6, dropout=0)

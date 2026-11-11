@@ -1,0 +1,186 @@
+{
+  "user_feedback": "no matter what i show, its first guess is always no",
+  "session": {
+    "status": "complete",
+    "checkpoint": "models\\asl-gru-five-signs-early-v2\\regularized\\best.pt",
+    "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+    "epoch": 18,
+    "classes": 5,
+    "device": "cuda",
+    "architecture": "gru",
+    "loaded_model_class": "SignGRU",
+    "display_model": "GRU",
+    "session_id": "webcam-gru5-regularized-epoch18-20261111-01",
+    "media_saved": false,
+    "coordinates_saved": false,
+    "training_performed": false,
+    "trials": [
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.9431846737861633
+          },
+          {
+            "label": "YES",
+            "score": 0.03323352336883545
+          },
+          {
+            "label": "HELLO",
+            "score": 0.012252822518348694
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.01038614846765995
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0009427624172531068
+          }
+        ],
+        "quality": {
+          "frames": 70,
+          "frames_with_hands": 59,
+          "frames_with_body_anchor": 70
+        },
+        "input_frames": 70,
+        "captured_frames": 70,
+        "capture_seconds": 2.266,
+        "landmark_seconds": 5.31876420000026,
+        "processing_seconds": 5.604409399999895,
+        "capture_id": 1
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.9402165412902832
+          },
+          {
+            "label": "YES",
+            "score": 0.04886585846543312
+          },
+          {
+            "label": "HELLO",
+            "score": 0.006558606866747141
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.0032451606821268797
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0011138571426272392
+          }
+        ],
+        "quality": {
+          "frames": 134,
+          "frames_with_hands": 119,
+          "frames_with_body_anchor": 134
+        },
+        "input_frames": 128,
+        "captured_frames": 134,
+        "capture_seconds": 4.453,
+        "landmark_seconds": 4.83560800000032,
+        "processing_seconds": 4.907247500000267,
+        "capture_id": 2
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8613426089286804
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.07384359836578369
+          },
+          {
+            "label": "YES",
+            "score": 0.05003832280635834
+          },
+          {
+            "label": "HELLO",
+            "score": 0.009050576016306877
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.005724873393774033
+          }
+        ],
+        "quality": {
+          "frames": 101,
+          "frames_with_hands": 72,
+          "frames_with_body_anchor": 101
+        },
+        "input_frames": 101,
+        "captured_frames": 101,
+        "capture_seconds": 3.406,
+        "landmark_seconds": 3.7078986999995323,
+        "processing_seconds": 3.775188400000843,
+        "capture_id": 3
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8007838726043701
+          },
+          {
+            "label": "YES",
+            "score": 0.16883981227874756
+          },
+          {
+            "label": "HELLO",
+            "score": 0.022382738068699837
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.006572253070771694
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0014213493559509516
+          }
+        ],
+        "quality": {
+          "frames": 104,
+          "frames_with_hands": 93,
+          "frames_with_body_anchor": 104
+        },
+        "input_frames": 104,
+        "captured_frames": 104,
+        "capture_seconds": 3.406,
+        "landmark_seconds": 6.3112097000002905,
+        "processing_seconds": 6.376486500000283,
+        "capture_id": 4
+      }
+    ],
+    "camera_open": false,
+    "reason": "user_closed",
+    "elapsed_seconds": 127.84400000000005
+  },
+  "session_source_sha256": "b0a9a1e85f67003728574c676d455dcdb26ac49c528ab7cefb471dd8d6ccd6a0",
+  "summary": {
+    "captures": 4,
+    "all_top1_no": true,
+    "top1_scores": [
+      0.9431846737861633,
+      0.9402165412902832,
+      0.8613426089286804,
+      0.8007838726043701
+    ],
+    "captured_frames": 409,
+    "frames_with_hands": 343,
+    "frames_with_body_anchor": 409,
+    "measured_fps_per_capture": [
+      30.450132391879965,
+      29.86750505277341,
+      29.35995302407516,
+      30.240751614797414
+    ],
+    "expected_capture_labels_recorded": false,
+    "formal_webcam_accuracy_computed": false
+  },
+  "limitations": "No saved video or landmark coordinates. Detection presence does not establish correct joint geometry. No cause of the NO-only output established."
+}

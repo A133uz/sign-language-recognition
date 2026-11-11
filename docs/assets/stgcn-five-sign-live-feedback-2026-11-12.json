@@ -1,0 +1,294 @@
+{
+  "status": "complete",
+  "session_id": "webcam-stgcn-five-signs-20261112-01",
+  "architecture": "stgcn27-v1",
+  "loaded_model_class": "SignSTGCN",
+  "epoch": 4,
+  "checkpoint_sha256": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d",
+  "camera_open": false,
+  "media_saved": false,
+  "coordinates_saved": false,
+  "training_performed": false,
+  "capture_count": 10,
+  "first_guess_counts": {
+    "HELLO": 8,
+    "PLEASE": 1,
+    "THANKYOU": 1
+  },
+  "captures": [
+    {
+      "capture_id": 1,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9945163130760193
+        },
+        {
+          "label": "YES",
+          "score": 0.005469195544719696
+        },
+        {
+          "label": "NO",
+          "score": 1.4459331396210473e-05
+        },
+        {
+          "label": "THANKYOU",
+          "score": 3.2993730360655893e-13
+        },
+        {
+          "label": "PLEASE",
+          "score": 4.101235390149287e-21
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 2,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9275381565093994
+        },
+        {
+          "label": "YES",
+          "score": 0.06959482282400131
+        },
+        {
+          "label": "NO",
+          "score": 0.0028669165913015604
+        },
+        {
+          "label": "THANKYOU",
+          "score": 7.488946351941195e-08
+        },
+        {
+          "label": "PLEASE",
+          "score": 7.766279481492833e-13
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 3,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9225218296051025
+        },
+        {
+          "label": "YES",
+          "score": 0.07661782950162888
+        },
+        {
+          "label": "NO",
+          "score": 0.0008603397291153669
+        },
+        {
+          "label": "THANKYOU",
+          "score": 5.447771678213087e-10
+        },
+        {
+          "label": "PLEASE",
+          "score": 1.8019011296279536e-16
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 4,
+      "top5": [
+        {
+          "label": "PLEASE",
+          "score": 0.3997962474822998
+        },
+        {
+          "label": "THANKYOU",
+          "score": 0.3658004105091095
+        },
+        {
+          "label": "HELLO",
+          "score": 0.11150835454463959
+        },
+        {
+          "label": "NO",
+          "score": 0.08925017714500427
+        },
+        {
+          "label": "YES",
+          "score": 0.03364476561546326
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 5,
+      "top5": [
+        {
+          "label": "THANKYOU",
+          "score": 0.3786245286464691
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.3053494989871979
+        },
+        {
+          "label": "HELLO",
+          "score": 0.15297813713550568
+        },
+        {
+          "label": "NO",
+          "score": 0.11519238352775574
+        },
+        {
+          "label": "YES",
+          "score": 0.04785548150539398
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 6,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9590743184089661
+        },
+        {
+          "label": "YES",
+          "score": 0.039896201342344284
+        },
+        {
+          "label": "NO",
+          "score": 0.0010294808307662606
+        },
+        {
+          "label": "THANKYOU",
+          "score": 7.818393932268464e-09
+        },
+        {
+          "label": "PLEASE",
+          "score": 2.396698528387472e-14
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 7,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9289973974227905
+        },
+        {
+          "label": "YES",
+          "score": 0.07052596658468246
+        },
+        {
+          "label": "NO",
+          "score": 0.0004765944613609463
+        },
+        {
+          "label": "THANKYOU",
+          "score": 1.3762868622535507e-10
+        },
+        {
+          "label": "PLEASE",
+          "score": 1.957875133111565e-17
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 8,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9752620458602905
+        },
+        {
+          "label": "YES",
+          "score": 0.021971307694911957
+        },
+        {
+          "label": "NO",
+          "score": 0.002766192425042391
+        },
+        {
+          "label": "THANKYOU",
+          "score": 5.03535488860507e-07
+        },
+        {
+          "label": "PLEASE",
+          "score": 3.2364617930102924e-11
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 9,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.9618064761161804
+        },
+        {
+          "label": "YES",
+          "score": 0.038177672773599625
+        },
+        {
+          "label": "NO",
+          "score": 1.587665428814944e-05
+        },
+        {
+          "label": "THANKYOU",
+          "score": 3.0557403904050897e-15
+        },
+        {
+          "label": "PLEASE",
+          "score": 3.723811740119964e-25
+        }
+      ],
+      "error": null
+    },
+    {
+      "capture_id": 10,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.973590075969696
+        },
+        {
+          "label": "YES",
+          "score": 0.025344274938106537
+        },
+        {
+          "label": "NO",
+          "score": 0.001065674121491611
+        },
+        {
+          "label": "THANKYOU",
+          "score": 1.5600177150076888e-08
+        },
+        {
+          "label": "PLEASE",
+          "score": 8.795763596636252e-14
+        }
+      ],
+      "error": null
+    }
+  ],
+  "user_feedback": {
+    "correct_first_guesses": [
+      "HELLO",
+      "THANKYOU",
+      "PLEASE"
+    ],
+    "incorrect_first_guesses": {
+      "YES": "HELLO",
+      "NO": "HELLO"
+    },
+    "capture_number_mapping_supplied": false
+  },
+  "formal_live_accuracy": null,
+  "limits": "Intended labels are not recorded per capture; do not infer a complete per-trial mapping or numerical live accuracy."
+}

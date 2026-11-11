@@ -1,0 +1,4420 @@
+{
+  "archive_path": "models/archives/all-model-checkpoints-2026-11-12.zip",
+  "archive_sha256": "3e4374c88770ab1eea0b945e97712644b0d334424a59e09f9e02d35f7d5c8be1",
+  "archive_bytes": 788180748,
+  "uncompressed_payload_bytes": 864407161,
+  "manifest_sha256": "6c0519f3805c4c750e58b9c8757c7c284716fda985a584fa8d5df05c4f327875",
+  "verified_crc_and_member_sha256": true,
+  "original_sources_unchanged": true,
+  "archive_uploaded_to_git": false,
+  "manifest": {
+    "schema": "sign-language-model-archive-v1",
+    "archive_date_local": "2026-11-12",
+    "timezone": "Asia/Tashkent",
+    "base_git_commit": "e0bb36050f398aff0bd9273991024921c877e786",
+    "git_worktree_snapshot": true,
+    "scope": "Complete retained models tree plus project Python/dependency sources",
+    "exclusions": [
+      "models/archives",
+      "models/locks",
+      "__pycache__",
+      "compiled/temporary files",
+      "datasets/features",
+      "webcam media"
+    ],
+    "checkpoint_files": 120,
+    "mediapipe_task_files": 2,
+    "selected_checkpoint_catalog": [
+      {
+        "path": "models/asl-gru-128-baseline-first-attempt/best.pt",
+        "sha256": "6342b846ddac10d6cd5a37c48912ff6fd4fbb57b2d6852cec2865bd434cec46f",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "failed",
+        "epoch": 7,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-baseline/best.pt",
+        "sha256": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 33,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-cv-regularized-v1/fold-1/best.pt",
+        "sha256": "045e6bf6d2a412e2caa69789894a10550c84d9f3697cd4349cc549cee2428ca8",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 37,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-cv-regularized-v1/fold-2/best.pt",
+        "sha256": "b47695935ebf9073391f7149caa0af5905a0f8a11c784b1c6957cdb05f25ae9a",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 40,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-cv-regularized-v1/fold-3/best.pt",
+        "sha256": "3205ff007d51d8a697b4e6c41389f020ce1961052d5a6c6d9e873499f1f7b9bb",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 34,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-cv-regularized-v1/official-refit/best.pt",
+        "sha256": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 47,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-cv-regularized-v1/smoke/best.pt",
+        "sha256": "c9b5ee509cb4c7f08e08af410031ca5a662023e77010bc99c2c7885cb50f5984",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-smoke-cudnn-attempt/best.pt",
+        "sha256": "99629d55f41ea49927ec394a2684f469716d232c9a49c1ba63b4f5fc5f82d027",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-smoke-first-attempt/best.pt",
+        "sha256": "9804e60f0ee24a7d9f8ad06246a9947b7dd3a074c05a22d8cdf9ba9af3047efb",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-smoke-no-workers/best.pt",
+        "sha256": "b8b7a6c2fced3c5a1a575a46d200a2123f04098803a87fe97dee48ab2efb5d3b",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-128-smoke/best.pt",
+        "sha256": "c12c718e4a71cbf03af6e3dc7da613af76cf956f342a5675cc13398472d2655f",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-64-baseline/best.pt",
+        "sha256": "855ee9692837728cd81db16b6eb5a196f48d0969870f172cc05cfc0d8e17dd97",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 64,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 50,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-64-smoke/best.pt",
+        "sha256": "ff2ad567ff322d23357d7ca52b0037a6178350028d70e8f681e39f2b4b290a3a",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 64,
+          "layers": 2,
+          "classes": 2731,
+          "dropout": 0.3
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-gru-five-signs-early-v1/baseline/best.pt",
+        "sha256": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 5,
+          "dropout": 0.3
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": null,
+        "epochs_completed": 10,
+        "selected_epoch": 7
+      },
+      {
+        "path": "models/asl-gru-five-signs-early-v1/regularized/best.pt",
+        "sha256": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 5,
+          "dropout": 0.5
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": null,
+        "epochs_completed": 11,
+        "selected_epoch": 1
+      },
+      {
+        "path": "models/asl-gru-five-signs-early-v2/baseline/best.pt",
+        "sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 5,
+          "dropout": 0.3
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": null,
+        "epochs_completed": 10,
+        "selected_epoch": 10
+      },
+      {
+        "path": "models/asl-gru-five-signs-early-v2/regularized/best.pt",
+        "sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+        "architecture": "gru",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 5,
+          "dropout": 0.5
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": null,
+        "epochs_completed": 21,
+        "selected_epoch": 18
+      },
+      {
+        "path": "models/asl-gru-five-signs-mean-pool-v1/best.pt",
+        "sha256": "909e90daffb8d244c7492d1303ab8dfeeddd8b325c0335ad74207711385466c9",
+        "architecture": "gru-mean-pool-v1",
+        "model": {
+          "input_size": 254,
+          "hidden_size": 256,
+          "layers": 2,
+          "classes": 5,
+          "dropout": 0.5
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": 4,
+        "epochs_completed": 10,
+        "selected_epoch": 4
+      },
+      {
+        "path": "models/asl-stgcn27-five-signs-early-v1/best.pt",
+        "sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f",
+        "architecture": "stgcn27-v1",
+        "model": {
+          "classes": 5,
+          "dropout": 0.5
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": null,
+        "epochs_completed": 7,
+        "selected_epoch": 4
+      },
+      {
+        "path": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/best.pt",
+        "sha256": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d",
+        "architecture": "stgcn27-v1",
+        "model": {
+          "classes": 5,
+          "dropout": 0.5
+        },
+        "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+        "status": "completed",
+        "epoch": 4,
+        "epochs_completed": 7,
+        "selected_epoch": 4
+      },
+      {
+        "path": "models/asl-stgcn27-smoke/best.pt",
+        "sha256": "a9e8f8fc9ad6d379182f881368fb01fb23937cc91f18d24b211efb1a1a13f8e9",
+        "architecture": "stgcn27-v1",
+        "model": {
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "smoke_complete",
+        "epoch": 1,
+        "epochs_completed": null
+      },
+      {
+        "path": "models/asl-stgcn27-v1/best.pt",
+        "sha256": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+        "architecture": "stgcn27-v1",
+        "model": {
+          "classes": 2731,
+          "dropout": 0.5
+        },
+        "cache_id": "02d3e309c45ede4ef45209f8bd99b1f56d5c790fbaa2a7c9f26369d19dacde8a",
+        "status": "completed",
+        "epoch": 49,
+        "epochs_completed": null
+      }
+    ],
+    "files": [
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/best.pt",
+        "bytes": 6016838,
+        "sha256": "6342b846ddac10d6cd5a37c48912ff6fd4fbb57b2d6852cec2865bd434cec46f"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/config.json",
+        "bytes": 1615,
+        "sha256": "ae194ddce5cade0d7e21c68893a7be473ebabb26db33a1d5103fa64706bc2392"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-001.json",
+        "bytes": 705,
+        "sha256": "c25459fc956b970487efc5c3b565252d38af6be96817121717b86202bdf55861"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-002.json",
+        "bytes": 710,
+        "sha256": "05495231a75e651b88ee9c706411895dde31399653e490db30480dca71ce7bde"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-003.json",
+        "bytes": 690,
+        "sha256": "3dbb10ff74765e7f48fe9cbdf91019c3468f73345b6a5eae681c4a83304aa758"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-004.json",
+        "bytes": 702,
+        "sha256": "27f2062ee979fb80da0c39f222a9d5783112baaed4789efcb2f3a8e6dfd09d9e"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-005.json",
+        "bytes": 672,
+        "sha256": "87f15b83ed2aefabe821250fd67efc9ef6130aef12ac27c8fae5d7458be4828c"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/epoch-006.json",
+        "bytes": 696,
+        "sha256": "09cb12d7b7b6419224e04c0dca8976804adea6efb945ec56a3dc81aee7ca523b"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/last.pt",
+        "bytes": 17954297,
+        "sha256": "6634c571aa50d23b436493e077c2327d40ea705363c7f1ce898e544862c579e6"
+      },
+      {
+        "member": "models/asl-gru-128-baseline-first-attempt/status.json",
+        "bytes": 3069,
+        "sha256": "85c3492c72d4e2019179b22cc1a41090a53b3a335df839f892900cf23238d383"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/best.pt",
+        "bytes": 6017813,
+        "sha256": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/config.json",
+        "bytes": 1666,
+        "sha256": "3354f92dc2157cc851018d33ea48993a7db51990127265ee8dc759019280f628"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-001.json",
+        "bytes": 782,
+        "sha256": "41d8ad1a6aa0dc2791d1e2231e18a0f23c0f56c1e149157816f3ace6f4cc09ff"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-002.json",
+        "bytes": 779,
+        "sha256": "a8c5692404e91949ba51ff75201a2965dedd2ef08bace8899deea3655e50bf39"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-003.json",
+        "bytes": 752,
+        "sha256": "519a2939fe3ef9c7df06b2f2d7b30558d3eb038fdb5947ebef30984a289091b5"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-004.json",
+        "bytes": 762,
+        "sha256": "8d756df58366ce1bb8e263ef35e6ffba3bda76bb6ebfccb729ae2b925987e955"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-005.json",
+        "bytes": 763,
+        "sha256": "787b738f48fe0704eed713c6e2d6d10d648cc1df2b25a71ed5394980410697f9"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-006.json",
+        "bytes": 758,
+        "sha256": "e1a3b87a3e0ffdff7f74b0e5b9b1bc4ff16767cc5814b471222fafbc29a86200"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-007.json",
+        "bytes": 748,
+        "sha256": "069d2acf34684d5dd86eff44e17ded642b3075c52f82edd412765e9203f9372f"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-008.json",
+        "bytes": 760,
+        "sha256": "c9d3175faf0d69912ea1ae2af0cc35e5dee5c6f0ecba69dbd911fdc76d62fba2"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-009.json",
+        "bytes": 760,
+        "sha256": "3d8a3c980aa325af6c47bbcbc070455705e0b90a2177ec0ea2b9b22e04fe08bc"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-010.json",
+        "bytes": 736,
+        "sha256": "293ad69fd58cd3542b33e39616afcb7e0e69e0673f5f8f9259cfa92e4121e0a4"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-011.json",
+        "bytes": 737,
+        "sha256": "b6f185f91695690c2698e3b2c47072d6c1244f559cbf3d9cd0c120ee69844876"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-012.json",
+        "bytes": 746,
+        "sha256": "3e8669f52c5c657a9f3aa6ebf76de3e5a3f00979d9af7810cfad36fc0583bcfe"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-013.json",
+        "bytes": 759,
+        "sha256": "afa1470ee16e8e3d857c435a002fea35254ec9ca681e62c342fefc3e73e7dbc4"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-014.json",
+        "bytes": 759,
+        "sha256": "73ca593b034f79ccc404e5bc25733f693f43ec5c98beddb94423e0a8616884cb"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-015.json",
+        "bytes": 760,
+        "sha256": "5f6c9687de83b973ae1437743a2905b96e3ff408327df56e2909fe727acbb010"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-016.json",
+        "bytes": 759,
+        "sha256": "0c45576643ca4d34b94e98eafeb11575ea5224bb6509a48dbfd29e65bdf88614"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-017.json",
+        "bytes": 760,
+        "sha256": "b21fe276af6a8466937ad5c749c7c67fa6563ac0db52dd283df4b799cfcba4bc"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-018.json",
+        "bytes": 747,
+        "sha256": "8aaa5c9d9b2c11d324760c2a6fe042e619132626ca6dff74429c7f1c3b76587a"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-019.json",
+        "bytes": 734,
+        "sha256": "201d0d038d2510a678677eadb01972708357b45afb5283adf78afa4fed14cffe"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-020.json",
+        "bytes": 747,
+        "sha256": "979d93a1672112a0fb94446e60e9317c719a0f6d4a2ec1e3850726b6eac0c6d6"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-021.json",
+        "bytes": 757,
+        "sha256": "b8b520a0c0833961e6edc612f32a37e4470ed1a84d620d73337f062f0e5e1109"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-022.json",
+        "bytes": 761,
+        "sha256": "61f8388637ab2d1abb573c62eaf96cd591a69ff08d0c781209b2f295ba12c907"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-023.json",
+        "bytes": 748,
+        "sha256": "093ecca0542e80afa8fb952aeffa17f0a112e049ca4248c0e8ea20bd56882f3b"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-024.json",
+        "bytes": 733,
+        "sha256": "ed7a8f0170ad75f8dc0147672824d09deec8eb04b05975b5ba2fc35e8694a0e9"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-025.json",
+        "bytes": 749,
+        "sha256": "8fae816b1f2948b0f6e6ae8d280dd6c5efd2d83e724d6f30b152230a32a40a8a"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-026.json",
+        "bytes": 755,
+        "sha256": "06920460d85f9abce4edadc195408083c02473a8d7eb0e126db3b140bb14507e"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-027.json",
+        "bytes": 759,
+        "sha256": "d090ebdc569de54009d007033e0f05a5f757bf81397b270cae4f5a6208a45f2c"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-028.json",
+        "bytes": 746,
+        "sha256": "383e1b2798b24b207fa93cfe7de800732f0d88af30f61b4c3baf155c862121da"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-029.json",
+        "bytes": 751,
+        "sha256": "4a8f1ddb9ad8a6ef2921c02839d79f13d19852735c2f99e28c99f243a7cecf8f"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-030.json",
+        "bytes": 747,
+        "sha256": "79505ae3c5160d237dadc6116377248f423ba9ca2a08fb9e7bd0dd6579c85e9d"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-031.json",
+        "bytes": 763,
+        "sha256": "5863d7942f20b7c93fdbcddb0248e50f8539553ac76e39e0e2088ea5879109e3"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-032.json",
+        "bytes": 750,
+        "sha256": "866ea374545ac9a3eb140895caef7a6263bc8944b4d4182c475d6570d692e9b3"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/epoch-033.json",
+        "bytes": 759,
+        "sha256": "37943776e55b94ed0b2230b627677210df175a748b913cb1a3e08e1647844b35"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/last.pt",
+        "bytes": 17955279,
+        "sha256": "2a163311c53b9c21aba3ba3736f99dd47ea83a7564c33a30569a23de52d2766d"
+      },
+      {
+        "member": "models/asl-gru-128-baseline/status.json",
+        "bytes": 2996,
+        "sha256": "0a721ee8ccdfb9e8294e3af6ac2b9f159891e52b714e7389d0bae5476a53ee45"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/manifest.json",
+        "bytes": 573,
+        "sha256": "f66a09a933bc105cd298a8ddfd403afa7197f8187b6a8dd3b915ac5e98da40ae"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/__init__.py",
+        "bytes": 68,
+        "sha256": "eb86ad3a10417aa3fbdab1b41f9cadaee1258ea04cbf5cf3c441fba06a2722c7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/assets.py",
+        "bytes": 1240,
+        "sha256": "7568e69cf8145d36e07e90dc715d7fe5639eb2ea53177efe95d39aa4bc716647"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/cli.py",
+        "bytes": 4034,
+        "sha256": "4513ee588d39810ec3c3ee101ff79553ee65d14a96541fedfc3505f83afce37a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/cross_validation.py",
+        "bytes": 7012,
+        "sha256": "6a63594079fc87a84e2ecacd52847e813224f5a38a35996f95d3c6c4404e8d8c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/dataset.py",
+        "bytes": 10629,
+        "sha256": "0351152f81d82d352b8c7931fc71db40517eff591c385b9aca9567cbb749e4a3"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/extraction.py",
+        "bytes": 14233,
+        "sha256": "9a5cde858ea022679573f774f1bfd432a93b2724f58f946cc2b6fd330e097c90"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/hands.py",
+        "bytes": 2655,
+        "sha256": "fe23ebf2140806d3e298fed10fc3009b826c48e4e9dc632d0d2608fe7c8f8f6c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/landmark_models.py",
+        "bytes": 1526,
+        "sha256": "bf86e8b4f360d5a8e9d65ae4c3a2f61fc86a30780baf7e88af23ae1c2bd128d7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/paths.py",
+        "bytes": 115,
+        "sha256": "8f7e7d6d6feb772ca0260bc19cffb3d613ce9e50e0f403061ddc631b734a802e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/raw_landmarks.py",
+        "bytes": 7496,
+        "sha256": "25ed7582b986a00106c944399be9327c9a1d59bc5ef21f94a9a3ffec5e881a70"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/training.py",
+        "bytes": 15437,
+        "sha256": "96f014d1f173d5d540d4cc736e9fb40175a2b86feaaa1bde424a86765fe31422"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/training_cache.py",
+        "bytes": 7058,
+        "sha256": "112e83107e9a593cef0bce33bc5cba071f83638fd20c48aca5e2ea105b250d34"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/engine_snapshot/src/sign_language/webcam.py",
+        "bytes": 3187,
+        "sha256": "1bd4865cc345057812f19fd1e28a63cd4478866a9c6dd4b8d6f837bd18026f83"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/best.pt",
+        "bytes": 6018581,
+        "sha256": "045e6bf6d2a412e2caa69789894a10550c84d9f3697cd4349cc549cee2428ca8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/config.json",
+        "bytes": 2505,
+        "sha256": "3aad89605f6c46b7b30c36ed3586a0db8d128e488f57bae9e7a89fbca20e31a5"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-001.json",
+        "bytes": 771,
+        "sha256": "1525241b8e745616d4d2d61b398e670cf82fb179b464ed1942e6b09ae3c80470"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-002.json",
+        "bytes": 780,
+        "sha256": "9baba1fa4dff332d3cf1050c6c83a8a7a456fb1232e1f07f10823df2f4a8c6b7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-003.json",
+        "bytes": 778,
+        "sha256": "7a2b0466f648fda7e28f93ae757475820605d9e75abd66e151f5cbe471615037"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-004.json",
+        "bytes": 770,
+        "sha256": "f2fa439eda045282613d099170967c81bcbc61d6500aa2e5e3b9245750ad7ac2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-005.json",
+        "bytes": 769,
+        "sha256": "3063a8e9fa802e3c686b87658e4f7f39a515b5f5679ff0495f7fb06a61e50866"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-006.json",
+        "bytes": 763,
+        "sha256": "186ac71927214c290d73dc7cd5c62433481d591cce5bcf5be3854b205a8fcfa3"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-007.json",
+        "bytes": 749,
+        "sha256": "4b550afbb921b940a6ecf9ba5569738ad3f0bd63278d6b1f64de0d24fc253740"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-008.json",
+        "bytes": 749,
+        "sha256": "5d1c9274aa5ab82bc5722bb93d5ba71bb7e77936fbbc6de0e2e5ade8badbd3d9"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-009.json",
+        "bytes": 760,
+        "sha256": "06460a675b30678db5a03419ea2f1788292ba236584f030b0463ba346bfb0e22"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-010.json",
+        "bytes": 763,
+        "sha256": "f52ddf890824f89c809535cb29d55b706d9a641a6b4f3ca199dc53419dee4073"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-011.json",
+        "bytes": 758,
+        "sha256": "1055362099ab22a11756a77928e817bd2b66bc3b4c371f2dd458fd0e35f9776f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-012.json",
+        "bytes": 761,
+        "sha256": "cf1d13bf3fcb60e5574f6ed6c7d6ed86ba0656d18df65ff017636be086490625"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-013.json",
+        "bytes": 761,
+        "sha256": "ef35a3a3f23ea12b94ead1ac7559115210446277fd031376d9cd9d6a916802f4"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-014.json",
+        "bytes": 762,
+        "sha256": "07f952582887b04403349f7a5812c769128db4cc169412cee8b77f1137eb02e2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-015.json",
+        "bytes": 762,
+        "sha256": "1ccac345a0941058a09215fcd9a7fbb2252e85afe44b8887b8243d07b0099aa0"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-016.json",
+        "bytes": 762,
+        "sha256": "e5ac2e3ead94a85d570a4092fd39274fd8662b90eed639101e07c2eeaf1fa9bb"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-017.json",
+        "bytes": 761,
+        "sha256": "9a4bbb086555dceed03f359dd93a5ab630e3bcee6c12d81f2e3f5816eda0c907"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-018.json",
+        "bytes": 758,
+        "sha256": "88f272633409081de88dcb2bb0e8ff536da3076331b17c31ec85a3b8ad38f48f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-019.json",
+        "bytes": 757,
+        "sha256": "a890c0e67d817097ae1da4e2f7482aabd858b9563b35ba4fa9667569d408490a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-020.json",
+        "bytes": 758,
+        "sha256": "7341f36e5b7dbcb439738e134f45707330cdb755c26f475c589549669a672df8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-021.json",
+        "bytes": 755,
+        "sha256": "e2cf8ebeb6c6f7fbf486ad0718c791cd727a619ae63edfe38b1b5bd155e9bdce"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-022.json",
+        "bytes": 749,
+        "sha256": "36c1c075dde279f22b5b40b8e2cdb068f498e44a2aa7f41b6f4e75901de9baf1"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-023.json",
+        "bytes": 749,
+        "sha256": "3cffc6a5544b03aa6d2a8f202852ae8f2445097ee29094385079810fe2f3425c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-024.json",
+        "bytes": 759,
+        "sha256": "5543b2b3121bc5029014f0382a5bbd37f9ddd1029a9f22834b5449a3f5ed9a15"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-025.json",
+        "bytes": 759,
+        "sha256": "a81369bf0ca2ccfcc6ebf757c5d92e74497dae6ace788f956710a0190a9073ed"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-026.json",
+        "bytes": 749,
+        "sha256": "3d8a52887253acc8cf673802e8d49035d1e8b012ba444d950ed8b2731e059ee8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-027.json",
+        "bytes": 762,
+        "sha256": "eb19d6b50acc87ac9ac672a52631d793c9cfb7264b63a625eaa9c09a6fd7acbc"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-028.json",
+        "bytes": 761,
+        "sha256": "fc533fc6f3c383c97e4f56de661ee4ef66eeabb3926130590e1c2b64d944a0a2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-029.json",
+        "bytes": 745,
+        "sha256": "bf4bf14557fa665293c3d84fa37ab0a9848dd7eec6e65ad522c938926029ef47"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-030.json",
+        "bytes": 762,
+        "sha256": "898d746797cc9fafda8421437eea6f0d35b5d38a46c9005351590d6a826a9ea9"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-031.json",
+        "bytes": 763,
+        "sha256": "f099eb3f00334208778714cdba9e75dd3da87696a07968ce01e74e096f9e5c8b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-032.json",
+        "bytes": 762,
+        "sha256": "58f34a231778aaf6e6bd88c572461cfb3d51e1c445d9d1cf62d0e1ae11fd2baf"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-033.json",
+        "bytes": 746,
+        "sha256": "f212c244ff9faccc074ca74979e1ec87a08829891c9f764ac1c40c24dc958d43"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-034.json",
+        "bytes": 762,
+        "sha256": "16a47285a4f2b669a43f51315a58e209e6f3b7df838b6b66547deeea4fd90409"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-035.json",
+        "bytes": 765,
+        "sha256": "a26e4aa446696f4fcbeb6c2f1bccfe43a4b5ad425b624ce2410e5eddbcd04b15"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-036.json",
+        "bytes": 764,
+        "sha256": "09badf8e238b0016b7de2c9415aef7cee213749cceca95b918683720929b496c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/epoch-037.json",
+        "bytes": 748,
+        "sha256": "d520082df4b9ecee34af3439c58744c887d595dd04858a2eabb3610799a5edb5"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/last.pt",
+        "bytes": 17956047,
+        "sha256": "6062f9abdf59d2a07e53ceeecfa5599b9f727f25cba16b40b21d9d91ccf40e41"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-1/status.json",
+        "bytes": 3882,
+        "sha256": "d6c318734a705797ea723da0ee6d86588a347c667cef461fb6087092f34fd918"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/best.pt",
+        "bytes": 6018581,
+        "sha256": "b47695935ebf9073391f7149caa0af5905a0f8a11c784b1c6957cdb05f25ae9a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/config.json",
+        "bytes": 2506,
+        "sha256": "094444fe301114abafb9d3e7f3151d37bfbd85df51794cc0e704b468f79ac56f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-001.json",
+        "bytes": 784,
+        "sha256": "5d0f6be796e53596b57fb04711f3ab2bb920075dc4a25fba5be68ce2fe68cab2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-002.json",
+        "bytes": 780,
+        "sha256": "1cbe7260f4cc73a1648a5172741c39ecaf028d2c1296d42e6be8bcd22d82f19b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-003.json",
+        "bytes": 764,
+        "sha256": "8683a595e7e022e496d5b6c3c3ba49d20c7be020fd823197e42203720cafd277"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-004.json",
+        "bytes": 772,
+        "sha256": "56a234ad6483ca8d0f1635ecc51c9de7085191ae0051e2b8d5346dbcacdd6fd6"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-005.json",
+        "bytes": 765,
+        "sha256": "2aecf18ef57becf3ae99d719892896431260f340894f017c6ffd4d40dd9dffa2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-006.json",
+        "bytes": 763,
+        "sha256": "adbacd00ca2f686c30004fe874f60fd0f1f55ace5249f97da830a5acae82424e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-007.json",
+        "bytes": 750,
+        "sha256": "4dd52e9d595c1d33afce88851464255ace241c357ac843e3d7e27c440633ec7d"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-008.json",
+        "bytes": 762,
+        "sha256": "080452c870d9d60f3625b6b6d8c9e4e73638b54838cb56a9a0e988162fc369a9"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-009.json",
+        "bytes": 760,
+        "sha256": "aef85d28d46fd4a22f57f378c9734988cdadce2588faabd477215e1271a7eaa8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-010.json",
+        "bytes": 752,
+        "sha256": "0318c8de786143c18dfd52fd1f7dffb1b9de596087c0e256edff39fb6e842947"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-011.json",
+        "bytes": 748,
+        "sha256": "32cfc0c905572a4a717686ef8822bf9023018d11c2b4fc25eb0dd17d6082d445"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-012.json",
+        "bytes": 762,
+        "sha256": "0c7d1aa7ebaa5a9cba28828955f74cc1df3393b483c95079e080804712a30728"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-013.json",
+        "bytes": 759,
+        "sha256": "7dea6a241178cba50bef27f3d1aa68176469e48629c0f501d50aa8f67316f335"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-014.json",
+        "bytes": 760,
+        "sha256": "3a51a286dec27fca70a0cab65283937dded19d16fcbd85529b44d236372cb5d5"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-015.json",
+        "bytes": 760,
+        "sha256": "094b4a9222258c073eba47d2cae4a61e2c9db429925eaddf779290e2fd58ecdd"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-016.json",
+        "bytes": 751,
+        "sha256": "022f8a470d46ec42a97e4cf02e84354f9e3a325c9ea5c90e1144c1d792e66ea1"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-017.json",
+        "bytes": 746,
+        "sha256": "ebfdc9195a9b14a3be0072042993392d3d9828f33bbd0a6dacf5867a7a404d9a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-018.json",
+        "bytes": 759,
+        "sha256": "6d013d57389cff940d782b4673d70ad57be087179c11ab17b359a77c6557cbbc"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-019.json",
+        "bytes": 734,
+        "sha256": "a68fc9e2c260ea332c9b5df0b93d9de5449ed63521570278aac223ec16ec0f70"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-020.json",
+        "bytes": 748,
+        "sha256": "bd1821e0982f430e11225946bbc25901d8a5199abcf3ac64eba9b83560e1a75a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-021.json",
+        "bytes": 760,
+        "sha256": "7e41a42e350e03f918d0bc055d8e7658d057e2de9a4493cc9e84e91fb5edba1a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-022.json",
+        "bytes": 744,
+        "sha256": "81741a11b4e33b29908020ef3017d1667da2f584af780a06fbf7a9159bb123d1"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-023.json",
+        "bytes": 763,
+        "sha256": "1b51c7cfee68f9d7eed067f5fb078a968d7778b4053ced440e90c4c948495f0f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-024.json",
+        "bytes": 758,
+        "sha256": "6fcc639ce58606a903c3533ac024415e521f0279216e32cec9e8c0c65c06a6e3"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-025.json",
+        "bytes": 746,
+        "sha256": "28482d42c2568785d33597d359379410f71a22e3c29d76a4b779ec2d5b82522d"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-026.json",
+        "bytes": 759,
+        "sha256": "33acf684bce9af59e1a7b51930c979a60440850d3cd3dc63163639b1dab2b0f6"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-027.json",
+        "bytes": 744,
+        "sha256": "bf68ab68643ab85de954a4398a75b804b24b7aac4eb8a114c5c04c8650532107"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-028.json",
+        "bytes": 759,
+        "sha256": "1083d14444017fd9f6e01e9210f92f453f55540f65dcb02fd79ea07c2bcfc061"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-029.json",
+        "bytes": 747,
+        "sha256": "0c3b9331e584059925d5aef4521ba914d3111e74383dd3efde88af38ba5867e8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-030.json",
+        "bytes": 760,
+        "sha256": "9948b33489130404237812fcd7475a87914ac911043abaf3e4fc6b1b6d035117"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-031.json",
+        "bytes": 760,
+        "sha256": "fe39187c9640e7e7f9772cd0f30605ce7cfaaea26986a6851c3064376f3ef931"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-032.json",
+        "bytes": 746,
+        "sha256": "68444fba2c3cf9d6f4bb3a5e6c92deee77c9c3af1fa42961f16755e57ebb05b0"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-033.json",
+        "bytes": 759,
+        "sha256": "3841a0d35dc2205db213e24084e90b4bb84e9803ea4c2179efdae6849bd48508"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-034.json",
+        "bytes": 751,
+        "sha256": "a3fcde82a34a6edaedc1a3879ab77331607085235a08e51cde87be127904fc04"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-035.json",
+        "bytes": 737,
+        "sha256": "1d6808379112ad11b6071c4efe07e2d3421d3ff7be66d388aa149d8a616f23ad"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-036.json",
+        "bytes": 762,
+        "sha256": "23631b1ccda2b9677836a547e4782d520bc7c2a717c0799e92de03ebde08c45b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-037.json",
+        "bytes": 765,
+        "sha256": "8be92a32fac0328cce21fc5f09e1aabaadf951346b7f7a3589cdbb0e53b7ec59"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-038.json",
+        "bytes": 764,
+        "sha256": "27c1e26f8a67356f9bd0d33f30249ae1d7c779677bb2a4a3641b5c497cb9b8f8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-039.json",
+        "bytes": 762,
+        "sha256": "a2231ee500c0ac10dd6b0c87a35554a2cd4485ea92dc82c9d894ae03a45c4942"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/epoch-040.json",
+        "bytes": 764,
+        "sha256": "f9fb2ad783426dcfa347cf47696d60767f0135069ae13cf9fd529937bb855857"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/last.pt",
+        "bytes": 17956047,
+        "sha256": "b630f0482b286a725a5205d48d65683c758cdebc22fb0c28b8bc95b990d3cec7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-2/status.json",
+        "bytes": 3899,
+        "sha256": "7f93e8c5c4b2c6fe5b345db51c4949f682a14382ef71906c90fed31859f237b6"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/best.pt",
+        "bytes": 6018581,
+        "sha256": "3205ff007d51d8a697b4e6c41389f020ce1961052d5a6c6d9e873499f1f7b9bb"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/config.json",
+        "bytes": 2505,
+        "sha256": "498f076c1d673725a1b4147351f9fb56bbf25d9fd6f806789f16edb20c568260"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-001.json",
+        "bytes": 781,
+        "sha256": "463fc30165713889994ade2adba55223c85b3a4fe34c56763ca180d4476dd9dd"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-002.json",
+        "bytes": 769,
+        "sha256": "1c376d27b194331725a6c4f6b70b65a156ea53b11a2cf9640a64f17accb3587e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-003.json",
+        "bytes": 757,
+        "sha256": "2ee626884a797baba95cd412f7099b7c4a75e1fc0d56d3db0b365632be6fe553"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-004.json",
+        "bytes": 772,
+        "sha256": "9f72bbbf31f30d2cf8f2e0a25bc24c1155d41e5571040332c516db8bd29740e9"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-005.json",
+        "bytes": 769,
+        "sha256": "23e877b984886057f612a5f671b1800111d8efc741cd7b167a6334c3e7d60cfb"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-006.json",
+        "bytes": 763,
+        "sha256": "55fcbedbb9b4aea8868e433a9b766795514488462d3bd871faf1a833f50c052e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-007.json",
+        "bytes": 762,
+        "sha256": "341f65034a951ef0b411306d8442796d0356e64266198e1824d2b70d3bf853f4"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-008.json",
+        "bytes": 761,
+        "sha256": "85cf6878bca994c87d8eddf33c76ad67967aa1f13025bfe2a989caa3e8872a7a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-009.json",
+        "bytes": 763,
+        "sha256": "c1547edcb85f4b7478f454a8f038bc42823c86fa591bab0926ff8752f88ae925"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-010.json",
+        "bytes": 734,
+        "sha256": "994333646fa1adab11905a5cb13df56671e10ddbfd7b484cf2ce1eb672ddda2f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-011.json",
+        "bytes": 748,
+        "sha256": "edf8de2932e1e70575ddb6f05d7434f4b0decd7e675d9e450ec1dffb425e0307"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-012.json",
+        "bytes": 758,
+        "sha256": "3517aee7b76e28da214d33ca30343ff3c3be5cbc40e7444f18873b80354387e7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-013.json",
+        "bytes": 752,
+        "sha256": "405af7e492dc2203ca7bcf1fbf1964d503121754fe1327a959f5d9eac02e76a5"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-014.json",
+        "bytes": 746,
+        "sha256": "420910ff1a26b4810d2dc077df0941f7455c7f90c03e6888bca804a38a9abeab"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-015.json",
+        "bytes": 747,
+        "sha256": "541ee3bb1a4a4339e5fa39ec7bd60fb41d6d08f1689ab1a9a70e2d873f1d0352"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-016.json",
+        "bytes": 757,
+        "sha256": "3b870f7092cf1d222ca753aac9ed0ebab7e4f6a92be76d803db7833af597ae31"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-017.json",
+        "bytes": 758,
+        "sha256": "d88afd35b33f767a63bc3a32ec9b1bbab30d92efa40f895e2306a9b0d208cbc8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-018.json",
+        "bytes": 762,
+        "sha256": "9c03f5b3d333dcc02cd0159b8660539a1f1fbece76bce88d92a1d59e7bd077a3"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-019.json",
+        "bytes": 756,
+        "sha256": "7f5c22aae3447e5e14edf098e25a473965ccc8eb655a326a5ef13f3218d32712"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-020.json",
+        "bytes": 758,
+        "sha256": "b7ff94e7cbf43c81540da78434a43b106f799713fdedb3ac867b0a7c77279f9e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-021.json",
+        "bytes": 758,
+        "sha256": "31d695eae0ce67790311395fc02d1f58427327b322a3d173389184186b4aaae8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-022.json",
+        "bytes": 763,
+        "sha256": "5bed56c5acd5f738fc73f372188af1eff871aa786d80e3f24b64f74e00ce703a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-023.json",
+        "bytes": 746,
+        "sha256": "1cc6f520c456f44fb9b2a082606d5949d8791b1068341e1ebd1dd9ab64170480"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-024.json",
+        "bytes": 747,
+        "sha256": "12469531f12a56f994238ef40f2cf9f5f42b5639339d942ce2ac3778e8d5d13b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-025.json",
+        "bytes": 760,
+        "sha256": "0fca18c11e491ac10f7cbc39cfed3baf695ff9ba287569ed35c2329ca9ca2a64"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-026.json",
+        "bytes": 736,
+        "sha256": "8131cef575c2207a814bcb06c3c352d6efa7fc75b5ae06a78c1ab2a9ac10278c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-027.json",
+        "bytes": 760,
+        "sha256": "00477ffc52b020f3bc1e3d98d1b65f09b695f93eb5a794c0f076646bd73d746b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-028.json",
+        "bytes": 761,
+        "sha256": "9e9eff5c2d182224907ec594267c83ae7f92d9e9b6c6d4fb16df3fcbefd6837a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-029.json",
+        "bytes": 758,
+        "sha256": "898b675bf15fdb6d818df0657253fc564fe9fc9f90acde7a42dd481cdd59802b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-030.json",
+        "bytes": 749,
+        "sha256": "e1f56271397db5174c5f83ccfe25e902ad1d00ce550ae2871bb8ebede6ef0df8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-031.json",
+        "bytes": 762,
+        "sha256": "55f46a05363181f5551f83fcf75bdfe3810a8be0213d18a44032d2cbe807d92b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-032.json",
+        "bytes": 764,
+        "sha256": "9cf6fee18fc0213bd9d687cca6ba9007c503d75da4f9d3b21e81caa690794b02"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-033.json",
+        "bytes": 761,
+        "sha256": "99bd909be3e3121784fbb0f07287263ac58b5414303fd1652b10ee99b83a67d2"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/epoch-034.json",
+        "bytes": 764,
+        "sha256": "ad7203d8dbc757272dd817da11e90eec49d4c3cddf8a49bfb6af99fa164b9c23"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/last.pt",
+        "bytes": 17956047,
+        "sha256": "1b35456413af3531b98f7c3c3f6ec023bab0a8034a1c24d064323ebb8f332d94"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/fold-3/status.json",
+        "bytes": 3898,
+        "sha256": "f2ed09773fdfa578e53e60670afd6f4066a78762b55c44d8d154db5b12b536e5"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/folds.json",
+        "bytes": 1895318,
+        "sha256": "bc9b665e92e83d8f3319f12f720638e4b3a9cf405ab1585d497077038e28d1c0"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-1.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-1.stdout.log",
+        "bytes": 36527,
+        "sha256": "34ce907b7bb57a80c8c6bb678539d6b8d9ad82031cee1b6f2e56868f02c03337"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-2.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-2.stdout.log",
+        "bytes": 38870,
+        "sha256": "8c183100864e99d9ed8bfc23afe3853570a2845ffc1de3ee223fcbfffb2e96b9"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-3.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/fold-3.stdout.log",
+        "bytes": 33699,
+        "sha256": "ef129796f5de4a5514d39fd7c5ab55dda3a9465c7ae73bd829937540eeed214d"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/official-refit.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/logs/official-refit.stdout.log",
+        "bytes": 46828,
+        "sha256": "e63990cc69e7dcad149d3ae7dac36ee789b01f200498cc2fbac4b86261b0ac43"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/best.pt",
+        "bytes": 6018325,
+        "sha256": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/config.json",
+        "bytes": 2205,
+        "sha256": "73d59f0de64ade13749b93f46e5cdf5fc4cea51ebddd1ca76318f2cf8d190f89"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-001.json",
+        "bytes": 775,
+        "sha256": "75fc66e9c35f9bb204ee76c3e46850fd861dd3cd8e1cc3386b20eb21643597b8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-002.json",
+        "bytes": 777,
+        "sha256": "372ccbce265d5ecd2255c0b506fd62843251455f537d135a289eb150e8a1a963"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-003.json",
+        "bytes": 772,
+        "sha256": "6503a5e0cfe9c6d19554853b6fd7355138e5d67af89faf9669feb69373f89590"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-004.json",
+        "bytes": 767,
+        "sha256": "85db4ff46f865d63ac9c51c6f964348dbb64ca2e23c02001620129131088f59f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-005.json",
+        "bytes": 764,
+        "sha256": "cfec48762c5c6b953ee3af523ded6fd4b2da87795c20653b244da06dc7b9a091"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-006.json",
+        "bytes": 766,
+        "sha256": "9118166e0eca6d660404384e1cbdf9ad1104fca40077e424e776ace6eab8568f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-007.json",
+        "bytes": 763,
+        "sha256": "24bfb715d8cfe305eae29cf9ca4c8d69a1e29b214440578b2f04ee3ce65a81ae"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-008.json",
+        "bytes": 761,
+        "sha256": "9af4a46b32eeaaced24171f494e278fc92df1c6d7f5ee9d959015d2b4c0a8c66"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-009.json",
+        "bytes": 761,
+        "sha256": "2f108f901d83f0dac6b5477164a782e17c01862346742c33daccfbf12ebe4d76"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-010.json",
+        "bytes": 764,
+        "sha256": "3e6686d6763e94c152ec6cca51e9ad7a696e7faf8f5ecdd43e3b55b0d833d351"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-011.json",
+        "bytes": 750,
+        "sha256": "768e76fc4d3e480334624dca982f46983353c4a33075c09e8f7c6b9276e6caf0"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-012.json",
+        "bytes": 749,
+        "sha256": "be592f2b1fc05e973c4dce25f7da3e9d2bc9c8ac489adc052b71d6542fc8256f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-013.json",
+        "bytes": 735,
+        "sha256": "7263e0524249ba212065680eef356842cf511841ed200203009929cf2e8a07ab"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-014.json",
+        "bytes": 760,
+        "sha256": "5d0c939d545d8034d2fc50a05e6bbf096b84e5f8e1486bf85055251c96382666"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-015.json",
+        "bytes": 748,
+        "sha256": "e9696f0ad7498dcc709e6bd35af2dd3a49b14c295438083a00aba132c4541d2b"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-016.json",
+        "bytes": 743,
+        "sha256": "2758ae8fb24578c6c3417cc0d6f5a6f3412506a55621559e34818eefc0d3af28"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-017.json",
+        "bytes": 746,
+        "sha256": "b503ba42abbb816622b3471c12b92da786b247107a2902b4b2bb2ce6c22bfcb0"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-018.json",
+        "bytes": 759,
+        "sha256": "99116bca75273cbb242678d4c408b5b70f1846a1b3150ad74c5217fc5e3ef12f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-019.json",
+        "bytes": 760,
+        "sha256": "f5d0b5a6dd54845ffa90681d1eff05e05d6c53ae722151017017d91c4c9c3cbd"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-020.json",
+        "bytes": 759,
+        "sha256": "8d5252de0e6fd825106fa503970b8648d235206f4b5dc20eeb287a05d0bceccc"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-021.json",
+        "bytes": 760,
+        "sha256": "5f874303c13fbb9e9ae40a55af32d0498a62b3735e1b6bde73bad954c415ae02"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-022.json",
+        "bytes": 748,
+        "sha256": "94f439e79fcdb8f6dc6763b3dbc9091a38465dc576e5ccf1a0218ed77065e76e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-023.json",
+        "bytes": 760,
+        "sha256": "86dc93ec654637fdb4953a920623b35df812d89dd2d518a916fb7c133d72906f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-024.json",
+        "bytes": 761,
+        "sha256": "2e90bc667470a9449faa2bd0630b96f17582c9817c7e453823dd2b7e9fbe8f54"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-025.json",
+        "bytes": 761,
+        "sha256": "5e87ae4d697e92989136abff857defd525dddaf903a3e06061ae2494c9e54cde"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-026.json",
+        "bytes": 757,
+        "sha256": "81820fdfede9e469a7d296a7cb49205fd324896c8baaab47ac19c27740513bec"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-027.json",
+        "bytes": 746,
+        "sha256": "239b129c5838625447c408a9d40480a689616b9d006901bafb784c5d4b579b1e"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-028.json",
+        "bytes": 759,
+        "sha256": "c05f6e43cd7e7192f74918549ec224a4ac66b2be7b9d4b8c273f2860d838225c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-029.json",
+        "bytes": 760,
+        "sha256": "12b531a7aa0a02107eabcf037eddff2feb35b5400d7b41e488ae2e257c3d078f"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-030.json",
+        "bytes": 761,
+        "sha256": "d2046f8cfd0417451a025fc36eae7bd15940d458bef62275ef3ee551cd8a1841"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-031.json",
+        "bytes": 736,
+        "sha256": "2ec13f2c79ba53b64ecc7020663b7f97a6c30188b253e97fcc4625177d139a5d"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-032.json",
+        "bytes": 759,
+        "sha256": "7c91360ef379526d08a73207b362aa9322323c89c4c8301e5285f9a73ace661c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-033.json",
+        "bytes": 763,
+        "sha256": "103b488991f98716cd8b5669333db1054017deacedd1ec6b41436c87996c25ee"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-034.json",
+        "bytes": 761,
+        "sha256": "08dd26908adf209754ebcb8c03ff468f657270710cf627617a72d7342c4b12c3"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-035.json",
+        "bytes": 749,
+        "sha256": "8c99146d185a25ed4b3e846a09d93837de3717eb1eb815fe8a4b0841a69d727c"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-036.json",
+        "bytes": 760,
+        "sha256": "39d2cb541d7d14b629061d1d8da1f5fd9291a0d71059246f8ac6264bd9ce1a01"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-037.json",
+        "bytes": 762,
+        "sha256": "bdb70fb48594c1e536bf3eed1d40e0fd119c0556f4fa1cae6eb01b74224f67e6"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-038.json",
+        "bytes": 762,
+        "sha256": "a82d61195471423240f9fc1e5e599d406f4a08c131d343e3e5b32a2fcc87d8dd"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-039.json",
+        "bytes": 760,
+        "sha256": "fcd447849c7c982a9a2670fe55d0a660e1e4eabd85083f62105b07b077f82a1a"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-040.json",
+        "bytes": 760,
+        "sha256": "8eceb9e4d9f58bc69b44673cb5fdd527c217f2d19199a7b9d7e10ec7db3ed085"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-041.json",
+        "bytes": 752,
+        "sha256": "db585c7359d841da6f73aad06a01945fc47172a27288a9972fc63e5cd59a1c23"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-042.json",
+        "bytes": 763,
+        "sha256": "f6f175b028d97e7e65fbe73b0bb0de89b63d608dcf3f0094dbf8cd8f01974392"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-043.json",
+        "bytes": 763,
+        "sha256": "b7b380579d9722cc14a21edf351fd6b97479a64076563906847b3c1d9bb1b709"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-044.json",
+        "bytes": 751,
+        "sha256": "7ace4935b84bb364cd920dfd399b23551ad404dedb95370324ba31db828e6463"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-045.json",
+        "bytes": 749,
+        "sha256": "8e9b1352268d5510e677bee6851cb62c8a16c14a7952bc610ee1b1a48f0809eb"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-046.json",
+        "bytes": 761,
+        "sha256": "bd858a7013df2272b0ce44558ab5fd88d0af01ff1e9e6198e546951a08582985"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/epoch-047.json",
+        "bytes": 761,
+        "sha256": "ac7988e9f73384c4df4abf10509485dae891eea382432c58b1428c06faa243f6"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/last.pt",
+        "bytes": 17955727,
+        "sha256": "46816a97e0ebbc5a01d471f8e9a55f955774867047d37ef94bb06579d1e43e31"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/official-refit/status.json",
+        "bytes": 3580,
+        "sha256": "518e2b0b245ad43b8f2e3adc2b81dcd708d5293d6f727f92b9582f5da520f286"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/best.pt",
+        "bytes": 6018581,
+        "sha256": "c9b5ee509cb4c7f08e08af410031ca5a662023e77010bc99c2c7885cb50f5984"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/config.json",
+        "bytes": 2503,
+        "sha256": "e06bc8b04e696057941c0a86174c03805471da60750b52a1e48008b9e5eb8a32"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/epoch-001.json",
+        "bytes": 636,
+        "sha256": "d9dc81972bc43227a9bcb301959b919b910679d53477b46a29598caa36758ff8"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/last.pt",
+        "bytes": 17956047,
+        "sha256": "5903d7438058827e83d506213e63bc33362769eb297a3a6268d4883ece16fb3d"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/smoke/status.json",
+        "bytes": 3734,
+        "sha256": "2a9226cde343b8014868b2e067453ca5896133f35b2b79937598141e46616a20"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/status.json",
+        "bytes": 861,
+        "sha256": "069373d91670b93961d6460fd7db8ccecb93e0e171ec8c21c8984ed1626d4dd7"
+      },
+      {
+        "member": "models/asl-gru-128-cv-regularized-v1/summary.json",
+        "bytes": 5310,
+        "sha256": "591a24867877e12689ef4ddf3baee9c8204eaa11b304dac5ea70ca07fd9eed77"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/best.pt",
+        "bytes": 6016902,
+        "sha256": "99629d55f41ea49927ec394a2684f469716d232c9a49c1ba63b4f5fc5f82d027"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/config.json",
+        "bytes": 1613,
+        "sha256": "077488fc6dbb46e732d48d1ede8d6f4ff83b61fa6f9dc6c8a0ebc41e0bc38bf1"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/epoch-001.json",
+        "bytes": 615,
+        "sha256": "fefe8d63757a4e59fd57b35aebf51227a9298fe7d7909fe758e1e19328fd63d5"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/last.pt",
+        "bytes": 17954297,
+        "sha256": "6511581f1ea825e89ca364f59b1308287f9d6917f5bd1d64b38c494d8f95eb3b"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-cudnn-attempt/status.json",
+        "bytes": 2761,
+        "sha256": "43528ce5fb740943d3295710a37cfe00adb63e258bb8b1b858a0e5068aff9c1e"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/best.pt",
+        "bytes": 6016838,
+        "sha256": "9804e60f0ee24a7d9f8ad06246a9947b7dd3a074c05a22d8cdf9ba9af3047efb"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/config.json",
+        "bytes": 1613,
+        "sha256": "a677178468ebd013815ebaf4bb69ed44c7afe176ca2d1602149ef4bc715f032d"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/epoch-001.json",
+        "bytes": 551,
+        "sha256": "a510253134bcd89aca7ee972dda865c11282a2131de206d82ca7de74d16aa005"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/last.pt",
+        "bytes": 17954297,
+        "sha256": "94e3807cc48118b31c950e37f21f3f9454ed49a3923e2ffd92b5d7abfdeab69f"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-first-attempt/status.json",
+        "bytes": 2011,
+        "sha256": "0168ce978479c98fcc82fb4077d7381bda377e9de01a0a1eea53365cf17ef9f2"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/best.pt",
+        "bytes": 6016902,
+        "sha256": "b8b7a6c2fced3c5a1a575a46d200a2123f04098803a87fe97dee48ab2efb5d3b"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/config.json",
+        "bytes": 1613,
+        "sha256": "077488fc6dbb46e732d48d1ede8d6f4ff83b61fa6f9dc6c8a0ebc41e0bc38bf1"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/epoch-001.json",
+        "bytes": 630,
+        "sha256": "6d8cdaa30a895acb67170b59a2406210cdc84bd862b944da70cba91177d6320e"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/last.pt",
+        "bytes": 17954297,
+        "sha256": "051c1a6127f13f8e96362fa85737fff706b315a0fc12a091dbcbdabd6b68c065"
+      },
+      {
+        "member": "models/asl-gru-128-smoke-no-workers/status.json",
+        "bytes": 2775,
+        "sha256": "cca12699a44045e7fba21b18f18a4b4e0fea3376f2dbaeb7bbf098ebc194d587"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/best.pt",
+        "bytes": 6017813,
+        "sha256": "c12c718e4a71cbf03af6e3dc7da613af76cf956f342a5675cc13398472d2655f"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/config.json",
+        "bytes": 1664,
+        "sha256": "18c0d648bf0f25cbecaeda4bd55ac67e0153c90912c480c4c67f14172803bc13"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/epoch-001.json",
+        "bytes": 611,
+        "sha256": "ea1be6fbdb532dca594e9ae1d0bc882c4ed75559cfa1c73f84e470d0cc8b0edb"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/last.pt",
+        "bytes": 17955279,
+        "sha256": "6685d6284ff29dea62590910aa503c268c091622820e720d5e7a4ed7a768d99e"
+      },
+      {
+        "member": "models/asl-gru-128-smoke/status.json",
+        "bytes": 2812,
+        "sha256": "6d254b4ff432853cc25ade9d11b38fb429c5316ce5199897686f631f53117ed7"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/best.pt",
+        "bytes": 1114453,
+        "sha256": "855ee9692837728cd81db16b6eb5a196f48d0969870f172cc05cfc0d8e17dd97"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/config.json",
+        "bytes": 2074,
+        "sha256": "ad65923c954004082779e216fe9f07a4566f9c7f04c62d2d1cf8b9c8e11b4ff3"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-001.json",
+        "bytes": 773,
+        "sha256": "89ba9dd2f1a621b7744adb14ab4b13a726814b9e5e5f804074db4f9aa8de8e94"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-002.json",
+        "bytes": 783,
+        "sha256": "aa03cbe723c686fb6a2df0fcad83a65c0e42ce98703ef7dd76f80b35b5d25698"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-003.json",
+        "bytes": 780,
+        "sha256": "690da2f07759dfa60824962c0d5ef9be3706a3290ffe5de21780c3188eb427aa"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-004.json",
+        "bytes": 776,
+        "sha256": "8be1e2aa10ca42ff367d04d9338bc3c16b20d99563881c0585ec2ce7b86e3c9b"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-005.json",
+        "bytes": 756,
+        "sha256": "58e16535673176c6e85614b35ae2784fd7207c58c70fa9fb421173b6801e4bff"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-006.json",
+        "bytes": 758,
+        "sha256": "acaf85a3f050cfaa42be3a94cf88182f3029ac36292b9938fe2f11b8f8c8d171"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-007.json",
+        "bytes": 744,
+        "sha256": "b543e4e31c43bf2aed2cdce005a9b8991596bc20ab5ca006c8c17e2546f6d480"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-008.json",
+        "bytes": 768,
+        "sha256": "1700c37a5032f4b85012211b727852df0c4f8072d137e968fb05f617eea1eabc"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-009.json",
+        "bytes": 763,
+        "sha256": "2285096bd7960057f47a5ff07f455db21a55cb3b00427f5945d975c493896775"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-010.json",
+        "bytes": 764,
+        "sha256": "455ac3eaecb1c5461983420b5f7551447f2f0e326877c78d622a1d4632ffe4e3"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-011.json",
+        "bytes": 763,
+        "sha256": "dc6a382f5a443e6bfb8a3a3248a8c85e3a5065810ed15bc5b5c6c1edca727a0c"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-012.json",
+        "bytes": 761,
+        "sha256": "7a6bd501a6fc58194ec915c8dd8f40dc3e0c710e0955008b8499dc97682e90e8"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-013.json",
+        "bytes": 760,
+        "sha256": "26cf21c42df3e311e9503e630a1f736208bfdf96484bca77a2593ffe17ab343f"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-014.json",
+        "bytes": 751,
+        "sha256": "71b242ca3fc7f4b2f9f68f6e63d621ba1bc47d98a634d0e3c9215fad82a9f6fc"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-015.json",
+        "bytes": 764,
+        "sha256": "0b1408dc7586842dfe3f3bdc93fc405cd73f14c0ab31da20f4f2810e6c1c0ac1"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-016.json",
+        "bytes": 766,
+        "sha256": "aaefdc149255b23cb7e04f839a56701fb7157963cf915a1b20c40b456e7de8b3"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-017.json",
+        "bytes": 751,
+        "sha256": "c8bf177a4a54ddac6f6ac4f111283b23ba7fb1e9b2847a159599a5bb9f37a089"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-018.json",
+        "bytes": 767,
+        "sha256": "6cb8b5be9d33cb9681830e30fb3571d7131d19c1a3c88c0ee13f0b9c4eab2c8b"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-019.json",
+        "bytes": 753,
+        "sha256": "dbb8859df6691e781d8645bcedf8dcd98ef5a21ca60d3c0f0db39ab621228448"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-020.json",
+        "bytes": 764,
+        "sha256": "1efd419cef942571792810b5359550aebd586bbdf68a80a6d563e01d05d97f2f"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-021.json",
+        "bytes": 764,
+        "sha256": "1eefc050cec9887b4b4d326b8a1b026d42236762047d73d1852e0e7129e0b97c"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-022.json",
+        "bytes": 748,
+        "sha256": "a0fce7d8f959215b11d19e5b7dda9d0bb3633b9bdeef1d85cb6336f673cae5f0"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-023.json",
+        "bytes": 751,
+        "sha256": "ac607093d07a3df90f1e23fb3445a8e8e22696ba6870c6605703601638afae97"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-024.json",
+        "bytes": 758,
+        "sha256": "7914295c63b0ec1b8399832bced4884b2acd8745dac027d0769c16e31e3d1a8a"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-025.json",
+        "bytes": 760,
+        "sha256": "e49f6160305bcc01d4bad1489eff6100ad7ec4331a3f0b76e5a4355c375c09c9"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-026.json",
+        "bytes": 762,
+        "sha256": "4981e5a6fd74a9f39d2db068c027da5067aa94e841afe2705e69c33f00a3b9ed"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-027.json",
+        "bytes": 762,
+        "sha256": "6bb2e4fa7bd24983f547b814acda306d52198a6b7910262a9cc0a43799647f28"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-028.json",
+        "bytes": 762,
+        "sha256": "266bda99a65569fc4057c478e71654a41c583cd261e7d1eb1857d0159a2c0247"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-029.json",
+        "bytes": 763,
+        "sha256": "8ee35f256b98280444cdb2f3f13b4469997b6ac9b2c50dd72689f9119308f40c"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-030.json",
+        "bytes": 762,
+        "sha256": "3308f5ea5e5e93e20922956dfa5ae366c8137d12968fb36e48dc6b43cd11b5c0"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-031.json",
+        "bytes": 749,
+        "sha256": "b3f25e29d02de6d6bd9bbf12f2ec443311d1713f5c8850f070deb61bfdc9763b"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-032.json",
+        "bytes": 750,
+        "sha256": "4eca7be71635c638c1eeb90e8609912093c7213212174c0ae04f0e6f496351d0"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-033.json",
+        "bytes": 752,
+        "sha256": "773073cfdf653f995c1d83af34a4f13145d1f96eeb279cb9e9e09d74c86c797a"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-034.json",
+        "bytes": 761,
+        "sha256": "eb43e76678ce72763bfe305d451a4474ccc2f24b8f5cb490be3beca8c558de54"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-035.json",
+        "bytes": 758,
+        "sha256": "dbe493ca81e0e79685d1ce1b3c8ca11cd4b96897406203543c760bff3f02c5ab"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-036.json",
+        "bytes": 764,
+        "sha256": "f73579b69dc83a11d7ef6c5daee2bdfef53e56a406a93f7806182aa34979cfc9"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-037.json",
+        "bytes": 758,
+        "sha256": "e8a9e38ab0cabd9644f060c647b0500df5794d441777f715d144592399c718ac"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-038.json",
+        "bytes": 760,
+        "sha256": "bc1d1263ab19d71b6dd26779c804f3e9ea78334f87cca39e20850d4d9954d8b8"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-039.json",
+        "bytes": 753,
+        "sha256": "505c4b279c2bcf906e39a43474fc87110d1bf6b14a05ca331ed3b89a2153d0c1"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-040.json",
+        "bytes": 763,
+        "sha256": "1d6544511e25cb746025ff62bd6c4e89b072fae4071032f862b5771359847b11"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-041.json",
+        "bytes": 761,
+        "sha256": "b5b4da662b86f658f4eba474484a573fd6fd9fd90c163a71a8f8ffacc422c6a9"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-042.json",
+        "bytes": 758,
+        "sha256": "02dc91a0f954d7d74931ea0ed56ee9b1059abfd428976c6f40df41b583eed7c6"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-043.json",
+        "bytes": 752,
+        "sha256": "8cc78469ededeaaef84b0ae9d1517f4575cd8b99dfea6aea44b448b91572541b"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-044.json",
+        "bytes": 764,
+        "sha256": "7811b9e5c28456d37bc5858a3e472e7a8178a4e7492e874395ccf190b1bdc34c"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-045.json",
+        "bytes": 747,
+        "sha256": "51b4a180aa3a81d9e01816037ae624f2416c4fa91f559f578054cd341d5b5f6f"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-046.json",
+        "bytes": 750,
+        "sha256": "96cf41eca7d72ccf4d7baa3ab61cdb5865a43419f6b8869f04ddfe3cc98f1073"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-047.json",
+        "bytes": 751,
+        "sha256": "8ed25bc5df0e5ca600b0bc15fc1fb172a51df669802e10fd425546c6c403cbaa"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-048.json",
+        "bytes": 749,
+        "sha256": "b587171f4da6193ca641414a1b11ef08eb41b6b67a6a7fac538b56f5df8eda77"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-049.json",
+        "bytes": 761,
+        "sha256": "3f0781eb20e316011290eb640eb91bff0e2ec6dd25f8af89ce61904c26af1783"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/epoch-050.json",
+        "bytes": 763,
+        "sha256": "965d0c758341a60648a3a902dc91b7d41962d29973e8527466870a7c146cccd5"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/last.pt",
+        "bytes": 3244495,
+        "sha256": "3d758428cc078164ff3709a4b32443d93cb338b117d56e8167bbda31ad4d7082"
+      },
+      {
+        "member": "models/asl-gru-64-baseline/status.json",
+        "bytes": 3394,
+        "sha256": "0e1000b9bc066a724c02e338c31aab1fa0ffb2a877d2f2258b64a1c69d312259"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/best.pt",
+        "bytes": 1114453,
+        "sha256": "ff2ad567ff322d23357d7ca52b0037a6178350028d70e8f681e39f2b4b290a3a"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/config.json",
+        "bytes": 2072,
+        "sha256": "38112a54d2da3cf6fda05a4fa07c7b48306ee97c4514f98f7ef026b51eea9cd6"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/epoch-001.json",
+        "bytes": 628,
+        "sha256": "3fb9cd1d247eb123be08a43dc1d6e8e3b7a0e41b75c3c2a5b45cedd690eb52fc"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/last.pt",
+        "bytes": 3244495,
+        "sha256": "e3455de06f1070a250c43b68c5170285e3a306bcf27e8250a6061ced6ea5cf15"
+      },
+      {
+        "member": "models/asl-gru-64-smoke/status.json",
+        "bytes": 3260,
+        "sha256": "aeff5c562c1dadd7b6b59b7e68716db7d2e16c8457d057ddbf652b51a6f1270c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/best.pt",
+        "bytes": 3164069,
+        "sha256": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/config.json",
+        "bytes": 2469,
+        "sha256": "bfbadb2da12f74a987d72ecb4ac9c583d0c68938d9373c57cf1fa125ecf24a11"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-001.json",
+        "bytes": 992,
+        "sha256": "c41c3c1592bd4d53d171dd868f287ea8f73edd0580e4c7c9e4cdbe639a7ab567"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-001.pt",
+        "bytes": 3164069,
+        "sha256": "00be57a2bbd4940e0744659476dfb8462cc596fbeb8c800f924db658394e3abd"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-002.json",
+        "bytes": 990,
+        "sha256": "27c24c228f08a264be90691d92fa883a394c308d19825c263f8d17c6f16bafd0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-002.pt",
+        "bytes": 3164069,
+        "sha256": "baeb5c9cc0e581d0546ebca8317b465f5e7f7cc811a43da6acfd79cf3a125241"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-003.json",
+        "bytes": 980,
+        "sha256": "e043286516951847b420561e5c0ec5cdfeba6c418e2c6d1841a8394c79c035b0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-003.pt",
+        "bytes": 3164069,
+        "sha256": "d7a44b1e6238c6d81e5304ed7a1536c35798ca56ec4bc4f9ffeb25c5500f14a0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-004.json",
+        "bytes": 995,
+        "sha256": "b7158f61a709bb6161380f51ccb6f1b2bd513e5710a0ca36cc120db8c88d535a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-004.pt",
+        "bytes": 3164069,
+        "sha256": "709813e3ca8dec08d94545d865e96fd1257826cf577a9009f09e526489522bb7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-005.json",
+        "bytes": 977,
+        "sha256": "cc494e6ec9bbcf88bcb155f57446e6230fcafa27b18f48a0fcda8424aa0c982d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-005.pt",
+        "bytes": 3164069,
+        "sha256": "ace957d837f1ef8308cc84193573e4e31375fb9e42418c190ab41c6256168e61"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-006.json",
+        "bytes": 964,
+        "sha256": "c92f57a6ab02c0d33838d35a12e40bee3f79cf692ef78b99db46593fd2c42ad4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-006.pt",
+        "bytes": 3164069,
+        "sha256": "ead31063bb19b97c9fd7ceecb693c93b776b521bdb24bdb7137f686ee8eb65f6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-007.json",
+        "bytes": 1010,
+        "sha256": "b7274d154f962ef28a0bc1281d8079484d892c4848f9a50f14dacd5a4f1b163d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-007.pt",
+        "bytes": 3164069,
+        "sha256": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-008.json",
+        "bytes": 976,
+        "sha256": "5bfe8ee67301b111d013b19f51501786daaabbb4ec4b5253ce21c1a86f63585a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-008.pt",
+        "bytes": 3164069,
+        "sha256": "3b5081eb0c9a90aacb6da8ae2ced509497d6500888a3442e6661e9aef0fc9d30"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-009.json",
+        "bytes": 992,
+        "sha256": "7ef77ae1033fd59a68079d09e74488ecb37c1708f02475e3bcb633bc13836cc4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-009.pt",
+        "bytes": 3164069,
+        "sha256": "e76d1ec027ad0cf05c0e99a74351f70c3c15e63c21731915759da98497bbdd41"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-010.json",
+        "bytes": 964,
+        "sha256": "87ed591f890789e36e04d5065d1191c12963189b192486fc033280c7038274e4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/epoch-010.pt",
+        "bytes": 3164069,
+        "sha256": "abcbf1f9fa23f835332fd74efd1e2e3e0205f87da0dcc5f7f2848b607cb4710c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/minimum-val-loss.pt",
+        "bytes": 3164069,
+        "sha256": "e76d1ec027ad0cf05c0e99a74351f70c3c15e63c21731915759da98497bbdd41"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/selection.json",
+        "bytes": 2161,
+        "sha256": "9f52fca88b8e0ec7016ce02597aa64e3cdb77639277146b319c7154fecbfcee2"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/status.json",
+        "bytes": 2189,
+        "sha256": "69f324ae20dcdfe58ff90dd8ed127c0dc3f083ea22f6e97b42e8a2a67d65b0e6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/test-predictions.json",
+        "bytes": 17075,
+        "sha256": "20ec2974e13dc120c043cc9d1d864e74d9d0653e15df7a2a7f3ad354ce38dd8e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/baseline/test-report.json",
+        "bytes": 1408,
+        "sha256": "d654dcbe9ce276e44c9297abab083adce6e5b509dc456afaead328607e8b40d6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/run_five_sign_pilot.py",
+        "bytes": 388,
+        "sha256": "b4acc5da65e092acaaf8d778dc44a7da34368ed1702bc65dedef59821a6f62b7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/five_sign_pilot.py",
+        "bytes": 5620,
+        "sha256": "291731cfcbbe56ed4ddb07b43cda573975ee3d6d7f0be6a3fe488614aab40ed3"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/five_sign_training.py",
+        "bytes": 10245,
+        "sha256": "973daefbf81c23f86c82526af8892eeac12f9378e11bc7eb689944faf2cd1192"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/engine_snapshot/src/sign_language/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/experiment.json",
+        "bytes": 7720,
+        "sha256": "0b9ef50c74e370ee54f4f93c480d9034ff164c190f0d09df158be7c051327f21"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/best.pt",
+        "bytes": 3164133,
+        "sha256": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/config.json",
+        "bytes": 2599,
+        "sha256": "fe6c81ee50d8b98ad166303a8c723b28469e3e70f88524aa43458d808c343940"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-001.json",
+        "bytes": 960,
+        "sha256": "eff7226b5702c0453d77158f9e42c73de12df27b923551925287d5eed0a605e5"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-001.pt",
+        "bytes": 3164133,
+        "sha256": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-002.json",
+        "bytes": 978,
+        "sha256": "8aeebd793abe070adb9e5e342e6db0346b199683e853d28fab12d5fd57bb59bf"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-002.pt",
+        "bytes": 3164133,
+        "sha256": "afbac4124761a645bd6fe3c73f791779501d612ae300275329ba2520fa7275c3"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-003.json",
+        "bytes": 990,
+        "sha256": "eb44dd508a10895884eb107d807ca037fa4f2312ea58d7392e9c730f2ab941cf"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-003.pt",
+        "bytes": 3164133,
+        "sha256": "d325305b688d4ef662ee261483e14d779427de9113c05a1421649b87c9293315"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-004.json",
+        "bytes": 995,
+        "sha256": "a61294f7d27e83e57f8b2230a82c5d2b4ffc456a02fb27984d4f720db0beea75"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-004.pt",
+        "bytes": 3164133,
+        "sha256": "2d945cd85a32e0ed309c9082c7f23fa5b3f493363dfb13197b7c4ac2c20314b0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-005.json",
+        "bytes": 1010,
+        "sha256": "3b7c8dea5c657addfbbc7e5925c5346fdc8932b0fd7e003d00f4ab63679a2af3"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-005.pt",
+        "bytes": 3164133,
+        "sha256": "359cbf6d0e0632a4c4bfabc63c5be99ab50ca0e9cb248032d29d8be8fa088243"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-006.json",
+        "bytes": 982,
+        "sha256": "bcda2ab201c5faee5d75b564942f213f2de54056aa03f0d4dec8bc9032515ae7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-006.pt",
+        "bytes": 3164133,
+        "sha256": "66065f48422f0e01dc1ffe5b8169733b818bc2a2d0dba83945a56c72f7d68d84"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-007.json",
+        "bytes": 980,
+        "sha256": "6da7bcd77c31b4dddcc9c20436c2327eb1f4fb80e6366544fc1d63164958563a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-007.pt",
+        "bytes": 3164133,
+        "sha256": "794ed38e980561a9df056884efe2a6ba11dbf98004fa0c1c95275fc8179b7af9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-008.json",
+        "bytes": 1009,
+        "sha256": "6e19366cff42381fe771e76aa354fe61329e777dbe5261f0371809f6cbf4acb8"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-008.pt",
+        "bytes": 3164133,
+        "sha256": "9ecee2793575dd30abd6d2039a386d4d425a85d604ce3f33a956c7f6d942a8da"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-009.json",
+        "bytes": 980,
+        "sha256": "3b87e7ac607248a0179d38ce0a43d82329f28419638be986d1d01e9bcf94337e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-009.pt",
+        "bytes": 3164133,
+        "sha256": "cb59d00bbf57b7bd316ed352786850abb858e66582456ae08bf8120ca2d0213c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-010.json",
+        "bytes": 962,
+        "sha256": "96f2baa0479556f93bea3d832c0dd8848d972f4889722c64819767fb6891b9e0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-010.pt",
+        "bytes": 3164133,
+        "sha256": "1583f7020862d3fa768cb08597edbd0d50a0fb4e0adee3d3d02c1a0604eedb40"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-011.json",
+        "bytes": 961,
+        "sha256": "87eff8635c5f2f22bd50dd2bb62429728f725737bdd4a545ef017e1bff356fe7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/epoch-011.pt",
+        "bytes": 3164133,
+        "sha256": "4cc3ca80539c700e501c945cab8da8e31f82c5e9642545f58ae81c6469bd87f2"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/minimum-val-loss.pt",
+        "bytes": 3164133,
+        "sha256": "9ecee2793575dd30abd6d2039a386d4d425a85d604ce3f33a956c7f6d942a8da"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/selection.json",
+        "bytes": 2117,
+        "sha256": "90f1449d1a0f4cad2db24896f4a3e0f6da1bd4f0730fcb46fd214b010b7b33e6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/status.json",
+        "bytes": 2145,
+        "sha256": "37e986a0882df44fb19494fcf0c007bec8b5e470372abcff829512d81f5e70e9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/test-predictions.json",
+        "bytes": 17100,
+        "sha256": "b70a52e19e6cbf1357847ffa495a703fa0b3dd971398a08d81ddda8e60fb4659"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/regularized/test-report.json",
+        "bytes": 1385,
+        "sha256": "af7b12db048245d2fdf23d0948d608ebeedd00db797a6e20f7140b152f32ef18"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/report.json",
+        "bytes": 11542,
+        "sha256": "0101a91d776be533a806422e97225ce7d160073a4749dfe2ba54d184b30a4568"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v1/vocabulary-duration.json",
+        "bytes": 651,
+        "sha256": "414549d4ea3356867cd5759cf38cd087c1946a6023edefdf0fd2792f91e2e2d6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/best.pt",
+        "bytes": 3164133,
+        "sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/config.json",
+        "bytes": 2546,
+        "sha256": "fa7d58e6a2f8f13683554d87f390e471d8a4aed7a40892f767a78927106280d8"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-001.json",
+        "bytes": 976,
+        "sha256": "3b06887e11b1ce3a1e04d5cd397e6601eea9a710f83ce6923e0f7887bfad1746"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-001.pt",
+        "bytes": 3164133,
+        "sha256": "9c3f181f928ba367931c3dc0051ca95bcb4282f8df6c2c7a9d3351ed250089b1"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-002.json",
+        "bytes": 993,
+        "sha256": "4f7ca8d1a47db1a3a89996e257545f9999e75e35dbaac86a087786b51d81a289"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-002.pt",
+        "bytes": 3164133,
+        "sha256": "5eef19cff7faa67267e74cbbd6141986a42e647e9ae3ed12d5c3441a83733881"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-003.json",
+        "bytes": 979,
+        "sha256": "a2a81d9cbcd077523e2ccd6758e476b59c2969a9707d0f32f1719fb94659b985"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-003.pt",
+        "bytes": 3164133,
+        "sha256": "4f03ad449aae7d960f913f9acda43bf1cb84b1f69d8db014affce792a8ca6c39"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-004.json",
+        "bytes": 976,
+        "sha256": "73be65d701b4278d45088a01141df4eff46a0305cb4097ce91d25d4b0a3dc5c2"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-004.pt",
+        "bytes": 3164133,
+        "sha256": "a4bca90e020a569eab9c52d2acd1d0ca6b273c06c02afb204679326ccca8f0e7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-005.json",
+        "bytes": 994,
+        "sha256": "f0f5755b9079455ea86851c020090a47e6e9cc48eeb56d44a7b8565d72a493e8"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-005.pt",
+        "bytes": 3164133,
+        "sha256": "1b987ac4a7f5a9a23fcec2a9aaa35fb63dbb9d6f18c7b28890ce9bea399954b0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-006.json",
+        "bytes": 992,
+        "sha256": "2276734bb3136e3e31a27a1ac9dd53e42bf329baf40da9ad3bffcb71be387150"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-006.pt",
+        "bytes": 3164133,
+        "sha256": "1cb42999e708adb7875ccd5010844441669cdb529e03e62b8169f85e67b4839a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-007.json",
+        "bytes": 977,
+        "sha256": "b4f2208eb67881f42f92d22fe07cec9dc4c355d0e4f3374e122e212204afbf43"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-007.pt",
+        "bytes": 3164133,
+        "sha256": "1bd9d8ece9f5532d592af5d39b07170ab35385132306e601173c1aba4fe56a73"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-008.json",
+        "bytes": 990,
+        "sha256": "ad47d9cc45b8a6bee47c4b76d9bd12160e54c70f0ab6a59f8c03ff0170a5c5a7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-008.pt",
+        "bytes": 3164133,
+        "sha256": "b212a8f81511c111f43c95bb6d5b2327c08f80e0ea1dfdc52bf3fb0c624af33d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-009.json",
+        "bytes": 1003,
+        "sha256": "c8083b4c6c3960ed4de295b511a510326492febc3bdc9aed47c8bd8fccfeb690"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-009.pt",
+        "bytes": 3164133,
+        "sha256": "25590865fff032efc63a28e6ffc4934aca420fe6f280b017b0b2068a5cec10ef"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-010.json",
+        "bytes": 992,
+        "sha256": "1733fd0b7680f8f22d445681cd3cb02bcce1ab52bd24d6392a7f3656394e8fbd"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/epoch-010.pt",
+        "bytes": 3164133,
+        "sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/minimum-val-loss.pt",
+        "bytes": 3164133,
+        "sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/selection.json",
+        "bytes": 2137,
+        "sha256": "6a24ebe523983b0501f47fda9be25b3130611bb9dcda640c410e945d58a1246d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/status.json",
+        "bytes": 2165,
+        "sha256": "edee856d3458b864f2d43661869d949ab597d1970d0771293c6841467da3d426"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/test-predictions.json",
+        "bytes": 17214,
+        "sha256": "ff4713afa36e8efaadf7d92d18a3b0bea34d917f51fa19ec62fe0f5bb403f7b4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/baseline/test-report.json",
+        "bytes": 1411,
+        "sha256": "b82840d58b61dd33dbae1f4aec7e6214a2d8fdcdc713c93f18c839e046b7405f"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/run_five_sign_pilot.py",
+        "bytes": 388,
+        "sha256": "b4acc5da65e092acaaf8d778dc44a7da34368ed1702bc65dedef59821a6f62b7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/five_sign_pilot.py",
+        "bytes": 6163,
+        "sha256": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/five_sign_training.py",
+        "bytes": 10778,
+        "sha256": "c498e7945791a9a9c4a6039629366f1d4262ffb316749ac94f3e97fba917e67c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/src/sign_language/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/engine_snapshot/verify_five_sign_runtime.py",
+        "bytes": 2794,
+        "sha256": "867b01784fbc0e619d22720629de0beab6ba99d957985af8af8fe90d44ca1576"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/experiment.json",
+        "bytes": 7720,
+        "sha256": "0b9ef50c74e370ee54f4f93c480d9034ff164c190f0d09df158be7c051327f21"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/best.pt",
+        "bytes": 3164261,
+        "sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/config.json",
+        "bytes": 2676,
+        "sha256": "329278643bd5e5a1566cd9277e76a1da16962d2247eb81689c63164210068eab"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-001.json",
+        "bytes": 978,
+        "sha256": "4a392bee7369fd40792e5261fbaf3af4ed912dacc803fe7f24abed577939656a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-001.pt",
+        "bytes": 3164261,
+        "sha256": "0f120ad34f63ecf34172366fbe15b5e5d618a44110c03c715330d99cc735b4e7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-002.json",
+        "bytes": 985,
+        "sha256": "7c9d194aa8700f7a0affd5a333c46defb149d71e9f86a00f2c5e8988b6b516fe"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-002.pt",
+        "bytes": 3164261,
+        "sha256": "39e36e6ecaa364ec37b9369ef4a60f9172dfdf9b88aac9a5d680df615eb6298e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-003.json",
+        "bytes": 994,
+        "sha256": "0afe52a9c3aa71f1ce583a67163d571c7942490565bbc9e5d48ad7a3d9d6d7e9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-003.pt",
+        "bytes": 3164261,
+        "sha256": "b9c165dbb2a4f20b1c91b239182a60d0edcccd819d5cc0394d2ae30f3d1ca338"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-004.json",
+        "bytes": 995,
+        "sha256": "6b75ab8079764d28a248dfd1965ff6bc23f590b729a601f8d5b9274b4a2f3630"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-004.pt",
+        "bytes": 3164261,
+        "sha256": "00a989c3876e7f28fd2802d296c57a3195eb0388d046420dc603925c71b668db"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-005.json",
+        "bytes": 968,
+        "sha256": "20e04de9ca9d0f3493c03b1674e8cf74598e89c664193689cd36239fd3c10459"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-005.pt",
+        "bytes": 3164261,
+        "sha256": "da1f32316c524b36e4f079c54203f92711ae086e225c16fa4784156599decabf"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-006.json",
+        "bytes": 993,
+        "sha256": "ac3af5cc108d9a4d51655e55616dc175959d0e4af24bc870d1ceadfc28c24003"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-006.pt",
+        "bytes": 3164261,
+        "sha256": "f5a2cf7a04aed217b6aabf535cdb63415cae916ce0edf2f858ad6b7d0f549ee6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-007.json",
+        "bytes": 977,
+        "sha256": "03117335dac60ca84e6cf5d9dacadcb60500ad7fb667017c078b949a84f8afd4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-007.pt",
+        "bytes": 3164261,
+        "sha256": "61252367d6f1159a3e9552f62320ef314143c79ed6aa7527da2da013bc13ea9b"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-008.json",
+        "bytes": 950,
+        "sha256": "6a1bf65a9884b726a56b3980250fec4482161994b8e757bb5ccf0ad73f5d8d48"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-008.pt",
+        "bytes": 3164261,
+        "sha256": "899b6e63f5f6b0381626fd00b2e6f00ca951e9c4df7caefb3677163e0def0f5c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-009.json",
+        "bytes": 979,
+        "sha256": "8c0c4b46d83aebfd52ed17fd8008313a9878cf3eda2811deff0c76cd86290e5d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-009.pt",
+        "bytes": 3164261,
+        "sha256": "3802c9a9ca846d5dcfff7f147c6b05407c8d4d5b22120c302055b618f3961ba4"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-010.json",
+        "bytes": 955,
+        "sha256": "2d4bb81f15f4887c1554cac349e9d97cbfa48954ae0c780ccba17aeffc8fde1c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-010.pt",
+        "bytes": 3164261,
+        "sha256": "09ff6f042074a04e4edb147cf5a04832f417dd7eb423ee8891f8ea7cf9516194"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-011.json",
+        "bytes": 991,
+        "sha256": "072eb5045f0750e30a3fa7d809c63174949c0dd13b49aa47a65c831aedca6738"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-011.pt",
+        "bytes": 3164261,
+        "sha256": "429ec0dd1b2799961dc9a39de215c949b72d578f57dac9d40e318f26e2bcd249"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-012.json",
+        "bytes": 992,
+        "sha256": "582dee00e1002166d679c49a2daedfe96295143c0aed2004c62b8c999d7404ba"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-012.pt",
+        "bytes": 3164261,
+        "sha256": "076f392d16140dad56d8f91c9a008c1dd8274d3553a0c0eaba2049220596e278"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-013.json",
+        "bytes": 986,
+        "sha256": "562ba92ca7c4cc060de6da7d6f38257d30706127ec748bad0085d52f4d7b8a46"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-013.pt",
+        "bytes": 3164261,
+        "sha256": "167f32227e0896102912e6a8aee99091e20d7296dc55583763b093795a9cc184"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-014.json",
+        "bytes": 983,
+        "sha256": "3705c7299a1e6d2f4ffca5e2ebfd8d2999a67c28a817f495ef2660b75f187584"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-014.pt",
+        "bytes": 3164261,
+        "sha256": "29472044dee3b8572a34255e0ccab603f810ad1d781f176244040b4e018b3849"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-015.json",
+        "bytes": 975,
+        "sha256": "f6f944ef14379d00f5d73e5b6ae9cc8f137991b66ec7734d444ee93dfb813a5f"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-015.pt",
+        "bytes": 3164261,
+        "sha256": "bade46e21dc63ed24d803ec981fd4b820dbba9dc0c2bb14ab93df9ca08b6f65b"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-016.json",
+        "bytes": 931,
+        "sha256": "5816b0aea274f49d6f10e099078c6f3f6a74a2b603bf2d49c8a48fff01abe124"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-016.pt",
+        "bytes": 3164261,
+        "sha256": "a694d0612d53d070f60943eb58a0de5ea80e7ff4443070db62f6de0303596598"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-017.json",
+        "bytes": 1002,
+        "sha256": "600fd7720e5db6561523b541b92e2e507505167a339bdd06221427cceed00834"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-017.pt",
+        "bytes": 3164261,
+        "sha256": "7765cee54d523a970a18e7b6d730774a03e543a1b235a98da68f97316803dfdb"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-018.json",
+        "bytes": 959,
+        "sha256": "6311421aa726b0b5e1a026dfc0c73df395a14fb71dd4132858f5f2f6a8af5c6e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-018.pt",
+        "bytes": 3164261,
+        "sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-019.json",
+        "bytes": 972,
+        "sha256": "f5e2f1e88f18eb30f491f0b156c46fa8ed7b7159f77996431d13f0daf8319062"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-019.pt",
+        "bytes": 3164261,
+        "sha256": "d80e04ff051660c6cff46f6185f58a557961352bb08d92f3cadba55f0bde8321"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-020.json",
+        "bytes": 913,
+        "sha256": "829f8020da68c6b9aad4a868ef01fea2ad028f4b62e332f3c55e729f4c826e88"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-020.pt",
+        "bytes": 3164261,
+        "sha256": "f5fcebaacd7392fed122eaf5e8c3fc83560a68e8d11da5779f045a5e5ea68ac1"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-021.json",
+        "bytes": 962,
+        "sha256": "683afd43f1b0038951ac619f338d779e8b7f2da4d9db1b38def4073e3d55e14a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/epoch-021.pt",
+        "bytes": 3164261,
+        "sha256": "02f5c6af4baddf01353858d2b6c792be79d55385fffdd866117016339c37c5d6"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/minimum-val-loss.pt",
+        "bytes": 3164261,
+        "sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/runtime-consistency.json",
+        "bytes": 3696,
+        "sha256": "d4f1268d9f5d0773b2eb609a34691ea8f51cf09573358b939331ecea27b03eab"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/selection.json",
+        "bytes": 2133,
+        "sha256": "6d2ac32751ac495a83fb9c15e99422277e568664765e02bc12b5ac8c9422fc24"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/status.json",
+        "bytes": 2161,
+        "sha256": "1767fc3f53df5791aaa9785000bece5770efaccd2dbec106066835adfd2ec1e5"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/test-predictions.json",
+        "bytes": 17170,
+        "sha256": "2d8149449362db974e0e10fab0f4616a3b66881df7a5c3127971688e83c63f67"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/regularized/test-report.json",
+        "bytes": 1438,
+        "sha256": "0292a78adddf4d607eebfea717bcc8e23c5b3e3d9a71f25f34e54fa9a588409d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-early-v2/report.json",
+        "bytes": 11566,
+        "sha256": "ac85b8344aa43da4b0ef8aff6cb5bfe6230a2fa35cd717cf779b24cda6197653"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/best.pt",
+        "bytes": 3164517,
+        "sha256": "909e90daffb8d244c7492d1303ab8dfeeddd8b325c0335ad74207711385466c9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/config.json",
+        "bytes": 2915,
+        "sha256": "0841213e744d6b819c52f9f0120baa673d5e952c78ed2577ffe491fc5aa5a1d5"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-001.json",
+        "bytes": 985,
+        "sha256": "02110203099876e5002ded5e580a7f4cb3f5f44cd2daad476bda5983edd16a7e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-001.pt",
+        "bytes": 3164517,
+        "sha256": "83a1b28deafd31d8badd17bed93543ce9a287d7131e9f4561c87fec60a8cc1e2"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-002.json",
+        "bytes": 982,
+        "sha256": "e793b3203c51957ed371ad6d5d8a0b5d244f15cd7dfcc66765c5b76491ba1d8a"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-002.pt",
+        "bytes": 3164517,
+        "sha256": "a920f696f0793eee666c7ac88c04fbb76fca228c321c56a2457f9199ed3a01da"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-003.json",
+        "bytes": 972,
+        "sha256": "70baf226c2be17db2ccfbc36ff6c53dc620ba4d56d782c0b491e41b4a279c0ff"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-003.pt",
+        "bytes": 3164517,
+        "sha256": "26f7d986abcba77c8b3eba2485412b93d8f34289abef3cc2b6ddd39e816baeca"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-004.json",
+        "bytes": 962,
+        "sha256": "50109624431152868dd52e514e3c54d9297a03d89ccd2deb7eb9589819b36e3b"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-004.pt",
+        "bytes": 3164517,
+        "sha256": "909e90daffb8d244c7492d1303ab8dfeeddd8b325c0335ad74207711385466c9"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-005.json",
+        "bytes": 972,
+        "sha256": "c9fedd31992ae95ab2f8c39c2b60920ca90be2e5e30c3cc18749c87bacfca581"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-005.pt",
+        "bytes": 3164517,
+        "sha256": "544a38dcd5c10018eba75bf54ca1d68a267ed1a35841b6a3e2afeba0e72e3963"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-006.json",
+        "bytes": 986,
+        "sha256": "69defee5d0fd865414ece9c3aa2d811fe321b58f4bc3fe14f6be2147a643f84e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-006.pt",
+        "bytes": 3164517,
+        "sha256": "2ef803077e952808fefa947de97b1cb4e4762a54a5898875a5dba4dead29d146"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-007.json",
+        "bytes": 955,
+        "sha256": "172979d9f92a9b8ccadc1fdadfa92b6b461c131e3ea3922908fad6278ae43f83"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-007.pt",
+        "bytes": 3164517,
+        "sha256": "01ded108d2e68e62f65096b594fdbf951cd4ca5ff74ddfa43216e02ad66adef1"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-008.json",
+        "bytes": 983,
+        "sha256": "6dfa8874766cdc20e5544fecd1cc41e239ce8820a95e91720b62da19e42fa28e"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-008.pt",
+        "bytes": 3164517,
+        "sha256": "b79086147e01451b13309c9717c7217c77bfe728b6e01b42d09296ff4038d621"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-009.json",
+        "bytes": 985,
+        "sha256": "65fc71507b8295b42bc3149e4fe483157bc57912b693f5ba805ca36c2d1d1e5d"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-009.pt",
+        "bytes": 3164517,
+        "sha256": "6b927d14857d63f94edea61932fecf2374b24e41306ff480112c9cb38c90caf0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-010.json",
+        "bytes": 984,
+        "sha256": "c628b4c655277881807cac22c07ff00042a75779a580de9f7e891e90a9d13fd8"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/epoch-010.pt",
+        "bytes": 3164517,
+        "sha256": "ee27c2d8781e662bbc4a4b1c84cc924554f1b535028cd4b381d74bfedf7575e8"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/experiment.json",
+        "bytes": 3367,
+        "sha256": "f4d8569ac529ad8de182c7bbb946cc7f294ebdcbc7284017db334a9912cfcd5c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/minimum-val-loss.pt",
+        "bytes": 3164517,
+        "sha256": "6b927d14857d63f94edea61932fecf2374b24e41306ff480112c9cb38c90caf0"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/report.json",
+        "bytes": 9185,
+        "sha256": "898ab09c41a9782b3ff195d3049615ae10d26f757b786602859ea29cd960ca52"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/runtime-consistency.json",
+        "bytes": 3720,
+        "sha256": "79ee9c1f11ca02e635d03a8945bd7ff0f9aa1959eb945ada80aae1f0fe6f2058"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/selection.json",
+        "bytes": 2171,
+        "sha256": "43fbaa8713e3a595166cfe349d3b4ab5c96bdcfd128de6a8946a69a6252e5b70"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/five_sign_pilot.py",
+        "bytes": 6163,
+        "sha256": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/five_sign_training.py",
+        "bytes": 12317,
+        "sha256": "89cc3f63d6be664febf3b2254760b66ad0218f2719c7f24576593919fbd21911"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/gru_mean_pool_model.py",
+        "bytes": 1513,
+        "sha256": "7637a8545a762f9f1bb2243d6794b06eb1e05ee2a4dc0d34efba3928912bd4ce"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/source_snapshot/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/status.json",
+        "bytes": 100,
+        "sha256": "5df04f3994eabe91145fa8abc455362c199622ebd81cbd375696f442422617c7"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/test-predictions.json",
+        "bytes": 17171,
+        "sha256": "9ebb2af6f8d2b765ba40f7d1937f96a262dca1aaa7a0e08b9188a542494e2824"
+      },
+      {
+        "member": "models/asl-gru-five-signs-mean-pool-v1/test-report.json",
+        "bytes": 1410,
+        "sha256": "dffb861b69fa18fab964f12469d68a1349aa1457a54af85210e0b6a3ecf45198"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/best.pt",
+        "bytes": 12447179,
+        "sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/config.json",
+        "bytes": 4607,
+        "sha256": "2ae877238389a9b2123ccdec10970754e3cb003faaffc35c201b8b90d55ed223"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/five_sign_pilot.py",
+        "bytes": 6163,
+        "sha256": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/five_sign_stgcn.py",
+        "bytes": 3682,
+        "sha256": "ba28797756e7bb3a7edb569c77bdcc557893eef3144d53cfa509a825a7905aee"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/five_sign_training.py",
+        "bytes": 11841,
+        "sha256": "1dd742040da5470af617cd43a88398e4a31d1c178e459605721323a13ffdbd1e"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/stgcn_graph.py",
+        "bytes": 1974,
+        "sha256": "1d9be7e09602051ee277b586e4e269d3c3775cf28dc08d4ade2b5596c9d7f522"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/stgcn_model.py",
+        "bytes": 3075,
+        "sha256": "cb186ac7be755cb63c697c9e204d25f1127c1f5151a88e2249f3e6f7720201b2"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/engine_snapshot/src/sign_language/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-001.json",
+        "bytes": 993,
+        "sha256": "aaa7cc645193c5427534c29606e68c552fafa9663ce033fe6cb9443f3cbbdc90"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-001.pt",
+        "bytes": 12447179,
+        "sha256": "5991a4816b6762d03227f154f7039383ba3f8d58ceaf55d6d607fcb51e46abe7"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-002.json",
+        "bytes": 991,
+        "sha256": "8564a448b7ab8f58230fbe4078da8332b694bfaabbc53d11023eb6ee9518a930"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-002.pt",
+        "bytes": 12447179,
+        "sha256": "57c2e6069c7a9bbf40e09b0ede0d009e31f7af331b37b91b9e4e82b313791c3b"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-003.json",
+        "bytes": 1001,
+        "sha256": "23d5f460793bfd4ce2ac8ca100689596ffa6543919b5d742627fdd1bebf75667"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-003.pt",
+        "bytes": 12447179,
+        "sha256": "2536852897363cfc63ffe94a52a3761ad953cecaff9198fabd5e896490ad1e85"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-004.json",
+        "bytes": 985,
+        "sha256": "8eec2ef35d59cb636bcadb6795f7e7f87e30fa3fea253b2e13949362631a9000"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-004.pt",
+        "bytes": 12447179,
+        "sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-005.json",
+        "bytes": 983,
+        "sha256": "d18c2e6e9d7181cd044d9bad4c33b5832f50df6d9c5e8890794414cbff0898f1"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-005.pt",
+        "bytes": 12447179,
+        "sha256": "7247c120a565b2f0e75d0393eaf2c7d2b425942fb4c261253750f437c6c80f90"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-006.json",
+        "bytes": 985,
+        "sha256": "a2b112aa5b500bf7732d1143d3f239c2ca14ff6e79cbfd262ba3ad09cb98d479"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-006.pt",
+        "bytes": 12447179,
+        "sha256": "41306f5903542d692311f631cdd16043ebc50f997b2e77b893174afb43d55d39"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-007.json",
+        "bytes": 987,
+        "sha256": "2f56be970690b959a1ef4fa14dfe5f780459bdb6813d31aeb9cd8bc120e88fc2"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/epoch-007.pt",
+        "bytes": 12447179,
+        "sha256": "6199ccc4adf7678f5f39486190c84bffa9a150aee0f55694cde417b513312bba"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/minimum-val-loss.pt",
+        "bytes": 12447179,
+        "sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/report.json",
+        "bytes": 7104,
+        "sha256": "5be981fe3921cb277c7b1d1027789aa120f8ba2390570adf8573befe83ff6a8d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/runtime-consistency.json",
+        "bytes": 3722,
+        "sha256": "38fb8aade8a05616a8fb31531f6ccb81f31a35bd497046b0cc481e3d76471ba6"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/selection.json",
+        "bytes": 2156,
+        "sha256": "46688b7650d8a87b2700f288a6202e9b6a7b63559510a1a97eb47be9e26a6b8f"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/status.json",
+        "bytes": 2184,
+        "sha256": "88f2f212ffaddd52f49526168bfbf050f9df0d82574c50bc22103ba3ed9823b8"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/test-predictions.json",
+        "bytes": 17189,
+        "sha256": "cea53e5b7640046cdc9127d702cb675d453157ad5516a824330544bdf9b18142"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-early-v1/test-report.json",
+        "bytes": 1425,
+        "sha256": "d37621fcd6c520897511a576ec64adff892c4f81d99b16c68bd37054d93c1b2c"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/best.pt",
+        "bytes": 12447179,
+        "sha256": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/config.json",
+        "bytes": 4607,
+        "sha256": "4fff5c4f87752561d16eac980b3beb0e5bdfbbf488d1d5e765ab5edae12a3b6d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-001.json",
+        "bytes": 1004,
+        "sha256": "1d1db89081685e99e35b970a51b5899ea62dd8b98297c83e74418aabeb5ccf98"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-001.pt",
+        "bytes": 12447179,
+        "sha256": "ff154516a0ca4d32e6e9f11ec4804e1c6d38d654a7cae2d8fdfb5e615d383b86"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-002.json",
+        "bytes": 977,
+        "sha256": "e19ee0af8004eb92643f59de7aa07dd20ca9fdece4cef63805a563f7e2f4a67f"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-002.pt",
+        "bytes": 12447179,
+        "sha256": "04eff4c71a7a0d92749f654e49b2906406e7f75f7521e030862ff908d137cae5"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-003.json",
+        "bytes": 1001,
+        "sha256": "1ee0eafed7e82424b8c0e73333e038e4dfcd2b2c7ab1a2fb82e43081dd6b6d92"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-003.pt",
+        "bytes": 12447179,
+        "sha256": "a9c71d934420b38ed7987a58fa31b81fb70c70fc2ae61143674e3cb73c411c41"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-004.json",
+        "bytes": 986,
+        "sha256": "402f56c68c60d59028a8a3654e8fa664bc337082a2a29cec54cade4dd1bb1195"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-004.pt",
+        "bytes": 12447179,
+        "sha256": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-005.json",
+        "bytes": 983,
+        "sha256": "38baee5898e49879f5f166d6fcaa5a128e31a3064b4a0f1a29f2ffa47e257c2c"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-005.pt",
+        "bytes": 12447179,
+        "sha256": "597b1447057bc2c3c569c5e5c7f719e0c2147bdeaf5f5b8287328a888a579aa5"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-006.json",
+        "bytes": 986,
+        "sha256": "90844fd637343622d77f2828735c503a01bc86db058ed720eb784e84d9f952b4"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-006.pt",
+        "bytes": 12447179,
+        "sha256": "c1c35fbfd0e18a5a96c0d6861dbbe1a22962064f25f903be0d3dc84dbcda6203"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-007.json",
+        "bytes": 987,
+        "sha256": "18be0800fba0e199cde8f19d1c4d254eb83d4acb068ff803389440c8608515ed"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/epoch-007.pt",
+        "bytes": 12447179,
+        "sha256": "d0b1bcd5e03353a2822b2c8d043f461c1f01d30cc9ed8ad0e6865f713e35bdd4"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/experiment.json",
+        "bytes": 3493,
+        "sha256": "c66ea6392034c5bd429a9d5f27ad6807186a120d0a882312b5f908de87383059"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/labels.json",
+        "bytes": 79,
+        "sha256": "bba194c91c2f5ec5730c16de8c3e57bdbfe095511ce28381a62889b727ff7326"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/minimum-val-loss.pt",
+        "bytes": 12447179,
+        "sha256": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/report.json",
+        "bytes": 9324,
+        "sha256": "7401146dc65f60e1a827209922250631fa1608cb7cf5b85c6086fa6e961128ae"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/runtime-consistency.json",
+        "bytes": 3722,
+        "sha256": "38fb8aade8a05616a8fb31531f6ccb81f31a35bd497046b0cc481e3d76471ba6"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/selection.json",
+        "bytes": 2169,
+        "sha256": "fb4518385323bc90c3e6efec0ab66667f35acd6af6e28e9263da2a1478a1126a"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/five_sign_pilot.py",
+        "bytes": 6163,
+        "sha256": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/five_sign_training.py",
+        "bytes": 12317,
+        "sha256": "89cc3f63d6be664febf3b2254760b66ad0218f2719c7f24576593919fbd21911"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/run_stgcn_mean_pool_trial.py",
+        "bytes": 4935,
+        "sha256": "539ecf8cba0c797114e41ec2d7eb617410e01c17eed90884f98a6c08212dfd7d"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/stgcn_graph.py",
+        "bytes": 1974,
+        "sha256": "1d9be7e09602051ee277b586e4e269d3c3775cf28dc08d4ade2b5596c9d7f522"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/stgcn_model.py",
+        "bytes": 3075,
+        "sha256": "cb186ac7be755cb63c697c9e204d25f1127c1f5151a88e2249f3e6f7720201b2"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/source_snapshot/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/status.json",
+        "bytes": 99,
+        "sha256": "f9765a2ed33869a70728563a4781840e1eef2477ba94f43065eed0a49f5be4cc"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/test-predictions.json",
+        "bytes": 17189,
+        "sha256": "cea53e5b7640046cdc9127d702cb675d453157ad5516a824330544bdf9b18142"
+      },
+      {
+        "member": "models/asl-stgcn27-five-signs-mean-pool-repeat-v1/test-report.json",
+        "bytes": 1425,
+        "sha256": "794ee8980884dd86167b31d8c47c3eefab01c4387da1502c741705442373fcd9"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/best.pt",
+        "bytes": 15292433,
+        "sha256": "a9e8f8fc9ad6d379182f881368fb01fb23937cc91f18d24b211efb1a1a13f8e9"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/config.json",
+        "bytes": 4037,
+        "sha256": "ebf1cecbe6deab809f3f759e4050c2df822508e7d1c5bafe30604652417673f6"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/epoch-001.json",
+        "bytes": 614,
+        "sha256": "ffee3a2022a90d8256bb9b972d1b59bf1dfe9c6da2bfb5519321f89572ddeacb"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/last.pt",
+        "bytes": 45681992,
+        "sha256": "913770880ba6dadefd14de98a447beae6060025c10802a2236a025f48f20123c"
+      },
+      {
+        "member": "models/asl-stgcn27-smoke/status.json",
+        "bytes": 5564,
+        "sha256": "d0de07c7a981d4049e654f7e5eecbb2089ea6af8863b51684a02b2232dc8fd73"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/best.pt",
+        "bytes": 15292433,
+        "sha256": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/config.json",
+        "bytes": 4039,
+        "sha256": "6b8df458e693122f8cea08eaea44e8461f05ffcfd27a20670b5a8957c2507ec5"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/manifest.json",
+        "bytes": 2112,
+        "sha256": "57d137a3417cacb9707360ad1c60510aaf63b78729d71b90bbcb25aa2c5e0556"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/__init__.py",
+        "bytes": 68,
+        "sha256": "eb86ad3a10417aa3fbdab1b41f9cadaee1258ea04cbf5cf3c441fba06a2722c7"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/assets.py",
+        "bytes": 1240,
+        "sha256": "7568e69cf8145d36e07e90dc715d7fe5639eb2ea53177efe95d39aa4bc716647"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/cli.py",
+        "bytes": 4034,
+        "sha256": "4513ee588d39810ec3c3ee101ff79553ee65d14a96541fedfc3505f83afce37a"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/cross_validation.py",
+        "bytes": 7012,
+        "sha256": "6a63594079fc87a84e2ecacd52847e813224f5a38a35996f95d3c6c4404e8d8c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/dataset.py",
+        "bytes": 10629,
+        "sha256": "0351152f81d82d352b8c7931fc71db40517eff591c385b9aca9567cbb749e4a3"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/evaluation.py",
+        "bytes": 12848,
+        "sha256": "3639ab6fa1e10d99376cbf995f129174f2f36dad718af9922566af2c2073fe64"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/extraction.py",
+        "bytes": 14233,
+        "sha256": "9a5cde858ea022679573f774f1bfd432a93b2724f58f946cc2b6fd330e097c90"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/hands.py",
+        "bytes": 2655,
+        "sha256": "fe23ebf2140806d3e298fed10fc3009b826c48e4e9dc632d0d2608fe7c8f8f6c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/landmark_models.py",
+        "bytes": 1526,
+        "sha256": "bf86e8b4f360d5a8e9d65ae4c3a2f61fc86a30780baf7e88af23ae1c2bd128d7"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/paths.py",
+        "bytes": 115,
+        "sha256": "8f7e7d6d6feb772ca0260bc19cffb3d613ce9e50e0f403061ddc631b734a802e"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/raw_landmarks.py",
+        "bytes": 7496,
+        "sha256": "25ed7582b986a00106c944399be9327c9a1d59bc5ef21f94a9a3ffec5e881a70"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/recognition.py",
+        "bytes": 6700,
+        "sha256": "01b6d947c608dcb0ab86526622c6567ca22bdcc7c17775e4f7cb00daf2c8c18d"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/recognition_diagnostics.py",
+        "bytes": 4710,
+        "sha256": "355ec11104bc782eba8a1f68f2d643605dba287ffa1255fe9d607bf6ef63aa76"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/recognition_webcam.py",
+        "bytes": 7551,
+        "sha256": "3e48f1234226490cfb85cfb9cc02266865066fad4059560e25c9058ed762e8a9"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/stgcn_graph.py",
+        "bytes": 1974,
+        "sha256": "1d9be7e09602051ee277b586e4e269d3c3775cf28dc08d4ade2b5596c9d7f522"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/stgcn_model.py",
+        "bytes": 3075,
+        "sha256": "cb186ac7be755cb63c697c9e204d25f1127c1f5151a88e2249f3e6f7720201b2"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/stgcn_training.py",
+        "bytes": 8157,
+        "sha256": "416e915f1d9721df604c8893a9fb888e0ca52daf57d7f10306b6e8a0c91f101c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/training_cache.py",
+        "bytes": 7058,
+        "sha256": "112e83107e9a593cef0bce33bc5cba071f83638fd20c48aca5e2ea105b250d34"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/engine_snapshot/src/sign_language/webcam.py",
+        "bytes": 3187,
+        "sha256": "1bd4865cc345057812f19fd1e28a63cd4478866a9c6dd4b8d6f837bd18026f83"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-001.json",
+        "bytes": 782,
+        "sha256": "5e5f1b4a3422c596ea4a621366180d6b4737e4ec3ea8c4f52446a5f5e4bab894"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-002.json",
+        "bytes": 784,
+        "sha256": "906fa723bbde3cb32295547d3966b88714bf987164054f6bff6d7dc3be7173fa"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-003.json",
+        "bytes": 770,
+        "sha256": "b905c4d26ae9f1620dd8131eb2b61477451dff15ea68488fa6d91dc0c2959ce0"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-004.json",
+        "bytes": 778,
+        "sha256": "5549a1d65dba9afc8d641694f340bab4e6a9d08116b7ca83bc6086d715f8cfc0"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-005.json",
+        "bytes": 773,
+        "sha256": "5b690476e8747772991e523a94e8fc132d0c7bc3365937538638450c1d440f37"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-006.json",
+        "bytes": 761,
+        "sha256": "e4155be8c482daa23c25e10c55eccf3e08fac6a105d7573f9f9315f1b93ec88c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-007.json",
+        "bytes": 771,
+        "sha256": "2a759671ec920f91cc23781a2a2fc4c4bcb278700cb6c38b9ea8709d5b27153a"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-008.json",
+        "bytes": 764,
+        "sha256": "3d59e0cf742e8d9a0949de622bb4b7284e0d5fbfa2557587bf2b60e6dcd0b23b"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-009.json",
+        "bytes": 766,
+        "sha256": "257ad957c0dd4d72a5a22ac0e48606faf3cb569f95b9a66aa7c8633e5a6a921f"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-010.json",
+        "bytes": 767,
+        "sha256": "2d1d6d76b371c1803d5caab79c42cb0de00d35287edc5489e79a2637486db03c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-011.json",
+        "bytes": 767,
+        "sha256": "ede4d1cfec158126a573580dff824464778b6bc8d388f3e2b71378a0852352ac"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-012.json",
+        "bytes": 761,
+        "sha256": "e25c2085be1d74f8579dd3daa1d313c9904085d8e2cafeca8fcb844428bb607c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-013.json",
+        "bytes": 767,
+        "sha256": "4e0d842c3de409c65912297803fe09044a6bad12f25b1bc2f1d9bf8c4a37ac75"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-014.json",
+        "bytes": 768,
+        "sha256": "49558d07335fe1d88aad98b64a09cdbe7621136d3f755605054318c600cf345e"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-015.json",
+        "bytes": 765,
+        "sha256": "5f1de37aaea16449808bbaa197ab0feb9b6dcb65d63f231b9407c17895684206"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-016.json",
+        "bytes": 766,
+        "sha256": "7ff3e317bddfe3300c81c648e368ce39e0572995eb174a9739354c289d88a84b"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-017.json",
+        "bytes": 763,
+        "sha256": "c3fc76a9e0318e47c8ce055d7038136020f70225ef43bda2b0d4ea597dff7a0f"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-018.json",
+        "bytes": 754,
+        "sha256": "1b27e22015c53c824e592f7bb910bb9715c0ddc82bc0ed1a345596ea8b615185"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-019.json",
+        "bytes": 764,
+        "sha256": "fc27b55f35d9083471bb328ec81cf57aff8e3710c67555fc63c49bf7b224e9f3"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-020.json",
+        "bytes": 753,
+        "sha256": "ebd38a9abe6493b6fddc81bb700559c2fa070055e8fbee99ca6277088014643b"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-021.json",
+        "bytes": 764,
+        "sha256": "ade63c1630b480a471c759c646083681cbb70350520b45eee513d3b4b792841c"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-022.json",
+        "bytes": 748,
+        "sha256": "e9abbbed645183dde2ce0a6afda840b634cfe8a8befc709d44ad78c5e136bd1a"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-023.json",
+        "bytes": 763,
+        "sha256": "64c5b89ddfb7ec9660967be053467617df002c52157b614559253bdbfc1d7d17"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-024.json",
+        "bytes": 762,
+        "sha256": "0dc98379a8ed792680dc1e04ea1bb74d4b2d37cce4ff4a2830ea4a3f935e7576"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-025.json",
+        "bytes": 762,
+        "sha256": "6a1b2624b027749b98b64ed89a38623ba778bc8da9fcbea2aeb7c70b9a925659"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-026.json",
+        "bytes": 762,
+        "sha256": "c7ae4b8ac84cf8d320ceb72f639ed2703ec7f71028b5b407d8bb5f0581c6e24f"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-027.json",
+        "bytes": 761,
+        "sha256": "f127afac912b7d7d09765b1e2292defe835c5a21a3a39a1ae194f817befe38b4"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-028.json",
+        "bytes": 751,
+        "sha256": "4e96ac6fc8fef8303177051ac795fd5a726d71ec2ae755ec4d8162721bb28f60"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-029.json",
+        "bytes": 752,
+        "sha256": "59d97c30e0133a6f48621f2469278af4845920fa317824e8b2875e347da4f63a"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-030.json",
+        "bytes": 762,
+        "sha256": "7c8bdf3b0d1743be315eb4c50c911fea846d77457319d0a7ba6f563b08b8dd37"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-031.json",
+        "bytes": 739,
+        "sha256": "130e16e35a33f838b25d9c633b82850b83b43061f5d22c0ef0e552ba45952e0d"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-032.json",
+        "bytes": 760,
+        "sha256": "c1ccbf03386928c58ad8517c1b81f20f475c1d2fa1607f37aade04490131a7dc"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-033.json",
+        "bytes": 749,
+        "sha256": "f6e079e96f03676bb1fd63ae5fae877f39b2e77e13c48cf3aefe12be2c156908"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-034.json",
+        "bytes": 759,
+        "sha256": "763d2093d3aa4c798fbf79c0c675eb4d39640053abb0872bb68b2f93a7ebb67a"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-035.json",
+        "bytes": 763,
+        "sha256": "1173adc8239fa0d0f4ca50347838d5359de45327b51021c9a48bb66c822ef042"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-036.json",
+        "bytes": 752,
+        "sha256": "ca4fde30e38117d181b2a2af8e1c4ba37be4989c0ec0a8a82d5cb62231ee5d10"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-037.json",
+        "bytes": 762,
+        "sha256": "289c75ab4fe765f27e8528d7a4d7574f9461bf92755a1216415db217c5fdc712"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-038.json",
+        "bytes": 750,
+        "sha256": "e319b7640100def1a951c3866258c7fc4c7de5b64e9711cc625b1a4375a99d40"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-039.json",
+        "bytes": 749,
+        "sha256": "8903ab8c25e281268eda9952d765f32591e40989329d893c1841a40e9f9d0406"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-040.json",
+        "bytes": 762,
+        "sha256": "18d63ffe5e85bc44a74b86d05bbae6eba9b1079db86c24c388e8860b43e5289b"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-041.json",
+        "bytes": 751,
+        "sha256": "26a1260871c97ef9734d6cf847fb20c9512c47dab4de97adca5e9a16f8f11de6"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-042.json",
+        "bytes": 761,
+        "sha256": "3bc0024ef264e5c5a85a1b83aa1fae65f4db1bd1dcf5f741aa786c75c75bf4fb"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-043.json",
+        "bytes": 735,
+        "sha256": "bfe352a666f63af597a74f8cc3b4025bd513f26fcafcaa0eebba186dbb750be7"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-044.json",
+        "bytes": 766,
+        "sha256": "1a0e20b900e0922c12f6c9d1ce62acb68af4b0b19de59c50fda2d7f8623f13d6"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-045.json",
+        "bytes": 750,
+        "sha256": "8a95b7bb251ee947326817f56e657c9de6122468aa6d4ed5c3f6086204b0d099"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-046.json",
+        "bytes": 755,
+        "sha256": "4a3b1d0ac211d5e2fa9ec340898f41161110f0d9184a92a45d240ef5777a9258"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-047.json",
+        "bytes": 766,
+        "sha256": "63ee3d278d07ed7e55deac98dfab94325a47cd4025e49fc653cf31cea95bacdf"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-048.json",
+        "bytes": 765,
+        "sha256": "5a214f8347fca7b1178fe34f60beacfb53482e0308809f480c0df3b04451c064"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/epoch-049.json",
+        "bytes": 751,
+        "sha256": "a30e2ca69916dd0311d0ea37937b9d7149aa47e0bd13c441b67a0bbc4ce2a871"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/labels.json",
+        "bytes": 52273,
+        "sha256": "46d8eb8ac21c8dcc28085f2a9f0c3942b3b84dbcbcb22b568931e4f5009ddce7"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/last.pt",
+        "bytes": 45681992,
+        "sha256": "d14768b64b01cde6771d8d67a438521e1537817a830e3d6dec40dfed3e5d9283"
+      },
+      {
+        "member": "models/asl-stgcn27-v1/status.json",
+        "bytes": 5703,
+        "sha256": "855aa762748951c740a7a46809c3fa104d971604bb40b2c7fb5adadd9e962784"
+      },
+      {
+        "member": "models/hand_landmarker.json",
+        "bytes": 363,
+        "sha256": "5feb68520effbdd248047c6b9abe944c0b6ccca39c8305aff4e493d2d725d4f6"
+      },
+      {
+        "member": "models/hand_landmarker.task",
+        "bytes": 7819105,
+        "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+      },
+      {
+        "member": "models/pose_landmarker_lite.task",
+        "bytes": 5777746,
+        "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+      },
+      {
+        "member": "project_source/.gitattributes",
+        "bytes": 261,
+        "sha256": "c62757e554d41093ed228f1c57d520743ad0eb9bbad02dbd24d89370ea94d53b"
+      },
+      {
+        "member": "project_source/.gitignore",
+        "bytes": 275,
+        "sha256": "b443b80781688b4d180b6611066e867f58f48d0c7ffa09fcc0a855b2accca187"
+      },
+      {
+        "member": "project_source/pyproject.toml",
+        "bytes": 1078,
+        "sha256": "50b973dd3ff8ef640cf826fa32e4e447fbc953a2ad4e589e8bac5f0ea3fb2d37"
+      },
+      {
+        "member": "project_source/scripts/archive_model_weights.py",
+        "bytes": 10662,
+        "sha256": "c962d1d7e677d9053efeb9ec06b07ab49421975aafce98ac9288bf3705d02242"
+      },
+      {
+        "member": "project_source/scripts/audit_hand_slots.py",
+        "bytes": 2582,
+        "sha256": "86e8f448cf2606865758374b6296c0a0471267120be01fb71581ca65c893d13a"
+      },
+      {
+        "member": "project_source/scripts/audit_video_features.py",
+        "bytes": 20892,
+        "sha256": "23fb22223776146a507657f5ca2e66de76ec67a478065d54bba053c613453b17"
+      },
+      {
+        "member": "project_source/scripts/benchmark_landmarks.py",
+        "bytes": 8402,
+        "sha256": "5ded3ce017e1863cfe47548ef3f5e74a5eb6404369940726902a19aefe762aaa"
+      },
+      {
+        "member": "project_source/scripts/benchmark_stgcn.py",
+        "bytes": 2495,
+        "sha256": "043f06ea0aa7cd073c6448583ae0a254e28cb552985805f4b586faa352645668"
+      },
+      {
+        "member": "project_source/scripts/build_colab_bundle.py",
+        "bytes": 5945,
+        "sha256": "c8bf6772ec90311abf516e8e1ba25e26d0000e2094ece8df65e62a33e4f0965c"
+      },
+      {
+        "member": "project_source/scripts/build_dataset_distribution_notebook.py",
+        "bytes": 23349,
+        "sha256": "42bd87b369400ed1f1fee42965433eeb14a2c231fff88f67fc6915eb59d207dd"
+      },
+      {
+        "member": "project_source/scripts/build_project_notebooks.py",
+        "bytes": 50245,
+        "sha256": "32867824d4bcfa2ae186105d95a59b74dbefabedf03c397173743aff988b5f67"
+      },
+      {
+        "member": "project_source/scripts/cross_validate.py",
+        "bytes": 5425,
+        "sha256": "1268def0bf0209334c185764ee7f7a2f054af1d80a2075e36e14869dfe9c1249"
+      },
+      {
+        "member": "project_source/scripts/diagnose_five_sign_live.py",
+        "bytes": 10226,
+        "sha256": "4ff9253c6776e7a22c2266281a601a1cf50bd58a4cad288a5417cf2805b37a07"
+      },
+      {
+        "member": "project_source/scripts/diagnose_five_sign_no_collapse.py",
+        "bytes": 7130,
+        "sha256": "2e8071378a5a770943ae880bfb2652412e10d516ffa180adf5cde40aee3c8b82"
+      },
+      {
+        "member": "project_source/scripts/diagnose_input_statistics.py",
+        "bytes": 3795,
+        "sha256": "92603040c06879015c7bebba6e2371f639f8a60bf813e0ee811c013cbf225ab5"
+      },
+      {
+        "member": "project_source/scripts/diagnose_recognition.py",
+        "bytes": 11895,
+        "sha256": "eb1499cbea9f8ed09156f4b372da0ebe6cde99418eafc51b29730c0d9d832e06"
+      },
+      {
+        "member": "project_source/scripts/diagnose_video_scale.py",
+        "bytes": 2803,
+        "sha256": "4b7223b147064f888f58a7405fd6ef762df217c1a4fb5bbbd479fa9bccfbee9f"
+      },
+      {
+        "member": "project_source/scripts/diagnose_webcam.py",
+        "bytes": 6955,
+        "sha256": "209ceea71afcc4b5098c5f7f1c73d3329969e60879ce1fd22c03ad926da4f1bb"
+      },
+      {
+        "member": "project_source/scripts/evaluate_gru.py",
+        "bytes": 1123,
+        "sha256": "918302a36f1883dc330a484adf3853f4c37fcd80a2dc09edd14c4fd75ea3512e"
+      },
+      {
+        "member": "project_source/scripts/evaluate_stgcn.py",
+        "bytes": 1085,
+        "sha256": "c598b6ed757b98aecc2d599f31c610dc81c5b1a0beb8936d5fe633fd85fabad7"
+      },
+      {
+        "member": "project_source/scripts/inspect_compact_hand_shapes.py",
+        "bytes": 3595,
+        "sha256": "2752272c012481f85c62b30e0f6c68aa89ae180d7cfe3c0d8715b3cd45c02911"
+      },
+      {
+        "member": "project_source/scripts/investigate_camera_conditions.py",
+        "bytes": 3629,
+        "sha256": "b1226ecd427efd5b8029f78e14390eb8a0653dff95496b3f33031557d95819b7"
+      },
+      {
+        "member": "project_source/scripts/investigate_phase_timing.py",
+        "bytes": 2279,
+        "sha256": "502a8687a060a3d6b7fb1b37dca2ada1c121b80aa051e6104804430618d4973f"
+      },
+      {
+        "member": "project_source/scripts/investigate_recognition.py",
+        "bytes": 7178,
+        "sha256": "7d8c6ead0f075913783c59f57908fe76972c11aa01b75cac59695cba2439831a"
+      },
+      {
+        "member": "project_source/scripts/isolate_scale_failure.py",
+        "bytes": 5147,
+        "sha256": "df1dea683c24d913dae1d8ac302226152a5d64de99640c54cd4ca5cd9a122f2e"
+      },
+      {
+        "member": "project_source/scripts/local_cv_job.py",
+        "bytes": 547,
+        "sha256": "c2e0c8b59ca856199836be0d6aeca81ed5e13587014f9e4a00f7080b47ae1239"
+      },
+      {
+        "member": "project_source/scripts/local_landmark_job.py",
+        "bytes": 9904,
+        "sha256": "e227cc18f454df5d1e02f52eddf0cf6411e6bbe43bc3b3b0753a3411a6196c34"
+      },
+      {
+        "member": "project_source/scripts/local_small_gru_job.py",
+        "bytes": 563,
+        "sha256": "00b7a294093c90a41a9b35d6a244559f45223a1dc9d003c3d26ce3afb08917e5"
+      },
+      {
+        "member": "project_source/scripts/local_stgcn_job.py",
+        "bytes": 566,
+        "sha256": "7f840a7ac5f4acacb466e90fce3d4bf5d7c0c1168f2825e2b937d45ebf68af6c"
+      },
+      {
+        "member": "project_source/scripts/local_training_job.py",
+        "bytes": 6110,
+        "sha256": "069c68b59476dc8fe43ead2411a414402dbcca0b133abb972886ecdd2bc39e1c"
+      },
+      {
+        "member": "project_source/scripts/prepare_hand_articulation_reference.py",
+        "bytes": 1439,
+        "sha256": "39aac51ed4f580488b10a7b1d7f61a9865da04b0e0de5e6a4b62dc025003f7a6"
+      },
+      {
+        "member": "project_source/scripts/project.py",
+        "bytes": 262,
+        "sha256": "cb822ae375984bb2ea45d55a72194857147b60370a97a22959869042fa8a87ff"
+      },
+      {
+        "member": "project_source/scripts/recheck_audit_examples.py",
+        "bytes": 2453,
+        "sha256": "f4cc75f42ed010927131f0108b49c2a9b7c123fa9906950f1fa71f4826c7d2d3"
+      },
+      {
+        "member": "project_source/scripts/recognize_webcam.py",
+        "bytes": 2313,
+        "sha256": "37dc6c2b0cb934892254f355e45f48f9bb80636bc0b3b58e3a28d4b88733d82d"
+      },
+      {
+        "member": "project_source/scripts/report_compact_hand_check.py",
+        "bytes": 4378,
+        "sha256": "20e9cb1b4fbd6f840c5ead93a6816db47afb90da13e8d85fceeaee12275ec599"
+      },
+      {
+        "member": "project_source/scripts/report_data_audit.py",
+        "bytes": 5253,
+        "sha256": "788a1ff612898d3a0b3e5ffd525961982a801caf6a924b91f6542131e8393a9c"
+      },
+      {
+        "member": "project_source/scripts/report_five_sign_distribution.py",
+        "bytes": 6259,
+        "sha256": "5f5b0b460d079f67949eaaad1c3d9f5571d8408165168151e2cdae913cbec20e"
+      },
+      {
+        "member": "project_source/scripts/report_five_sign_pilot.py",
+        "bytes": 3091,
+        "sha256": "5d39b926c83014e8600a596fa2ffcdcbd44ac20404e1a2549f56b60a9d3ab59a"
+      },
+      {
+        "member": "project_source/scripts/report_five_sign_stgcn.py",
+        "bytes": 4308,
+        "sha256": "053f6cee49e4bb06aeeaf371c2fd0bb9fabd8a11439dce6ba163df5681d44f4a"
+      },
+      {
+        "member": "project_source/scripts/report_mean_pool_trial.py",
+        "bytes": 5192,
+        "sha256": "6b34e30725b1831d49500a87f8d7d5986ce9f4a2ac4b493ee46eedd053740a48"
+      },
+      {
+        "member": "project_source/scripts/report_recognition_forensics.py",
+        "bytes": 5246,
+        "sha256": "2f552b48da522263b0a07688aff6aaa0fc168f1c190cc84a2bcf296c42b602c9"
+      },
+      {
+        "member": "project_source/scripts/report_stgcn.py",
+        "bytes": 3877,
+        "sha256": "9b40bdbdb0c5495f0b76765a9e855ed8015c01a270efacfad3f0066824a8cd91"
+      },
+      {
+        "member": "project_source/scripts/report_stgcn_mean_pool_trial.py",
+        "bytes": 3768,
+        "sha256": "3c4f63251e3a6f708f5511fad35f1141cd60c2050cfdb0a02aa88435f77e6332"
+      },
+      {
+        "member": "project_source/scripts/review_audit_examples.py",
+        "bytes": 4869,
+        "sha256": "a0d113c3e8b352de3d9d9ab27dab9856bd43b9a9e267d6629936e757bbb90fb2"
+      },
+      {
+        "member": "project_source/scripts/review_live_landmarks.py",
+        "bytes": 1161,
+        "sha256": "a049c12453599be715cde829f8eca950c6078d84f7e9b00d2c22021b2559e8a1"
+      },
+      {
+        "member": "project_source/scripts/run_five_sign_pilot.py",
+        "bytes": 388,
+        "sha256": "b4acc5da65e092acaaf8d778dc44a7da34368ed1702bc65dedef59821a6f62b7"
+      },
+      {
+        "member": "project_source/scripts/run_five_sign_stgcn.py",
+        "bytes": 303,
+        "sha256": "58e66c6ccc9b2bb999504ce6fe256fca1e7ffcd20deae5717f68ff12eda3d106"
+      },
+      {
+        "member": "project_source/scripts/run_mean_pool_trial.py",
+        "bytes": 3506,
+        "sha256": "0afc8ab9230b5510464755545b2196466fe6551908d37bf779454d52c89a2049"
+      },
+      {
+        "member": "project_source/scripts/run_small_gru.py",
+        "bytes": 3479,
+        "sha256": "b9cb37d2b682afee2e7e3c72562c337495ccc0970c446accc1f6c6d515dfeac7"
+      },
+      {
+        "member": "project_source/scripts/run_stgcn.py",
+        "bytes": 2106,
+        "sha256": "742848d0bb6e2170168bd40f2ae8188082a86720df7346247a5af418b23a4a45"
+      },
+      {
+        "member": "project_source/scripts/run_stgcn_mean_pool_trial.py",
+        "bytes": 4935,
+        "sha256": "539ecf8cba0c797114e41ec2d7eb617410e01c17eed90884f98a6c08212dfd7d"
+      },
+      {
+        "member": "project_source/scripts/train_local.py",
+        "bytes": 3448,
+        "sha256": "1a94f3f8ec54d47f900711d94690e880973ccc8a01a8c58b7044fb8f9caa14d4"
+      },
+      {
+        "member": "project_source/scripts/train_stgcn.py",
+        "bytes": 5120,
+        "sha256": "7fb8cd07dc7cc1068cfdb6ca4f0e4b749677c95c5801a25e6b9ab794e0e9d8a9"
+      },
+      {
+        "member": "project_source/scripts/verify_five_sign_runtime.py",
+        "bytes": 3245,
+        "sha256": "53674c91dc1186497f76a04791653444051cb551cc04428c27f63c82d1848d50"
+      },
+      {
+        "member": "project_source/scripts/verify_five_sign_video_path.py",
+        "bytes": 3324,
+        "sha256": "483ca41e51966e941df03f204bb8ce1cafd1a54f57beb49da2c2a7ff56ddd7aa"
+      },
+      {
+        "member": "project_source/src/sign_language/__init__.py",
+        "bytes": 68,
+        "sha256": "eb86ad3a10417aa3fbdab1b41f9cadaee1258ea04cbf5cf3c441fba06a2722c7"
+      },
+      {
+        "member": "project_source/src/sign_language/assets.py",
+        "bytes": 1240,
+        "sha256": "7568e69cf8145d36e07e90dc715d7fe5639eb2ea53177efe95d39aa4bc716647"
+      },
+      {
+        "member": "project_source/src/sign_language/cli.py",
+        "bytes": 4034,
+        "sha256": "4513ee588d39810ec3c3ee101ff79553ee65d14a96541fedfc3505f83afce37a"
+      },
+      {
+        "member": "project_source/src/sign_language/cross_validation.py",
+        "bytes": 7012,
+        "sha256": "6a63594079fc87a84e2ecacd52847e813224f5a38a35996f95d3c6c4404e8d8c"
+      },
+      {
+        "member": "project_source/src/sign_language/dataset.py",
+        "bytes": 10629,
+        "sha256": "0351152f81d82d352b8c7931fc71db40517eff591c385b9aca9567cbb749e4a3"
+      },
+      {
+        "member": "project_source/src/sign_language/dataset_distribution.py",
+        "bytes": 7103,
+        "sha256": "6bd644803ed88ac6c1d8341f3cc265a5c0d72c4824245242fe2a8dd018af2072"
+      },
+      {
+        "member": "project_source/src/sign_language/evaluation.py",
+        "bytes": 12848,
+        "sha256": "3639ab6fa1e10d99376cbf995f129174f2f36dad718af9922566af2c2073fe64"
+      },
+      {
+        "member": "project_source/src/sign_language/extraction.py",
+        "bytes": 14233,
+        "sha256": "9a5cde858ea022679573f774f1bfd432a93b2724f58f946cc2b6fd330e097c90"
+      },
+      {
+        "member": "project_source/src/sign_language/five_sign_pilot.py",
+        "bytes": 6163,
+        "sha256": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03"
+      },
+      {
+        "member": "project_source/src/sign_language/five_sign_stgcn.py",
+        "bytes": 3682,
+        "sha256": "ba28797756e7bb3a7edb569c77bdcc557893eef3144d53cfa509a825a7905aee"
+      },
+      {
+        "member": "project_source/src/sign_language/five_sign_training.py",
+        "bytes": 12317,
+        "sha256": "89cc3f63d6be664febf3b2254760b66ad0218f2719c7f24576593919fbd21911"
+      },
+      {
+        "member": "project_source/src/sign_language/frame_rate.py",
+        "bytes": 2081,
+        "sha256": "ed7b47d84fc0d963d4b58f511fa5fbb19d25e6dfdde2783537e04c778b60c0b6"
+      },
+      {
+        "member": "project_source/src/sign_language/gru_mean_pool_model.py",
+        "bytes": 1513,
+        "sha256": "7637a8545a762f9f1bb2243d6794b06eb1e05ee2a4dc0d34efba3928912bd4ce"
+      },
+      {
+        "member": "project_source/src/sign_language/gru_model.py",
+        "bytes": 803,
+        "sha256": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c"
+      },
+      {
+        "member": "project_source/src/sign_language/hand_articulation.py",
+        "bytes": 5185,
+        "sha256": "0f45f5f4a97d7fa34dce2a1c319106e1fc6ae32984d731b61ed6dec5ac9144d5"
+      },
+      {
+        "member": "project_source/src/sign_language/hands.py",
+        "bytes": 2655,
+        "sha256": "fe23ebf2140806d3e298fed10fc3009b826c48e4e9dc632d0d2608fe7c8f8f6c"
+      },
+      {
+        "member": "project_source/src/sign_language/landmark_models.py",
+        "bytes": 1526,
+        "sha256": "bf86e8b4f360d5a8e9d65ae4c3a2f61fc86a30780baf7e88af23ae1c2bd128d7"
+      },
+      {
+        "member": "project_source/src/sign_language/landmark_still_review.py",
+        "bytes": 4170,
+        "sha256": "53ecaf2a2bb5204be345e193e73958149ac914e385c3fd4e0a9fc91378766a48"
+      },
+      {
+        "member": "project_source/src/sign_language/live_forensics.py",
+        "bytes": 4415,
+        "sha256": "a432d90c2f7692dc06ef2b119e59518a172f664dc0022184c19cd91bd800234c"
+      },
+      {
+        "member": "project_source/src/sign_language/mean_pool_comparison.py",
+        "bytes": 2773,
+        "sha256": "7712b530acafcafd801243cd994f2cf842c7da987ed951e5984bd3c19ab1fafa"
+      },
+      {
+        "member": "project_source/src/sign_language/paths.py",
+        "bytes": 115,
+        "sha256": "8f7e7d6d6feb772ca0260bc19cffb3d613ce9e50e0f403061ddc631b734a802e"
+      },
+      {
+        "member": "project_source/src/sign_language/preprocessing.py",
+        "bytes": 5749,
+        "sha256": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988"
+      },
+      {
+        "member": "project_source/src/sign_language/raw_landmarks.py",
+        "bytes": 7496,
+        "sha256": "25ed7582b986a00106c944399be9327c9a1d59bc5ef21f94a9a3ffec5e881a70"
+      },
+      {
+        "member": "project_source/src/sign_language/recognition.py",
+        "bytes": 7457,
+        "sha256": "80761464c7c4fbc79e6350570ad2e7d47176cc91d5fa72d86f7449b0654ddb31"
+      },
+      {
+        "member": "project_source/src/sign_language/recognition_diagnostics.py",
+        "bytes": 5397,
+        "sha256": "67f472b8e4240ba9ff9cfaa41f261e3d6e516e6546528c045aac5b19c41859f5"
+      },
+      {
+        "member": "project_source/src/sign_language/recognition_forensics.py",
+        "bytes": 7399,
+        "sha256": "a2218af5875d144641c1b9ae36adf216215f56739dc8daa491808ba4936637ee"
+      },
+      {
+        "member": "project_source/src/sign_language/recognition_webcam.py",
+        "bytes": 11469,
+        "sha256": "30b256f84ba24023dd69d93ff3a4eafc9727dc9132a307c6e538b68cf4cffa17"
+      },
+      {
+        "member": "project_source/src/sign_language/regularization.py",
+        "bytes": 1170,
+        "sha256": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86"
+      },
+      {
+        "member": "project_source/src/sign_language/stgcn_graph.py",
+        "bytes": 1974,
+        "sha256": "1d9be7e09602051ee277b586e4e269d3c3775cf28dc08d4ade2b5596c9d7f522"
+      },
+      {
+        "member": "project_source/src/sign_language/stgcn_model.py",
+        "bytes": 3075,
+        "sha256": "cb186ac7be755cb63c697c9e204d25f1127c1f5151a88e2249f3e6f7720201b2"
+      },
+      {
+        "member": "project_source/src/sign_language/stgcn_training.py",
+        "bytes": 8157,
+        "sha256": "416e915f1d9721df604c8893a9fb888e0ca52daf57d7f10306b6e8a0c91f101c"
+      },
+      {
+        "member": "project_source/src/sign_language/training.py",
+        "bytes": 15597,
+        "sha256": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757"
+      },
+      {
+        "member": "project_source/src/sign_language/training_cache.py",
+        "bytes": 7058,
+        "sha256": "112e83107e9a593cef0bce33bc5cba071f83638fd20c48aca5e2ea105b250d34"
+      },
+      {
+        "member": "project_source/src/sign_language/webcam.py",
+        "bytes": 3187,
+        "sha256": "1bd4865cc345057812f19fd1e28a63cd4478866a9c6dd4b8d6f837bd18026f83"
+      },
+      {
+        "member": "project_source/tests/test_cross_validation.py",
+        "bytes": 5510,
+        "sha256": "08a1de843ffb2736b0906ab8e00f92e3d3082642d59d305c8b44606e8f160db4"
+      },
+      {
+        "member": "project_source/tests/test_data_audit.py",
+        "bytes": 3565,
+        "sha256": "43492949300ea1164f66cffcdc599e0a33a4ac2dd07ec673a1a288e0c5b19ec7"
+      },
+      {
+        "member": "project_source/tests/test_dataset.py",
+        "bytes": 2715,
+        "sha256": "ae77f91b208447d73cf35c7ff3cab5797ba00f5c040d011446a812d7fc94258c"
+      },
+      {
+        "member": "project_source/tests/test_dataset_distribution_notebook.py",
+        "bytes": 5661,
+        "sha256": "f32edfb01663c308d1e2d512ef9b70183edc9e648c17a52751b399477a909704"
+      },
+      {
+        "member": "project_source/tests/test_delegate_comparison.py",
+        "bytes": 5572,
+        "sha256": "217c41399579e66a2f95836353f86bb2ff6aa08c64249ee20bf2da214794a8e1"
+      },
+      {
+        "member": "project_source/tests/test_evaluation.py",
+        "bytes": 4576,
+        "sha256": "2f3eeba3561f53f3e1f392fee10d9c7927612c77e15757ec403d99869756da09"
+      },
+      {
+        "member": "project_source/tests/test_extraction.py",
+        "bytes": 6725,
+        "sha256": "d156399b2b4526dc26ea85692d84c6e63ff46436fd783b824b145fa22627f546"
+      },
+      {
+        "member": "project_source/tests/test_five_sign_pilot.py",
+        "bytes": 3500,
+        "sha256": "bccda2fd06914b6695143dccf6393dcd52771db4b8326abeab4db9e8626ddc0c"
+      },
+      {
+        "member": "project_source/tests/test_frame_rate.py",
+        "bytes": 2700,
+        "sha256": "1653ff8508da785bd1ab88171650989026afeb09abeae59b76b9530662eb5679"
+      },
+      {
+        "member": "project_source/tests/test_gru_mean_pool.py",
+        "bytes": 4375,
+        "sha256": "f57d58fdd14a01256f0ceefbd39965f4ad8de10045f0417e0ed15df0474e6eaf"
+      },
+      {
+        "member": "project_source/tests/test_hand_articulation.py",
+        "bytes": 2705,
+        "sha256": "2204d798e837fb7bb08be4b7cf71b1ede262351a5d02cb5ac7e2fa67f068bac2"
+      },
+      {
+        "member": "project_source/tests/test_landmark_still_review.py",
+        "bytes": 2972,
+        "sha256": "6ab1e4543ea1e0c5fe5ca6b00a6bf74ec6a69bdcc079f39ee7d53a1c7fd2d153"
+      },
+      {
+        "member": "project_source/tests/test_live_forensic_capture.py",
+        "bytes": 6165,
+        "sha256": "7f05f89756afdecc706fc5560fa191cca19a5d4ee0907af4f37b228e3d5d133c"
+      },
+      {
+        "member": "project_source/tests/test_local_landmark_job.py",
+        "bytes": 4762,
+        "sha256": "5468cb277004e82b4eeb5a45288bc907b639852627c5960fe0b3edcdabfe822c"
+      },
+      {
+        "member": "project_source/tests/test_model_archive.py",
+        "bytes": 2907,
+        "sha256": "0f9f4246f3af1061eadf7a64ac2794c6c991b4fc26ccf1208d4019007723b564"
+      },
+      {
+        "member": "project_source/tests/test_project_notebooks.py",
+        "bytes": 6447,
+        "sha256": "f7951ce00af3468a272d40ef650bdfa0750f1afb6031e164deca2f544723f5d0"
+      },
+      {
+        "member": "project_source/tests/test_recognition.py",
+        "bytes": 13100,
+        "sha256": "c355424928299261959dab9bdb37fe9c37dff791a4a664dd521c07eec2c6a738"
+      },
+      {
+        "member": "project_source/tests/test_recognition_forensics.py",
+        "bytes": 2721,
+        "sha256": "16bc9e03610ad9e5fc7aa8acdccb696d14416f17b7bdcecbf51c1b5d56a12422"
+      },
+      {
+        "member": "project_source/tests/test_small_gru.py",
+        "bytes": 3462,
+        "sha256": "fdeb0f68a1b461ee083e157452a2ead98ea6bf0caca52f34555c8dc4ef52ab7a"
+      },
+      {
+        "member": "project_source/tests/test_stgcn.py",
+        "bytes": 4536,
+        "sha256": "d0ccf27f3e946ecf7b5b7d21969644089d76e0c4b5205ed284bfb75d2e69fee2"
+      },
+      {
+        "member": "project_source/tests/test_training.py",
+        "bytes": 10174,
+        "sha256": "d422c54f23b53073aa372b5746d918e57e4d69c0e8d0a38bcb3280f1202d0d50"
+      },
+      {
+        "member": "project_source/tests/test_webcam.py",
+        "bytes": 1381,
+        "sha256": "ca307798c52cfd2e6c91ac55f214e324d228cecd5d942b7aa9e6979b9fda7602"
+      },
+      {
+        "member": "project_source/uv.lock",
+        "bytes": 30511,
+        "sha256": "ab6937d94c813e2b6d94711bb9633fbb05be340c4e06a76564815a6b1997e683"
+      },
+      {
+        "member": "README_RESTORE.md",
+        "bytes": 1359,
+        "sha256": "9e5c7e6add8870cf64e6d56a16e4d8351bab39c48addbc61690872b79d29861a"
+      }
+    ],
+    "limits": "Includes intermediate and failed/diagnostic runs for preservation; no model quality or deployment-readiness claim. MANIFEST.json is the only self-excluded member."
+  }
+}

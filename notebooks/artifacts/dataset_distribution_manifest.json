@@ -1,0 +1,51 @@
+{
+  "report_date_local": "2026-11-12",
+  "classes": 2731,
+  "clips": 83399,
+  "embedded_figures": 7,
+  "code_cells": 11,
+  "files": {
+    "03_asl_citizen_class_balance_and_distribution.ipynb": {
+      "sha256": "172335bbf0a70eb5a1c39f534493f013b33361bfb5734dc111d86acf5b517023",
+      "bytes": 1992736
+    },
+    "artifacts/asl_citizen_distribution_snapshot.json": {
+      "sha256": "12f31bdf8087250b70fc63080077fec272cac4ab215d0f38e7741a0238e16364",
+      "bytes": 625466
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-01.png": {
+      "sha256": "e28358e7714de9af92e7bac7b195b4a586d0a14e19d24c9a1f9432d52ea4532a",
+      "bytes": 40055
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-02.png": {
+      "sha256": "2cb4ffa6e0a207071bd6ae8eba6fd1ef70db1b7dd395c4fe18c8359cd1fc6d79",
+      "bytes": 109418
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-03.png": {
+      "sha256": "240420947e06a4221681fe42e29743abe9f1469a1a72d2dffe0061b3b6698fbc",
+      "bytes": 128719
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-04.png": {
+      "sha256": "baae6da57920acd629d7e26b8f789b00656422fc7cc46c649d336ca1e5ef6867",
+      "bytes": 83430
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-05.png": {
+      "sha256": "8297fbbf2f3f76aed3c56afac82f25d6b42dd796f38893bdae2b118caba56b6a",
+      "bytes": 60468
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-06.png": {
+      "sha256": "8d3a4193b57506f17f1f9408e3fc11cfbac4eb106a634932c9f52f625976ba31",
+      "bytes": 68739
+    },
+    "artifacts/dataset_distribution_figures/03_asl_citizen_class_balance_and_distribution-07.png": {
+      "sha256": "7eec83f3d53e904c6bb2b1be72d6d5ce26e27ed5263f8bcc4f4a897d3dca2ed6",
+      "bytes": 38641
+    }
+  },
+  "generator_sha256": "42bd87b369400ed1f1fee42965433eeb14a2c231fff88f67fc6915eb59d207dd",
+  "analysis_module_sha256": "6bd644803ed88ac6c1d8341f3cc265a5c0d72c4824245242fe2a8dd018af2072",
+  "input_sources_unchanged": true,
+  "training_performed": false,
+  "videos_decoded": false,
+  "other_notebooks_modified": false
+}

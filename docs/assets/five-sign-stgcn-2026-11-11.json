@@ -1,0 +1,930 @@
+{
+  "stgcn": {
+    "status": "complete",
+    "architecture": "stgcn27-v1",
+    "classes": [
+      "HELLO",
+      "NO",
+      "PLEASE",
+      "THANKYOU",
+      "YES"
+    ],
+    "counts": {
+      "train": {
+        "HELLO": 14,
+        "NO": 16,
+        "PLEASE": 14,
+        "THANKYOU": 16,
+        "YES": 15
+      },
+      "val": {
+        "HELLO": 4,
+        "NO": 3,
+        "PLEASE": 4,
+        "THANKYOU": 3,
+        "YES": 5
+      },
+      "test": {
+        "HELLO": 14,
+        "NO": 11,
+        "PLEASE": 13,
+        "THANKYOU": 12,
+        "YES": 10
+      }
+    },
+    "participants": {
+      "train": [
+        "P1",
+        "P10",
+        "P11",
+        "P14",
+        "P16",
+        "P2",
+        "P23",
+        "P24",
+        "P27",
+        "P29",
+        "P30",
+        "P31",
+        "P33",
+        "P34",
+        "P36",
+        "P37",
+        "P40",
+        "P41",
+        "P43",
+        "P46",
+        "P50",
+        "P51",
+        "P52",
+        "P7"
+      ],
+      "val": [
+        "P12",
+        "P21",
+        "P26",
+        "P39"
+      ],
+      "test": [
+        "P15",
+        "P17",
+        "P18",
+        "P22",
+        "P35",
+        "P42",
+        "P47",
+        "P48",
+        "P49",
+        "P6",
+        "P9"
+      ]
+    },
+    "policy": {
+      "accuracy_tolerance": "one validation example below best observed top-1",
+      "loss_tolerance": 0.1,
+      "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+      "patience": 3,
+      "loss_min_delta": 0.001,
+      "sustained_gap_limit": 0.1,
+      "sustained_gap_epochs": 3
+    },
+    "training": {
+      "status": "selected",
+      "profile": "regularized-v1",
+      "epochs_completed": 7,
+      "epoch_cap": 33,
+      "stop_reason": "validation_loss_patience",
+      "selection": {
+        "policy": {
+          "accuracy_tolerance": "one validation example below best observed top-1",
+          "loss_tolerance": 0.1,
+          "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+          "patience": 3,
+          "loss_min_delta": 0.001,
+          "sustained_gap_limit": 0.1,
+          "sustained_gap_epochs": 3
+        },
+        "validation_samples": 19,
+        "accuracy_floor": 0.631578947368421,
+        "validation_loss_ceiling": 0.952747873256081,
+        "eligible_epochs": [
+          4,
+          5
+        ],
+        "selected_epoch": 4,
+        "selected_accuracy_gap": 0.022456140350877174,
+        "test_used": false
+      },
+      "selected_metrics": {
+        "epoch": 4,
+        "train": {
+          "loss": 1.3641593408584596,
+          "top1": 0.56,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 0.5469999999995707,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.7843937174479166,
+          "top1": 0.7066666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.07800000000042928,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.7475087719298246,
+          "macro_recall": 0.7197619047619048,
+          "macro_f1": 0.6840289595462009,
+          "weighted_f1": 0.6760460765288352
+        },
+        "val": {
+          "loss": 0.852747873256081,
+          "top1": 0.6842105263157895,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.03099999999994907,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.5866666666666667,
+          "macro_recall": 0.6533333333333333,
+          "macro_f1": 0.6000000000000001,
+          "weighted_f1": 0.6210526315789474
+        },
+        "accuracy_gap": 0.022456140350877174,
+        "loss_gap": 0.0683541558081644
+      },
+      "minimum_val_loss_epoch": 4,
+      "selected_checkpoint_sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f",
+      "parameters": 3087583,
+      "seconds": 20.375,
+      "test_used_for_selection": false,
+      "learning_status": "learned_above_gate"
+    },
+    "test": {
+      "samples": 60,
+      "top1": 0.65,
+      "loss": 0.8474639892578125,
+      "macro_precision": 0.6358441558441558,
+      "macro_recall": 0.6266433566433567,
+      "macro_f1": 0.5903989730076686,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          0,
+          1,
+          6
+        ],
+        [
+          0,
+          0,
+          9,
+          4,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          9,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          6
+        ]
+      ],
+      "epoch": 4,
+      "checkpoint_sha256": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f",
+      "test_used_for_selection": false,
+      "per_class": {
+        "HELLO": {
+          "support": 14,
+          "correct": 14,
+          "recall": 1.0,
+          "f1": 0.7777777777777778
+        },
+        "NO": {
+          "support": 11,
+          "correct": 1,
+          "recall": 0.09090909090909091,
+          "f1": 0.15384615384615385
+        },
+        "PLEASE": {
+          "support": 13,
+          "correct": 9,
+          "recall": 0.6923076923076923,
+          "f1": 0.7826086956521738
+        },
+        "THANKYOU": {
+          "support": 12,
+          "correct": 9,
+          "recall": 0.75,
+          "f1": 0.6923076923076924
+        },
+        "YES": {
+          "support": 10,
+          "correct": 6,
+          "recall": 0.6,
+          "f1": 0.5454545454545454
+        }
+      }
+    },
+    "gpu": {
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "gpu": "NVIDIA GeForce RTX 4060",
+      "vram_bytes": 8585216000
+    },
+    "protected_weights_before": {
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-gru-five-signs-early-v2\\baseline\\best.pt": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+      "models\\asl-gru-five-signs-early-v2\\regularized\\best.pt": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+    },
+    "protected_weights_after": {
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-gru-five-signs-early-v2\\baseline\\best.pt": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+      "models\\asl-gru-five-signs-early-v2\\regularized\\best.pt": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+    },
+    "previous_weights_unchanged": true,
+    "cache_unchanged": true,
+    "note": "Same five-class subset and gap policy as the GRU pilot. Different graph representation/backbone. No cleaning or new extraction."
+  },
+  "gru_regularized_reference": {
+    "training": {
+      "status": "selected",
+      "profile": "regularized-v1",
+      "epochs_completed": 21,
+      "epoch_cap": 28,
+      "stop_reason": "validation_loss_patience",
+      "selection": {
+        "policy": {
+          "accuracy_tolerance": "one validation example below best observed top-1",
+          "loss_tolerance": 0.1,
+          "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+          "patience": 3,
+          "loss_min_delta": 0.001,
+          "sustained_gap_limit": 0.1,
+          "sustained_gap_epochs": 3
+        },
+        "validation_samples": 19,
+        "accuracy_floor": 0.7894736842105263,
+        "validation_loss_ceiling": 0.4908169363674365,
+        "eligible_epochs": [
+          18,
+          19
+        ],
+        "selected_epoch": 18,
+        "selected_accuracy_gap": 0.09052631578947368,
+        "test_used": false
+      },
+      "selected_metrics": {
+        "epoch": 18,
+        "train": {
+          "loss": 0.7246728523572286,
+          "top1": 0.7066666666666667,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.375,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.3254864505926768,
+          "top1": 0.88,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.17200000000002547,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9103132161955692,
+          "macro_recall": 0.8839285714285715,
+          "macro_f1": 0.8784084344084343,
+          "weighted_f1": 0.8757172687839355
+        },
+        "val": {
+          "loss": 0.3908169363674365,
+          "top1": 0.7894736842105263,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8628571428571428,
+          "macro_recall": 0.7666666666666666,
+          "macro_f1": 0.75,
+          "weighted_f1": 0.7675438596491228
+        },
+        "accuracy_gap": 0.09052631578947368,
+        "loss_gap": 0.0653304857747597
+      },
+      "minimum_val_loss_epoch": 18,
+      "selected_checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+      "parameters": 789253,
+      "seconds": 59.0,
+      "test_used_for_selection": false,
+      "learning_status": "learned_above_gate"
+    },
+    "test": {
+      "samples": 60,
+      "top1": 0.7,
+      "loss": 0.7457127888997396,
+      "macro_precision": 0.7199095022624435,
+      "macro_recall": 0.6936663336663337,
+      "macro_f1": 0.6724017729697243,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          12,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          3,
+          0,
+          0,
+          7
+        ],
+        [
+          0,
+          0,
+          7,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          12,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          8
+        ]
+      ],
+      "epoch": 18,
+      "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+      "test_used_for_selection": false,
+      "per_class": {
+        "HELLO": {
+          "support": 14,
+          "correct": 12,
+          "recall": 0.8571428571428571,
+          "f1": 0.888888888888889
+        },
+        "NO": {
+          "support": 11,
+          "correct": 3,
+          "recall": 0.2727272727272727,
+          "f1": 0.3529411764705882
+        },
+        "PLEASE": {
+          "support": 13,
+          "correct": 7,
+          "recall": 0.5384615384615384,
+          "f1": 0.7000000000000001
+        },
+        "THANKYOU": {
+          "support": 12,
+          "correct": 12,
+          "recall": 1.0,
+          "f1": 0.8275862068965517
+        },
+        "YES": {
+          "support": 10,
+          "correct": 8,
+          "recall": 0.8,
+          "f1": 0.5925925925925927
+        }
+      }
+    }
+  },
+  "same_test_rows": true,
+  "old_full_vocabulary_epoch_records": {
+    "32": {
+      "epoch": 32,
+      "train": {
+        "loss": 1.4031228801373699,
+        "top1": 0.630223638989889,
+        "top5": 0.8916919858544603,
+        "samples": 40154,
+        "batches": 1255,
+        "seconds": 115.90699999999924,
+        "skipped_amp_updates": 1
+      },
+      "val": {
+        "loss": 1.5008699429331358,
+        "top1": 0.6280085403726708,
+        "top5": 0.874902950310559,
+        "samples": 10304,
+        "batches": 322,
+        "seconds": 11.890000000001237,
+        "skipped_amp_updates": 0,
+        "macro_precision": 0.6639689628723914,
+        "macro_recall": 0.634553887464909,
+        "macro_f1": 0.6125481368698508,
+        "weighted_f1": 0.6115668326507124
+      },
+      "seconds": 127.8130000000001,
+      "learning_rate": 0.001,
+      "peak_cuda_allocated_bytes": 1445235200,
+      "smoke": false
+    },
+    "33": {
+      "epoch": 33,
+      "train": {
+        "loss": 1.3404719768698878,
+        "top1": 0.6417791502714549,
+        "top5": 0.8994620710265477,
+        "samples": 40154,
+        "batches": 1255,
+        "seconds": 114.9380000000001,
+        "skipped_amp_updates": 1
+      },
+      "val": {
+        "loss": 1.5153787993126033,
+        "top1": 0.6198563664596274,
+        "top5": 0.874514751552795,
+        "samples": 10304,
+        "batches": 322,
+        "seconds": 11.281000000000859,
+        "skipped_amp_updates": 0,
+        "macro_precision": 0.6607204464033465,
+        "macro_recall": 0.625503478579275,
+        "macro_f1": 0.6051608648553315,
+        "weighted_f1": 0.6048637712217247
+      },
+      "seconds": 126.25,
+      "learning_rate": 0.001,
+      "peak_cuda_allocated_bytes": 1445235200,
+      "smoke": false
+    },
+    "39": {
+      "epoch": 39,
+      "train": {
+        "loss": 0.8581468468436315,
+        "top1": 0.7579070578273647,
+        "top5": 0.9504657070279424,
+        "samples": 40154,
+        "batches": 1255,
+        "seconds": 120.5,
+        "skipped_amp_updates": 1
+      },
+      "val": {
+        "loss": 1.393376688825788,
+        "top1": 0.672263198757764,
+        "top5": 0.8891692546583851,
+        "samples": 10304,
+        "batches": 322,
+        "seconds": 12.061999999999898,
+        "skipped_amp_updates": 0,
+        "macro_precision": 0.7047504074508835,
+        "macro_recall": 0.677807710414814,
+        "macro_f1": 0.6597951303409108,
+        "weighted_f1": 0.6593235575866236
+      },
+      "seconds": 132.57800000000134,
+      "learning_rate": 0.0005,
+      "peak_cuda_allocated_bytes": 1445235200,
+      "smoke": false
+    },
+    "49": {
+      "epoch": 49,
+      "train": {
+        "loss": 0.453647626062643,
+        "top1": 0.8631269611993824,
+        "top5": 0.9831399113413358,
+        "samples": 40154,
+        "batches": 1255,
+        "seconds": 116.07800000000134,
+        "skipped_amp_updates": 1
+      },
+      "val": {
+        "loss": 1.4439980810658533,
+        "top1": 0.68847049689441,
+        "top5": 0.8987771739130435,
+        "samples": 10304,
+        "batches": 322,
+        "seconds": 12.390999999999622,
+        "skipped_amp_updates": 0,
+        "macro_precision": 0.7185242338116743,
+        "macro_recall": 0.6937089152761068,
+        "macro_f1": 0.6783569689190342,
+        "weighted_f1": 0.6780934766255999
+      },
+      "seconds": 128.5,
+      "learning_rate": 0.000125,
+      "peak_cuda_allocated_bytes": 1445235200,
+      "smoke": false
+    }
+  },
+  "runtime_consistency": {
+    "clips": 19,
+    "all_labels_equal": true,
+    "maximum_score_difference": 0.0,
+    "checkpoint_unchanged": true,
+    "epoch": 4,
+    "model": "SignSTGCN",
+    "classes": [
+      "HELLO",
+      "NO",
+      "PLEASE",
+      "THANKYOU",
+      "YES"
+    ],
+    "checks": [
+      {
+        "video_file": "9161842981344352-YES.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "YES"
+      },
+      {
+        "video_file": "020030442376253177-HELLO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "HELLO"
+      },
+      {
+        "video_file": "05859480723249688-PLEASE.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "PLEASE"
+      },
+      {
+        "video_file": "05614933522741539-HELLO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "HELLO"
+      },
+      {
+        "video_file": "8977694836593926-YES.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "YES",
+        "target": "YES"
+      },
+      {
+        "video_file": "6330094542104612-PLEASE.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "PLEASE"
+      },
+      {
+        "video_file": "42327270691916885-YES.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "YES",
+        "target": "YES"
+      },
+      {
+        "video_file": "20675411351630046-HELLO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "HELLO"
+      },
+      {
+        "video_file": "16870669316247833-THANK YOU.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "THANKYOU"
+      },
+      {
+        "video_file": "4096147054343935-PLEASE.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "PLEASE"
+      },
+      {
+        "video_file": "16493550450776628-HELLO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "HELLO"
+      },
+      {
+        "video_file": "26056519285644875-YES.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "YES",
+        "target": "YES"
+      },
+      {
+        "video_file": "8323715285073319-NO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "NO"
+      },
+      {
+        "video_file": "9715589334909431-YES.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "HELLO",
+        "target": "YES"
+      },
+      {
+        "video_file": "42961246858695024-PLEASE.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "PLEASE",
+        "target": "PLEASE"
+      },
+      {
+        "video_file": "0006320057552187119-THANK YOU.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "THANKYOU",
+        "target": "THANKYOU"
+      },
+      {
+        "video_file": "7976564165646398-THANK YOU.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "THANKYOU",
+        "target": "THANKYOU"
+      },
+      {
+        "video_file": "4656606080155459-NO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "YES",
+        "target": "NO"
+      },
+      {
+        "video_file": "8079226457278508-NO.mp4",
+        "labels_equal": true,
+        "max_score_difference": 0.0,
+        "top1": "YES",
+        "target": "NO"
+      }
+    ],
+    "webcam_opened": false
+  },
+  "config": {
+    "architecture": "stgcn27-v1",
+    "model": {
+      "classes": 5,
+      "dropout": 0.5
+    },
+    "preprocessing": {
+      "version": "asl-body-local-hands-v1",
+      "max_frames": 128,
+      "input_size": 254,
+      "pose_points": [
+        0,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "max_anchor_gap": 5,
+      "clip_features": 8.0,
+      "sampling": "uniform ordered indices including endpoints; no upsampling",
+      "padding": "right-zero-padding; true lengths for packed GRU",
+      "coordinates": "width units: x, y*height/width; hand z remains a local channel",
+      "body": "per-frame shoulder midpoint, median valid shoulder width per sign",
+      "hand_shape": "wrist-relative xyz divided by median palm size per hand",
+      "pose_depth": "omitted; not fused with hand depth",
+      "augmentation": "none in initial baseline"
+    },
+    "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+    "batch_size": 4,
+    "epochs": 33,
+    "patience": 3,
+    "early_stopping_warmup_epochs": 5,
+    "early_stopping_learning_gate": 0.5,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "profile": "regularized-v1",
+    "regularization": {
+      "dropout": 0.5,
+      "weight_decay": 0.001,
+      "augmentation": {
+        "body_scale": [
+          0.9,
+          1.1
+        ],
+        "roll_degrees": [
+          -5.0,
+          5.0
+        ]
+      }
+    },
+    "cudnn_enabled": true,
+    "amp": true,
+    "loader_workers": 2,
+    "selection": {
+      "accuracy_tolerance": "one validation example below best observed top-1",
+      "loss_tolerance": 0.1,
+      "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+      "patience": 3,
+      "loss_min_delta": 0.001,
+      "sustained_gap_limit": 0.1,
+      "sustained_gap_epochs": 3
+    },
+    "partition": {
+      "mode": "official_signer_disjoint_five_sign_subset",
+      "test_used_for_selection": false
+    },
+    "source_sha256": {
+      "five_sign_training.py": "1dd742040da5470af617cd43a88398e4a31d1c178e459605721323a13ffdbd1e",
+      "five_sign_pilot.py": "ba7aa862d3361788baaf975e0297c4b1681f2c0ef6aa8664c6c419bab78bdc03",
+      "gru_model.py": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c",
+      "preprocessing.py": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988",
+      "training.py": "73e0af69b01f74d91d966c13ab27656d4da76ebad69d10c306af5ba7c480e757",
+      "regularization.py": "3c9ba1ee8e1800716d8a14ec6103af1945f3afb588bc4a1bb774ccd7545f0d86",
+      "stgcn_model.py": "cb186ac7be755cb63c697c9e204d25f1127c1f5151a88e2249f3e6f7720201b2",
+      "stgcn_graph.py": "1d9be7e09602051ee277b586e4e269d3c3775cf28dc08d4ade2b5596c9d7f522"
+    },
+    "graph": {
+      "version": "asl-stgcn27-xy-v1",
+      "nodes": 27,
+      "channels": 2,
+      "body_joints": [
+        0,
+        2,
+        5,
+        11,
+        12,
+        13,
+        14
+      ],
+      "hand_joints": [
+        0,
+        4,
+        5,
+        8,
+        9,
+        12,
+        13,
+        16,
+        17,
+        20
+      ],
+      "hand_order": [
+        "anatomical_left",
+        "anatomical_right"
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          21,
+          22
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          25,
+          26
+        ]
+      ],
+      "partitions": "self/inward/outward, column-normalized",
+      "normalization": "existing asl-body-local-hands-v1 body-relative XY; missing coordinates zero",
+      "temporal_padding": "masked before/after each block; valid-time/node average pooling"
+    }
+  },
+  "note": "A fixed five-sign task. Old full-vocabulary train-mode gaps are not clean train/eval comparisons."
+}

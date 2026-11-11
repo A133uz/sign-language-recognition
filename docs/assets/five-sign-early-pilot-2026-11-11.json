@@ -1,0 +1,1000 @@
+{
+  "v1": {
+    "status": "complete",
+    "classes": [
+      "HELLO",
+      "NO",
+      "PLEASE",
+      "THANKYOU",
+      "YES"
+    ],
+    "counts": {
+      "train": {
+        "HELLO": 14,
+        "NO": 16,
+        "PLEASE": 14,
+        "THANKYOU": 16,
+        "YES": 15
+      },
+      "val": {
+        "HELLO": 4,
+        "NO": 3,
+        "PLEASE": 4,
+        "THANKYOU": 3,
+        "YES": 5
+      },
+      "test": {
+        "HELLO": 14,
+        "NO": 11,
+        "PLEASE": 13,
+        "THANKYOU": 12,
+        "YES": 10
+      }
+    },
+    "participants": {
+      "train": [
+        "P1",
+        "P10",
+        "P11",
+        "P14",
+        "P16",
+        "P2",
+        "P23",
+        "P24",
+        "P27",
+        "P29",
+        "P30",
+        "P31",
+        "P33",
+        "P34",
+        "P36",
+        "P37",
+        "P40",
+        "P41",
+        "P43",
+        "P46",
+        "P50",
+        "P51",
+        "P52",
+        "P7"
+      ],
+      "val": [
+        "P12",
+        "P21",
+        "P26",
+        "P39"
+      ],
+      "test": [
+        "P15",
+        "P17",
+        "P18",
+        "P22",
+        "P35",
+        "P42",
+        "P47",
+        "P48",
+        "P49",
+        "P6",
+        "P9"
+      ]
+    },
+    "models": {
+      "baseline": {
+        "training": {
+          "status": "selected",
+          "profile": "baseline",
+          "epochs_completed": 10,
+          "epoch_cap": 10,
+          "stop_reason": "epoch_cap",
+          "selection": {
+            "policy": {
+              "accuracy_tolerance": "one validation example below best observed top-1",
+              "loss_tolerance": 0.1,
+              "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+              "patience": 3,
+              "loss_min_delta": 0.001,
+              "sustained_gap_limit": 0.1,
+              "sustained_gap_epochs": 3
+            },
+            "validation_samples": 19,
+            "accuracy_floor": 0.21052631578947367,
+            "validation_loss_ceiling": 1.6392070632231863,
+            "eligible_epochs": [
+              2,
+              5,
+              7,
+              9,
+              10
+            ],
+            "selected_epoch": 7,
+            "selected_accuracy_gap": 0.009824561403508736,
+            "test_used": false
+          },
+          "selected_metrics": {
+            "epoch": 7,
+            "train": {
+              "loss": 1.5436637353897096,
+              "top1": 0.21333333333333335,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 0.7339999999999236,
+              "skipped_amp_updates": 0
+            },
+            "train_clean": {
+              "loss": 1.5181840085983276,
+              "top1": 0.25333333333333335,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 0.17200000000002547,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.17523809523809525,
+              "macro_recall": 0.25476190476190474,
+              "macro_f1": 0.18885675727780993,
+              "weighted_f1": 0.1891497975708502
+            },
+            "val": {
+              "loss": 1.540667082134046,
+              "top1": 0.2631578947368421,
+              "samples": 19,
+              "batches": 2,
+              "seconds": 0.07799999999997453,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.10333333333333332,
+              "macro_recall": 0.22666666666666666,
+              "macro_f1": 0.13714285714285715,
+              "weighted_f1": 0.15037593984962405
+            },
+            "accuracy_gap": -0.009824561403508736,
+            "loss_gap": 0.022483073535718434
+          },
+          "minimum_val_loss_epoch": 9,
+          "selected_checkpoint_sha256": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9",
+          "parameters": 789253,
+          "seconds": 25.53099999999995,
+          "test_used_for_selection": false
+        },
+        "test": {
+          "samples": 60,
+          "top1": 0.2,
+          "loss": 1.7271484375,
+          "macro_precision": 0.24354354354354352,
+          "macro_recall": 0.2247785547785548,
+          "macro_f1": 0.15980767215176608,
+          "labels": [
+            "HELLO",
+            "NO",
+            "PLEASE",
+            "THANKYOU",
+            "YES"
+          ],
+          "confusion": [
+            [
+              0,
+              4,
+              1,
+              0,
+              9
+            ],
+            [
+              0,
+              4,
+              0,
+              1,
+              6
+            ],
+            [
+              0,
+              3,
+              1,
+              0,
+              9
+            ],
+            [
+              0,
+              3,
+              1,
+              1,
+              7
+            ],
+            [
+              0,
+              4,
+              0,
+              0,
+              6
+            ]
+          ],
+          "epoch": 7,
+          "checkpoint_sha256": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9",
+          "test_used_for_selection": false,
+          "per_class": {
+            "HELLO": {
+              "support": 14,
+              "correct": 0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "NO": {
+              "support": 11,
+              "correct": 4,
+              "recall": 0.36363636363636365,
+              "f1": 0.27586206896551724
+            },
+            "PLEASE": {
+              "support": 13,
+              "correct": 1,
+              "recall": 0.07692307692307693,
+              "f1": 0.125
+            },
+            "THANKYOU": {
+              "support": 12,
+              "correct": 1,
+              "recall": 0.08333333333333333,
+              "f1": 0.14285714285714285
+            },
+            "YES": {
+              "support": 10,
+              "correct": 6,
+              "recall": 0.6,
+              "f1": 0.25531914893617025
+            }
+          }
+        }
+      },
+      "regularized": {
+        "training": {
+          "status": "selected",
+          "profile": "regularized-v1",
+          "epochs_completed": 11,
+          "epoch_cap": 28,
+          "stop_reason": "validation_loss_patience",
+          "selection": {
+            "policy": {
+              "accuracy_tolerance": "one validation example below best observed top-1",
+              "loss_tolerance": 0.1,
+              "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+              "patience": 3,
+              "loss_min_delta": 0.001,
+              "sustained_gap_limit": 0.1,
+              "sustained_gap_epochs": 3
+            },
+            "validation_samples": 19,
+            "accuracy_floor": 0.2631578947368421,
+            "validation_loss_ceiling": 1.62518503916891,
+            "eligible_epochs": [
+              1,
+              8,
+              9,
+              11
+            ],
+            "selected_epoch": 1,
+            "selected_accuracy_gap": 0.0231578947368421,
+            "test_used": false
+          },
+          "selected_metrics": {
+            "epoch": 1,
+            "train": {
+              "loss": 1.644557294845581,
+              "top1": 0.12,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 3.719000000000051,
+              "skipped_amp_updates": 0
+            },
+            "train_clean": {
+              "loss": 1.603502605756124,
+              "top1": 0.24,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 0.20299999999997453,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.11647727272727273,
+              "macro_recall": 0.23666666666666666,
+              "macro_f1": 0.13014533520862634,
+              "weighted_f1": 0.13409595249257697
+            },
+            "val": {
+              "loss": 1.6044407831995111,
+              "top1": 0.2631578947368421,
+              "samples": 19,
+              "batches": 2,
+              "seconds": 2.405999999999949,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.05555555555555556,
+              "macro_recall": 0.2,
+              "macro_f1": 0.08695652173913045,
+              "weighted_f1": 0.11441647597254007
+            },
+            "accuracy_gap": -0.0231578947368421,
+            "loss_gap": 0.0009381774433872003
+          },
+          "minimum_val_loss_epoch": 8,
+          "selected_checkpoint_sha256": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4",
+          "parameters": 789253,
+          "seconds": 16.40599999999995,
+          "test_used_for_selection": false
+        },
+        "test": {
+          "samples": 60,
+          "top1": 0.18333333333333332,
+          "loss": 1.6181803385416667,
+          "macro_precision": 0.11272727272727275,
+          "macro_recall": 0.21333333333333332,
+          "macro_f1": 0.10244343891402714,
+          "labels": [
+            "HELLO",
+            "NO",
+            "PLEASE",
+            "THANKYOU",
+            "YES"
+          ],
+          "confusion": [
+            [
+              0,
+              0,
+              0,
+              1,
+              13
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              10
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              9
+            ]
+          ],
+          "epoch": 1,
+          "checkpoint_sha256": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4",
+          "test_used_for_selection": false,
+          "per_class": {
+            "HELLO": {
+              "support": 14,
+              "correct": 0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "NO": {
+              "support": 11,
+              "correct": 0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "PLEASE": {
+              "support": 13,
+              "correct": 0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "THANKYOU": {
+              "support": 12,
+              "correct": 2,
+              "recall": 0.16666666666666666,
+              "f1": 0.23529411764705882
+            },
+            "YES": {
+              "support": 10,
+              "correct": 9,
+              "recall": 0.9,
+              "f1": 0.27692307692307694
+            }
+          }
+        }
+      }
+    },
+    "policy": {
+      "accuracy_tolerance": "one validation example below best observed top-1",
+      "loss_tolerance": 0.1,
+      "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+      "patience": 3,
+      "loss_min_delta": 0.001,
+      "sustained_gap_limit": 0.1,
+      "sustained_gap_epochs": 3
+    },
+    "protected_weights_before": {
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad"
+    },
+    "protected_weights_after": {
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad"
+    },
+    "previous_weights_unchanged": true,
+    "note": "New five-output models trained from scratch. Closed set; top-5 is uninformative. No cleaning or normalization change."
+  },
+  "v2": {
+    "status": "complete",
+    "classes": [
+      "HELLO",
+      "NO",
+      "PLEASE",
+      "THANKYOU",
+      "YES"
+    ],
+    "counts": {
+      "train": {
+        "HELLO": 14,
+        "NO": 16,
+        "PLEASE": 14,
+        "THANKYOU": 16,
+        "YES": 15
+      },
+      "val": {
+        "HELLO": 4,
+        "NO": 3,
+        "PLEASE": 4,
+        "THANKYOU": 3,
+        "YES": 5
+      },
+      "test": {
+        "HELLO": 14,
+        "NO": 11,
+        "PLEASE": 13,
+        "THANKYOU": 12,
+        "YES": 10
+      }
+    },
+    "participants": {
+      "train": [
+        "P1",
+        "P10",
+        "P11",
+        "P14",
+        "P16",
+        "P2",
+        "P23",
+        "P24",
+        "P27",
+        "P29",
+        "P30",
+        "P31",
+        "P33",
+        "P34",
+        "P36",
+        "P37",
+        "P40",
+        "P41",
+        "P43",
+        "P46",
+        "P50",
+        "P51",
+        "P52",
+        "P7"
+      ],
+      "val": [
+        "P12",
+        "P21",
+        "P26",
+        "P39"
+      ],
+      "test": [
+        "P15",
+        "P17",
+        "P18",
+        "P22",
+        "P35",
+        "P42",
+        "P47",
+        "P48",
+        "P49",
+        "P6",
+        "P9"
+      ]
+    },
+    "models": {
+      "baseline": {
+        "training": {
+          "status": "selected",
+          "profile": "baseline",
+          "epochs_completed": 10,
+          "epoch_cap": 10,
+          "stop_reason": "epoch_cap",
+          "selection": {
+            "policy": {
+              "accuracy_tolerance": "one validation example below best observed top-1",
+              "loss_tolerance": 0.1,
+              "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+              "patience": 3,
+              "loss_min_delta": 0.001,
+              "sustained_gap_limit": 0.1,
+              "sustained_gap_epochs": 3
+            },
+            "validation_samples": 19,
+            "accuracy_floor": 0.3684210526315789,
+            "validation_loss_ceiling": 1.1321044953245867,
+            "eligible_epochs": [
+              10
+            ],
+            "selected_epoch": 10,
+            "selected_accuracy_gap": 0.04561403508771933,
+            "test_used": false
+          },
+          "selected_metrics": {
+            "epoch": 10,
+            "train": {
+              "loss": 1.221270345846812,
+              "top1": 0.36,
+              "samples": 75,
+              "batches": 19,
+              "seconds": 2.438000000000102,
+              "skipped_amp_updates": 0
+            },
+            "train_clean": {
+              "loss": 1.0496134479840598,
+              "top1": 0.4666666666666667,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 0.17099999999982174,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.3920512820512821,
+              "macro_recall": 0.4451190476190476,
+              "macro_f1": 0.3601375827237897,
+              "weighted_f1": 0.3743766399628469
+            },
+            "val": {
+              "loss": 1.0321044953245866,
+              "top1": 0.42105263157894735,
+              "samples": 19,
+              "batches": 2,
+              "seconds": 0.06300000000010186,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.43238095238095237,
+              "macro_recall": 0.46333333333333326,
+              "macro_f1": 0.36888888888888893,
+              "weighted_f1": 0.35438596491228075
+            },
+            "accuracy_gap": 0.04561403508771933,
+            "loss_gap": -0.017508952659473165
+          },
+          "minimum_val_loss_epoch": 10,
+          "selected_checkpoint_sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+          "parameters": 789253,
+          "seconds": 31.28099999999995,
+          "test_used_for_selection": false,
+          "learning_status": "underfit"
+        },
+        "test": {
+          "samples": 60,
+          "top1": 0.4166666666666667,
+          "loss": 1.2227640787760417,
+          "macro_precision": 0.4491161616161616,
+          "macro_recall": 0.43584415584415587,
+          "macro_f1": 0.3445808966861598,
+          "labels": [
+            "HELLO",
+            "NO",
+            "PLEASE",
+            "THANKYOU",
+            "YES"
+          ],
+          "confusion": [
+            [
+              2,
+              3,
+              0,
+              8,
+              1
+            ],
+            [
+              0,
+              7,
+              0,
+              0,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              13,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              12,
+              0
+            ],
+            [
+              0,
+              6,
+              0,
+              0,
+              4
+            ]
+          ],
+          "epoch": 10,
+          "checkpoint_sha256": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+          "test_used_for_selection": false,
+          "per_class": {
+            "HELLO": {
+              "support": 14,
+              "correct": 2,
+              "recall": 0.14285714285714285,
+              "f1": 0.25
+            },
+            "NO": {
+              "support": 11,
+              "correct": 7,
+              "recall": 0.6363636363636364,
+              "f1": 0.5185185185185185
+            },
+            "PLEASE": {
+              "support": 13,
+              "correct": 0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "THANKYOU": {
+              "support": 12,
+              "correct": 12,
+              "recall": 1.0,
+              "f1": 0.5333333333333333
+            },
+            "YES": {
+              "support": 10,
+              "correct": 4,
+              "recall": 0.4,
+              "f1": 0.4210526315789474
+            }
+          }
+        }
+      },
+      "regularized": {
+        "training": {
+          "status": "selected",
+          "profile": "regularized-v1",
+          "epochs_completed": 21,
+          "epoch_cap": 28,
+          "stop_reason": "validation_loss_patience",
+          "selection": {
+            "policy": {
+              "accuracy_tolerance": "one validation example below best observed top-1",
+              "loss_tolerance": 0.1,
+              "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+              "patience": 3,
+              "loss_min_delta": 0.001,
+              "sustained_gap_limit": 0.1,
+              "sustained_gap_epochs": 3
+            },
+            "validation_samples": 19,
+            "accuracy_floor": 0.7894736842105263,
+            "validation_loss_ceiling": 0.4908169363674365,
+            "eligible_epochs": [
+              18,
+              19
+            ],
+            "selected_epoch": 18,
+            "selected_accuracy_gap": 0.09052631578947368,
+            "test_used": false
+          },
+          "selected_metrics": {
+            "epoch": 18,
+            "train": {
+              "loss": 0.7246728523572286,
+              "top1": 0.7066666666666667,
+              "samples": 75,
+              "batches": 19,
+              "seconds": 2.375,
+              "skipped_amp_updates": 0
+            },
+            "train_clean": {
+              "loss": 0.3254864505926768,
+              "top1": 0.88,
+              "samples": 75,
+              "batches": 5,
+              "seconds": 0.17200000000002547,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.9103132161955692,
+              "macro_recall": 0.8839285714285715,
+              "macro_f1": 0.8784084344084343,
+              "weighted_f1": 0.8757172687839355
+            },
+            "val": {
+              "loss": 0.3908169363674365,
+              "top1": 0.7894736842105263,
+              "samples": 19,
+              "batches": 2,
+              "seconds": 0.07799999999997453,
+              "skipped_amp_updates": 0,
+              "macro_precision": 0.8628571428571428,
+              "macro_recall": 0.7666666666666666,
+              "macro_f1": 0.75,
+              "weighted_f1": 0.7675438596491228
+            },
+            "accuracy_gap": 0.09052631578947368,
+            "loss_gap": 0.0653304857747597
+          },
+          "minimum_val_loss_epoch": 18,
+          "selected_checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+          "parameters": 789253,
+          "seconds": 59.0,
+          "test_used_for_selection": false,
+          "learning_status": "learned_above_gate"
+        },
+        "test": {
+          "samples": 60,
+          "top1": 0.7,
+          "loss": 0.7457127888997396,
+          "macro_precision": 0.7199095022624435,
+          "macro_recall": 0.6936663336663337,
+          "macro_f1": 0.6724017729697243,
+          "labels": [
+            "HELLO",
+            "NO",
+            "PLEASE",
+            "THANKYOU",
+            "YES"
+          ],
+          "confusion": [
+            [
+              12,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              3,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              7,
+              5,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              12,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0,
+              8
+            ]
+          ],
+          "epoch": 18,
+          "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+          "test_used_for_selection": false,
+          "per_class": {
+            "HELLO": {
+              "support": 14,
+              "correct": 12,
+              "recall": 0.8571428571428571,
+              "f1": 0.888888888888889
+            },
+            "NO": {
+              "support": 11,
+              "correct": 3,
+              "recall": 0.2727272727272727,
+              "f1": 0.3529411764705882
+            },
+            "PLEASE": {
+              "support": 13,
+              "correct": 7,
+              "recall": 0.5384615384615384,
+              "f1": 0.7000000000000001
+            },
+            "THANKYOU": {
+              "support": 12,
+              "correct": 12,
+              "recall": 1.0,
+              "f1": 0.8275862068965517
+            },
+            "YES": {
+              "support": 10,
+              "correct": 8,
+              "recall": 0.8,
+              "f1": 0.5925925925925927
+            }
+          }
+        }
+      }
+    },
+    "policy": {
+      "accuracy_tolerance": "one validation example below best observed top-1",
+      "loss_tolerance": 0.1,
+      "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+      "patience": 3,
+      "loss_min_delta": 0.001,
+      "sustained_gap_limit": 0.1,
+      "sustained_gap_epochs": 3
+    },
+    "protected_weights_before": {
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad"
+    },
+    "protected_weights_after": {
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad"
+    },
+    "previous_weights_unchanged": true,
+    "note": "New five-output models trained from scratch. Closed set; top-5 is uninformative. No cleaning or normalization change.",
+    "runtime_consistency": {
+      "clips": 19,
+      "all_labels_equal": true,
+      "maximum_score_difference": 0.0,
+      "checkpoint_unchanged": true,
+      "epoch": 18,
+      "classes": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "checks": [
+        {
+          "video_file": "9161842981344352-YES.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "YES"
+        },
+        {
+          "video_file": "020030442376253177-HELLO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "HELLO",
+          "target": "HELLO"
+        },
+        {
+          "video_file": "05859480723249688-PLEASE.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "PLEASE",
+          "target": "PLEASE"
+        },
+        {
+          "video_file": "05614933522741539-HELLO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "HELLO",
+          "target": "HELLO"
+        },
+        {
+          "video_file": "8977694836593926-YES.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "YES"
+        },
+        {
+          "video_file": "6330094542104612-PLEASE.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "PLEASE",
+          "target": "PLEASE"
+        },
+        {
+          "video_file": "42327270691916885-YES.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "YES"
+        },
+        {
+          "video_file": "20675411351630046-HELLO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "HELLO",
+          "target": "HELLO"
+        },
+        {
+          "video_file": "16870669316247833-THANK YOU.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "THANKYOU",
+          "target": "THANKYOU"
+        },
+        {
+          "video_file": "4096147054343935-PLEASE.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "THANKYOU",
+          "target": "PLEASE"
+        },
+        {
+          "video_file": "16493550450776628-HELLO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "HELLO",
+          "target": "HELLO"
+        },
+        {
+          "video_file": "26056519285644875-YES.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "YES"
+        },
+        {
+          "video_file": "8323715285073319-NO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "NO"
+        },
+        {
+          "video_file": "9715589334909431-YES.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "YES"
+        },
+        {
+          "video_file": "42961246858695024-PLEASE.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "THANKYOU",
+          "target": "PLEASE"
+        },
+        {
+          "video_file": "0006320057552187119-THANK YOU.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "THANKYOU",
+          "target": "THANKYOU"
+        },
+        {
+          "video_file": "7976564165646398-THANK YOU.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "THANKYOU",
+          "target": "THANKYOU"
+        },
+        {
+          "video_file": "4656606080155459-NO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "YES",
+          "target": "NO"
+        },
+        {
+          "video_file": "8079226457278508-NO.mp4",
+          "labels_equal": true,
+          "max_score_difference": 0.0,
+          "top1": "NO",
+          "target": "NO"
+        }
+      ],
+      "webcam_opened": false
+    }
+  }
+}

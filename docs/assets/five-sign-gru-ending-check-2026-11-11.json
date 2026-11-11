@@ -1,0 +1,133 @@
+{
+  "expected": "HELLO",
+  "user_confirmed_both_conditions": true,
+  "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+  "source_report": ".cache\\webcam-gru5-ending-context-20261111-01.json",
+  "source_status_at_snapshot": "complete",
+  "session_metadata": {
+    "loaded_model_class": "SignGRU",
+    "epoch": 18,
+    "classes": 5,
+    "device": "cuda",
+    "capture_clock": "perf_counter",
+    "capture_clock_resolution_seconds": 1e-07,
+    "media_saved": false,
+    "coordinates_saved": false
+  },
+  "trials": [
+    {
+      "top5": [
+        {
+          "label": "NO",
+          "score": 0.9366796612739563
+        },
+        {
+          "label": "YES",
+          "score": 0.05022737383842468
+        },
+        {
+          "label": "HELLO",
+          "score": 0.007672586943954229
+        },
+        {
+          "label": "THANKYOU",
+          "score": 0.004484130069613457
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.000936260330490768
+        }
+      ],
+      "quality": {
+        "frames": 67,
+        "frames_with_hands": 56,
+        "frames_with_body_anchor": 67
+      },
+      "input_frames": 67,
+      "captured_frames": 67,
+      "capture_seconds": 2.235,
+      "landmark_seconds": 5.166264999999839,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.35294117647058826,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 0.835820895522388
+      },
+      "processing_seconds": 5.443580799999836,
+      "capture_fps_limit": 30.0,
+      "source_frame_count": 68,
+      "fps_limit_dropped_frames": 1,
+      "source_capture_fps": 29.981970990601624,
+      "effective_capture_fps": 29.53020134228188,
+      "capture_id": 1,
+      "expected_label": "HELLO"
+    },
+    {
+      "top5": [
+        {
+          "label": "YES",
+          "score": 0.8268309235572815
+        },
+        {
+          "label": "NO",
+          "score": 0.16091585159301758
+        },
+        {
+          "label": "HELLO",
+          "score": 0.009393906220793724
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.0017771697603166103
+        },
+        {
+          "label": "THANKYOU",
+          "score": 0.0010821267496794462
+        }
+      ],
+      "quality": {
+        "frames": 100,
+        "frames_with_hands": 97,
+        "frames_with_body_anchor": 100
+      },
+      "input_frames": 100,
+      "captured_frames": 100,
+      "capture_seconds": 3.556,
+      "landmark_seconds": 4.057420900000579,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          0.88,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 0.97
+      },
+      "processing_seconds": 4.119269799999529,
+      "capture_fps_limit": 30.0,
+      "source_frame_count": 105,
+      "fps_limit_dropped_frames": 5,
+      "source_capture_fps": 29.249588312040476,
+      "effective_capture_fps": 27.84026996625422,
+      "capture_id": 2,
+      "expected_label": "HELLO"
+    }
+  ],
+  "interpretation": {
+    "both_top1_wrong": true,
+    "no_hand_ending_condition_achieved": false,
+    "ending_hypothesis_confirmed": false,
+    "fps_halving_reproduced": false,
+    "recognition_fixed": false,
+    "notes": "Both captures have 10/10 final frames with a detected hand. Lowering hands did not remove detected hands from the view. No video/coordinates retained; cannot identify which hand or pose was detected."
+  }
+}

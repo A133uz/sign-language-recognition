@@ -1,6 +1,6 @@
 # Project records and model results
 
-Two generated reporting notebooks accompany the existing Colab extraction notebook:
+Three generated reporting notebooks accompany the existing Colab extraction notebook:
 
 - `01_project_workflow_and_investigation.ipynb`: scope/history, data splits,
   extraction/recovery/benchmarks, normalization, model design, training steps,
@@ -8,14 +8,27 @@ Two generated reporting notebooks accompany the existing Colab extraction notebo
 - `02_model_training_and_evaluation.ipynb`: actual learning curves, validation
   and frozen-test metrics, grouped CV, per-signer/per-class analysis, focused
   confusion matrices, frequent confusions, runtime, capacity and LR schedules.
+- `03_asl_citizen_class_balance_and_distribution.ipynb`: all 2,731 classes and
+  83,399 source clips; official split counts, count histograms, imbalance
+  statistics, ranked/Lorenz plots, smallest/largest classes, signer distributions,
+  the current five-sign subset, and an inspectable full-class table.
 
 Graphs and tables are embedded. The notebooks can be read without the videos,
-checkpoints or raw feature cache. Keep `artifacts/experiment_snapshot.json`
-beside them to rerun analysis; it contains compact reports, histories and
-provenance, not model weights or webcam images/coordinates. Exportable PNGs are
-under `artifacts/figures/`. `artifacts/report_manifest.json` records file hashes.
+checkpoints or raw feature cache. The first two use
+`artifacts/experiment_snapshot.json`: compact reports, histories and provenance,
+not model weights or webcam images/coordinates. Their exportable PNGs are under
+`artifacts/figures/`, with hashes in `artifacts/report_manifest.json`.
 
-Both notebooks now contain **completed ST-GCN results**, after successful
+The new distribution notebook uses the separate
+`artifacts/asl_citizen_distribution_snapshot.json`. It includes aggregated
+class/signer counts from local official metadata, verified against cached target
+counts. Its seven PNGs are under `artifacts/dataset_distribution_figures/`, with
+hashes in `artifacts/dataset_distribution_manifest.json`. Keep the relevant
+snapshot beside its notebook when copying files. Run All reads the snapshot;
+the final table's SEARCH/SORT_BY/LIMIT settings let you inspect every class.
+This report counts metadata/labels; it does not decode videos or audit landmarks.
+
+The first two notebooks contain **completed ST-GCN results**, after successful
 training and frozen test evaluation on 2026-11-11 (Asia/Tashkent). The metrics
 notebook explains epoch-39 selection versus the final epoch 49 and compares
 aggregate metrics and individual classes with the GRU. Aggregate gains do not
@@ -32,12 +45,14 @@ does not restart training or change weights.
 .\.venv\Scripts\python.exe scripts/build_project_notebooks.py
 # Final reports only, after complete training and test evaluation:
 .\.venv\Scripts\python.exe scripts/build_project_notebooks.py --require-complete
+# Dataset balance only; preserves both model-report notebooks:
+.\.venv\Scripts\python.exe scripts/build_dataset_distribution_notebook.py
 ```
 
-The generator executes the authored analysis cells in a Python process and
-stores actual stdout and PNG outputs in notebook v4 format. It does not use a
+The generators execute authored analysis cells in a Python process and
+store actual stdout, tables and PNG outputs in notebook v4 format. They do not use a
 Jupyter kernel during generation; this execution method is recorded in notebook
-metadata. Every code cell is ordinary rerunnable Python. Run All reads the
+metadata. Every code cell is ordinary rerunnable Python. Run All reads its
 snapshot and plots data; it does not download/extract data, train/evaluate a
 model, open the camera or overwrite weights.
 

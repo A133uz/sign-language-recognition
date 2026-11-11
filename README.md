@@ -1,7 +1,8 @@
 # ASL Citizen landmark recognition
 
 The application provides a live hand-skeleton preview and an experimental
-isolated-sign webcam test using trained ST-GCN by default (GRU is selectable).
+isolated-sign webcam test using the five-sign regularized GRU by default
+(ST-GCN and full-vocabulary models are explicitly selectable).
 The dataset is
 Microsoft ASL Citizen. The WLASL/I3D implementation was removed.
 
@@ -14,12 +15,52 @@ signs and the selected checkpoint; live recognition remains unreliable in
 the user checks. See [ST-GCN live feedback](docs/stgcn-webcam-test-2026-11-11.md).
 The RSL extension is planned.
 
+The current supervisor-directed experiment uses **five signs: HELLO, NO, PLEASE,
+THANKYOU and YES**, with earlier checkpoint selection. Its regularized GRU selected
+epoch 18 (88.0% clean training, 78.95% validation, 70.0% test on 60 clips); NO
+remains weak. See [the pilot protocol, curves and results](docs/five-sign-early-training-2026-11-11.md).
+A matching **five-sign ST-GCN27** selected epoch 4 and stopped after epoch 7:
+70.67% clean training, 68.42% validation, a 2.25 pp gap and 65.0% test top-1
+(39/60). See [the ST-GCN pilot comparison](docs/five-sign-stgcn-2026-11-11.md)
+for learning curves, confusion matrices and its explicit webcam command.
+The larger video/feature audit was stopped at the user's request; no source data
+was cleaned or removed. The regularized GRU epoch-18 pilot is now the default;
+both commands below select it:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/recognize_webcam.py --checkpoint models/asl-gru-five-signs-early-v2/regularized/best.pt
+```
+
 ```powershell
 .\.venv\Scripts\python.exe scripts/recognize_webcam.py
 ```
 
 Press Space, wait for SIGN NOW, perform one sign, then press Space again.
-Q closes the window. It shows five guesses across all 2,731 labels.
+Q closes the window. The default model chooses among HELLO, NO, PLEASE,
+THANKYOU and YES; other checkpoints can have a different vocabulary.
+Capture is limited to a 30-FPS budget by default (`--capture-fps 30`), with actual
+FPS and skipped-frame counts shown after recognition. Slower cameras are not
+upsampled. The first five-sign GRU live check still returned NO in all four
+logged captures; the FPS guard has not been shown to fix that failure.
+The initial FPS guard also had a Windows-clock regression that was corrected;
+the [focused NO-prediction investigation](docs/five-sign-no-collapse-investigation-2026-11-11.md)
+records that fix, remaining capture-ending sensitivity and the completed ending checks.
+
+The [completed cause experiments](docs/recognition-cause-experiments-2026-11-11.md)
+now record six confirmed live trials (4/6 original), frozen-head comparisons,
+temporal/depth sensitivity and a public-video scale failure isolated to pose
+observations/validity masks. No production model was changed; a general live fix
+or one exclusive cause of every historical error has not been established.
+
+A [masked mean-pooling GRU trial](docs/gru-mean-pooling-2026-11-11.md), completed
+2026-11-12, improves the fixed test count from 42/60 to 47/60, but scores 4/6 on
+identical live captures versus the original's 5/6, confusing NO with HELLO.
+Its separate checkpoint remains experimental; the default stays unchanged.
+
+The [ST-GCN mean-pooling training request](docs/stgcn-mean-pooling-repeat-2026-11-12.md)
+confirmed ST-GCN already has valid-time/node mean pooling. A fresh same-setting
+five-sign run reproduced the earlier epoch-4 weights exactly: 39/60 test correct
+(65.0%). It is saved separately and introduces no architecture/default change.
 
 The initial GRU live tests failed. The [investigation log](docs/recognition-investigation-2026-11-10.md)
 records reproducible input/weight checks, controlled comparisons and the
@@ -36,6 +77,16 @@ first guesses for hello, thank you, no, me and yes. See
 
 Two [reporting notebooks](notebooks/README.md) record the workflow/investigation
 and model metrics, with 15 embedded graphs and completed ST-GCN test results.
+A third [dataset-distribution notebook](notebooks/03_asl_citizen_class_balance_and_distribution.ipynb)
+covers all 2,731 ASL Citizen classes with verified class/split counts, seven
+embedded graphs, signer coverage and a full-class table. Its portable snapshot
+and regeneration command are described in the notebook guide.
+
+All retained model checkpoints are preserved in the verified local
+`models/archives/all-model-checkpoints-2026-11-12.zip` archive (120 checkpoint
+files plus MediaPipe assets and source/config snapshots). The ZIP remains
+Git-ignored; its [complete checksum catalog and restore guide](docs/model-archive-2026-11-12.md)
+are tracked. A repository clone alone does not contain the model binaries.
 
 The first local baseline completed. A separate signer-grouped CV study with
 stronger regularization is now available; see

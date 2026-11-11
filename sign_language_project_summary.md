@@ -12,6 +12,14 @@ its corresponding word/gloss on screen, supporting **American Sign Language
 RSL is the planned extension. The supervisor is aware of this language split.
 The application and university report take priority; publication is optional.
 
+**Current experimental direction (2026-11-11):** following supervisor feedback,
+return to five brief, distinct intended glosses—HELLO, NO, PLEASE, THANKYOU and YES—
+and select an earlier checkpoint with useful validation performance and a smaller
+clean train–validation gap. The corpus audit/cleaning was stopped by the user at
+214/836 shards; no source videos or features were modified. Full-vocabulary
+expansion remains a later target, and the existing GRU/ST-GCN baselines are preserved.
+See [the five-sign experiment](docs/five-sign-early-training-2026-11-11.md).
+
 The minor project covers isolated signs. A single sign can span many video
 frames, so temporal modeling is needed even when the output is one word.
 Continuous signing, sentence generation and paragraph context remain later
@@ -368,8 +376,9 @@ HELLO→GRANDFATHER, THANKYOU→GOATEE, NO→DEVIL, ME→COMPLAIN and YES→KNOC
 Those prediction names occur in the corrected session 02 log, but its captures
 do not store intended labels, so no full-session accuracy is inferred.
 The webcam input was first corrected to match the trained 128-step padded
-grid, and a misleading hardcoded GRU UI label was removed. The current webcam
-default is ST-GCN, with GRU still explicitly selectable. See the
+grid, and a misleading hardcoded GRU UI label was removed. That full-vocabulary
+stage used ST-GCN by default; the later user-requested five-sign GRU switch is
+recorded below. See the
 [live test and corrections](docs/stgcn-webcam-test-2026-11-11.md).
 Artifacts are under
 `models/asl-stgcn27-v1/` and `data/evaluations/asl-stgcn27-test-v1/`.
@@ -382,6 +391,15 @@ plots learning curves, comparisons, CV, class/signer differences and confusion
 analysis. They include a portable snapshot, final selection explanation and
 independent verification record. No training or webcam action occurs on Run All.
 See [notebook contents and regeneration](notebooks/README.md).
+
+A third notebook, [all-class ASL Citizen balance and distribution](notebooks/03_asl_citizen_class_balance_and_distribution.ipynb),
+was added on 2026-11-12. It contains seven embedded figures and a full table of
+all 2,731 classes, with train/validation/test counts, imbalance statistics,
+rarest/largest classes, signer coverage and the current five-sign subset.
+Official CSV totals (83,399 clips) match the full prepared-cache target counts.
+2,239 classes have 30 or 31 clips in total; training median is 15 clips per class.
+The notebook runs from its portable aggregate snapshot without videos or model
+weights. Existing notebooks and source inputs are preserved; 105 tests pass.
 
 Full local extraction was explicitly authorized with **two CPU workers** and
 started on 2026-11-07 at 19:04 Asia/Tashkent. Its manifest covers all 83,399 clips
@@ -516,9 +534,172 @@ future RSL results must be reported separately with their vocabulary and splits.
 Landmark tracking success and extraction speed do not establish recognition
 accuracy or reliable live recognition across the full vocabulary.
 
+### Five-sign early-epoch experiment (2026-11-11)
+
+The subset keeps the official signer separation: **75 training / 19 validation /
+60 test clips**, with **24 / 4 / 11 signers**. Existing normalized landmarks are
+reused unchanged; the new linear head has five outputs. Both two-layer 256-unit
+GRUs contain **789,253 parameters**. All epoch weights are retained in separate
+experiment directories.
+
+The final batch-4 baseline hit its 10-epoch cap and still underfit: 46.67% clean
+training, 42.11% validation, 41.67% test top-1. The regularized model stopped at
+epoch 21 using validation-loss patience, with a 28-epoch upper limit. It selected
+**epoch 18**, with **88.00% clean training / 78.95% validation**, a **9.05 pp gap**,
+and **70.00% test top-1 (42/60), 67.24% macro F1**. Selection never uses test scores.
+At epoch 20, training accuracy reached 100% while validation CE worsened, so its
+weights are retained for comparison rather than chosen for inference.
+
+These results are for a five-class closed set and are not comparable as an
+accuracy improvement over the old 2,731-class task. NO remains weak (3/11 test
+correct); no new live-webcam accuracy is measured. The first batch-16 pilot
+underfit and is preserved separately. The corrected trial's early-stopping warm-up,
+learning guard and validation/gap selection protocol are documented in the
+[experiment report](docs/five-sign-early-training-2026-11-11.md), along with curves.
+73 project tests pass; all 19 validation clips match raw/live preprocessing and
+cached inference exactly. Original full-vocabulary checkpoint hashes are unchanged.
+
+The user subsequently requested connection of the regularized GRU for a live
+test. `models/asl-gru-five-signs-early-v2/regularized/best.pt` is now the webcam
+default. The opened session reports actual class SignGRU, epoch 18, CUDA and five
+labels. The user reported NO for every performed sign, and all four saved
+captures have NO first (80.1–94.3% softmax scores). Hands were detected in 343/409
+frames and body anchors in 409/409, without saved joint geometry or video.
+Expected labels were not recorded per capture; no formal live accuracy or
+exclusive overfitting diagnosis is inferred. Full-vocabulary and
+five-sign ST-GCN checkpoints remain explicitly selectable with `--checkpoint`.
+
+Stored metadata for all 83,399 dataset clips has median approximately 30 FPS;
+90.9% are between 29 and 31 FPS. All current five-sign training/validation clips
+are approximately 30 FPS. The four webcam captures measured 29.36–30.45 FPS.
+The webcam now additionally enforces a default **30-FPS capture budget**, with
+small jitter tolerance, excess-frame skipping, original timestamps, no duplicate
+frames and actual-rate/drop-count reporting (`--capture-fps`). Its preview can
+continue reading at the device rate. This does not replace the subsequent
+128-step sampling or standardize dataset FPS. 81 project checks pass, including
+synthetic rate and integrated capture-loop tests; no physical-camera verification
+of the new limiter or recognition improvement is claimed. A subsequent physical
+session exposed a regression in that first limiter: 15.76–18.09 FPS retained
+despite roughly 30-FPS camera delivery. The GUI now uses high-resolution
+`perf_counter` and a fractional-credit rate budget. 84 checks pass, including
+the Windows 15.625-ms clock case. A user-confirmed two-HELLO check retained 29.53
+and 27.84 FPS without severe halving, but predicted NO then YES. HELLO stayed
+below 1% in both; both final-ten-frame windows still contained detected hands.
+The neutral-ending instruction did not produce the dataset's absent-hand mask,
+so the ending hypothesis remains unconfirmed. No recognition fix is established.
+
+A bounded, read-only investigation of the 75/19 five-sign cache found that 74/75
+training clips and all 19 validation clips end with no hands detected. Removing
+surrounding rest or synthetically filling trailing hand features changes validation
+correct counts from 15/19 to 7/19 and increases NO outputs. These destructive
+controls demonstrate ending-context sensitivity, not a verified live cause or
+valid augmentation. No model or source data was changed. Aggregate ending-hand
+measurements and optional prompt labels are now logged; a two-HELLO comparison
+was completed as described above. An automatic four-second HELLO check
+was then run with user confirmation. That session contains three captures,
+predicted NO / YES / NO; HELLO never ranks first. Only five frames of the last
+capture lack a detected hand, so a full second of absent-hand ending remains
+unverified. The camera is closed. Four public HELLO validation videos were also
+freshly decoded and processed through the exact webcam prediction function:
+all four are correct, with rankings and probabilities identical to cached
+inference (maximum difference 0.0). This verifies that path on dataset examples,
+but does not isolate live geometry, capture or generalization problems. Direct
+review of annotated live input subsequently received permission: two stills
+showed plausible hand tracking and an actual no-hand ending, but recognition
+still failed. They remain outside training data in ignored `.cache`.
+See [the focused record](docs/five-sign-no-collapse-investigation-2026-11-11.md).
+
+A further [controlled cause investigation](docs/recognition-cause-experiments-2026-11-11.md)
+completed 94 raw/cache comparisons (all exact), frozen-head probes, six confirmed
+live trials (4/6 original), and 18 public-video camera-condition passes. One
+THANKYOU capture was recognized at 87.9% halfway through, then changed to NO
+95.6% at completion; suppressing local hand depth recovered THANKYOU on that
+capture. A public HELLO video changed to NO when the person was scaled smaller;
+exact landmark scaling preserved normalization/prediction, while fresh pose
+estimates and elbow/wrist validity changes caused the failure. Restoring those
+pose groups recovered HELLO. New final heads and mirroring did not consistently
+help. These establish specific pose/temporal sensitivities, not one universal
+cause or a validated repair. All 90 checks pass. Source weights/features are
+unchanged, no new webcam media/coordinates were saved, and the audit stays stopped.
+
+### Masked mean-pooling experiment completed 2026-11-12
+
+The user authorized a separate parameter-matched GRU that averages top-layer
+outputs over actual time steps, excluding padding, before the same dropout and
+linear head. Existing 254-feature normalization, 128-frame limit, 256 units/two
+layers, augmentation, optimizer, seed and early-selection rules are unchanged.
+The model has 789,253 parameters, stopped at epoch 10 and selected epoch 4.
+It achieved 73.3% clean training, 78.95% validation, 78.33% test (47/60) and
+74.69% macro F1; the original epoch-18 GRU had 70.0% test (42/60).
+
+The aggregate gain mainly comes from PLEASE; NO remains 3/11 and YES regresses
+from 8/10 to 6/10. A user-confirmed six-trial comparison on identical webcam
+observations gives original **5/6**, pooled **4/6**: pooled recognizes both HELLO
+and THANKYOU attempts but calls both NO attempts HELLO. Its sampled prefix
+predictions are steadier, including the two wrong NO results. Plain averaging
+therefore does not establish an overall live fix.
+
+The original checkpoint stays the default; the separate candidate is
+`models/asl-gru-five-signs-mean-pool-v1/best.pt`. All previous best weights and
+source cache hashes remain unchanged. Runtime matches all 19 validation clips
+exactly; 96 tests pass. No new webcam media, coordinates or embeddings were saved.
+See the [complete comparison and graphs](docs/gru-mean-pooling-2026-11-11.md).
+
+A focused, user-confirmed NO/YES/HELLO diagnostic subsequently scored 3/6 for
+the original and 4/6 for the pooled model on identical inputs. Both NO attempts
+were recognized, but both YES attempts became NO. Live thumb/index opening
+ranges differ clearly for NO (1.294/1.236) and YES (0.263/0.310), close to their
+training medians (1.410/0.269). This shows measurable articulation survives;
+projected overlapping dots alone do not establish collapsed input features.
+It does not validate anatomical accuracy or isolate every cause. See the
+[compact-hand diagnostic](docs/compact-hand-diagnostic-2026-11-12.md). No model
+or data changes were made; 100 tests pass and the camera closed normally.
+
+### ST-GCN mean-pooling repeat (2026-11-12)
+
+The 2026-11-12 request to add mean pooling to ST-GCN found that its existing
+readout already averages final learned features over valid reduced time and all
+27 nodes. A fresh five-sign training run, with unchanged seed/settings/cache,
+stopped after seven epochs and selected epoch 4: 70.67% clean train, 68.42%
+validation, 65.0% test (39/60), 59.04% macro F1. All model tensors and all test
+top-1 predictions match the earlier five-sign ST-GCN exactly. This is a preserved
+repeat, not an architecture improvement. New weights are saved separately at
+`models/asl-stgcn27-five-signs-mean-pool-repeat-v1/best.pt`; older weights, data
+and the default model remain unchanged. All 106 tests and all 19 runtime
+validation comparisons pass. See the [ST-GCN mean-pool repeat record](docs/stgcn-mean-pooling-repeat-2026-11-12.md).
+
+### Matching five-sign ST-GCN experiment (2026-11-11)
+
+The user requested the same approach for ST-GCN, noting the old full-vocabulary
+curve's small gap around epochs 32–33. The old epoch-32 recorded gap is 0.22 pp
+(63.02% training / 62.80% validation), with training augmentation/dropout/BatchNorm
+active. Its weights were not retained; metrics alone cannot recreate them.
+
+A separate five-output ST-GCN27 was trained from scratch on the **same 75/19/60
+clips**, using the same augmentation, batch-4 updates, clean-gap selection and
+official signer split as the GRU pilot, with a **33-epoch upper limit**. It stopped
+at epoch **7**, selected epoch **4**, and achieved **70.67% clean training / 68.42%
+validation** (2.25 pp gap), **65.00% test top-1 (39/60), 59.04% test macro F1**.
+The smaller task need not select the old run's epoch number. Selection used no
+test feedback; all seven epoch weight files are retained separately.
+
+The selected ST-GCN has **3,087,583 parameters** and uses the same existing 27-node
+XY representation/backbone as the full-vocabulary run. GRU and ST-GCN still differ
+in representation and capacity. This is one seed on 60 fixed test examples; the
+GRU's 70.0% versus ST-GCN's 65.0% does not establish general architecture superiority.
+ST-GCN recognizes all 14 HELLO test clips but only 1/11 NO clips. No webcam accuracy
+has been measured. The source data, feature cache and five prior checkpoints are
+hash-preserved, and the audit remains stopped. 74 tests pass; all 19 validation
+clips match raw/live preprocessing and cached inference exactly.
+
+Use `models/asl-stgcn27-five-signs-early-v1/best.pt` explicitly for its webcam
+trial; expected header is ST-GCN27 / epoch 4 / 5 labels. See
+[the completed report and curves](docs/five-sign-stgcn-2026-11-11.md).
+
 ## 8. Remaining work and later direction
 
-1. Investigate ASL errors and signer-generalization gaps using the completed
+1. Evaluate the epoch-18 five-sign GRU in a controlled webcam check before expanding
+   vocabulary; the stopped audit is not automatically resumed. Investigate ASL errors and signer-generalization gaps using the completed
    evaluation artifacts; keep further model selection on training/validation
    data. Review missing-hand cases and heuristic hand assignment.
 2. Obtain and audit Slovo's supplied hand landmarks and annotations; define its
@@ -537,6 +718,15 @@ sequence recognizer, suitable data and separate evaluation. Joining isolated
 ASL/RSL gloss labels word by word does not guarantee grammatical sentences.
 
 ## 9. Technology and reference links
+
+On 2026-11-12 the user requested pushing all changes and archiving all new model
+weights. A complete local snapshot now preserves 120 checkpoint files, both
+MediaPipe task files, configs/labels/reports and Python/source snapshots:
+`models/archives/all-model-checkpoints-2026-11-12.zip` (788,180,748 bytes).
+All payload CRC/SHA256 values and original source hashes passed verification.
+The earlier epoch-37 ZIP remains in place. Binary archives stay outside Git;
+the [checksum catalog and restore instructions](docs/model-archive-2026-11-12.md)
+are included with the source/notebook/report delivery. All 108 checks pass.
 
 - [OpenCV documentation](https://docs.opencv.org/4.x/): camera/video input and frame processing.
 - [MediaPipe Hand Landmarker](https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker)

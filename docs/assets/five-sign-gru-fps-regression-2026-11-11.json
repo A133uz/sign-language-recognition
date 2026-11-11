@@ -1,0 +1,501 @@
+{
+  "clock_info": {
+    "monotonic": {
+      "implementation": "GetTickCount64()",
+      "resolution_seconds": 0.015625
+    },
+    "perf_counter": {
+      "implementation": "QueryPerformanceCounter()",
+      "resolution_seconds": 1e-07
+    }
+  },
+  "replay": {
+    "source_frames": 301,
+    "seconds": 10.0,
+    "nominal_fps": 30,
+    "timestamp_quantization_seconds": 0.015625,
+    "legacy_retained": 161,
+    "corrected_retained": 300
+  },
+  "latest_pre_fix_session": {
+    "status": "complete",
+    "checkpoint": "E:\\minor_major_proj\\models\\asl-gru-five-signs-early-v2\\regularized\\best.pt",
+    "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+    "epoch": 18,
+    "classes": 5,
+    "device": "cuda",
+    "architecture": "gru",
+    "loaded_model_class": "SignGRU",
+    "display_model": "GRU",
+    "session_id": "webcam-recognition-20261111-211947",
+    "capture_fps_limit": 30.0,
+    "media_saved": false,
+    "coordinates_saved": false,
+    "training_performed": false,
+    "trials": [
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8317292332649231
+          },
+          {
+            "label": "YES",
+            "score": 0.15058422088623047
+          },
+          {
+            "label": "HELLO",
+            "score": 0.012900255620479584
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.0031962664797902107
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0015900115249678493
+          }
+        ],
+        "quality": {
+          "frames": 68,
+          "frames_with_hands": 65,
+          "frames_with_body_anchor": 68
+        },
+        "input_frames": 68,
+        "captured_frames": 68,
+        "capture_seconds": 4.25,
+        "landmark_seconds": 3.0645298999997976,
+        "processing_seconds": 3.3655981000001702,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 119,
+        "fps_limit_dropped_frames": 51,
+        "source_capture_fps": 27.764705882352942,
+        "effective_capture_fps": 15.764705882352942,
+        "capture_id": 1
+      },
+      {
+        "top5": [
+          {
+            "label": "YES",
+            "score": 0.9304336309432983
+          },
+          {
+            "label": "NO",
+            "score": 0.05182928591966629
+          },
+          {
+            "label": "HELLO",
+            "score": 0.015539194457232952
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0016823995392769575
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.000515614403411746
+          }
+        ],
+        "quality": {
+          "frames": 43,
+          "frames_with_hands": 31,
+          "frames_with_body_anchor": 43
+        },
+        "input_frames": 43,
+        "captured_frames": 43,
+        "capture_seconds": 2.391,
+        "landmark_seconds": 4.193522900000062,
+        "processing_seconds": 4.212621000000581,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 74,
+        "fps_limit_dropped_frames": 31,
+        "source_capture_fps": 30.140379851356535,
+        "effective_capture_fps": 17.565872020075282,
+        "capture_id": 2
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.9617371559143066
+          },
+          {
+            "label": "YES",
+            "score": 0.02445577085018158
+          },
+          {
+            "label": "HELLO",
+            "score": 0.006970864254981279
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.006063789129257202
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.000772431492805481
+          }
+        ],
+        "quality": {
+          "frames": 91,
+          "frames_with_hands": 79,
+          "frames_with_body_anchor": 91
+        },
+        "input_frames": 91,
+        "captured_frames": 91,
+        "capture_seconds": 5.0,
+        "landmark_seconds": 3.598786600000494,
+        "processing_seconds": 3.6694895000000542,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 151,
+        "fps_limit_dropped_frames": 60,
+        "source_capture_fps": 30.0,
+        "effective_capture_fps": 18.0,
+        "capture_id": 3
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.9507363438606262
+          },
+          {
+            "label": "YES",
+            "score": 0.02372579649090767
+          },
+          {
+            "label": "HELLO",
+            "score": 0.015446211211383343
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.008590816520154476
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0015008999034762383
+          }
+        ],
+        "quality": {
+          "frames": 118,
+          "frames_with_hands": 82,
+          "frames_with_body_anchor": 118
+        },
+        "input_frames": 118,
+        "captured_frames": 118,
+        "capture_seconds": 7.25,
+        "landmark_seconds": 6.837539699999979,
+        "processing_seconds": 6.907641099999637,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 211,
+        "fps_limit_dropped_frames": 93,
+        "source_capture_fps": 28.96551724137931,
+        "effective_capture_fps": 16.137931034482758,
+        "capture_id": 4
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.9502179622650146
+          },
+          {
+            "label": "YES",
+            "score": 0.03044048510491848
+          },
+          {
+            "label": "HELLO",
+            "score": 0.012037648819386959
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.006193425040692091
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0011104198638349771
+          }
+        ],
+        "quality": {
+          "frames": 49,
+          "frames_with_hands": 37,
+          "frames_with_body_anchor": 49
+        },
+        "input_frames": 49,
+        "captured_frames": 49,
+        "capture_seconds": 2.765,
+        "landmark_seconds": 4.498499499999525,
+        "processing_seconds": 4.535095599999295,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 85,
+        "fps_limit_dropped_frames": 36,
+        "source_capture_fps": 30.04291845493265,
+        "effective_capture_fps": 17.359855334538878,
+        "capture_id": 5
+      },
+      {
+        "top5": [
+          {
+            "label": "THANKYOU",
+            "score": 0.5784808993339539
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.25657403469085693
+          },
+          {
+            "label": "NO",
+            "score": 0.11891087144613266
+          },
+          {
+            "label": "HELLO",
+            "score": 0.03132416680455208
+          },
+          {
+            "label": "YES",
+            "score": 0.014710044488310814
+          }
+        ],
+        "quality": {
+          "frames": 66,
+          "frames_with_hands": 50,
+          "frames_with_body_anchor": 66
+        },
+        "input_frames": 66,
+        "captured_frames": 66,
+        "capture_seconds": 3.594,
+        "landmark_seconds": 2.7610135000004448,
+        "processing_seconds": 2.794914500000232,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 107,
+        "fps_limit_dropped_frames": 41,
+        "source_capture_fps": 29.24137931034483,
+        "effective_capture_fps": 18.085698386199223,
+        "capture_id": 6
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8651299476623535
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.10093151032924652
+          },
+          {
+            "label": "YES",
+            "score": 0.01822015270590782
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.010013110935688019
+          },
+          {
+            "label": "HELLO",
+            "score": 0.005705298390239477
+          }
+        ],
+        "quality": {
+          "frames": 83,
+          "frames_with_hands": 83,
+          "frames_with_body_anchor": 83
+        },
+        "input_frames": 83,
+        "captured_frames": 83,
+        "capture_seconds": 4.766,
+        "landmark_seconds": 3.2962288999997327,
+        "processing_seconds": 3.3362318999998024,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 144,
+        "fps_limit_dropped_frames": 61,
+        "source_capture_fps": 29.910060656766685,
+        "effective_capture_fps": 17.20520352496853,
+        "capture_id": 7
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8961125612258911
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.07493496686220169
+          },
+          {
+            "label": "YES",
+            "score": 0.020961657166481018
+          },
+          {
+            "label": "HELLO",
+            "score": 0.004790432285517454
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0032004783861339092
+          }
+        ],
+        "quality": {
+          "frames": 72,
+          "frames_with_hands": 60,
+          "frames_with_body_anchor": 72
+        },
+        "input_frames": 72,
+        "captured_frames": 72,
+        "capture_seconds": 4.25,
+        "landmark_seconds": 5.127346799999941,
+        "processing_seconds": 5.169127400000434,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 123,
+        "fps_limit_dropped_frames": 51,
+        "source_capture_fps": 28.705882352941178,
+        "effective_capture_fps": 16.705882352941178,
+        "capture_id": 8
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.897658109664917
+          },
+          {
+            "label": "YES",
+            "score": 0.09332773834466934
+          },
+          {
+            "label": "HELLO",
+            "score": 0.005544881336390972
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.00263460841961205
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0008347028633579612
+          }
+        ],
+        "quality": {
+          "frames": 82,
+          "frames_with_hands": 81,
+          "frames_with_body_anchor": 82
+        },
+        "input_frames": 82,
+        "captured_frames": 82,
+        "capture_seconds": 4.579,
+        "landmark_seconds": 3.4949046000001545,
+        "processing_seconds": 3.5402012000004106,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 138,
+        "fps_limit_dropped_frames": 56,
+        "source_capture_fps": 29.91919633107846,
+        "effective_capture_fps": 17.68945184538109,
+        "capture_id": 9
+      },
+      {
+        "top5": [
+          {
+            "label": "NO",
+            "score": 0.8251035213470459
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.13829319179058075
+          },
+          {
+            "label": "YES",
+            "score": 0.01753913424909115
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.011575691401958466
+          },
+          {
+            "label": "HELLO",
+            "score": 0.007488439325243235
+          }
+        ],
+        "quality": {
+          "frames": 65,
+          "frames_with_hands": 65,
+          "frames_with_body_anchor": 65
+        },
+        "input_frames": 65,
+        "captured_frames": 65,
+        "capture_seconds": 3.907,
+        "landmark_seconds": 5.042893300000287,
+        "processing_seconds": 5.083749500000522,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 118,
+        "fps_limit_dropped_frames": 53,
+        "source_capture_fps": 29.946250319937402,
+        "effective_capture_fps": 16.380854875863832,
+        "capture_id": 10
+      }
+    ],
+    "camera_reported_fps": 29.97002997002997,
+    "camera_open": false,
+    "reason": "user_closed",
+    "elapsed_seconds": 252.09400000000005
+  },
+  "latest_summary": {
+    "captures": 10,
+    "no_first_guesses": 8,
+    "retained_fps_range": [
+      15.764705882352942,
+      18.085698386199223
+    ],
+    "source_fps_range": [
+      27.764705882352942,
+      30.140379851356535
+    ]
+  },
+  "fixed_clock": "perf_counter",
+  "fixed_sampler": "fractional frame credit; bounded jitter recovery; no synthetic frames",
+  "physical_fix_verified": true,
+  "physical_verification_scope": "Corrected session no longer halves the camera rate. Recognition still fails; this is not recognition-fix verification.",
+  "post_fix_captures": [
+    {
+      "capture_id": 1,
+      "source_frame_count": 68,
+      "captured_frames": 67,
+      "fps_limit_dropped_frames": 1,
+      "source_capture_fps": 29.981970990601624,
+      "effective_capture_fps": 29.53020134228188
+    },
+    {
+      "capture_id": 2,
+      "source_frame_count": 105,
+      "captured_frames": 100,
+      "fps_limit_dropped_frames": 5,
+      "source_capture_fps": 29.249588312040476,
+      "effective_capture_fps": 27.84026996625422
+    }
+  ],
+  "additional_post_fix_session": {
+    "session_id": "webcam-gru5-ending-auto4-20261111-01",
+    "capture_count": 3,
+    "rates": [
+      {
+        "capture_id": 1,
+        "source_fps": 29.13791359344678,
+        "retained_fps": 26.388125343595384,
+        "skipped_frames": 10
+      },
+      {
+        "capture_id": 2,
+        "source_fps": 28.541932168678986,
+        "retained_fps": 26.061057334326136,
+        "skipped_frames": 10
+      },
+      {
+        "capture_id": 3,
+        "source_fps": 29.149143235673222,
+        "retained_fps": 26.65670154459392,
+        "skipped_frames": 10
+      }
+    ],
+    "note": "Severe halving did not recur; retained rates remain below delivered rates. No fixed-30-FPS or recognition-success claim."
+  }
+}

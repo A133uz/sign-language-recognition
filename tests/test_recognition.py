@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 import tempfile
+from concurrent.futures import Future
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -128,6 +129,18 @@ class RecognitionTests(unittest.TestCase):
             np.testing.assert_array_equal(raw[key], value)
         json.dumps(stats, allow_nan=False)
 
+    def test_capture_logs_hand_ending_counts_without_saving_coordinates(self):
+        raw=observations(12);raw['hand_present'][4:]=False
+        self.recognizer.observe_frames=lambda frames,times:(raw,(480,640,3),{'captured_frames':12})
+        result=self.recognizer.predict_frames([None]*12,list(range(12)))
+        stats=result['tracking_summary']
+        self.assertFalse(stats['final_frame_has_hand'])
+        self.assertEqual(stats['final_window_frames'],10)
+        self.assertEqual(stats['final_window_hand_frames'],2)
+        self.assertEqual(stats['hand_presence_by_quarter'],[1.,1/3,0.,0.])
+        self.assertFalse(any(isinstance(v,np.ndarray) for v in stats.values()))
+        json.dumps(result,allow_nan=False)
+
     def test_comparison_scores_all_variants_on_same_capture_without_storing_arrays(self):
         raw = observations()
         metadata = {'captured_frames': 12, 'capture_seconds': 1., 'landmark_seconds': .1}
@@ -140,7 +153,7 @@ class RecognitionTests(unittest.TestCase):
         json.dumps(result, allow_nan=False)
 
     def test_camera_failure_releases_device_and_records_failure_without_media(self):
-        camera = SimpleNamespace(isOpened=lambda: True, set=lambda *a: True,
+        camera = SimpleNamespace(isOpened=lambda: True, set=lambda *a: True, get=lambda *a: 30.,
                                  read=lambda: (False, None), release=lambda: None)
         recognizer = SimpleNamespace(checkpoint=Path('best.pt'), checkpoint_sha256='hash',
                                      epoch=37, names=['hello'], device='cpu', hand_model=Path('hands.task'))
@@ -157,3 +170,50 @@ class RecognitionTests(unittest.TestCase):
             self.assertFalse(saved['coordinates_saved'])
             self.assertFalse(saved['training_performed'])
             release.assert_called_once()
+
+    def test_capture_loop_caps_60fps_camera_and_preserves_timestamps_and_metadata(self):
+        received={}
+        def predict(frames,timestamps):
+            received['ids']=[int(f[0,0,0]) for f in frames]
+            received['timestamps']=list(timestamps)
+            return {'top5':[{'label':'hello','score':1.}], 'captured_frames':len(frames),
+                    'quality':{'frames_with_hands':len(frames),'frames_with_body_anchor':len(frames)}}
+        recognizer=SimpleNamespace(checkpoint=Path('best.pt'),checkpoint_sha256='hash',epoch=18,
+                                   names=['hello'],device='cpu',hand_model=Path('hands.task'),predict_frames=predict)
+        source=iter(np.full((8,8,3),i,np.uint8) for i in range(212))
+        camera=SimpleNamespace(isOpened=lambda:True,set=lambda *a:False,get=lambda *a:60.,
+                               read=lambda:(True,next(source)),release=lambda:None)
+        preview=SimpleNamespace(draw=lambda frame,stamp:(frame,1),close=lambda:None)
+        class ImmediatePool:
+            def __init__(self,*args,**kwargs):pass
+            def submit(self,fn,*args):
+                future=Future()
+                try:future.set_result(fn(*args))
+                except Exception as exc:future.set_exception(exc)
+                return future
+            def shutdown(self,**kwargs):pass
+        with tempfile.TemporaryDirectory() as directory, \
+             patch('sign_language.recognition_webcam.cv2.VideoCapture',return_value=camera), \
+             patch('sign_language.recognition_webcam.SkeletonPreview',return_value=preview), \
+             patch('sign_language.recognition_webcam.ThreadPoolExecutor',ImmediatePool), \
+             patch('sign_language.recognition_webcam.time.perf_counter',side_effect=[0.]+[i/60 for i in range(212)]+[212/60]), \
+             patch('sign_language.recognition_webcam.cv2.waitKey',side_effect=[32]+[-1]*149+[32]+[-1]*60+[ord('q')]), \
+             patch('sign_language.recognition_webcam.cv2.getWindowProperty',return_value=1), \
+             patch('sign_language.recognition_webcam.cv2.imshow'), \
+             patch('sign_language.recognition_webcam.cv2.destroyAllWindows'):
+            report=run_recognition(recognizer,Path(directory)/'report.json',max_seconds=2.,expected_sign='hello',auto_finish=True)
+        trial=report['trials'][0]
+        self.assertEqual(received['ids'],list(range(90,211,2)))
+        self.assertEqual(received['timestamps'],[round(i*1000/30) for i in range(61)])
+        self.assertEqual(trial['source_frame_count'],121)
+        self.assertEqual(trial['captured_frames'],61)
+        self.assertEqual(trial['fps_limit_dropped_frames'],60)
+        self.assertAlmostEqual(trial['effective_capture_fps'],30)
+        self.assertAlmostEqual(trial['source_capture_fps'],60)
+        self.assertEqual(report['camera_reported_fps'],60)
+        self.assertEqual(report['capture_clock'],'perf_counter')
+        self.assertEqual(trial['expected_label'],'hello')
+        self.assertEqual(trial['capture_stop_reason'],'time_limit')
+        self.assertTrue(report['automatic_capture_finish'])
+        self.assertFalse(report['camera_open'])
+        self.assertFalse(report['media_saved'])

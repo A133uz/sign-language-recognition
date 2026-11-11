@@ -7,12 +7,60 @@ Run with the project environment:
 ```
 
 The default checkpoint is now
-`models/asl-stgcn27-v1/best.pt` (ST-GCN, epoch 39).
-To select the preserved GRU instead, pass
+`models/asl-gru-five-signs-early-v2/regularized/best.pt` (regularized GRU,
+epoch 18, five labels), as requested for the current webcam test.
+To select the preserved full-vocabulary ST-GCN, pass
+`--checkpoint models/asl-stgcn27-v1/best.pt`; for the full-vocabulary GRU, pass
 `--checkpoint models/asl-gru-128-cv-regularized-v1/official-refit/best.pt`.
-It predicts across all 2,731 ASL Citizen labels. There is no restricted pilot
-vocabulary, fine-tuning, or automatic unknown-sign rejection. This is a test
+Those full-vocabulary checkpoints predict across all 2,731 ASL Citizen labels.
+They do not apply a restricted vocabulary or automatic unknown-sign rejection. This is a test
 of manually bounded isolated signs, rather than continuous signing.
+
+The explicit equivalent of the default **five-sign GRU pilot** is:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/recognize_webcam.py --checkpoint models/asl-gru-five-signs-early-v2/regularized/best.pt
+```
+
+Its header must show **GRU, epoch 18, CUDA, 5 labels**: HELLO, NO, PLEASE,
+THANKYOU, YES. It was trained with five outputs, not by hiding full-vocabulary
+predictions. It remains closed-set: other signs can be assigned one of these
+labels. The first five-sign GRU user check produced NO in all four logged captures;
+reliable live recognition is not established. See
+[pilot results and limitations](five-sign-early-training-2026-11-11.md).
+
+The later [controlled diagnostic](recognition-cause-experiments-2026-11-11.md)
+completed six confirmed HELLO/THANKYOU/NO trials, with 4/6 original first guesses
+correct. It reproduced sensitivity to pose observations/validity masks and to
+later sequence context; replacement heads and mirroring did not resolve the
+pilot. These are small diagnostic samples, not a webcam accuracy benchmark or a
+verified repair. The default checkpoint and preprocessing remain unchanged.
+
+The [masked mean-pooling comparison](gru-mean-pooling-2026-11-11.md), completed
+2026-11-12, improves fixed test results to 47/60 but scores 4/6 in the paired live
+check versus the original's 5/6. It recognizes both HELLO/THANKYOU attempts but
+calls both NO attempts HELLO. It remains experimental; the default stays the
+original GRU. Select it explicitly with
+`--checkpoint models/asl-gru-five-signs-mean-pool-v1/best.pt`; its header reads
+**GRU mean-pool, epoch 4**.
+
+The same five-sign experiment is also available with **ST-GCN27**:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/recognize_webcam.py --checkpoint models/asl-stgcn27-five-signs-early-v1/best.pt
+```
+
+Its header must show **ST-GCN27, epoch 4, CUDA, 5 labels**. This is distinct from
+the default five-sign GRU and the older epoch-39, 2,731-label ST-GCN. Offline pilot test top-1 is
+65.0% (39/60), with particularly weak NO recall; no live result is established.
+See [the ST-GCN pilot report](five-sign-stgcn-2026-11-11.md).
+
+The [2026-11-12 mean-pooling request](stgcn-mean-pooling-repeat-2026-11-12.md)
+confirmed that this ST-GCN already pools by the mean over valid time and all
+nodes. A fresh preserved repeat has identical selected model tensors and test
+predictions. Its explicit path is
+`models/asl-stgcn27-five-signs-mean-pool-repeat-v1/best.pt`; it remains ST-GCN,
+epoch 4, five labels. It is not a different pooling architecture or the default.
 
 ## Controls
 
@@ -26,15 +74,50 @@ of manually bounded isolated signs, rather than continuous signing.
 
 Use `--camera 1` to select another webcam, `--device cpu` to explicitly use CPU
 classification, or `--max-seconds 5` to change the capture cap (1–10 seconds).
+The capture buffer now targets **30 FPS** by default. Use `--capture-fps 30`
+to specify the same limit explicitly (valid range 1–60).
 Scores are softmax outputs, not calibrated confidence. Numbered gloss variants
 are the saved dataset labels. Record the sign you actually performed when
 judging predictions; the application does not know a trial's true label.
 
 ## Data path
 
-The UI captures unmirrored raw frames at the camera's delivered rate. A separate
-worker draws a hand-skeleton preview without making capture wait for detection.
+The UI continuously reads unmirrored camera frames, requests 30 FPS from the
+driver, and rate-limits frames retained for recognition to the requested budget.
+A fractional-frame credit budget tolerates arrival jitter without repeatedly
+dropping native 30-FPS frames. Faster frames are skipped without unbounded catch-up; slower input
+is retained without duplication. Actual selected-frame timestamps are preserved.
+A separate worker draws a hand-skeleton preview without making capture wait for detection.
 Only the displayed preview is mirrored. The preview may lag the camera slightly.
+
+The result view shows measured **capture FPS**, the target and skipped frames.
+Session JSON records `camera_reported_fps`; each prediction records
+`capture_fps_limit`, `source_frame_count`, `source_capture_fps`,
+`fps_limit_dropped_frames` and `effective_capture_fps`. Reported driver FPS is
+not assumed to equal measured delivery. These are aggregate measurements;
+video and landmark coordinates are not saved.
+
+The existing 128-step normalization still runs afterward. A long capture can
+therefore be uniformly downsampled further; limiting capture FPS does not make
+the model's final time steps a fixed 30-FPS grid or standardize the dataset.
+
+The preceding four NO-only captures measured **30.45, 29.87, 29.36 and 30.24 FPS**
+before this limiter existed. Their rates were already near the five-sign training
+clips' approximately 30 FPS. This is a consistency guard, not an established fix
+for the recognition failure. Synthetic 60→30, jittery-30, slower-15 and stall
+tests and an integrated synthetic camera loop initially passed (81 tests), but
+the later physical-camera session exposed a Windows clock regression: only
+15.76–18.09 FPS was retained from roughly 30-FPS delivery. The corrected version
+uses high-resolution `perf_counter` and fractional frame credit. It passes
+**84 tests**, including a quantized Windows-clock replay. A subsequent paired
+HELLO check retained 29.53 / 27.84 FPS, confirming no severe halving, but both
+guesses remained wrong (NO then YES). Both endings still had detected hands.
+See the [focused investigation](five-sign-no-collapse-investigation-2026-11-11.md).
+
+Captures now include a `tracking_summary` of hand presence by quarter, last-frame
+presence and a final-ten-frame count. These are counts/fractions, not coordinates.
+For a labeled diagnostic use `--expected-sign HELLO`: the prompt is displayed
+and logged, but never passed to the classifier or used to change its predictions.
 
 After capture ends, the worker creates fresh MediaPipe hand and pose-lite
 trackers for that sign, using the offline extractor's CPU VIDEO settings and

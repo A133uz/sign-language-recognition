@@ -1,0 +1,109 @@
+{
+  "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+  "unit": "cached source video clips, not frames or augmentation variants",
+  "verification": "Target arrays, label/index rows, feature/length row counts and manifest counts agree; index/target checksums verified.",
+  "splits": {
+    "train": {
+      "clips": 75,
+      "unique_signers": 24,
+      "counts": {
+        "HELLO": 14,
+        "NO": 16,
+        "PLEASE": 14,
+        "THANKYOU": 16,
+        "YES": 15
+      },
+      "percent": {
+        "HELLO": 18.666666666666668,
+        "NO": 21.333333333333336,
+        "PLEASE": 18.666666666666668,
+        "THANKYOU": 21.333333333333336,
+        "YES": 20.0
+      },
+      "unique_signers_by_class": {
+        "HELLO": 14,
+        "NO": 16,
+        "PLEASE": 14,
+        "THANKYOU": 16,
+        "YES": 13
+      }
+    },
+    "val": {
+      "clips": 19,
+      "unique_signers": 4,
+      "counts": {
+        "HELLO": 4,
+        "NO": 3,
+        "PLEASE": 4,
+        "THANKYOU": 3,
+        "YES": 5
+      },
+      "percent": {
+        "HELLO": 21.052631578947366,
+        "NO": 15.789473684210526,
+        "PLEASE": 21.052631578947366,
+        "THANKYOU": 15.789473684210526,
+        "YES": 26.31578947368421
+      },
+      "unique_signers_by_class": {
+        "HELLO": 4,
+        "NO": 3,
+        "PLEASE": 4,
+        "THANKYOU": 3,
+        "YES": 3
+      }
+    },
+    "test": {
+      "clips": 60,
+      "unique_signers": 11,
+      "counts": {
+        "HELLO": 14,
+        "NO": 11,
+        "PLEASE": 13,
+        "THANKYOU": 12,
+        "YES": 10
+      },
+      "percent": {
+        "HELLO": 23.333333333333332,
+        "NO": 18.333333333333332,
+        "PLEASE": 21.666666666666668,
+        "THANKYOU": 20.0,
+        "YES": 16.666666666666664
+      },
+      "unique_signers_by_class": {
+        "HELLO": 11,
+        "NO": 11,
+        "PLEASE": 11,
+        "THANKYOU": 11,
+        "YES": 10
+      }
+    }
+  },
+  "total_clips": 154,
+  "total_by_class": {
+    "HELLO": 32,
+    "NO": 30,
+    "PLEASE": 31,
+    "THANKYOU": 31,
+    "YES": 30
+  },
+  "total_percent_by_class": {
+    "HELLO": 20.77922077922078,
+    "NO": 19.480519480519483,
+    "PLEASE": 20.12987012987013,
+    "THANKYOU": 20.12987012987013,
+    "YES": 19.480519480519483
+  },
+  "split_percent": {
+    "train": 48.701298701298704,
+    "val": 12.337662337662337,
+    "test": 38.961038961038966
+  },
+  "training_max_min_ratio": 1.1428571428571428,
+  "models_using_same_subset": [
+    "five-sign last-state GRU",
+    "five-sign mean-pool GRU",
+    "five-sign ST-GCN"
+  ],
+  "limits": "Clip balance does not establish coverage of signing variations, detection quality, or per-class learnability. Official signer-disjoint splits unchanged."
+}

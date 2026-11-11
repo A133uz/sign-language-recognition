@@ -1,0 +1,14 @@
+# Checkpoints record Python-source hashes; keep checkout bytes stable on Windows.
+*.py text eol=lf
+*.md text eol=lf
+# These artifacts contain/participate in byte-level SHA256 manifests.
+# Preserve their original bytes instead of normalizing existing report outputs.
+*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+*.ipynb -text whitespace=trailing-space,space-before-tab,cr-at-eol
+*.toml text eol=lf
+uv.lock text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.docx binary
+*.zip binary

@@ -1,0 +1,252 @@
+{
+  "clips": 4,
+  "split": "validation",
+  "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+  "checkpoint_unchanged": true,
+  "webcam_opened": false,
+  "training_performed": false,
+  "all_rankings_equal": true,
+  "maximum_score_difference": 0.0,
+  "results": [
+    {
+      "video_file": "020030442376253177-HELLO.mp4",
+      "participant_id": "P26",
+      "expected": "HELLO",
+      "source_fps": 29.914529914529915,
+      "frame_shape": [
+        480,
+        640,
+        3
+      ],
+      "cached_top1": "HELLO",
+      "same_label_ranking": true,
+      "max_score_difference": 0.0,
+      "frame_to_landmark_to_gru": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.9188688397407532
+          },
+          {
+            "label": "NO",
+            "score": 0.03183978423476219
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.022691071033477783
+          },
+          {
+            "label": "YES",
+            "score": 0.02023118920624256
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0063691348768770695
+          }
+        ],
+        "quality": {
+          "frames": 49,
+          "frames_with_hands": 21,
+          "frames_with_body_anchor": 49
+        },
+        "input_frames": 49,
+        "captured_frames": 49,
+        "capture_seconds": 1.605,
+        "landmark_seconds": 64.59563720000006,
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.5384615384615384,
+            1.0,
+            0.16666666666666666,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.42857142857142855
+        },
+        "processing_seconds": 64.84603140000036
+      }
+    },
+    {
+      "video_file": "05614933522741539-HELLO.mp4",
+      "participant_id": "P12",
+      "expected": "HELLO",
+      "source_fps": 30.0,
+      "frame_shape": [
+        480,
+        640,
+        3
+      ],
+      "cached_top1": "HELLO",
+      "same_label_ranking": true,
+      "max_score_difference": 0.0,
+      "frame_to_landmark_to_gru": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.5542163848876953
+          },
+          {
+            "label": "NO",
+            "score": 0.2355884611606598
+          },
+          {
+            "label": "YES",
+            "score": 0.18293973803520203
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.017521938309073448
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.00973339844495058
+          }
+        ],
+        "quality": {
+          "frames": 54,
+          "frames_with_hands": 33,
+          "frames_with_body_anchor": 54
+        },
+        "input_frames": 54,
+        "captured_frames": 54,
+        "capture_seconds": 1.767,
+        "landmark_seconds": 4.858446199999889,
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.42857142857142855,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.6111111111111112
+        },
+        "processing_seconds": 4.877547100000811
+      }
+    },
+    {
+      "video_file": "20675411351630046-HELLO.mp4",
+      "participant_id": "P21",
+      "expected": "HELLO",
+      "source_fps": 29.919447640966627,
+      "frame_shape": [
+        480,
+        640,
+        3
+      ],
+      "cached_top1": "HELLO",
+      "same_label_ranking": true,
+      "max_score_difference": 0.0,
+      "frame_to_landmark_to_gru": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.9020283222198486
+          },
+          {
+            "label": "NO",
+            "score": 0.03922804817557335
+          },
+          {
+            "label": "YES",
+            "score": 0.030276106670498848
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.02184436097741127
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.006623231805860996
+          }
+        ],
+        "quality": {
+          "frames": 52,
+          "frames_with_hands": 19,
+          "frames_with_body_anchor": 52
+        },
+        "input_frames": 52,
+        "captured_frames": 52,
+        "capture_seconds": 1.705,
+        "landmark_seconds": 1.8888993999989907,
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.07692307692307693,
+            1.0,
+            0.38461538461538464,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.36538461538461536
+        },
+        "processing_seconds": 1.910499899999195
+      }
+    },
+    {
+      "video_file": "16493550450776628-HELLO.mp4",
+      "participant_id": "P39",
+      "expected": "HELLO",
+      "source_fps": 30.002479543763947,
+      "frame_shape": [
+        480,
+        640,
+        3
+      ],
+      "cached_top1": "HELLO",
+      "same_label_ranking": true,
+      "max_score_difference": 0.0,
+      "frame_to_landmark_to_gru": {
+        "top5": [
+          {
+            "label": "HELLO",
+            "score": 0.9236690402030945
+          },
+          {
+            "label": "THANKYOU",
+            "score": 0.028193628415465355
+          },
+          {
+            "label": "NO",
+            "score": 0.02463899552822113
+          },
+          {
+            "label": "YES",
+            "score": 0.015699781477451324
+          },
+          {
+            "label": "PLEASE",
+            "score": 0.0077985660172998905
+          }
+        ],
+        "quality": {
+          "frames": 121,
+          "frames_with_hands": 31,
+          "frames_with_body_anchor": 121
+        },
+        "input_frames": 121,
+        "captured_frames": 121,
+        "capture_seconds": 4.0,
+        "landmark_seconds": 3.7015659999997297,
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.0,
+            0.26666666666666666,
+            0.7666666666666667,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.256198347107438
+        },
+        "processing_seconds": 3.756878100000904
+      }
+    }
+  ]
+}

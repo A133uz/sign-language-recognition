@@ -39,6 +39,9 @@ class SignRecognizer:
             model_class, source_files = SignSTGCN, ('stgcn_model.py', 'stgcn_graph.py')
         elif architecture == 'gru':
             model_class, source_files = SignGRU, ('gru_model.py',)
+        elif architecture == 'gru-mean-pool-v1':
+            from sign_language.gru_mean_pool_model import SignMeanPoolGRU
+            model_class, source_files = SignMeanPoolGRU, ('gru_model.py', 'gru_mean_pool_model.py')
         else:
             raise ValueError('Unknown checkpoint architecture')
         for name in ('preprocessing.py', *source_files):
@@ -116,7 +119,9 @@ class SignRecognizer:
                               'landmark_seconds': extraction_seconds}
 
     def predict_frames(self, frames, timestamps):
+        from sign_language.recognition_diagnostics import hand_visibility_summary
         started = time.perf_counter()
         arrays, shape, metadata = self.observe_frames(frames, timestamps)
         result = self.predict_observations(arrays, shape)
-        return {**result, **metadata, 'processing_seconds': time.perf_counter()-started}
+        return {**result, **metadata, 'tracking_summary':hand_visibility_summary(arrays['hand_present']),
+                'processing_seconds': time.perf_counter()-started}

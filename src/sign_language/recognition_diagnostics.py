@@ -12,6 +12,17 @@ def distribution(values):
             'p95': float(np.quantile(values, .95)), 'max': float(np.max(values))} if values.size else None
 
 
+def hand_visibility_summary(hand_present):
+    """Scalar/count-only capture-ending measurements, never joint coordinates."""
+    present=np.asarray(hand_present,dtype=bool)
+    if present.ndim!=2 or present.shape[1]!=2 or not len(present):
+        raise ValueError('Expected nonempty [frames,2] hand masks')
+    visible=present.any(axis=1);tail=visible[-min(10,len(visible)):]
+    return {'hand_presence_by_quarter':[float(part.mean()) if len(part) else None for part in np.array_split(visible,4)],
+            'final_frame_has_hand':bool(visible[-1]),'final_window_frames':len(tail),
+            'final_window_hand_frames':int(tail.sum()),'hand_frame_fraction':float(visible.mean())}
+
+
 def observation_statistics(arrays, shape):
     pose = arrays['pose_xyz'][..., :2].copy()
     pose[..., 1] *= shape[0]/shape[1]
