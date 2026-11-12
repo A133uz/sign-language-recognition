@@ -1,0 +1,4170 @@
+{
+  "status": "complete",
+  "scope": "All PLEASE/MY training and validation clips only; bounded diagnostic, not resumed corpus audit or cleaning",
+  "records": [
+    {
+      "video_file": "1967585753703054-MY.mp4",
+      "participant_id": "P27",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 800,
+      "source_frames": 56,
+      "model_frames": 56,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00011998414993286133,
+      "quality": {
+        "frames": 56,
+        "frames_with_hands": 24,
+        "frames_with_body_anchor": 56
+      },
+      "raw_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 24,
+        "contiguous_spans": 1,
+        "longest_span_frames": 24,
+        "longest_span": {
+          "start": 5,
+          "end": 28,
+          "points": 24,
+          "path_length": 0.7469111944214789,
+          "endpoint_distance": 0.4325427556820655,
+          "endpoint_over_path": 0.5791086797368088,
+          "axis_ratio": 0.5108347133481569,
+          "x_extent": 0.4325055032968521,
+          "y_extent": 0.22001919150352478,
+          "signed_turns": 0.2873494649154653,
+          "turn_coherence": 0.12536877559120618,
+          "closed_polygon_circularity": 0.5129173927560976,
+          "loop_probe_score": 0.2158824786230677
+        },
+        "best_loop_probe": {
+          "start": 5,
+          "end": 28,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.7469111944214789,
+          "endpoint_distance": 0.4325427556820655,
+          "endpoint_over_path": 0.5791086797368088,
+          "axis_ratio": 0.5108347133481569,
+          "x_extent": 0.4325055032968521,
+          "y_extent": 0.22001919150352478,
+          "signed_turns": 0.2873494649154653,
+          "turn_coherence": 0.12536877559120618,
+          "closed_polygon_circularity": 0.5129173927560976,
+          "loop_probe_score": 0.2158824786230677
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 24,
+        "contiguous_spans": 1,
+        "longest_span_frames": 24,
+        "longest_span": {
+          "start": 5,
+          "end": 28,
+          "points": 24,
+          "path_length": 0.7466078398720534,
+          "endpoint_distance": 0.43240950789853955,
+          "endpoint_over_path": 0.5791655067172102,
+          "axis_ratio": 0.5110194925323953,
+          "x_extent": 0.432373046875,
+          "y_extent": 0.219970703125,
+          "signed_turns": 0.2876034535026028,
+          "turn_coherence": 0.12572297884036576,
+          "closed_polygon_circularity": 0.5133838585884352,
+          "loop_probe_score": 0.2160496359886275
+        },
+        "best_loop_probe": {
+          "start": 5,
+          "end": 28,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.7466078398720534,
+          "endpoint_distance": 0.43240950789853955,
+          "endpoint_over_path": 0.5791655067172102,
+          "axis_ratio": 0.5110194925323953,
+          "x_extent": 0.432373046875,
+          "y_extent": 0.219970703125,
+          "signed_turns": 0.2876034535026028,
+          "turn_coherence": 0.12572297884036576,
+          "closed_polygon_circularity": 0.5133838585884352,
+          "loop_probe_score": 0.2160496359886275
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "2e75477b5217efc6dade40b7684aeeda55e80cdfac1e14c4e75202af630d96cd",
+        "decoded_frames": 56,
+        "fps": 29.978586723768736,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.06514785438776016,
+          "my_score": 0.5738916993141174,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.009418205358088017,
+          "my_score": 0.8815723657608032,
+          "please_rank": 4,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        }
+      }
+    },
+    {
+      "video_file": "9567263704149651-MY.mp4",
+      "participant_id": "P14",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 1008,
+      "source_frames": 43,
+      "model_frames": 43,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00012138485908508301,
+      "quality": {
+        "frames": 43,
+        "frames_with_hands": 26,
+        "frames_with_body_anchor": 43
+      },
+      "raw_trajectory": {
+        "total_frames": 43,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 9,
+          "end": 34,
+          "points": 26,
+          "path_length": 0.37531862261345417,
+          "endpoint_distance": 0.16632667452728866,
+          "endpoint_over_path": 0.4431612622073134,
+          "axis_ratio": 0.5581382887940398,
+          "x_extent": 0.17670892179012299,
+          "y_extent": 0.1338616907596588,
+          "signed_turns": 1.5388966749552397,
+          "turn_coherence": 0.34179000806248727,
+          "closed_polygon_circularity": 0.7047559593653634,
+          "loop_probe_score": 0.3924354188648829
+        },
+        "best_loop_probe": {
+          "start": 9,
+          "end": 33,
+          "window_seconds": 0.8,
+          "points": 25,
+          "path_length": 0.33947260621151754,
+          "endpoint_distance": 0.16059499184524068,
+          "endpoint_over_path": 0.4730720208545418,
+          "axis_ratio": 0.44145221681554075,
+          "x_extent": 0.16227930784225464,
+          "y_extent": 0.1338616907596588,
+          "signed_turns": 1.4951609289124594,
+          "turn_coherence": 0.33533361209973167,
+          "closed_polygon_circularity": 0.6823675951523008,
+          "loop_probe_score": 0.35955857794794804
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 43,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 9,
+          "end": 34,
+          "points": 26,
+          "path_length": 0.37640210465187773,
+          "endpoint_distance": 0.1663520545642261,
+          "endpoint_over_path": 0.4419530404009824,
+          "axis_ratio": 0.5583523929534241,
+          "x_extent": 0.1767578125,
+          "y_extent": 0.134033203125,
+          "signed_turns": 0.5394255916016291,
+          "turn_coherence": 0.1176501664904714,
+          "closed_polygon_circularity": 0.7021671216205612,
+          "loop_probe_score": 0.3918422273507478
+        },
+        "best_loop_probe": {
+          "start": 9,
+          "end": 33,
+          "window_seconds": 0.8,
+          "points": 25,
+          "path_length": 0.3406071839891218,
+          "endpoint_distance": 0.16053360004721048,
+          "endpoint_over_path": 0.4713159545464477,
+          "axis_ratio": 0.4419417935312062,
+          "x_extent": 0.1622314453125,
+          "y_extent": 0.134033203125,
+          "signed_turns": 0.4946939627551528,
+          "turn_coherence": 0.10895707321884372,
+          "closed_polygon_circularity": 0.6800674425275831,
+          "loop_probe_score": 0.35954080669673383
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "508f0b1140b00bb01b915462fa13d03f66f60a6bca11c21ba26c6b9e2853ab87",
+        "decoded_frames": 43,
+        "fps": 30.791,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.1504146158695221,
+          "my_score": 0.6584957242012024,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.06871955096721649,
+          "my_score": 0.9123021364212036,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "019419810771881707-MY.mp4",
+      "participant_id": "P30",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 1109,
+      "source_frames": 61,
+      "model_frames": 61,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0001201331615447998,
+      "quality": {
+        "frames": 61,
+        "frames_with_hands": 33,
+        "frames_with_body_anchor": 61
+      },
+      "raw_trajectory": {
+        "total_frames": 61,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 27,
+        "longest_span": {
+          "start": 7,
+          "end": 33,
+          "points": 27,
+          "path_length": 0.584056137775053,
+          "endpoint_distance": 0.11378846067573402,
+          "endpoint_over_path": 0.19482452681553566,
+          "axis_ratio": 0.9331875920717843,
+          "x_extent": 0.16865557432174683,
+          "y_extent": 0.1739862561225891,
+          "signed_turns": 1.515255081301027,
+          "turn_coherence": 0.4543125020160423,
+          "closed_polygon_circularity": 0.306222653258642,
+          "loop_probe_score": 0.24656296973732925
+        },
+        "best_loop_probe": {
+          "start": 8,
+          "end": 19,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.26456096684901065,
+          "endpoint_distance": 0.058409149486269456,
+          "endpoint_over_path": 0.2207776535667279,
+          "axis_ratio": 0.2617003584108684,
+          "x_extent": 0.047688186168670654,
+          "y_extent": 0.13924583792686462,
+          "signed_turns": -0.25404147323860377,
+          "turn_coherence": 0.2525837541552926,
+          "closed_polygon_circularity": 0.23198110527393015,
+          "loop_probe_score": 0.18076486117973578
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 61,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 27,
+        "longest_span": {
+          "start": 7,
+          "end": 33,
+          "points": 27,
+          "path_length": 0.5840886642572282,
+          "endpoint_distance": 0.11370207460774567,
+          "endpoint_over_path": 0.19466577861485795,
+          "axis_ratio": 0.9329629013266652,
+          "x_extent": 0.16864013671875,
+          "y_extent": 0.1739501953125,
+          "signed_turns": 1.5155496053827282,
+          "turn_coherence": 0.4550411917660034,
+          "closed_polygon_circularity": 0.30670127096394856,
+          "loop_probe_score": 0.24699702924958497
+        },
+        "best_loop_probe": {
+          "start": 8,
+          "end": 19,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.2648390327259006,
+          "endpoint_distance": 0.05842272913497933,
+          "endpoint_over_path": 0.22059712472762605,
+          "axis_ratio": 0.2617310558410008,
+          "x_extent": 0.0477294921875,
+          "y_extent": 0.1392822265625,
+          "signed_turns": -0.2577895932146615,
+          "turn_coherence": 0.2542388412827405,
+          "closed_polygon_circularity": 0.23081864422282478,
+          "loop_probe_score": 0.17990071497374074
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "c32c98f656d42e41a84ab64f5e9b0bbae5e443652629b99b405a961d54d575ab",
+        "decoded_frames": 61,
+        "fps": 29.916625796959295,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.27736160159111023,
+          "my_score": 0.662761926651001,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.17595627903938293,
+          "my_score": 0.8167979717254639,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "43778843855311433-PLEASE.mp4",
+      "participant_id": "P11",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 1191,
+      "source_frames": 164,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023478269577026367,
+      "quality": {
+        "frames": 164,
+        "frames_with_hands": 29,
+        "frames_with_body_anchor": 164
+      },
+      "raw_trajectory": {
+        "total_frames": 164,
+        "valid_frames": 28,
+        "contiguous_spans": 1,
+        "longest_span_frames": 28,
+        "longest_span": {
+          "start": 113,
+          "end": 140,
+          "points": 28,
+          "path_length": 1.2887128641701366,
+          "endpoint_distance": 0.008134163086828324,
+          "endpoint_over_path": 0.006311850616984643,
+          "axis_ratio": 0.4242551502542375,
+          "x_extent": 0.2959676533937454,
+          "y_extent": 0.3043368458747864,
+          "signed_turns": 1.4320787273942381,
+          "turn_coherence": 0.7690047611442191,
+          "closed_polygon_circularity": 0.09859351167965738,
+          "loop_probe_score": 0.09797120416213145
+        },
+        "best_loop_probe": {
+          "start": 121,
+          "end": 132,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.3740392851651536,
+          "endpoint_distance": 0.05903083485510149,
+          "endpoint_over_path": 0.15781987934512537,
+          "axis_ratio": 0.7604105023542255,
+          "x_extent": 0.14614123106002808,
+          "y_extent": 0.12872442603111267,
+          "signed_turns": 0.7021117424856254,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9245313836846425,
+          "loop_probe_score": 0.7786219522607505
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 22,
+        "contiguous_spans": 1,
+        "longest_span_frames": 22,
+        "longest_span": {
+          "start": 88,
+          "end": 109,
+          "points": 22,
+          "path_length": 1.2791024439120147,
+          "endpoint_distance": 0.00852746542801415,
+          "endpoint_over_path": 0.006666757200411327,
+          "axis_ratio": 0.3877706869321869,
+          "x_extent": 0.296142578125,
+          "y_extent": 0.30029296875,
+          "signed_turns": 1.4324140652461048,
+          "turn_coherence": 0.7690652171023835,
+          "closed_polygon_circularity": 0.09321922523665865,
+          "loop_probe_score": 0.0925977552955954
+        },
+        "best_loop_probe": {
+          "start": 97,
+          "end": 105,
+          "window_seconds": 0.4,
+          "points": 9,
+          "path_length": 0.33789221036468087,
+          "endpoint_distance": 0.04037778904968993,
+          "endpoint_over_path": 0.11949902309411313,
+          "axis_ratio": 0.6190619649291585,
+          "x_extent": 0.146240234375,
+          "y_extent": 0.0966796875,
+          "signed_turns": 0.7745724727919056,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8398470040192055,
+          "loop_probe_score": 0.7394861074903928
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "ed313c60d49e91a9deaf5d26a5c5a4d952591dfc17171d332fd60d05a742fdbc",
+        "decoded_frames": 164,
+        "fps": 29.91608901860635,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "PLEASE",
+          "please_score": 0.3428352475166321,
+          "my_score": 0.16938459873199463,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.6185222268104553,
+          "my_score": 0.19086222350597382,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "44272136216354463-PLEASE.mp4",
+      "participant_id": "P33",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 3755,
+      "source_frames": 155,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00024366378784179688,
+      "quality": {
+        "frames": 155,
+        "frames_with_hands": 62,
+        "frames_with_body_anchor": 155
+      },
+      "raw_trajectory": {
+        "total_frames": 155,
+        "valid_frames": 62,
+        "contiguous_spans": 1,
+        "longest_span_frames": 62,
+        "longest_span": {
+          "start": 52,
+          "end": 113,
+          "points": 62,
+          "path_length": 1.9521160084493505,
+          "endpoint_distance": 0.14971488555992163,
+          "endpoint_over_path": 0.07669364162370995,
+          "axis_ratio": 0.4771180395838744,
+          "x_extent": 0.18071416020393372,
+          "y_extent": 0.5091302990913391,
+          "signed_turns": 2.5209176665118234,
+          "turn_coherence": 0.49762327564875486,
+          "closed_polygon_circularity": 0.10382010497943832,
+          "loop_probe_score": 0.09585776305480934
+        },
+        "best_loop_probe": {
+          "start": 85,
+          "end": 96,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.29744253556370226,
+          "endpoint_distance": 0.06302976447643424,
+          "endpoint_over_path": 0.21190568577215269,
+          "axis_ratio": 0.9264109802086076,
+          "x_extent": 0.12139001488685608,
+          "y_extent": 0.11857408285140991,
+          "signed_turns": 0.6560382598363174,
+          "turn_coherence": 0.9483232357692379,
+          "closed_polygon_circularity": 0.910843261516153,
+          "loop_probe_score": 0.7178303955536285
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 51,
+        "contiguous_spans": 1,
+        "longest_span_frames": 51,
+        "longest_span": {
+          "start": 43,
+          "end": 93,
+          "points": 51,
+          "path_length": 1.9012781807005001,
+          "endpoint_distance": 0.14970439552729123,
+          "endpoint_over_path": 0.07873881741604728,
+          "axis_ratio": 0.4689821227756561,
+          "x_extent": 0.1806640625,
+          "y_extent": 0.509033203125,
+          "signed_turns": 2.49409137325743,
+          "turn_coherence": 0.6040219442542281,
+          "closed_polygon_circularity": 0.12399474306553207,
+          "loop_probe_score": 0.11423154363074545
+        },
+        "best_loop_probe": {
+          "start": 70,
+          "end": 79,
+          "window_seconds": 0.4,
+          "points": 10,
+          "path_length": 0.294361680725732,
+          "endpoint_distance": 0.06311542778333742,
+          "endpoint_over_path": 0.2144145516078381,
+          "axis_ratio": 0.822093885155235,
+          "x_extent": 0.1123046875,
+          "y_extent": 0.11865234375,
+          "signed_turns": 0.6555476957463322,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9058219362243976,
+          "loop_probe_score": 0.7116005319322997
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "b81d634233e1f493c490558c4ce482982d4cd04439bb2b43269c2049c6e59b93",
+        "decoded_frames": 155,
+        "fps": 29.998064640990904,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "PLEASE",
+          "please_score": 0.4558667838573456,
+          "my_score": 0.43669360876083374,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.752689003944397,
+          "my_score": 0.23317216336727142,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "9960146118001314-PLEASE.mp4",
+      "participant_id": "P27",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 5305,
+      "source_frames": 56,
+      "model_frames": 56,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00022280216217041016,
+      "quality": {
+        "frames": 56,
+        "frames_with_hands": 35,
+        "frames_with_body_anchor": 56
+      },
+      "raw_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 3,
+          "end": 37,
+          "points": 35,
+          "path_length": 1.7298541987536822,
+          "endpoint_distance": 0.20230102275187695,
+          "endpoint_over_path": 0.11694686343949097,
+          "axis_ratio": 0.5808222301563226,
+          "x_extent": 0.4416668713092804,
+          "y_extent": 0.256146103143692,
+          "signed_turns": 2.597607178063176,
+          "turn_coherence": 0.948860700285948,
+          "closed_polygon_circularity": 0.24589858003217208,
+          "loop_probe_score": 0.2171415123731849
+        },
+        "best_loop_probe": {
+          "start": 3,
+          "end": 14,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.6451451844104623,
+          "endpoint_distance": 0.06943062621593818,
+          "endpoint_over_path": 0.10762015728193697,
+          "axis_ratio": 0.7560324325717681,
+          "x_extent": 0.24127528071403503,
+          "y_extent": 0.2170340120792389,
+          "signed_turns": 0.7479542210131304,
+          "turn_coherence": 0.9855142314264904,
+          "closed_polygon_circularity": 0.874995760865931,
+          "loop_probe_score": 0.7808285794605114
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 3,
+          "end": 37,
+          "points": 35,
+          "path_length": 1.7297416132646424,
+          "endpoint_distance": 0.20236253688010053,
+          "endpoint_over_path": 0.11699003789252077,
+          "axis_ratio": 0.5811063770914494,
+          "x_extent": 0.4417724609375,
+          "y_extent": 0.256103515625,
+          "signed_turns": 2.597478299650683,
+          "turn_coherence": 0.9509400322135255,
+          "closed_polygon_circularity": 0.24585098641449013,
+          "loop_probe_score": 0.21708887019794532
+        },
+        "best_loop_probe": {
+          "start": 3,
+          "end": 14,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.6451990680745221,
+          "endpoint_distance": 0.06958864393546271,
+          "endpoint_over_path": 0.10785608253145376,
+          "axis_ratio": 0.7561409864484621,
+          "x_extent": 0.2413330078125,
+          "y_extent": 0.217041015625,
+          "signed_turns": 0.7474949257587625,
+          "turn_coherence": 0.9843229089761856,
+          "closed_polygon_circularity": 0.8747868007577143,
+          "loop_probe_score": 0.7804357233777639
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "b34ff9adfd0c0259a0d3687dba51078150d8bb34606cb394a6a399df64bbb355",
+        "decoded_frames": 56,
+        "fps": 29.994643813604714,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.24288366734981537,
+          "my_score": 0.7110916376113892,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.11846115440130234,
+          "my_score": 0.8719035983085632,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "9117047483562963-PLEASE.mp4",
+      "participant_id": "P31",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 6097,
+      "source_frames": 77,
+      "model_frames": 77,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0001220405101776123,
+      "quality": {
+        "frames": 77,
+        "frames_with_hands": 35,
+        "frames_with_body_anchor": 77
+      },
+      "raw_trajectory": {
+        "total_frames": 77,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 12,
+          "end": 46,
+          "points": 35,
+          "path_length": 1.103129148110733,
+          "endpoint_distance": 0.07523771209593062,
+          "endpoint_over_path": 0.06820390180495729,
+          "axis_ratio": 0.7789838867420072,
+          "x_extent": 0.18883517384529114,
+          "y_extent": 0.16444069147109985,
+          "signed_turns": 1.6333863468145693,
+          "turn_coherence": 0.5907530599233854,
+          "closed_polygon_circularity": 0.24672139396716306,
+          "loop_probe_score": 0.22989403223984448
+        },
+        "best_loop_probe": {
+          "start": 31,
+          "end": 42,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.43303955123223675,
+          "endpoint_distance": 0.034631397232978575,
+          "endpoint_over_path": 0.07997282727278171,
+          "axis_ratio": 0.9273426083015507,
+          "x_extent": 0.15457689762115479,
+          "y_extent": 0.15127727389335632,
+          "signed_turns": 0.7848684132955864,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.924797006391094,
+          "loop_probe_score": 0.8508383751365933
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 77,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 12,
+          "end": 46,
+          "points": 35,
+          "path_length": 1.1024412741336649,
+          "endpoint_distance": 0.07501913462372371,
+          "endpoint_over_path": 0.0680481912133381,
+          "axis_ratio": 0.7788955390221529,
+          "x_extent": 0.188720703125,
+          "y_extent": 0.164306640625,
+          "signed_turns": 1.632449877337615,
+          "turn_coherence": 0.5902843618715199,
+          "closed_polygon_circularity": 0.24691920983620985,
+          "loop_probe_score": 0.23011680423102907
+        },
+        "best_loop_probe": {
+          "start": 31,
+          "end": 42,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.4328936343111288,
+          "endpoint_distance": 0.0345482707472776,
+          "endpoint_over_path": 0.07980775878641612,
+          "axis_ratio": 0.9267627792945551,
+          "x_extent": 0.154541015625,
+          "y_extent": 0.151123046875,
+          "signed_turns": 0.7846410212778239,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9246230993570318,
+          "loop_probe_score": 0.8508310020751974
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "9f10296060c8a88a9928a0506757e53841d9590dfe0e0f85341123b9b274ba78",
+        "decoded_frames": 77,
+        "fps": 29.97275204359673,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.4101633131504059,
+          "my_score": 0.5497832894325256,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.801487922668457,
+          "my_score": 0.1948845535516739,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "5956139983741693-PLEASE.mp4",
+      "participant_id": "P14",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 9118,
+      "source_frames": 72,
+      "model_frames": 72,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002339482307434082,
+      "quality": {
+        "frames": 72,
+        "frames_with_hands": 35,
+        "frames_with_body_anchor": 72
+      },
+      "raw_trajectory": {
+        "total_frames": 72,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 11,
+          "end": 45,
+          "points": 35,
+          "path_length": 1.2196971770761342,
+          "endpoint_distance": 0.20125570623606825,
+          "endpoint_over_path": 0.16500465034978576,
+          "axis_ratio": 0.760937432476837,
+          "x_extent": 0.249777153134346,
+          "y_extent": 0.24093717336654663,
+          "signed_turns": 1.5097278090947923,
+          "turn_coherence": 0.6751949283121712,
+          "closed_polygon_circularity": 0.2883131984850936,
+          "loop_probe_score": 0.24074017997783237
+        },
+        "best_loop_probe": {
+          "start": 17,
+          "end": 28,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.5417878964835129,
+          "endpoint_distance": 0.0981552355189011,
+          "endpoint_over_path": 0.1811691183136057,
+          "axis_ratio": 0.8550951255664345,
+          "x_extent": 0.20406825840473175,
+          "y_extent": 0.21308964490890503,
+          "signed_turns": 0.8008844969346561,
+          "turn_coherence": 0.9798508054421615,
+          "closed_polygon_circularity": 0.9421908641643679,
+          "loop_probe_score": 0.7714949760205752
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 72,
+        "valid_frames": 35,
+        "contiguous_spans": 1,
+        "longest_span_frames": 35,
+        "longest_span": {
+          "start": 11,
+          "end": 45,
+          "points": 35,
+          "path_length": 1.219580465382317,
+          "endpoint_distance": 0.20116431953537903,
+          "endpoint_over_path": 0.16494550810332761,
+          "axis_ratio": 0.760872381422828,
+          "x_extent": 0.2496337890625,
+          "y_extent": 0.240966796875,
+          "signed_turns": 1.5094041218545704,
+          "turn_coherence": 0.6764915568792346,
+          "closed_polygon_circularity": 0.2882273408668872,
+          "loop_probe_score": 0.2406855356783275
+        },
+        "best_loop_probe": {
+          "start": 17,
+          "end": 28,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.5417345733675057,
+          "endpoint_distance": 0.09814331661250869,
+          "endpoint_over_path": 0.18116494947412104,
+          "axis_ratio": 0.8555046615576009,
+          "x_extent": 0.2039794921875,
+          "y_extent": 0.213134765625,
+          "signed_turns": 0.800492258961745,
+          "turn_coherence": 0.9798320769995269,
+          "closed_polygon_circularity": 0.9421985056240566,
+          "loop_probe_score": 0.7715051609580821
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "e5271dd060ab11ad0181c34f0c92745bdd3c2de4fd7ec87d2e0d10b3982965ec",
+        "decoded_frames": 72,
+        "fps": 29.975020815986678,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.3723697066307068,
+          "my_score": 0.5812609195709229,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.5741420388221741,
+          "my_score": 0.4200512766838074,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "5701892416175667-MY.mp4",
+      "participant_id": "P31",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 10149,
+      "source_frames": 74,
+      "model_frames": 74,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023889541625976562,
+      "quality": {
+        "frames": 74,
+        "frames_with_hands": 35,
+        "frames_with_body_anchor": 74
+      },
+      "raw_trajectory": {
+        "total_frames": 74,
+        "valid_frames": 33,
+        "contiguous_spans": 1,
+        "longest_span_frames": 33,
+        "longest_span": {
+          "start": 10,
+          "end": 42,
+          "points": 33,
+          "path_length": 0.764575726946159,
+          "endpoint_distance": 0.08753608815349405,
+          "endpoint_over_path": 0.11448975564935543,
+          "axis_ratio": 0.23745968272843537,
+          "x_extent": 0.21257439255714417,
+          "y_extent": 0.32107022404670715,
+          "signed_turns": -0.5061853748072107,
+          "turn_coherence": 0.0926588720547898,
+          "closed_polygon_circularity": 0.2817519843858526,
+          "loop_probe_score": 0.24949426853979534
+        },
+        "best_loop_probe": {
+          "start": 15,
+          "end": 38,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.18475104275422788,
+          "endpoint_distance": 0.01099172843411603,
+          "endpoint_over_path": 0.059494811343166254,
+          "axis_ratio": 0.6775883394596288,
+          "x_extent": 0.05347207188606262,
+          "y_extent": 0.056401222944259644,
+          "signed_turns": -0.34096574488666487,
+          "turn_coherence": 0.06547361188345509,
+          "closed_polygon_circularity": 0.5134992712880636,
+          "loop_probe_score": 0.4829487290179269
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 74,
+        "valid_frames": 33,
+        "contiguous_spans": 1,
+        "longest_span_frames": 33,
+        "longest_span": {
+          "start": 10,
+          "end": 42,
+          "points": 33,
+          "path_length": 0.7643894907003683,
+          "endpoint_distance": 0.08748448098025177,
+          "endpoint_over_path": 0.11445013575486827,
+          "axis_ratio": 0.23750847965079736,
+          "x_extent": 0.21240234375,
+          "y_extent": 0.321044921875,
+          "signed_turns": -0.5058797239385738,
+          "turn_coherence": 0.0923884672792835,
+          "closed_polygon_circularity": 0.2813901761354312,
+          "loop_probe_score": 0.24918503227664482
+        },
+        "best_loop_probe": {
+          "start": 15,
+          "end": 38,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.1847641596331682,
+          "endpoint_distance": 0.010931940027948296,
+          "endpoint_over_path": 0.05916699456026878,
+          "axis_ratio": 0.6772382628736869,
+          "x_extent": 0.053466796875,
+          "y_extent": 0.056396484375,
+          "signed_turns": -0.34095874221777167,
+          "turn_coherence": 0.06534801508925214,
+          "closed_polygon_circularity": 0.513281554051998,
+          "loop_probe_score": 0.4829122271355172
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "006ff94c512bfd3e98024caabd560a9e31287fe6153c3e2a45d172422f379ee7",
+        "decoded_frames": 74,
+        "fps": 29.995946493717064,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.1450701653957367,
+          "my_score": 0.7735929489135742,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.016685111448168755,
+          "my_score": 0.9659485220909119,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "4806377586588719-MY.mp4",
+      "participant_id": "P28",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 13113,
+      "source_frames": 50,
+      "model_frames": 50,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0001316666603088379,
+      "quality": {
+        "frames": 50,
+        "frames_with_hands": 15,
+        "frames_with_body_anchor": 50
+      },
+      "raw_trajectory": {
+        "total_frames": 50,
+        "valid_frames": 15,
+        "contiguous_spans": 1,
+        "longest_span_frames": 15,
+        "longest_span": {
+          "start": 6,
+          "end": 20,
+          "points": 15,
+          "path_length": 0.3908322594052461,
+          "endpoint_distance": 0.21965809816369233,
+          "endpoint_over_path": 0.5620265289716868,
+          "axis_ratio": 0.23073217465765272,
+          "x_extent": 0.08689709007740021,
+          "y_extent": 0.26805707812309265,
+          "signed_turns": -0.5707200651077015,
+          "turn_coherence": 0.32641695192966824,
+          "closed_polygon_circularity": 0.2382861384139214,
+          "loop_probe_score": 0.10436300713907823
+        },
+        "best_loop_probe": {
+          "start": 6,
+          "end": 17,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.18619972594279138,
+          "endpoint_distance": 0.04308226888393363,
+          "endpoint_over_path": 0.2313766503457173,
+          "axis_ratio": 0.7957285437292678,
+          "x_extent": 0.06655888259410858,
+          "y_extent": 0.06884577870368958,
+          "signed_turns": -0.611991202637107,
+          "turn_coherence": 0.3845518935831953,
+          "closed_polygon_circularity": 0.7022971926951447,
+          "loop_probe_score": 0.5398020207021413
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 50,
+        "valid_frames": 15,
+        "contiguous_spans": 1,
+        "longest_span_frames": 15,
+        "longest_span": {
+          "start": 6,
+          "end": 20,
+          "points": 15,
+          "path_length": 0.39036498379941764,
+          "endpoint_distance": 0.21947458017702118,
+          "endpoint_over_path": 0.5622291683052044,
+          "axis_ratio": 0.23061136096719823,
+          "x_extent": 0.0867919921875,
+          "y_extent": 0.267822265625,
+          "signed_turns": -0.5703574573490023,
+          "turn_coherence": 0.32700598799012287,
+          "closed_polygon_circularity": 0.2384350668316176,
+          "loop_probe_score": 0.10437991751208141
+        },
+        "best_loop_probe": {
+          "start": 6,
+          "end": 17,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.18600237646894283,
+          "endpoint_distance": 0.04311432886090802,
+          "endpoint_over_path": 0.2317945054218536,
+          "axis_ratio": 0.7964103585199991,
+          "x_extent": 0.0665283203125,
+          "y_extent": 0.06884765625,
+          "signed_turns": -0.6115487281061648,
+          "turn_coherence": 0.38516283888170055,
+          "closed_polygon_circularity": 0.7028276244045744,
+          "loop_probe_score": 0.5399160428088998
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "b1086966350912733463eed8945433e4898889a1d62fa6fafdb19aead62bd4bb",
+        "decoded_frames": 50,
+        "fps": 29.99400119976005,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.07017548382282257,
+          "my_score": 0.6776135563850403,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.014966499991714954,
+          "my_score": 0.9665984511375427,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "95072139344285-PLEASE.mp4",
+      "participant_id": "P16",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 14870,
+      "source_frames": 68,
+      "model_frames": 68,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00024086236953735352,
+      "quality": {
+        "frames": 68,
+        "frames_with_hands": 38,
+        "frames_with_body_anchor": 68
+      },
+      "raw_trajectory": {
+        "total_frames": 68,
+        "valid_frames": 38,
+        "contiguous_spans": 1,
+        "longest_span_frames": 38,
+        "longest_span": {
+          "start": 7,
+          "end": 44,
+          "points": 38,
+          "path_length": 1.3660646742181908,
+          "endpoint_distance": 0.2169797994082785,
+          "endpoint_over_path": 0.1588356711825944,
+          "axis_ratio": 0.33809719586318615,
+          "x_extent": 0.2495402693748474,
+          "y_extent": 0.46118856221437454,
+          "signed_turns": -1.7583214940137295,
+          "turn_coherence": 0.56216950230955,
+          "closed_polygon_circularity": 0.04092924893519243,
+          "loop_probe_score": 0.03442822420957165
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.28599608860432923,
+          "endpoint_distance": 0.026176897729588765,
+          "endpoint_over_path": 0.0915288662069923,
+          "axis_ratio": 0.3518625050990825,
+          "x_extent": 0.14157620072364807,
+          "y_extent": 0.052680157124996185,
+          "signed_turns": -0.8814407973895508,
+          "turn_coherence": 0.9182488573459836,
+          "closed_polygon_circularity": 0.579678771682472,
+          "loop_probe_score": 0.5266214309461134
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 68,
+        "valid_frames": 38,
+        "contiguous_spans": 1,
+        "longest_span_frames": 38,
+        "longest_span": {
+          "start": 7,
+          "end": 44,
+          "points": 38,
+          "path_length": 1.3658862224847317,
+          "endpoint_distance": 0.2171012871969853,
+          "endpoint_over_path": 0.15894536720785477,
+          "axis_ratio": 0.3379455635018936,
+          "x_extent": 0.249267578125,
+          "y_extent": 0.46142578125,
+          "signed_turns": -1.7577674618440151,
+          "turn_coherence": 0.561715368776766,
+          "closed_polygon_circularity": 0.040990171923878646,
+          "loop_probe_score": 0.034474973995524655
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.2858628645657596,
+          "endpoint_distance": 0.026372908925151425,
+          "endpoint_over_path": 0.09225720509452401,
+          "axis_ratio": 0.35221094611043274,
+          "x_extent": 0.1416015625,
+          "y_extent": 0.052734375,
+          "signed_turns": -0.8813691813502216,
+          "turn_coherence": 0.918849983439941,
+          "closed_polygon_circularity": 0.5797758937951918,
+          "loop_probe_score": 0.5262873902524677
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "392c7b7979ef699a4a39a77c6ec22d428dfa82fa65bb41f8aac7754e894535b9",
+        "decoded_frames": 68,
+        "fps": 29.995588883987647,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.1994468867778778,
+          "my_score": 0.6655582189559937,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.62880539894104,
+          "my_score": 0.36109256744384766,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "5095314542128282-seedMY.mp4",
+      "participant_id": "P52",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 15225,
+      "source_frames": 154,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023001432418823242,
+      "quality": {
+        "frames": 154,
+        "frames_with_hands": 26,
+        "frames_with_body_anchor": 154
+      },
+      "raw_trajectory": {
+        "total_frames": 154,
+        "valid_frames": 26,
+        "contiguous_spans": 2,
+        "longest_span_frames": 25,
+        "longest_span": {
+          "start": 52,
+          "end": 76,
+          "points": 25,
+          "path_length": 0.8961118583011243,
+          "endpoint_distance": 0.22872366841012798,
+          "endpoint_over_path": 0.2552400867049669,
+          "axis_ratio": 0.3435341354762191,
+          "x_extent": 0.22952407598495483,
+          "y_extent": 0.4230172634124756,
+          "signed_turns": 0.4462002226270847,
+          "turn_coherence": 0.21071609738734867,
+          "closed_polygon_circularity": 0.5470640135616517,
+          "loop_probe_score": 0.40743134730700853
+        },
+        "best_loop_probe": {
+          "start": 52,
+          "end": 76,
+          "window_seconds": 0.8,
+          "points": 25,
+          "path_length": 0.8961118583011243,
+          "endpoint_distance": 0.22872366841012798,
+          "endpoint_over_path": 0.2552400867049669,
+          "axis_ratio": 0.3435341354762191,
+          "x_extent": 0.22952407598495483,
+          "y_extent": 0.4230172634124756,
+          "signed_turns": 0.4462002226270847,
+          "turn_coherence": 0.21071609738734867,
+          "closed_polygon_circularity": 0.5470640135616517,
+          "loop_probe_score": 0.40743134730700853
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 21,
+        "contiguous_spans": 1,
+        "longest_span_frames": 21,
+        "longest_span": {
+          "start": 43,
+          "end": 63,
+          "points": 21,
+          "path_length": 0.8933246746316851,
+          "endpoint_distance": 0.22869947162036716,
+          "endpoint_over_path": 0.2560093526070566,
+          "axis_ratio": 0.33293953983821667,
+          "x_extent": 0.2279052734375,
+          "y_extent": 0.4228515625,
+          "signed_turns": 1.445984315181214,
+          "turn_coherence": 0.7952536430205052,
+          "closed_polygon_circularity": 0.544313792858303,
+          "loop_probe_score": 0.4049643711335573
+        },
+        "best_loop_probe": {
+          "start": 43,
+          "end": 63,
+          "window_seconds": 0.8,
+          "points": 21,
+          "path_length": 0.8933246746316851,
+          "endpoint_distance": 0.22869947162036716,
+          "endpoint_over_path": 0.2560093526070566,
+          "axis_ratio": 0.33293953983821667,
+          "x_extent": 0.2279052734375,
+          "y_extent": 0.4228515625,
+          "signed_turns": 1.445984315181214,
+          "turn_coherence": 0.7952536430205052,
+          "closed_polygon_circularity": 0.544313792858303,
+          "loop_probe_score": 0.4049643711335573
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "15423d6a86ee9df030f1c984565ab37a7d10a30640cf0834d807883c79fcb544",
+        "decoded_frames": 154,
+        "fps": 30.998,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.2639605402946472,
+          "my_score": 0.5822007060050964,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.07961534708738327,
+          "my_score": 0.8935261964797974,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "9101190053850159-MY.mp4",
+      "participant_id": "P50",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 17670,
+      "source_frames": 62,
+      "model_frames": 62,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002040863037109375,
+      "quality": {
+        "frames": 62,
+        "frames_with_hands": 23,
+        "frames_with_body_anchor": 62
+      },
+      "raw_trajectory": {
+        "total_frames": 62,
+        "valid_frames": 22,
+        "contiguous_spans": 1,
+        "longest_span_frames": 22,
+        "longest_span": {
+          "start": 9,
+          "end": 30,
+          "points": 22,
+          "path_length": 0.5370401074931492,
+          "endpoint_distance": 0.11402158440578165,
+          "endpoint_over_path": 0.21231483983202534,
+          "axis_ratio": 0.16376644807431148,
+          "x_extent": 0.07169637084007263,
+          "y_extent": 0.2889586091041565,
+          "signed_turns": -0.2602383600459515,
+          "turn_coherence": 0.12447830791634258,
+          "closed_polygon_circularity": 0.1364186834035778,
+          "loop_probe_score": 0.1074549724866514
+        },
+        "best_loop_probe": {
+          "start": 15,
+          "end": 26,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.09324005805964704,
+          "endpoint_distance": 0.028756381570267414,
+          "endpoint_over_path": 0.30841230870825426,
+          "axis_ratio": 0.5272473846317485,
+          "x_extent": 0.022996634244918823,
+          "y_extent": 0.05090424418449402,
+          "signed_turns": -0.5094744447283205,
+          "turn_coherence": 0.436219848156173,
+          "closed_polygon_circularity": 0.541722455131593,
+          "loop_probe_score": 0.3746485820653548
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 62,
+        "valid_frames": 22,
+        "contiguous_spans": 1,
+        "longest_span_frames": 22,
+        "longest_span": {
+          "start": 9,
+          "end": 30,
+          "points": 22,
+          "path_length": 0.5369980895939206,
+          "endpoint_distance": 0.11383683338248654,
+          "endpoint_over_path": 0.21198740850003817,
+          "axis_ratio": 0.16384294574319597,
+          "x_extent": 0.07177734375,
+          "y_extent": 0.288818359375,
+          "signed_turns": -0.259939944495983,
+          "turn_coherence": 0.12595085314391724,
+          "closed_polygon_circularity": 0.1368675374925475,
+          "loop_probe_score": 0.10785334291172054
+        },
+        "best_loop_probe": {
+          "start": 15,
+          "end": 26,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.09349764855974456,
+          "endpoint_distance": 0.028709110539236523,
+          "endpoint_over_path": 0.30705703278614044,
+          "axis_ratio": 0.5260596380301203,
+          "x_extent": 0.02294921875,
+          "y_extent": 0.051025390625,
+          "signed_turns": -0.5050128125397548,
+          "turn_coherence": 0.43737662720556525,
+          "closed_polygon_circularity": 0.5391730520041956,
+          "loop_probe_score": 0.37361617449754
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "2dbac601952d6b5a9efa84882442971c297847df97596f88fff42d085c23380c",
+        "decoded_frames": 62,
+        "fps": 29.995162070633768,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.20749159157276154,
+          "my_score": 0.7129889130592346,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.03970089927315712,
+          "my_score": 0.9506586194038391,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "4782730717831809-PLEASE.mp4",
+      "participant_id": "P40",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 17739,
+      "source_frames": 87,
+      "model_frames": 87,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002422332763671875,
+      "quality": {
+        "frames": 87,
+        "frames_with_hands": 45,
+        "frames_with_body_anchor": 87
+      },
+      "raw_trajectory": {
+        "total_frames": 87,
+        "valid_frames": 45,
+        "contiguous_spans": 1,
+        "longest_span_frames": 45,
+        "longest_span": {
+          "start": 28,
+          "end": 72,
+          "points": 45,
+          "path_length": 1.3841235257858986,
+          "endpoint_distance": 0.09747665671272987,
+          "endpoint_over_path": 0.07042482473331498,
+          "axis_ratio": 0.8123590571791447,
+          "x_extent": 0.2427351474761963,
+          "y_extent": 0.3593696653842926,
+          "signed_turns": -1.7202487978713281,
+          "turn_coherence": 0.3907854477855087,
+          "closed_polygon_circularity": 0.3585454214144758,
+          "loop_probe_score": 0.3332949229524288
+        },
+        "best_loop_probe": {
+          "start": 42,
+          "end": 53,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.37834543479662774,
+          "endpoint_distance": 0.07726794016371444,
+          "endpoint_over_path": 0.20422590854108844,
+          "axis_ratio": 0.7679730726977838,
+          "x_extent": 0.15107682347297668,
+          "y_extent": 0.1455453336238861,
+          "signed_turns": -0.5916675466639169,
+          "turn_coherence": 0.8064607380863698,
+          "closed_polygon_circularity": 0.8517769629976015,
+          "loop_probe_score": 0.6778220388550472
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 87,
+        "valid_frames": 45,
+        "contiguous_spans": 1,
+        "longest_span_frames": 45,
+        "longest_span": {
+          "start": 28,
+          "end": 72,
+          "points": 45,
+          "path_length": 1.384324989631844,
+          "endpoint_distance": 0.097404460558886,
+          "endpoint_over_path": 0.07036242304980014,
+          "axis_ratio": 0.8124966920843665,
+          "x_extent": 0.24267578125,
+          "y_extent": 0.359130859375,
+          "signed_turns": -1.71933407453103,
+          "turn_coherence": 0.39411893438318885,
+          "closed_polygon_circularity": 0.3583444261611097,
+          "loop_probe_score": 0.3331304440500238
+        },
+        "best_loop_probe": {
+          "start": 42,
+          "end": 53,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.37810454359994505,
+          "endpoint_distance": 0.07734596942838332,
+          "endpoint_over_path": 0.20456239084558453,
+          "axis_ratio": 0.7668070884802235,
+          "x_extent": 0.15087890625,
+          "y_extent": 0.1455078125,
+          "signed_turns": -0.5916246652912015,
+          "turn_coherence": 0.8032445356443518,
+          "closed_polygon_circularity": 0.8513210211896488,
+          "loop_probe_score": 0.6771727577179898
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "3f939152873f4d7facc5bf7f1106160a8e65831f90c2bd12a69399c47eb72349",
+        "decoded_frames": 87,
+        "fps": 29.968997588701342,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.35029488801956177,
+          "my_score": 0.4445473253726959,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.5976113080978394,
+          "my_score": 0.36674225330352783,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "5305284657006966-PLEASE.mp4",
+      "participant_id": "P50",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 20174,
+      "source_frames": 67,
+      "model_frames": 67,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00016707181930541992,
+      "quality": {
+        "frames": 67,
+        "frames_with_hands": 32,
+        "frames_with_body_anchor": 67
+      },
+      "raw_trajectory": {
+        "total_frames": 67,
+        "valid_frames": 32,
+        "contiguous_spans": 2,
+        "longest_span_frames": 31,
+        "longest_span": {
+          "start": 11,
+          "end": 41,
+          "points": 31,
+          "path_length": 0.9321297781053104,
+          "endpoint_distance": 0.07621414703031207,
+          "endpoint_over_path": 0.08176345056289096,
+          "axis_ratio": 0.4106105170890552,
+          "x_extent": 0.13459831476211548,
+          "y_extent": 0.3213789016008377,
+          "signed_turns": 1.561677535662642,
+          "turn_coherence": 0.7164063839717111,
+          "closed_polygon_circularity": 0.09630322253808274,
+          "loop_probe_score": 0.08842913876304313
+        },
+        "best_loop_probe": {
+          "start": 17,
+          "end": 28,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.2213546339312304,
+          "endpoint_distance": 0.010319467909391082,
+          "endpoint_over_path": 0.04661961543844207,
+          "axis_ratio": 0.7148419245667355,
+          "x_extent": 0.06595045328140259,
+          "y_extent": 0.07672397792339325,
+          "signed_turns": 1.1011233008143235,
+          "turn_coherence": 0.9195857550959297,
+          "closed_polygon_circularity": 0.7998370072638699,
+          "loop_probe_score": 0.7625489135717939
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 67,
+        "valid_frames": 32,
+        "contiguous_spans": 2,
+        "longest_span_frames": 31,
+        "longest_span": {
+          "start": 11,
+          "end": 41,
+          "points": 31,
+          "path_length": 0.9321791722784307,
+          "endpoint_distance": 0.07603716553904999,
+          "endpoint_over_path": 0.08156926028844871,
+          "axis_ratio": 0.4104146743486745,
+          "x_extent": 0.134765625,
+          "y_extent": 0.3212890625,
+          "signed_turns": 1.5620714396117374,
+          "turn_coherence": 0.7137056443265061,
+          "closed_polygon_circularity": 0.09633413256462618,
+          "loop_probe_score": 0.08847622863080026
+        },
+        "best_loop_probe": {
+          "start": 17,
+          "end": 28,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.22127338494346777,
+          "endpoint_distance": 0.010358009490037318,
+          "endpoint_over_path": 0.04681091443818986,
+          "axis_ratio": 0.7142773945238587,
+          "x_extent": 0.06591796875,
+          "y_extent": 0.07666015625,
+          "signed_turns": 1.1019850242355163,
+          "turn_coherence": 0.9161345826107893,
+          "closed_polygon_circularity": 0.7998630567419397,
+          "loop_probe_score": 0.7624207356305237
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "ff6870f84f77a3cd6e2afdd524cae504b7dbb96e4504e706621b57ac470e3219",
+        "decoded_frames": 67,
+        "fps": 30.00447828034035,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.4273586571216583,
+          "my_score": 0.5318564176559448,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.8640832901000977,
+          "my_score": 0.13199487328529358,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "763533172470803-MY.mp4",
+      "participant_id": "P36",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 23425,
+      "source_frames": 74,
+      "model_frames": 74,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00011962652206420898,
+      "quality": {
+        "frames": 74,
+        "frames_with_hands": 20,
+        "frames_with_body_anchor": 74
+      },
+      "raw_trajectory": {
+        "total_frames": 74,
+        "valid_frames": 20,
+        "contiguous_spans": 1,
+        "longest_span_frames": 20,
+        "longest_span": {
+          "start": 23,
+          "end": 42,
+          "points": 20,
+          "path_length": 0.13318003848238022,
+          "endpoint_distance": 0.04605145528849206,
+          "endpoint_over_path": 0.3457834658501371,
+          "axis_ratio": 0.5217170964236235,
+          "x_extent": 0.029923856258392334,
+          "y_extent": 0.0427054762840271,
+          "signed_turns": -1.1297955250957885,
+          "turn_coherence": 0.24886684820514643,
+          "closed_polygon_circularity": 0.05571767241852482,
+          "loop_probe_score": 0.03645142254054472
+        },
+        "best_loop_probe": {
+          "start": 28,
+          "end": 39,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.04955348690831932,
+          "endpoint_distance": 0.010990927705140138,
+          "endpoint_over_path": 0.2217992797454364,
+          "axis_ratio": 0.5410192516726351,
+          "x_extent": 0.01171410083770752,
+          "y_extent": 0.016480252146720886,
+          "signed_turns": -0.4579486744722996,
+          "turn_coherence": 0.1736430891032631,
+          "closed_polygon_circularity": 0.24326507308105283,
+          "loop_probe_score": 0.18930905508445436
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 74,
+        "valid_frames": 20,
+        "contiguous_spans": 1,
+        "longest_span_frames": 20,
+        "longest_span": {
+          "start": 23,
+          "end": 42,
+          "points": 20,
+          "path_length": 0.13322250231344301,
+          "endpoint_distance": 0.04601581256096378,
+          "endpoint_over_path": 0.3454057067078561,
+          "axis_ratio": 0.5198205403333679,
+          "x_extent": 0.02978515625,
+          "y_extent": 0.042724609375,
+          "signed_turns": -1.1365229295898573,
+          "turn_coherence": 0.25176832224954404,
+          "closed_polygon_circularity": 0.05457951565641374,
+          "loop_probe_score": 0.03572743947933765
+        },
+        "best_loop_probe": {
+          "start": 28,
+          "end": 39,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.049837603367634216,
+          "endpoint_distance": 0.011040448295502943,
+          "endpoint_over_path": 0.22152847547787352,
+          "axis_ratio": 0.5386638479748398,
+          "x_extent": 0.01171875,
+          "y_extent": 0.0164794921875,
+          "signed_turns": -0.4549575186952108,
+          "turn_coherence": 0.17406438999536367,
+          "closed_polygon_circularity": 0.23954021905163075,
+          "loop_probe_score": 0.18647523950948713
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "9ec8f5af7648299919bd8105bd1e45322edc076f976601327ad52d02f107aa70",
+        "decoded_frames": 74,
+        "fps": 29.995946493717064,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.3826296627521515,
+          "my_score": 0.5312286615371704,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.36949822306632996,
+          "my_score": 0.6187930703163147,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "016094158151485072-MY.mp4",
+      "participant_id": "P11",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 23514,
+      "source_frames": 39,
+      "model_frames": 39,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0001799464225769043,
+      "quality": {
+        "frames": 39,
+        "frames_with_hands": 14,
+        "frames_with_body_anchor": 39
+      },
+      "raw_trajectory": {
+        "total_frames": 39,
+        "valid_frames": 14,
+        "contiguous_spans": 1,
+        "longest_span_frames": 14,
+        "longest_span": {
+          "start": 5,
+          "end": 18,
+          "points": 14,
+          "path_length": 0.8055041496401182,
+          "endpoint_distance": 0.0760692837272759,
+          "endpoint_over_path": 0.09443686138831439,
+          "axis_ratio": 0.23568330932281117,
+          "x_extent": 0.19147659838199615,
+          "y_extent": 0.35589027404785156,
+          "signed_turns": 0.596042276796081,
+          "turn_coherence": 0.4552010733629651,
+          "closed_polygon_circularity": 0.4204401318436451,
+          "loop_probe_score": 0.38073508539064216
+        },
+        "best_loop_probe": {
+          "start": 6,
+          "end": 17,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.48013332122394525,
+          "endpoint_distance": 0.14148462275662946,
+          "endpoint_over_path": 0.29467778323728916,
+          "axis_ratio": 0.3971099514857183,
+          "x_extent": 0.15273417532444,
+          "y_extent": 0.2299477458000183,
+          "signed_turns": 0.36397075710170895,
+          "turn_coherence": 0.3378442933727167,
+          "closed_polygon_circularity": 0.3778420882829329,
+          "loop_probe_score": 0.26650041929397017
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 39,
+        "valid_frames": 14,
+        "contiguous_spans": 1,
+        "longest_span_frames": 14,
+        "longest_span": {
+          "start": 5,
+          "end": 18,
+          "points": 14,
+          "path_length": 0.80532487949477,
+          "endpoint_distance": 0.07620355974127739,
+          "endpoint_over_path": 0.09462461881108725,
+          "axis_ratio": 0.2357432411081178,
+          "x_extent": 0.1915283203125,
+          "y_extent": 0.35595703125,
+          "signed_turns": 0.5961265049154947,
+          "turn_coherence": 0.46467903063990734,
+          "closed_polygon_circularity": 0.4208081412432839,
+          "loop_probe_score": 0.38098933128553597
+        },
+        "best_loop_probe": {
+          "start": 6,
+          "end": 17,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.4798010434306398,
+          "endpoint_distance": 0.14152345805282507,
+          "endpoint_over_path": 0.2949627975815016,
+          "axis_ratio": 0.39729067358731757,
+          "x_extent": 0.1527099609375,
+          "y_extent": 0.22998046875,
+          "signed_turns": 0.3641767878346648,
+          "turn_coherence": 0.3465286777096289,
+          "closed_polygon_circularity": 0.37842615894582315,
+          "loop_probe_score": 0.26680452042514113
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "0f54013b01b4defaba4e8d98efdaa996fc17ac02acdbe963af094fc94c47a0a8",
+        "decoded_frames": 39,
+        "fps": 30.0,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.13885542750358582,
+          "my_score": 0.7332566380500793,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.021957481279969215,
+          "my_score": 0.9595377445220947,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "5567962318004358-MY.mp4",
+      "participant_id": "P29",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 27064,
+      "source_frames": 42,
+      "model_frames": 42,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00022912025451660156,
+      "quality": {
+        "frames": 42,
+        "frames_with_hands": 15,
+        "frames_with_body_anchor": 42
+      },
+      "raw_trajectory": {
+        "total_frames": 42,
+        "valid_frames": 15,
+        "contiguous_spans": 1,
+        "longest_span_frames": 15,
+        "longest_span": {
+          "start": 6,
+          "end": 20,
+          "points": 15,
+          "path_length": 0.7618012739384425,
+          "endpoint_distance": 0.2046820487718813,
+          "endpoint_over_path": 0.2686816834969229,
+          "axis_ratio": 0.21484191391603272,
+          "x_extent": 0.43838056921958923,
+          "y_extent": 0.1352711319923401,
+          "signed_turns": 0.6329688355679066,
+          "turn_coherence": 0.5769121518810199,
+          "closed_polygon_circularity": 0.2542011433447397,
+          "loop_probe_score": 0.1859019522040324
+        },
+        "best_loop_probe": {
+          "start": 8,
+          "end": 19,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.39596253011289884,
+          "endpoint_distance": 0.07932907832557713,
+          "endpoint_over_path": 0.20034491218893472,
+          "axis_ratio": 0.1762539769201969,
+          "x_extent": 0.2160240113735199,
+          "y_extent": 0.04849156737327576,
+          "signed_turns": 0.5674901313124199,
+          "turn_coherence": 0.5719453966804889,
+          "closed_polygon_circularity": 0.1363880674241381,
+          "loop_probe_score": 0.10906341203243064
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 42,
+        "valid_frames": 15,
+        "contiguous_spans": 1,
+        "longest_span_frames": 15,
+        "longest_span": {
+          "start": 6,
+          "end": 20,
+          "points": 15,
+          "path_length": 0.7621859921687548,
+          "endpoint_distance": 0.20462713152148693,
+          "endpoint_over_path": 0.26847401241163277,
+          "axis_ratio": 0.21452188162889013,
+          "x_extent": 0.438720703125,
+          "y_extent": 0.13525390625,
+          "signed_turns": 0.6317687455771609,
+          "turn_coherence": 0.5677979126180881,
+          "closed_polygon_circularity": 0.2539701250952824,
+          "loop_probe_score": 0.18578574657826763
+        },
+        "best_loop_probe": {
+          "start": 8,
+          "end": 19,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.39613166584825527,
+          "endpoint_distance": 0.0791746202455549,
+          "endpoint_over_path": 0.19986945521261112,
+          "axis_ratio": 0.1763586460241104,
+          "x_extent": 0.216064453125,
+          "y_extent": 0.048583984375,
+          "signed_turns": 0.5673640347041147,
+          "turn_coherence": 0.5621591554081488,
+          "closed_polygon_circularity": 0.1362833458573929,
+          "loop_probe_score": 0.10904446776632393
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "df7f0ab3688457460e5287fb69de0a012d2289c59691231c250f67849b04270d",
+        "decoded_frames": 42,
+        "fps": 30.0,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.35008475184440613,
+          "my_score": 0.5931925177574158,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.2692383825778961,
+          "my_score": 0.723339319229126,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "8801721942460268-PLEASE.mp4",
+      "participant_id": "P29",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 28487,
+      "source_frames": 203,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002429485321044922,
+      "quality": {
+        "frames": 203,
+        "frames_with_hands": 87,
+        "frames_with_body_anchor": 203
+      },
+      "raw_trajectory": {
+        "total_frames": 203,
+        "valid_frames": 87,
+        "contiguous_spans": 1,
+        "longest_span_frames": 87,
+        "longest_span": {
+          "start": 28,
+          "end": 114,
+          "points": 87,
+          "path_length": 1.838611718399415,
+          "endpoint_distance": 0.024909115886428836,
+          "endpoint_over_path": 0.013547784797169256,
+          "axis_ratio": 0.2689406287156749,
+          "x_extent": 0.4091211259365082,
+          "y_extent": 0.22938120365142822,
+          "signed_turns": -2.9484763687605313,
+          "turn_coherence": 0.1519335412098105,
+          "closed_polygon_circularity": 0.10856262874363569,
+          "loop_probe_score": 0.10709184561240194
+        },
+        "best_loop_probe": {
+          "start": 77,
+          "end": 100,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.3436380483058496,
+          "endpoint_distance": 0.009823692811010936,
+          "endpoint_over_path": 0.02858732570343175,
+          "axis_ratio": 0.9274692715716973,
+          "x_extent": 0.10795766115188599,
+          "y_extent": 0.10291862487792969,
+          "signed_turns": -1.5589669560517236,
+          "turn_coherence": 0.348927661262579,
+          "closed_polygon_circularity": 0.6322161801875674,
+          "loop_probe_score": 0.614142810329566
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 54,
+        "contiguous_spans": 1,
+        "longest_span_frames": 54,
+        "longest_span": {
+          "start": 18,
+          "end": 71,
+          "points": 54,
+          "path_length": 1.6994402268269109,
+          "endpoint_distance": 0.028311892606102,
+          "endpoint_over_path": 0.01665954009983876,
+          "axis_ratio": 0.295468677231583,
+          "x_extent": 0.4072265625,
+          "y_extent": 0.223876953125,
+          "signed_turns": -1.3283899494353544,
+          "turn_coherence": 0.12492470177216337,
+          "closed_polygon_circularity": 0.12145591484182627,
+          "loop_probe_score": 0.11943251515815627
+        },
+        "best_loop_probe": {
+          "start": 48,
+          "end": 62,
+          "window_seconds": 0.8,
+          "points": 15,
+          "path_length": 0.3173804294469705,
+          "endpoint_distance": 0.008052940675034493,
+          "endpoint_over_path": 0.02537314820912743,
+          "axis_ratio": 0.9368709604293038,
+          "x_extent": 0.1015625,
+          "y_extent": 0.099853515625,
+          "signed_turns": -0.17522453810514677,
+          "turn_coherence": 0.08453817505401193,
+          "closed_polygon_circularity": 0.7339295227129254,
+          "loop_probe_score": 0.7153074201580762
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "ca8b65e113bc35ceb15cb82700f47d9db5a3c2ae2541222cadcb1dcfe54e44bf",
+        "decoded_frames": 203,
+        "fps": 30.0,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.3972346782684326,
+          "my_score": 0.5690124034881592,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.8477920293807983,
+          "my_score": 0.1496441811323166,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "31545854783740124-PLEASE.mp4",
+      "participant_id": "P7",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 29596,
+      "source_frames": 75,
+      "model_frames": 75,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002377033233642578,
+      "quality": {
+        "frames": 75,
+        "frames_with_hands": 34,
+        "frames_with_body_anchor": 75
+      },
+      "raw_trajectory": {
+        "total_frames": 75,
+        "valid_frames": 32,
+        "contiguous_spans": 3,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 19,
+          "end": 44,
+          "points": 26,
+          "path_length": 1.4139643089073266,
+          "endpoint_distance": 0.1544478090285846,
+          "endpoint_over_path": 0.10923034482245007,
+          "axis_ratio": 0.7482760347761569,
+          "x_extent": 0.35871730744838715,
+          "y_extent": 0.24408522248268127,
+          "signed_turns": 1.668975371150807,
+          "turn_coherence": 0.7973970628527357,
+          "closed_polygon_circularity": 0.3650731666921443,
+          "loop_probe_score": 0.3251960988089376
+        },
+        "best_loop_probe": {
+          "start": 28,
+          "end": 39,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.6006222594364019,
+          "endpoint_distance": 0.11895371988341615,
+          "endpoint_over_path": 0.19805080150548732,
+          "axis_ratio": 0.7943159609069909,
+          "x_extent": 0.24896523356437683,
+          "y_extent": 0.22931131720542908,
+          "signed_turns": 0.7765317996303677,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8950334277104017,
+          "loop_probe_score": 0.717771339978153
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 75,
+        "valid_frames": 32,
+        "contiguous_spans": 3,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 19,
+          "end": 44,
+          "points": 26,
+          "path_length": 1.4141662195287115,
+          "endpoint_distance": 0.15460868908545425,
+          "endpoint_over_path": 0.10932851241276256,
+          "axis_ratio": 0.748176838521519,
+          "x_extent": 0.35888671875,
+          "y_extent": 0.243896484375,
+          "signed_turns": 1.6659016215055569,
+          "turn_coherence": 0.797119949387899,
+          "closed_polygon_circularity": 0.36492425720971805,
+          "loop_probe_score": 0.32502763102564725
+        },
+        "best_loop_probe": {
+          "start": 28,
+          "end": 39,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.6005771737577571,
+          "endpoint_distance": 0.11912711645369728,
+          "endpoint_over_path": 0.1983543858457518,
+          "axis_ratio": 0.7937971157439485,
+          "x_extent": 0.2490234375,
+          "y_extent": 0.229248046875,
+          "signed_turns": 0.7765166188810296,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8951560339409871,
+          "loop_probe_score": 0.7175979085925036
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "8be972ea6e7711eb5d382490d61b0b81d81824721e0816578018fd82876e1fb8",
+        "decoded_frames": 75,
+        "fps": 30.5,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.29786422848701477,
+          "my_score": 0.6480588316917419,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.22176967561244965,
+          "my_score": 0.7680284380912781,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "26402390265466935-MY.mp4",
+      "participant_id": "P4",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 30801,
+      "source_frames": 103,
+      "model_frames": 103,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00016808509826660156,
+      "quality": {
+        "frames": 103,
+        "frames_with_hands": 31,
+        "frames_with_body_anchor": 103
+      },
+      "raw_trajectory": {
+        "total_frames": 103,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 31,
+          "end": 59,
+          "points": 29,
+          "path_length": 0.4965581616840026,
+          "endpoint_distance": 0.14126448997400573,
+          "endpoint_over_path": 0.2844872985169117,
+          "axis_ratio": 0.3597643092825122,
+          "x_extent": 0.12401489913463593,
+          "y_extent": 0.23895001411437988,
+          "signed_turns": 0.4251640056665832,
+          "turn_coherence": 0.11065043811110949,
+          "closed_polygon_circularity": 0.39846184341057594,
+          "loop_probe_score": 0.2851045100166325
+        },
+        "best_loop_probe": {
+          "start": 40,
+          "end": 51,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.07277347561052222,
+          "endpoint_distance": 0.015437271840569158,
+          "endpoint_over_path": 0.2121277252606182,
+          "axis_ratio": 0.9552629130865856,
+          "x_extent": 0.02231636643409729,
+          "y_extent": 0.02329227328300476,
+          "signed_turns": 0.761373774659905,
+          "turn_coherence": 0.3940913028118763,
+          "closed_polygon_circularity": 0.46402900542836284,
+          "loop_probe_score": 0.3655955880518972
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 103,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 31,
+          "end": 59,
+          "points": 29,
+          "path_length": 0.4962707070534715,
+          "endpoint_distance": 0.14109157936564085,
+          "endpoint_over_path": 0.2843036620141247,
+          "axis_ratio": 0.35972975871305535,
+          "x_extent": 0.1241455078125,
+          "y_extent": 0.23876953125,
+          "signed_turns": 0.42579315997784606,
+          "turn_coherence": 0.11088123525412388,
+          "closed_polygon_circularity": 0.3989378626071356,
+          "loop_probe_score": 0.2855183673518392
+        },
+        "best_loop_probe": {
+          "start": 40,
+          "end": 51,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.07264238725074244,
+          "endpoint_distance": 0.015373106925225748,
+          "endpoint_over_path": 0.21162722629367645,
+          "axis_ratio": 0.9547262282191913,
+          "x_extent": 0.022216796875,
+          "y_extent": 0.023193359375,
+          "signed_turns": 0.7595378621179181,
+          "turn_coherence": 0.3963615225789922,
+          "closed_polygon_circularity": 0.4658418483639501,
+          "loop_probe_score": 0.3672570301031679
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "902d10db5599e7cf58c46bd7a6950e8a291acd6284fd13447633adda4bbae921",
+        "decoded_frames": 103,
+        "fps": 29.97002997002997,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.11067178100347519,
+          "my_score": 0.5708885192871094,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.032993581146001816,
+          "my_score": 0.9164721369743347,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        }
+      }
+    },
+    {
+      "video_file": "15876391998161066-MY.mp4",
+      "participant_id": "P37",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 30921,
+      "source_frames": 59,
+      "model_frames": 59,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00015228986740112305,
+      "quality": {
+        "frames": 59,
+        "frames_with_hands": 26,
+        "frames_with_body_anchor": 59
+      },
+      "raw_trajectory": {
+        "total_frames": 59,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 7,
+          "end": 32,
+          "points": 26,
+          "path_length": 0.6176088928893779,
+          "endpoint_distance": 0.3041466706084542,
+          "endpoint_over_path": 0.4924583731065721,
+          "axis_ratio": 0.1757554223244799,
+          "x_extent": 0.3707963228225708,
+          "y_extent": 0.17793196439743042,
+          "signed_turns": -0.4871459955919192,
+          "turn_coherence": 0.12022707642933893,
+          "closed_polygon_circularity": 0.10014456939171175,
+          "loop_probe_score": 0.05082753767361116
+        },
+        "best_loop_probe": {
+          "start": 14,
+          "end": 25,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.11231049131876622,
+          "endpoint_distance": 0.046537667402428824,
+          "endpoint_over_path": 0.4143661634454335,
+          "axis_ratio": 0.7967752818232069,
+          "x_extent": 0.05363883078098297,
+          "y_extent": 0.032431721687316895,
+          "signed_turns": -1.5540087606177748,
+          "turn_coherence": 0.8074286524395108,
+          "closed_polygon_circularity": 0.4951987189253892,
+          "loop_probe_score": 0.29000512562118214
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 59,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 7,
+          "end": 32,
+          "points": 26,
+          "path_length": 0.6176310156317559,
+          "endpoint_distance": 0.3042475140046088,
+          "endpoint_over_path": 0.49260400838744034,
+          "axis_ratio": 0.17568781970617828,
+          "x_extent": 0.3709716796875,
+          "y_extent": 0.177734375,
+          "signed_turns": -0.4873470003500758,
+          "turn_coherence": 0.12033617790910166,
+          "closed_polygon_circularity": 0.0998333580467101,
+          "loop_probe_score": 0.05065504570212218
+        },
+        "best_loop_probe": {
+          "start": 14,
+          "end": 25,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.11247339711924044,
+          "endpoint_distance": 0.046601610847185865,
+          "endpoint_over_path": 0.4143345185686926,
+          "axis_ratio": 0.7959541847364402,
+          "x_extent": 0.0537109375,
+          "y_extent": 0.032470703125,
+          "signed_turns": -1.557775604989841,
+          "turn_coherence": 0.8067574130770576,
+          "closed_polygon_circularity": 0.49446156688067683,
+          "loop_probe_score": 0.2895890716164502
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "5f9d73ee6c6c70791872a0819b0015c41b094cbe82d056402053dd987941b70f",
+        "decoded_frames": 59,
+        "fps": 29.994916115912556,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.20106302201747894,
+          "my_score": 0.7045255899429321,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.04917951300740242,
+          "my_score": 0.9388877153396606,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "04515307711600891-PLEASE.mp4",
+      "participant_id": "P37",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 31048,
+      "source_frames": 60,
+      "model_frames": 60,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00021010637283325195,
+      "quality": {
+        "frames": 60,
+        "frames_with_hands": 30,
+        "frames_with_body_anchor": 60
+      },
+      "raw_trajectory": {
+        "total_frames": 60,
+        "valid_frames": 30,
+        "contiguous_spans": 1,
+        "longest_span_frames": 30,
+        "longest_span": {
+          "start": 7,
+          "end": 36,
+          "points": 30,
+          "path_length": 0.7563240771913816,
+          "endpoint_distance": 0.11635494950134313,
+          "endpoint_over_path": 0.1538427150612851,
+          "axis_ratio": 0.6311036374686344,
+          "x_extent": 0.11690990626811981,
+          "y_extent": 0.2115117609500885,
+          "signed_turns": 1.5983358603241762,
+          "turn_coherence": 0.722102774188154,
+          "closed_polygon_circularity": 0.12812321367318077,
+          "loop_probe_score": 0.10841239061932148
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.3035643156839723,
+          "endpoint_distance": 0.038826837280680725,
+          "endpoint_over_path": 0.12790316672497723,
+          "axis_ratio": 0.8342009006824651,
+          "x_extent": 0.11690990626811981,
+          "y_extent": 0.10267293453216553,
+          "signed_turns": 0.8403567627294413,
+          "turn_coherence": 0.991312670239618,
+          "closed_polygon_circularity": 0.9278289273606887,
+          "loop_probe_score": 0.8091566693722176
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 60,
+        "valid_frames": 30,
+        "contiguous_spans": 1,
+        "longest_span_frames": 30,
+        "longest_span": {
+          "start": 7,
+          "end": 36,
+          "points": 30,
+          "path_length": 0.7564841743115996,
+          "endpoint_distance": 0.11628714234724487,
+          "endpoint_over_path": 0.15372052224762817,
+          "axis_ratio": 0.6312478096008973,
+          "x_extent": 0.1168212890625,
+          "y_extent": 0.21142578125,
+          "signed_turns": 1.6010979093179627,
+          "turn_coherence": 0.721655767668188,
+          "closed_polygon_circularity": 0.1282104225023564,
+          "loop_probe_score": 0.10850184939770512
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.30383411499613583,
+          "endpoint_distance": 0.038701487291327594,
+          "endpoint_over_path": 0.12737703036349227,
+          "axis_ratio": 0.8349488591565242,
+          "x_extent": 0.1168212890625,
+          "y_extent": 0.102783203125,
+          "signed_turns": 0.8406843888860286,
+          "turn_coherence": 0.9910485842895753,
+          "closed_polygon_circularity": 0.9277768213020461,
+          "loop_probe_score": 0.809599364964511
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "fa3fa197a7a4b3282ad5143a6885c6e657ea5a0214f72cdfe46ea2d1bcb76374",
+        "decoded_frames": 60,
+        "fps": 30.0,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.2622600793838501,
+          "my_score": 0.6882694363594055,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.12818056344985962,
+          "my_score": 0.8657499551773071,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "47017724784893633-seedPLEASE.mp4",
+      "participant_id": "P52",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 31494,
+      "source_frames": 158,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002415776252746582,
+      "quality": {
+        "frames": 158,
+        "frames_with_hands": 37,
+        "frames_with_body_anchor": 158
+      },
+      "raw_trajectory": {
+        "total_frames": 158,
+        "valid_frames": 37,
+        "contiguous_spans": 2,
+        "longest_span_frames": 36,
+        "longest_span": {
+          "start": 45,
+          "end": 80,
+          "points": 36,
+          "path_length": 1.6036461172664416,
+          "endpoint_distance": 0.26081650918634597,
+          "endpoint_over_path": 0.16263969112520352,
+          "axis_ratio": 0.7359361986351658,
+          "x_extent": 0.23642808198928833,
+          "y_extent": 0.3828293979167938,
+          "signed_turns": 2.488098984997457,
+          "turn_coherence": 0.9668561572083212,
+          "closed_polygon_circularity": 0.2316779043261364,
+          "loop_probe_score": 0.19399788152599914
+        },
+        "best_loop_probe": {
+          "start": 49,
+          "end": 60,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.4273789009427899,
+          "endpoint_distance": 0.014225800099660738,
+          "endpoint_over_path": 0.03328615443644711,
+          "axis_ratio": 0.6935800553238501,
+          "x_extent": 0.15947720408439636,
+          "y_extent": 0.11854493618011475,
+          "signed_turns": 0.886534580214431,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9259495459911843,
+          "loop_probe_score": 0.8951282464029636
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 31,
+        "contiguous_spans": 1,
+        "longest_span_frames": 31,
+        "longest_span": {
+          "start": 35,
+          "end": 65,
+          "points": 31,
+          "path_length": 1.857035399428443,
+          "endpoint_distance": 0.02533892723697094,
+          "endpoint_over_path": 0.013644827257880887,
+          "axis_ratio": 0.5989767616031988,
+          "x_extent": 0.236083984375,
+          "y_extent": 0.393310546875,
+          "signed_turns": 2.5534508867121155,
+          "turn_coherence": 0.9740004871465634,
+          "closed_polygon_circularity": 0.20800572646312956,
+          "loop_probe_score": 0.20516752425689014
+        },
+        "best_loop_probe": {
+          "start": 39,
+          "end": 48,
+          "window_seconds": 0.4,
+          "points": 10,
+          "path_length": 0.38774303162483503,
+          "endpoint_distance": 0.047669980932047454,
+          "endpoint_over_path": 0.12294219894110453,
+          "axis_ratio": 0.8295989976518955,
+          "x_extent": 0.156982421875,
+          "y_extent": 0.12109375,
+          "signed_turns": 0.8380525974386746,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9167540226120235,
+          "loop_probe_score": 0.8040462671839983
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "1b5db0ce39b3234eda21ff9cec18997cc69366a0448cebfe4772de00c3639445",
+        "decoded_frames": 158,
+        "fps": 29.918576027267562,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.3446294665336609,
+          "my_score": 0.5704218149185181,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.20251357555389404,
+          "my_score": 0.7854648232460022,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "6400788027798874-PLEASE.mp4",
+      "participant_id": "P51",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 35565,
+      "source_frames": 82,
+      "model_frames": 82,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0002384185791015625,
+      "quality": {
+        "frames": 82,
+        "frames_with_hands": 37,
+        "frames_with_body_anchor": 82
+      },
+      "raw_trajectory": {
+        "total_frames": 82,
+        "valid_frames": 35,
+        "contiguous_spans": 2,
+        "longest_span_frames": 22,
+        "longest_span": {
+          "start": 27,
+          "end": 48,
+          "points": 22,
+          "path_length": 0.8843809809416394,
+          "endpoint_distance": 0.2460739974930736,
+          "endpoint_over_path": 0.278244334507361,
+          "axis_ratio": 0.7364218600496453,
+          "x_extent": 0.1768757402896881,
+          "y_extent": 0.25706401467323303,
+          "signed_turns": 1.5041865425227037,
+          "turn_coherence": 0.9960058855707062,
+          "closed_polygon_circularity": 0.4309471329453388,
+          "loop_probe_score": 0.31103853473110776
+        },
+        "best_loop_probe": {
+          "start": 34,
+          "end": 45,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.40459166733129887,
+          "endpoint_distance": 0.011360638223758263,
+          "endpoint_over_path": 0.0280792689050999,
+          "axis_ratio": 0.6807228541494613,
+          "x_extent": 0.13455015420913696,
+          "y_extent": 0.12535619735717773,
+          "signed_turns": 0.7976816620954779,
+          "turn_coherence": 0.9924948573017192,
+          "closed_polygon_circularity": 0.902601296012526,
+          "loop_probe_score": 0.8772569115076986
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 82,
+        "valid_frames": 35,
+        "contiguous_spans": 2,
+        "longest_span_frames": 22,
+        "longest_span": {
+          "start": 27,
+          "end": 48,
+          "points": 22,
+          "path_length": 0.8845425385262647,
+          "endpoint_distance": 0.2461253554621077,
+          "endpoint_over_path": 0.27825157608833245,
+          "axis_ratio": 0.7365152072176057,
+          "x_extent": 0.177001953125,
+          "y_extent": 0.257080078125,
+          "signed_turns": 1.5037939785258094,
+          "turn_coherence": 0.9959725948091446,
+          "closed_polygon_circularity": 0.43103011713282957,
+          "loop_probe_score": 0.3110953076990812
+        },
+        "best_loop_probe": {
+          "start": 34,
+          "end": 45,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.4044560605830084,
+          "endpoint_distance": 0.011254326730093857,
+          "endpoint_over_path": 0.027825832833042883,
+          "axis_ratio": 0.6807690940271954,
+          "x_extent": 0.134521484375,
+          "y_extent": 0.125244140625,
+          "signed_turns": 0.7980049967902144,
+          "turn_coherence": 0.9924375268538483,
+          "closed_polygon_circularity": 0.9025392834695078,
+          "loop_probe_score": 0.877425376242431
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "a358065cf8ce4f1884f57a5c61fecc4cef1b5a76cf51449ba560d229e3e3ec74",
+        "decoded_frames": 82,
+        "fps": 30.00365898280278,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.409516304731369,
+          "my_score": 0.5489160418510437,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.8722572922706604,
+          "my_score": 0.12419657409191132,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "45496556401826393-MY.mp4",
+      "participant_id": "P33",
+      "gloss": "MY",
+      "split": "train",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 37447,
+      "source_frames": 150,
+      "model_frames": 128,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023365020751953125,
+      "quality": {
+        "frames": 150,
+        "frames_with_hands": 63,
+        "frames_with_body_anchor": 150
+      },
+      "raw_trajectory": {
+        "total_frames": 150,
+        "valid_frames": 60,
+        "contiguous_spans": 1,
+        "longest_span_frames": 60,
+        "longest_span": {
+          "start": 51,
+          "end": 110,
+          "points": 60,
+          "path_length": 1.3559457489678837,
+          "endpoint_distance": 0.13510913901958685,
+          "endpoint_over_path": 0.0996419946169889,
+          "axis_ratio": 0.2007538042440643,
+          "x_extent": 0.1014197263866663,
+          "y_extent": 0.5134753584861755,
+          "signed_turns": -0.40621344247057534,
+          "turn_coherence": 0.030373096978725662,
+          "closed_polygon_circularity": 0.021916092719249932,
+          "loop_probe_score": 0.019732329526493002
+        },
+        "best_loop_probe": {
+          "start": 59,
+          "end": 70,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.13550500396577042,
+          "endpoint_distance": 0.012740524721679872,
+          "endpoint_over_path": 0.09402254048786438,
+          "axis_ratio": 0.6984257270533708,
+          "x_extent": 0.03832951546064578,
+          "y_extent": 0.04614296555519104,
+          "signed_turns": -0.16967342093093996,
+          "turn_coherence": 0.07224553833504034,
+          "closed_polygon_circularity": 0.5146549440126533,
+          "loop_probe_score": 0.466265778701944
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 128,
+        "valid_frames": 51,
+        "contiguous_spans": 1,
+        "longest_span_frames": 51,
+        "longest_span": {
+          "start": 44,
+          "end": 94,
+          "points": 51,
+          "path_length": 1.1469375820145313,
+          "endpoint_distance": 0.034579476391938764,
+          "endpoint_over_path": 0.03014939691068616,
+          "axis_ratio": 0.1888119284471456,
+          "x_extent": 0.1014251708984375,
+          "y_extent": 0.3994140625,
+          "signed_turns": -0.541579578126642,
+          "turn_coherence": 0.048785644096934234,
+          "closed_polygon_circularity": 0.02350636941424554,
+          "loop_probe_score": 0.02279766655284624
+        },
+        "best_loop_probe": {
+          "start": 50,
+          "end": 59,
+          "window_seconds": 0.4,
+          "points": 10,
+          "path_length": 0.10222873136587152,
+          "endpoint_distance": 0.019363643804068367,
+          "endpoint_over_path": 0.18941488899795553,
+          "axis_ratio": 0.6109080681160678,
+          "x_extent": 0.03833127021789551,
+          "y_extent": 0.03173828125,
+          "signed_turns": -0.3502442459689647,
+          "turn_coherence": 0.2041275361832325,
+          "closed_polygon_circularity": 0.619594972507106,
+          "loop_probe_score": 0.5022344595659812
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "b669ad5c51cc1f231d3e459617a23d18a457d2373e246cef688013730c037630",
+        "decoded_frames": 150,
+        "fps": 29.91623454327882,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.1294579952955246,
+          "my_score": 0.6080344319343567,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.040241777896881104,
+          "my_score": 0.8722512722015381,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        }
+      }
+    },
+    {
+      "video_file": "18053723532999788-PLEASE.mp4",
+      "participant_id": "P30",
+      "gloss": "PLEASE",
+      "split": "train",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 38834,
+      "source_frames": 97,
+      "model_frames": 97,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00012028217315673828,
+      "quality": {
+        "frames": 97,
+        "frames_with_hands": 51,
+        "frames_with_body_anchor": 97
+      },
+      "raw_trajectory": {
+        "total_frames": 97,
+        "valid_frames": 51,
+        "contiguous_spans": 1,
+        "longest_span_frames": 51,
+        "longest_span": {
+          "start": 23,
+          "end": 73,
+          "points": 51,
+          "path_length": 1.6778061286439416,
+          "endpoint_distance": 0.21354323212491336,
+          "endpoint_over_path": 0.12727527244015138,
+          "axis_ratio": 0.8987909711254005,
+          "x_extent": 0.2614029496908188,
+          "y_extent": 0.3967711925506592,
+          "signed_turns": 2.527491802609191,
+          "turn_coherence": 0.5745568115699958,
+          "closed_polygon_circularity": 0.21820424066754887,
+          "loop_probe_score": 0.19043223648899024
+        },
+        "best_loop_probe": {
+          "start": 24,
+          "end": 35,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.5111783369676081,
+          "endpoint_distance": 0.08588682235200948,
+          "endpoint_over_path": 0.1680173359096238,
+          "axis_ratio": 0.7684301085906639,
+          "x_extent": 0.2196984440088272,
+          "y_extent": 0.16686758399009705,
+          "signed_turns": 0.6957328712738367,
+          "turn_coherence": 0.8450947259245885,
+          "closed_polygon_circularity": 0.8940142337889797,
+          "loop_probe_score": 0.7438043439624717
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 97,
+        "valid_frames": 51,
+        "contiguous_spans": 1,
+        "longest_span_frames": 51,
+        "longest_span": {
+          "start": 23,
+          "end": 73,
+          "points": 51,
+          "path_length": 1.6778592213013355,
+          "endpoint_distance": 0.21349591641239432,
+          "endpoint_over_path": 0.12724304500755934,
+          "axis_ratio": 0.8989171564271684,
+          "x_extent": 0.2613525390625,
+          "y_extent": 0.396728515625,
+          "signed_turns": 2.5272991816941315,
+          "turn_coherence": 0.574195871966721,
+          "closed_polygon_circularity": 0.21822052644010062,
+          "loop_probe_score": 0.1904534821727096
+        },
+        "best_loop_probe": {
+          "start": 24,
+          "end": 35,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.5112623800268129,
+          "endpoint_distance": 0.08574377245296204,
+          "endpoint_over_path": 0.16770991921694933,
+          "axis_ratio": 0.7686995310926046,
+          "x_extent": 0.2196044921875,
+          "y_extent": 0.1669921875,
+          "signed_turns": 0.696089464277475,
+          "turn_coherence": 0.8441066354395219,
+          "closed_polygon_circularity": 0.8939369092983722,
+          "loop_probe_score": 0.7440148224548928
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "3ae588435550ec9ff0ea6f3acf29a95f0cba45acfbadeb87a1a6864f2400cd48",
+        "decoded_frames": 97,
+        "fps": 29.975278121137208,
+        "contact_sheet": null
+      },
+      "predictions": {
+        "control": {
+          "top1": "PLEASE",
+          "please_score": 0.5031436085700989,
+          "my_score": 0.4253476560115814,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "PLEASE",
+          "please_score": 0.9262442588806152,
+          "my_score": 0.06303171068429947,
+          "please_rank": 1,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "05859480723249688-PLEASE.mp4",
+      "participant_id": "P26",
+      "gloss": "PLEASE",
+      "split": "val",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 823,
+      "source_frames": 53,
+      "model_frames": 53,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00011661648750305176,
+      "quality": {
+        "frames": 53,
+        "frames_with_hands": 35,
+        "frames_with_body_anchor": 53
+      },
+      "raw_trajectory": {
+        "total_frames": 53,
+        "valid_frames": 34,
+        "contiguous_spans": 2,
+        "longest_span_frames": 32,
+        "longest_span": {
+          "start": 9,
+          "end": 40,
+          "points": 32,
+          "path_length": 1.1394395326655735,
+          "endpoint_distance": 0.14490503090248838,
+          "endpoint_over_path": 0.12717219891739365,
+          "axis_ratio": 0.6739927792221103,
+          "x_extent": 0.24880723655223846,
+          "y_extent": 0.17333054542541504,
+          "signed_turns": 1.4508472585823804,
+          "turn_coherence": 0.420422975656045,
+          "closed_polygon_circularity": 0.011286735967199577,
+          "loop_probe_score": 0.00985137693565077
+        },
+        "best_loop_probe": {
+          "start": 11,
+          "end": 22,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.387703161722147,
+          "endpoint_distance": 0.01968696401100859,
+          "endpoint_over_path": 0.05077844586967164,
+          "axis_ratio": 0.6502650195866169,
+          "x_extent": 0.1047297865152359,
+          "y_extent": 0.1464160978794098,
+          "signed_turns": 0.8903712119242116,
+          "turn_coherence": 0.8590799772807362,
+          "closed_polygon_circularity": 0.769766569550519,
+          "loop_probe_score": 0.7306790194663152
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 53,
+        "valid_frames": 34,
+        "contiguous_spans": 2,
+        "longest_span_frames": 32,
+        "longest_span": {
+          "start": 9,
+          "end": 40,
+          "points": 32,
+          "path_length": 1.1391974921159134,
+          "endpoint_distance": 0.14497801318036158,
+          "endpoint_over_path": 0.12726328330576245,
+          "axis_ratio": 0.6740575313448305,
+          "x_extent": 0.248779296875,
+          "y_extent": 0.17333984375,
+          "signed_turns": 1.451083666256199,
+          "turn_coherence": 0.4204839249279169,
+          "closed_polygon_circularity": 0.01140514703957401,
+          "loop_probe_score": 0.009953690580732826
+        },
+        "best_loop_probe": {
+          "start": 11,
+          "end": 22,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.3879286888180635,
+          "endpoint_distance": 0.019773883526676354,
+          "endpoint_over_path": 0.05097298574880653,
+          "axis_ratio": 0.6506812693197073,
+          "x_extent": 0.1048583984375,
+          "y_extent": 0.146484375,
+          "signed_turns": 0.8909986097724888,
+          "turn_coherence": 0.8602115073702652,
+          "closed_polygon_circularity": 0.7694475793547988,
+          "loop_probe_score": 0.730226538857893
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "770dac11a0b8355549aa80780a3d5f70ac65b63481fb4ff0fc04db158b469603",
+        "decoded_frames": 53,
+        "fps": 30.671,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\please-P26-05859480723249688-PLEASE.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.2798856794834137,
+          "my_score": 0.668793261051178,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.2070581614971161,
+          "my_score": 0.7844877243041992,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "6330094542104612-PLEASE.mp4",
+      "participant_id": "P39",
+      "gloss": "PLEASE",
+      "split": "val",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 2300,
+      "source_frames": 127,
+      "model_frames": 127,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00019276142120361328,
+      "quality": {
+        "frames": 127,
+        "frames_with_hands": 49,
+        "frames_with_body_anchor": 127
+      },
+      "raw_trajectory": {
+        "total_frames": 127,
+        "valid_frames": 49,
+        "contiguous_spans": 1,
+        "longest_span_frames": 49,
+        "longest_span": {
+          "start": 46,
+          "end": 94,
+          "points": 49,
+          "path_length": 1.4475147442903507,
+          "endpoint_distance": 0.2917529706766859,
+          "endpoint_over_path": 0.20155440338517508,
+          "axis_ratio": 0.37085808683184474,
+          "x_extent": 0.22785738110542297,
+          "y_extent": 0.5276743471622467,
+          "signed_turns": 3.5086148789049547,
+          "turn_coherence": 0.8209794233175965,
+          "closed_polygon_circularity": 0.04675088042126352,
+          "loop_probe_score": 0.03732803461022409
+        },
+        "best_loop_probe": {
+          "start": 54,
+          "end": 65,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.38348955602488055,
+          "endpoint_distance": 0.0050360987869396455,
+          "endpoint_over_path": 0.013132297106450813,
+          "axis_ratio": 0.6679472811046592,
+          "x_extent": 0.14337846636772156,
+          "y_extent": 0.09638819098472595,
+          "signed_turns": 0.8484498448154615,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8714043866711889,
+          "loop_probe_score": 0.8599608453655583
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 127,
+        "valid_frames": 49,
+        "contiguous_spans": 1,
+        "longest_span_frames": 49,
+        "longest_span": {
+          "start": 46,
+          "end": 94,
+          "points": 49,
+          "path_length": 1.4474924147158217,
+          "endpoint_distance": 0.29165936642547957,
+          "endpoint_over_path": 0.2014928461526615,
+          "axis_ratio": 0.37096372887739454,
+          "x_extent": 0.22802734375,
+          "y_extent": 0.527587890625,
+          "signed_turns": 3.5081157489681227,
+          "turn_coherence": 0.8222569722793563,
+          "closed_polygon_circularity": 0.04668459325021625,
+          "loop_probe_score": 0.03727798168475085
+        },
+        "best_loop_probe": {
+          "start": 54,
+          "end": 65,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.38355389165238807,
+          "endpoint_distance": 0.005132762705475742,
+          "endpoint_over_path": 0.013382116091596133,
+          "axis_ratio": 0.6669129931895488,
+          "x_extent": 0.1435546875,
+          "y_extent": 0.09619140625,
+          "signed_turns": 0.8493010640656299,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8698419909482648,
+          "loop_probe_score": 0.85820166444405
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "c2ad849bd9ff3589b9aae13e78e1afab9995519ca69ee052b37a38ee7ffeffbf",
+        "decoded_frames": 127,
+        "fps": 29.974038234599952,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\please-P39-6330094542104612-PLEASE.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.4217682182788849,
+          "my_score": 0.4632217586040497,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.4864184260368347,
+          "my_score": 0.4940783679485321,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "895022317746502-MY.mp4",
+      "participant_id": "P5",
+      "gloss": "MY",
+      "split": "val",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 3585,
+      "source_frames": 80,
+      "model_frames": 80,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00020384788513183594,
+      "quality": {
+        "frames": 80,
+        "frames_with_hands": 26,
+        "frames_with_body_anchor": 80
+      },
+      "raw_trajectory": {
+        "total_frames": 80,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 29,
+          "end": 54,
+          "points": 26,
+          "path_length": 0.6816374221571644,
+          "endpoint_distance": 0.1665676149671218,
+          "endpoint_over_path": 0.24436395296488944,
+          "axis_ratio": 0.3985145287808377,
+          "x_extent": 0.20527338981628418,
+          "y_extent": 0.32276901602745056,
+          "signed_turns": 0.4698133351557307,
+          "turn_coherence": 0.13226167140074557,
+          "closed_polygon_circularity": 0.5079282936562586,
+          "loop_probe_score": 0.38380892799570404
+        },
+        "best_loop_probe": {
+          "start": 29,
+          "end": 52,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.5047228127047046,
+          "endpoint_distance": 0.11721894175744577,
+          "endpoint_over_path": 0.23224419187492998,
+          "axis_ratio": 0.6245644788619541,
+          "x_extent": 0.1808548867702484,
+          "y_extent": 0.20810499787330627,
+          "signed_turns": 0.5251402523401408,
+          "turn_coherence": 0.15565294475405556,
+          "closed_polygon_circularity": 0.6889320948909933,
+          "loop_probe_score": 0.528931617256332
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 80,
+        "valid_frames": 26,
+        "contiguous_spans": 1,
+        "longest_span_frames": 26,
+        "longest_span": {
+          "start": 29,
+          "end": 54,
+          "points": 26,
+          "path_length": 0.681076902215582,
+          "endpoint_distance": 0.1663520545642261,
+          "endpoint_over_path": 0.24424856286136468,
+          "axis_ratio": 0.39859429027488,
+          "x_extent": 0.205078125,
+          "y_extent": 0.322509765625,
+          "signed_turns": 0.46972905475727017,
+          "turn_coherence": 0.13299281855789458,
+          "closed_polygon_circularity": 0.5087570893325525,
+          "loop_probe_score": 0.38449390141754564
+        },
+        "best_loop_probe": {
+          "start": 29,
+          "end": 52,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.5044099095771775,
+          "endpoint_distance": 0.11728714838805637,
+          "endpoint_over_path": 0.23252348171821713,
+          "axis_ratio": 0.6246567477997258,
+          "x_extent": 0.1806640625,
+          "y_extent": 0.208251953125,
+          "signed_turns": 0.5252873393176747,
+          "turn_coherence": 0.15667692492627042,
+          "closed_polygon_circularity": 0.6897650877341938,
+          "loop_probe_score": 0.5293785079665675
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "1ff1584e2b23c955c9d0e46e217bd02fe22eb31c3d82d09a5f9a3491169b2a9e",
+        "decoded_frames": 80,
+        "fps": 29.973772948669914,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\my-P5-895022317746502-MY.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.2706994414329529,
+          "my_score": 0.5167161226272583,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.3171573877334595,
+          "my_score": 0.655868649482727,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "4096147054343935-PLEASE.mp4",
+      "participant_id": "P12",
+      "gloss": "PLEASE",
+      "split": "val",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 5410,
+      "source_frames": 56,
+      "model_frames": 56,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00011873245239257812,
+      "quality": {
+        "frames": 56,
+        "frames_with_hands": 36,
+        "frames_with_body_anchor": 56
+      },
+      "raw_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 34,
+        "contiguous_spans": 1,
+        "longest_span_frames": 34,
+        "longest_span": {
+          "start": 8,
+          "end": 41,
+          "points": 34,
+          "path_length": 1.1163083432390184,
+          "endpoint_distance": 0.02568837876539415,
+          "endpoint_over_path": 0.023011902509711763,
+          "axis_ratio": 0.6662188301528721,
+          "x_extent": 0.2477916032075882,
+          "y_extent": 0.21483010053634644,
+          "signed_turns": -1.727051583405414,
+          "turn_coherence": 0.6080642405334827,
+          "closed_polygon_circularity": 0.4085332900835567,
+          "loop_probe_score": 0.39913216184018213
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.3924390674563207,
+          "endpoint_distance": 0.009572804331777618,
+          "endpoint_over_path": 0.024393097236281382,
+          "axis_ratio": 0.7546321000589323,
+          "x_extent": 0.12256495654582977,
+          "y_extent": 0.13267502188682556,
+          "signed_turns": -0.9066810470827635,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9129757836998398,
+          "loop_probe_score": 0.8907054766336794
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 34,
+        "contiguous_spans": 1,
+        "longest_span_frames": 34,
+        "longest_span": {
+          "start": 8,
+          "end": 41,
+          "points": 34,
+          "path_length": 1.116551883737109,
+          "endpoint_distance": 0.02579239113262155,
+          "endpoint_over_path": 0.023100038169560192,
+          "axis_ratio": 0.6664725915121218,
+          "x_extent": 0.2479248046875,
+          "y_extent": 0.21484375,
+          "signed_turns": -1.7273116914042341,
+          "turn_coherence": 0.6082311721815818,
+          "closed_polygon_circularity": 0.4084545980835083,
+          "loop_probe_score": 0.3990192812772469
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.39256345155746875,
+          "endpoint_distance": 0.009609500294930738,
+          "endpoint_over_path": 0.0244788460484686,
+          "axis_ratio": 0.7551636776951441,
+          "x_extent": 0.1226806640625,
+          "y_extent": 0.132568359375,
+          "signed_turns": -0.9065621114732343,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.9127560721924816,
+          "loop_probe_score": 0.8904128568214769
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "d46111152df737e1dd1d5f3704cf0babf6970461db8746eb5f09b0ee03a25159",
+        "decoded_frames": 56,
+        "fps": 30.434,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\please-P12-4096147054343935-PLEASE.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.18418794870376587,
+          "my_score": 0.6594112515449524,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.2366938292980194,
+          "my_score": 0.7522114515304565,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "14107936727280213-MY.mp4",
+      "participant_id": "P39",
+      "gloss": "MY",
+      "split": "val",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 5752,
+      "source_frames": 124,
+      "model_frames": 124,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023406744003295898,
+      "quality": {
+        "frames": 124,
+        "frames_with_hands": 37,
+        "frames_with_body_anchor": 124
+      },
+      "raw_trajectory": {
+        "total_frames": 124,
+        "valid_frames": 37,
+        "contiguous_spans": 1,
+        "longest_span_frames": 37,
+        "longest_span": {
+          "start": 55,
+          "end": 91,
+          "points": 37,
+          "path_length": 1.025686590623459,
+          "endpoint_distance": 0.22470542269039062,
+          "endpoint_over_path": 0.21907805439262343,
+          "axis_ratio": 0.2697595454274232,
+          "x_extent": 0.20661449432373047,
+          "y_extent": 0.5573568642139435,
+          "signed_turns": 0.5775310512461552,
+          "turn_coherence": 0.1485993900392671,
+          "closed_polygon_circularity": 0.4819275120529708,
+          "loop_probe_score": 0.37634777035412836
+        },
+        "best_loop_probe": {
+          "start": 55,
+          "end": 90,
+          "window_seconds": 1.2,
+          "points": 36,
+          "path_length": 0.9334024904396883,
+          "endpoint_distance": 0.1870518683431169,
+          "endpoint_over_path": 0.2003978672212502,
+          "axis_ratio": 0.3146358423904785,
+          "x_extent": 0.20661449432373047,
+          "y_extent": 0.46668311953544617,
+          "signed_turns": 0.5268347133308626,
+          "turn_coherence": 0.13734674703837077,
+          "closed_polygon_circularity": 0.5155806489414088,
+          "loop_probe_score": 0.4122593865130023
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 124,
+        "valid_frames": 37,
+        "contiguous_spans": 1,
+        "longest_span_frames": 37,
+        "longest_span": {
+          "start": 55,
+          "end": 91,
+          "points": 37,
+          "path_length": 1.0258185810560434,
+          "endpoint_distance": 0.22437708909488707,
+          "endpoint_over_path": 0.21872979612428048,
+          "axis_ratio": 0.2697115221273927,
+          "x_extent": 0.20654296875,
+          "y_extent": 0.55712890625,
+          "signed_turns": 0.5777244838782936,
+          "turn_coherence": 0.15478809763652723,
+          "closed_polygon_circularity": 0.4819272602398378,
+          "loop_probe_score": 0.376515408860845
+        },
+        "best_loop_probe": {
+          "start": 55,
+          "end": 90,
+          "window_seconds": 1.2,
+          "points": 36,
+          "path_length": 0.9338613852775408,
+          "endpoint_distance": 0.18697538097519767,
+          "endpoint_over_path": 0.20021748829418526,
+          "axis_ratio": 0.31453153674674017,
+          "x_extent": 0.20654296875,
+          "y_extent": 0.466796875,
+          "signed_turns": 0.5270344231731405,
+          "turn_coherence": 0.14315102127223853,
+          "closed_polygon_circularity": 0.5153581958955624,
+          "loop_probe_score": 0.4121744723415302
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "e6f418840841e28168c388ef105ce4745a5b6a9cd5ba8050ee749e4f3fa8dd51",
+        "decoded_frames": 124,
+        "fps": 30.002419549963708,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\my-P39-14107936727280213-MY.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.37325090169906616,
+          "my_score": 0.41883841156959534,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.28354230523109436,
+          "my_score": 0.667026698589325,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "6682245340769342-MY.mp4",
+      "participant_id": "P26",
+      "gloss": "MY",
+      "split": "val",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 6084,
+      "source_frames": 56,
+      "model_frames": 56,
+      "dominant_slot": 1,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.0001569986343383789,
+      "quality": {
+        "frames": 56,
+        "frames_with_hands": 26,
+        "frames_with_body_anchor": 56
+      },
+      "raw_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 23,
+        "contiguous_spans": 3,
+        "longest_span_frames": 20,
+        "longest_span": {
+          "start": 9,
+          "end": 28,
+          "points": 20,
+          "path_length": 0.2656001081846917,
+          "endpoint_distance": 0.14250658172375708,
+          "endpoint_over_path": 0.536545646377002,
+          "axis_ratio": 0.3240032569886039,
+          "x_extent": 0.12963268160820007,
+          "y_extent": 0.07881754636764526,
+          "signed_turns": -1.8049924154249477,
+          "turn_coherence": 0.3913856371243199,
+          "closed_polygon_circularity": 0.2688193068978319,
+          "loop_probe_score": 0.12458547811971701
+        },
+        "best_loop_probe": {
+          "start": 14,
+          "end": 25,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.09162878452375245,
+          "endpoint_distance": 0.04580003848285078,
+          "endpoint_over_path": 0.499843348581998,
+          "axis_ratio": 0.4010175623241766,
+          "x_extent": 0.05075623095035553,
+          "y_extent": 0.03072682023048401,
+          "signed_turns": -0.527461255096475,
+          "turn_coherence": 0.24200191911924043,
+          "closed_polygon_circularity": 0.5337908510291969,
+          "loop_probe_score": 0.26697904460832866
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 56,
+        "valid_frames": 23,
+        "contiguous_spans": 3,
+        "longest_span_frames": 20,
+        "longest_span": {
+          "start": 9,
+          "end": 28,
+          "points": 20,
+          "path_length": 0.2645695902262907,
+          "endpoint_distance": 0.1424880069571381,
+          "endpoint_over_path": 0.5385653235327075,
+          "axis_ratio": 0.32296072103511664,
+          "x_extent": 0.129638671875,
+          "y_extent": 0.0787353515625,
+          "signed_turns": -1.8053458497843016,
+          "turn_coherence": 0.3917984814846508,
+          "closed_polygon_circularity": 0.2697319903199063,
+          "loop_probe_score": 0.12446369368614485
+        },
+        "best_loop_probe": {
+          "start": 14,
+          "end": 25,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.09112394812173731,
+          "endpoint_distance": 0.045754226416392,
+          "endpoint_over_path": 0.5021097895721826,
+          "axis_ratio": 0.3986255690562906,
+          "x_extent": 0.0506591796875,
+          "y_extent": 0.030517578125,
+          "signed_turns": -0.5287223088047783,
+          "turn_coherence": 0.24244021263717097,
+          "closed_polygon_circularity": 0.5337169029912565,
+          "loop_probe_score": 0.26573242113919976
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "c6b5facabd6daf1b4dd46f953a820f91d18c6493a398df15fa9da0f0ea68714a",
+        "decoded_frames": 56,
+        "fps": 29.978586723768736,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\my-P26-6682245340769342-MY.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.15095433592796326,
+          "my_score": 0.4376548230648041,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "GOOD"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.10267569124698639,
+          "my_score": 0.44687482714653015,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "YOU"
+        }
+      }
+    },
+    {
+      "video_file": "3211415289488089-MY.mp4",
+      "participant_id": "P21",
+      "gloss": "MY",
+      "split": "val",
+      "class_id": 8,
+      "parent_class_id": 1546,
+      "parent_index": 7666,
+      "source_frames": 51,
+      "model_frames": 51,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00017750263214111328,
+      "quality": {
+        "frames": 51,
+        "frames_with_hands": 29,
+        "frames_with_body_anchor": 51
+      },
+      "raw_trajectory": {
+        "total_frames": 51,
+        "valid_frames": 29,
+        "contiguous_spans": 1,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 8,
+          "end": 36,
+          "points": 29,
+          "path_length": 0.8433049340800111,
+          "endpoint_distance": 0.23479024793866454,
+          "endpoint_over_path": 0.2784167843092308,
+          "axis_ratio": 0.3076519056963256,
+          "x_extent": 0.3863620460033417,
+          "y_extent": 0.29068613052368164,
+          "signed_turns": -0.6942426894442123,
+          "turn_coherence": 0.1911179925382082,
+          "closed_polygon_circularity": 0.5875859130416531,
+          "loop_probe_score": 0.4239921326271927
+        },
+        "best_loop_probe": {
+          "start": 16,
+          "end": 27,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.04643666454156633,
+          "endpoint_distance": 0.004245270427848135,
+          "endpoint_over_path": 0.09142065800286138,
+          "axis_ratio": 0.39712619282340883,
+          "x_extent": 0.018713921308517456,
+          "y_extent": 0.010243117809295654,
+          "signed_turns": 0.4079525448680401,
+          "turn_coherence": 0.2221284400126376,
+          "closed_polygon_circularity": 0.27441536059840266,
+          "loop_probe_score": 0.2493281277664042
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 51,
+        "valid_frames": 29,
+        "contiguous_spans": 1,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 8,
+          "end": 36,
+          "points": 29,
+          "path_length": 0.8440070267819856,
+          "endpoint_distance": 0.23494904472967063,
+          "endpoint_over_path": 0.2783733277973763,
+          "axis_ratio": 0.3079410721963513,
+          "x_extent": 0.386474609375,
+          "y_extent": 0.290771484375,
+          "signed_turns": -0.6939266662285098,
+          "turn_coherence": 0.18823536791896706,
+          "closed_polygon_circularity": 0.5873729927605397,
+          "loop_probe_score": 0.423864018107484
+        },
+        "best_loop_probe": {
+          "start": 12,
+          "end": 35,
+          "window_seconds": 0.8,
+          "points": 24,
+          "path_length": 0.35218997840068245,
+          "endpoint_distance": 0.14250996671923985,
+          "endpoint_over_path": 0.4046394714761245,
+          "axis_ratio": 0.6171674054385174,
+          "x_extent": 0.16015625,
+          "y_extent": 0.125732421875,
+          "signed_turns": -0.30725407974043456,
+          "turn_coherence": 0.09311261891227043,
+          "closed_polygon_circularity": 0.4167156761664483,
+          "loop_probe_score": 0.24809606520664076
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "62d84e39190240a4fa299fa7817916b49b84d5a33ae8eec58ab3fc089d99195c",
+        "decoded_frames": 51,
+        "fps": 30.0,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\my-P21-3211415289488089-MY.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.08251655846834183,
+          "my_score": 0.5909603834152222,
+          "please_rank": 3,
+          "top1_if_my_excluded_diagnostic_only": "LOVE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.025245629251003265,
+          "my_score": 0.9436419606208801,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    },
+    {
+      "video_file": "42961246858695024-PLEASE.mp4",
+      "participant_id": "P21",
+      "gloss": "PLEASE",
+      "split": "val",
+      "class_id": 2,
+      "parent_class_id": 1785,
+      "parent_index": 7801,
+      "source_frames": 69,
+      "model_frames": 69,
+      "dominant_slot": 0,
+      "raw_to_prepared_exact_at_float16": true,
+      "retained_raw_body_to_cached_wrist_max_difference": 0.00023239850997924805,
+      "quality": {
+        "frames": 69,
+        "frames_with_hands": 30,
+        "frames_with_body_anchor": 69
+      },
+      "raw_trajectory": {
+        "total_frames": 69,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 10,
+          "end": 38,
+          "points": 29,
+          "path_length": 1.1350791020115656,
+          "endpoint_distance": 0.42310226924231725,
+          "endpoint_over_path": 0.3727513514190363,
+          "axis_ratio": 0.38426020183854276,
+          "x_extent": 0.1849241852760315,
+          "y_extent": 0.45246554911136627,
+          "signed_turns": -1.3925126033031996,
+          "turn_coherence": 0.4814842595156221,
+          "closed_polygon_circularity": 0.1719827361707733,
+          "loop_probe_score": 0.10787593884237397
+        },
+        "best_loop_probe": {
+          "start": 11,
+          "end": 22,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.494888583512587,
+          "endpoint_distance": 0.07140625340156548,
+          "endpoint_over_path": 0.1442875341652518,
+          "axis_ratio": 0.6684336537517166,
+          "x_extent": 0.1572979986667633,
+          "y_extent": 0.21961547434329987,
+          "signed_turns": -0.810127092364421,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8240748305575718,
+          "loop_probe_score": 0.705171105288772
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "model_trajectory": {
+        "total_frames": 69,
+        "valid_frames": 30,
+        "contiguous_spans": 2,
+        "longest_span_frames": 29,
+        "longest_span": {
+          "start": 10,
+          "end": 38,
+          "points": 29,
+          "path_length": 1.1353848076342854,
+          "endpoint_distance": 0.42338561764252175,
+          "endpoint_over_path": 0.372900548603163,
+          "axis_ratio": 0.3839867646700905,
+          "x_extent": 0.184814453125,
+          "y_extent": 0.4527587890625,
+          "signed_turns": -1.3921827209774682,
+          "turn_coherence": 0.4815470076107725,
+          "closed_polygon_circularity": 0.17176890829579833,
+          "loop_probe_score": 0.10771618815932874
+        },
+        "best_loop_probe": {
+          "start": 11,
+          "end": 22,
+          "window_seconds": 0.4,
+          "points": 12,
+          "path_length": 0.4947134482391362,
+          "endpoint_distance": 0.07151080617407297,
+          "endpoint_over_path": 0.14454995397559084,
+          "axis_ratio": 0.6682020373352214,
+          "x_extent": 0.1572265625,
+          "y_extent": 0.2196044921875,
+          "signed_turns": -0.8098690829188568,
+          "turn_coherence": 1.0,
+          "closed_polygon_circularity": 0.8240704773967488,
+          "loop_probe_score": 0.7049511278164056
+        },
+        "limits": "Projected path metrics, not confirmed circles or ground-truth joints; entry/exit motion and tracking jitter can dominate."
+      },
+      "video": {
+        "sha256": "13182e883e93dcb8f1333b6d59f9a14b0c31ced03f59ffe0409f23ed7b54b0c5",
+        "decoded_frames": 69,
+        "fps": 30.0,
+        "contact_sheet": ".cache\\please-my-trajectory-20261112\\please-P21-42961246858695024-PLEASE.png"
+      },
+      "predictions": {
+        "control": {
+          "top1": "MY",
+          "please_score": 0.20727930963039398,
+          "my_score": 0.6613104343414307,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        },
+        "temporal": {
+          "top1": "MY",
+          "please_score": 0.14887642860412598,
+          "my_score": 0.840154230594635,
+          "please_rank": 2,
+          "top1_if_my_excluded_diagnostic_only": "PLEASE"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "train": {
+      "PLEASE": 14,
+      "MY": 13
+    },
+    "val": {
+      "PLEASE": 4,
+      "MY": 4
+    }
+  },
+  "cache_id": "63aa81227c6fef495bba0a25cc670871c3a570fa3cb3ba95b2bcf259c5dacbf4",
+  "raw_archives_sha256": {
+    "train-00008": "6a1355725b8025613c4ec96d7ca810a5c588366a7cad870a457658bc07d370a7",
+    "train-00010": "b1c95311a0ba4ab315646912f4d041c50a07b42c4cf0dc5576451f4bcd303723",
+    "train-00011": "b497ad9f5023caac427df79fb5ec7a47d7161f4c23676dda765fda6ca563afd1",
+    "train-00037": "cfbe50ae0d367eafea1526119d01c23130b6371e8915c3c9b7745ba1b4079bca",
+    "train-00053": "3959966b39209bc53fe1e4ecb396085e2940da8cdb44ed054cb258cf3f06c1bd",
+    "train-00060": "ce6177d5a0be15abb2c27c24d0be206e26ff551961990002173cb69040e29524",
+    "train-00091": "b97fb650f2081bcc1e2b04e27f395ceec09729c527cfdf325b1ff5e85aaabca6",
+    "train-00101": "f5a7618a30b447e504c1f52db052e1a55869419d30dbd29d8f76d16b09c8289d",
+    "train-00131": "9d2ffa7754876d9e9a7cca0b0ec5bdeaaf736133715ed623e44ffb4709e44e91",
+    "train-00148": "f61249547f6fb3d2e29ada733fc6b263ba9988eadb78b3ce9825d112d2ade1a2",
+    "train-00152": "5a85e92a8df25c33349cc6f329bbc47ac651e73f526af8d41f27a95a236edac2",
+    "train-00176": "bab0ef94c1845a9413fc09b7c50a1351abfa55b283d0897ae777eda6a89fb9d2",
+    "train-00177": "396acf55e36714a32ef859965ec717e59d104e327d9c7329378ce8fd4bd9e32f",
+    "train-00201": "aba5d031b05ba1299d8e0ea69201157476a4a65f722ba0cf76ff65743942a16c",
+    "train-00234": "c10222ca4e24095ecf9fbab41b193ade76863a77e56086f3b4ce6c1edb7b4df6",
+    "train-00235": "e39cbccc25860648892d96c80fab2168d01eb81dfdced9efe0e059463d6a346a",
+    "train-00270": "0582c88607410822359a7a9516ee36e519b5a29a1a1d47672e70f3862050ac81",
+    "train-00284": "fbf4cefdc7a32842923899a8fd260c23a747b76f0ca3bb450d3404e792eaa5fd",
+    "train-00295": "c7c19252d532c154fe5c450520ff6fa264cab801b0455eacb49f2cff02544adb",
+    "train-00308": "139aa79f69ad9729ecbd239fdfa4fd5edf8610e96d5f0d678b9b435db455c703",
+    "train-00309": "6b68a86372347afbb143a9b719469a02f1b41f6cdcb08b9ca91c11850c9aa724",
+    "train-00310": "236517f0d7cb4cddcdee0cf37239868a2debd7837baae8121706797a22842d33",
+    "train-00314": "7607460f765d62e442eb8ab1a39110bf9691fe446a77476357254d93b8f074b7",
+    "train-00355": "e757c96ae35ded748e50fe7bee2309f594786b9b4f2d72b21bc9784ce733be60",
+    "train-00374": "5abda1875ce77e6383c8f12f4c87dae5cff36151b120f5903e52a6e7ee4c275d",
+    "train-00388": "8868fb65b4afc2c42122ddfd19a583194debd29ea3e16a812009cea75b536c5e",
+    "val-00008": "fcc342d3117a5fdae5cf456214b3496b47595c44d85aa346d12d6ee03bc05a8e",
+    "val-00023": "4aadd9d60f1ff241e953eb9c022b30b3f1b6063e105516789fb8eb7438358d2d",
+    "val-00035": "0c94c0158073510c68b1e095dca6fe38620f31a861197aac8c6b059eb5a4d865",
+    "val-00054": "1347438967ece9de1f6e20e7fb33e4ca6983ac9862a939af9daad8d581e7eda4",
+    "val-00057": "720444e1b5f041e1630360788b616fa5e8e0b860e9c212ea190af5a7a89b1ee9",
+    "val-00060": "b218423d80b6b7c0ef4997e6017a91df90033d5c16008bc51cc14809bfce49e2",
+    "val-00076": "009a24b441dd9813ac7972fc39d270dac8e3ecaf4e83a4772e13528b3bd0244a",
+    "val-00078": "ed34884e0e5699a9a048ea7ee26799c2e0c9136bdc52354cc13b5dd5a9f8c936"
+  },
+  "source_cache_sha256": {
+    "train-features.npy": "c7b42d8f89506b897b9a9b0a2d8013f80ff2e96cab55beef7e2d9ecac2e5f7e4",
+    "train-index.json": "a6cb97bfdf4792e4c22b0021bd13e12dfb239f7f91dac5bf84873a5212b6ec66",
+    "train-lengths.npy": "d5db11b40cdbd08b3e580ad6f31e7eb5ae4b20bd89598d0a3c4700b40c0bac37",
+    "train-targets.npy": "a75234b745b1cc5bbc42874736878e52ecea38403d29f919d6d4630b657ae431",
+    "val-features.npy": "a08b031024373df7b0e70532de5c3ce5cb2a0a1db36cb2820f47b80dca0f9c3f",
+    "val-index.json": "bb41457bd8f6f2c64b9d4921f6a78a2f205a982a23183310dc4b155e554d84e5",
+    "val-lengths.npy": "a02313c8d30c7222b4b6c87181163fbed6cf0c2078b559ba2948187395a8ac96",
+    "val-targets.npy": "31415eac6bd1e97fe9a3cd09d9e7b8e5ea15599596511b13fd14ac94580c001a"
+  },
+  "previous_weights_unchanged": true,
+  "source_cache_unchanged": true,
+  "raw_archives_unchanged": true,
+  "training_performed": false,
+  "new_extraction_performed": false,
+  "webcam_opened": false,
+  "test_read": false,
+  "limits": [
+    "Path metrics are exploratory, not semantic annotations or measured joint accuracy.",
+    "Best loop window is selected geometrically and can include non-sign motion or tracking artifacts.",
+    "No diagnosis of dataset mislabeling, no cleaning, and no threshold/model change."
+  ]
+}

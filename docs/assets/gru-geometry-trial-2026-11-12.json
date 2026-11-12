@@ -1,0 +1,5331 @@
+{
+  "specification": {
+    "status": "prespecified",
+    "gpu": {
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "gpu": "NVIDIA GeForce RTX 4060",
+      "vram_bytes": 8585216000
+    },
+    "features": [
+      "thumb_index_xy_median",
+      "thumb_index_xy_range",
+      "thumb_index_xyz_median",
+      "thumb_index_xyz_range",
+      "thumb_middle_xy_median",
+      "thumb_middle_xy_range",
+      "thumb_middle_xyz_median",
+      "thumb_middle_xyz_range",
+      "index_tip_wrist_median",
+      "middle_tip_wrist_median",
+      "index_pip_angle_median_deg",
+      "index_pip_angle_range_deg",
+      "middle_pip_angle_median_deg",
+      "middle_pip_angle_range_deg",
+      "palm_axis_xy_excursion_deg",
+      "palm_axis_xyz_excursion_deg",
+      "wrist_body_xy_excursion"
+    ],
+    "geometry_statistics": {
+      "median": [
+        0.9913155436515808,
+        0.5572975277900696,
+        0.9985718131065369,
+        0.5447264313697815,
+        1.1283602714538574,
+        0.5641354918479919,
+        1.131852626800537,
+        0.5600802898406982,
+        1.9369604587554932,
+        2.006624460220337,
+        171.2562255859375,
+        8.077407836914062,
+        171.34793090820312,
+        10.61335277557373,
+        15.120635986328125,
+        13.924714088439941,
+        0.3434579074382782
+      ],
+      "mean": [
+        0.8566128078103066,
+        0.6479097668329875,
+        0.8774463868141175,
+        0.6384395914276441,
+        1.0263059071699778,
+        0.7086298968394598,
+        1.035688620408376,
+        0.7075777488946915,
+        1.798304652372996,
+        1.7369206206003824,
+        160.5160636393229,
+        28.67565484205882,
+        159.12558186848958,
+        33.66971252918243,
+        21.567119630177817,
+        17.799080874125163,
+        0.3712500943740209
+      ],
+      "scale": [
+        0.47485432579137704,
+        0.4711078099716312,
+        0.4667887607763325,
+        0.4590586495269507,
+        0.5408178838879276,
+        0.5637847917815954,
+        0.542499627537466,
+        0.557748868671699,
+        0.4934907348510109,
+        0.6298290990959009,
+        20.707128037154583,
+        29.11256605322738,
+        21.046260213136097,
+        36.37431890388593,
+        22.381566296311735,
+        13.859725481081744,
+        0.17343501567475428
+      ]
+    },
+    "fit_on": "official training only; all 75 rows",
+    "extra_trainable_parameters": 85,
+    "test_read": false,
+    "webcam_opened": false,
+    "protocol": "One fixed seed; same settings and validation-only policy as prior mean-pool GRU; no search",
+    "measurement_policy": "Recompute summaries from the actual augmented frames in every training forward; missing values use train medians",
+    "branch": "Concatenate 17 standardized scalars with 256 dropped-out pooled outputs; one jointly trained linear head",
+    "initialization": "Same GRU and original head weights, 85 extra weights zero; RNG position preserved",
+    "missing_geometry_values": {
+      "train": 0,
+      "val": 0
+    },
+    "cache_sha256": {
+      "train-features.npy": "c8a0e8f981820dda41553319b9aef4fd729c4f092e3e05dce9c103294d338b35",
+      "train-lengths.npy": "bc92e0ceec497e32f981dba143e769f250d2e3fe9d177271dde00185f09c7800",
+      "train-targets.npy": "b8023808306b79b025fc2246b7bb9aa8365cd13df58c802184f7371e1e193008",
+      "train-index.json": "eacdbc2f711faea32249d0c43e4fdc8e1c928506c95d4fbecef42a0521ee81bf",
+      "val-features.npy": "070518f5ff5b7c02d1ec84dbb04eb2424f57f1f7ce91679487124056e5d4deaa",
+      "val-lengths.npy": "ed48e12c42ec25b1b977e39a918695cc96d1825199fbf6d8d10a1b2887755bac",
+      "val-targets.npy": "d8b8598786130cc24a437a28c64382282f5e286b033275e1e83801f3da274eb4",
+      "val-index.json": "a2ce6973f5ffaed385ce31e7d26a8dfbf3fdf978463818d2fbb2c5aebf6eccd8"
+    },
+    "protected_weights_sha256": {
+      "models\\asl-gru-128-baseline\\best.pt": "c2598b620f1dbb5e2d51ba8b4d195f3d1868e473decf6b36567e9b53e6186b10",
+      "models\\asl-gru-128-baseline-first-attempt\\best.pt": "6342b846ddac10d6cd5a37c48912ff6fd4fbb57b2d6852cec2865bd434cec46f",
+      "models\\asl-gru-128-smoke\\best.pt": "c12c718e4a71cbf03af6e3dc7da613af76cf956f342a5675cc13398472d2655f",
+      "models\\asl-gru-128-smoke-cudnn-attempt\\best.pt": "99629d55f41ea49927ec394a2684f469716d232c9a49c1ba63b4f5fc5f82d027",
+      "models\\asl-gru-128-smoke-first-attempt\\best.pt": "9804e60f0ee24a7d9f8ad06246a9947b7dd3a074c05a22d8cdf9ba9af3047efb",
+      "models\\asl-gru-128-smoke-no-workers\\best.pt": "b8b7a6c2fced3c5a1a575a46d200a2123f04098803a87fe97dee48ab2efb5d3b",
+      "models\\asl-gru-64-baseline\\best.pt": "855ee9692837728cd81db16b6eb5a196f48d0969870f172cc05cfc0d8e17dd97",
+      "models\\asl-gru-64-smoke\\best.pt": "ff2ad567ff322d23357d7ca52b0037a6178350028d70e8f681e39f2b4b290a3a",
+      "models\\asl-gru-five-signs-mean-pool-v1\\best.pt": "909e90daffb8d244c7492d1303ab8dfeeddd8b325c0335ad74207711385466c9",
+      "models\\asl-stgcn27-five-signs-early-v1\\best.pt": "62f273158ac19e4d211704290c3b6a4229a16894f39d6f915863d75f210ee05f",
+      "models\\asl-stgcn27-five-signs-mean-pool-repeat-v1\\best.pt": "e1c60dc6a868fbe87916cee6c1fedcaaba3a0c325feded040d492fb7e74ec09d",
+      "models\\asl-stgcn27-smoke\\best.pt": "a9e8f8fc9ad6d379182f881368fb01fb23937cc91f18d24b211efb1a1a13f8e9",
+      "models\\asl-stgcn27-v1\\best.pt": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+      "models\\asl-gru-128-cv-regularized-v1\\fold-1\\best.pt": "045e6bf6d2a412e2caa69789894a10550c84d9f3697cd4349cc549cee2428ca8",
+      "models\\asl-gru-128-cv-regularized-v1\\fold-2\\best.pt": "b47695935ebf9073391f7149caa0af5905a0f8a11c784b1c6957cdb05f25ae9a",
+      "models\\asl-gru-128-cv-regularized-v1\\fold-3\\best.pt": "3205ff007d51d8a697b4e6c41389f020ce1961052d5a6c6d9e873499f1f7b9bb",
+      "models\\asl-gru-128-cv-regularized-v1\\official-refit\\best.pt": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "models\\asl-gru-128-cv-regularized-v1\\smoke\\best.pt": "c9b5ee509cb4c7f08e08af410031ca5a662023e77010bc99c2c7885cb50f5984",
+      "models\\asl-gru-five-signs-early-v1\\baseline\\best.pt": "d86780381f50eabba61e98d2b82897531b9b9391f768c11b7f6b17d9a68519e9",
+      "models\\asl-gru-five-signs-early-v1\\regularized\\best.pt": "112d2ef56846f4b41152d1644c41604e796a56f9776b2634d5f936a5715a41b4",
+      "models\\asl-gru-five-signs-early-v2\\baseline\\best.pt": "2f653ebf2bdc59780780846c06aef406aeae9bc80af535b2e24ccf14b343b15f",
+      "models\\asl-gru-five-signs-early-v2\\regularized\\best.pt": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c"
+    },
+    "defaults_changed": false,
+    "fresh_independent_benchmark": false
+  },
+  "control": {
+    "selection": {
+      "policy": {
+        "accuracy_tolerance": "one validation example below best observed top-1",
+        "loss_tolerance": 0.1,
+        "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+        "patience": 3,
+        "loss_min_delta": 0.001,
+        "sustained_gap_limit": 0.1,
+        "sustained_gap_epochs": 3
+      },
+      "validation_samples": 19,
+      "accuracy_floor": 0.7894736842105263,
+      "validation_loss_ceiling": 0.4065069584470046,
+      "eligible_epochs": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "selected_epoch": 4,
+      "selected_accuracy_gap": 0.056140350877193046,
+      "test_used": false
+    },
+    "epochs_completed": 10,
+    "stop_reason": "sustained_generalization_gap",
+    "parameters": 789253,
+    "seconds": 40.46900000000005,
+    "checkpoint_sha256": "3811868d39942b3962b75926c3bc5b3707c95fc13647bf0ea3a27ab94df4ab33",
+    "epoch_metrics": [
+      {
+        "epoch": 1,
+        "train": {
+          "loss": 1.4854589835802714,
+          "top1": 0.3466666666666667,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 11.547000000000025,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 1.126272783279419,
+          "top1": 0.5733333333333334,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.7339999999999236,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.5165608465608467,
+          "macro_recall": 0.5839285714285715,
+          "macro_f1": 0.49647490160526325,
+          "weighted_f1": 0.4892928807478849
+        },
+        "val": {
+          "loss": 1.1599763506337215,
+          "top1": 0.5263157894736842,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 2.875,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.32666666666666666,
+          "macro_recall": 0.5333333333333333,
+          "macro_f1": 0.4,
+          "weighted_f1": 0.39766081871345027
+        },
+        "accuracy_gap": 0.04701754385964918,
+        "loss_gap": 0.033703567354302466
+      },
+      {
+        "epoch": 2,
+        "train": {
+          "loss": 1.0002132145563762,
+          "top1": 0.44,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.5779999999999745,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.773769535223643,
+          "top1": 0.6666666666666666,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.21900000000005093,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.7605094466936573,
+          "macro_recall": 0.6796428571428571,
+          "macro_f1": 0.6350241086826452,
+          "weighted_f1": 0.6273723530308896
+        },
+        "val": {
+          "loss": 0.8570717290828103,
+          "top1": 0.631578947368421,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.09400000000005093,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.5476190476190477,
+          "macro_recall": 0.6133333333333333,
+          "macro_f1": 0.5543434343434344,
+          "weighted_f1": 0.5648059542796385
+        },
+        "accuracy_gap": 0.03508771929824561,
+        "loss_gap": 0.08330219385916726
+      },
+      {
+        "epoch": 3,
+        "train": {
+          "loss": 0.8159260050455729,
+          "top1": 0.64,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.4220000000000255,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.6585756969451905,
+          "top1": 0.7066666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18699999999989814,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.5997863247863248,
+          "macro_recall": 0.7071428571428571,
+          "macro_f1": 0.6416082392552981,
+          "weighted_f1": 0.6377648379217007
+        },
+        "val": {
+          "loss": 0.6157704372155038,
+          "top1": 0.7368421052631579,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.6457142857142857,
+          "macro_recall": 0.8,
+          "macro_f1": 0.6977777777777778,
+          "weighted_f1": 0.6502923976608187
+        },
+        "accuracy_gap": -0.03017543859649119,
+        "loss_gap": -0.04280525972968663
+      },
+      {
+        "epoch": 4,
+        "train": {
+          "loss": 0.49255910197893776,
+          "top1": 0.8,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.375,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.5228647887706757,
+          "top1": 0.7333333333333333,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18699999999989814,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.7607142857142858,
+          "macro_recall": 0.7421428571428571,
+          "macro_f1": 0.736,
+          "weighted_f1": 0.7285059829059829
+        },
+        "val": {
+          "loss": 0.3951811570870249,
+          "top1": 0.7894736842105263,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07900000000017826,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.7866666666666666,
+          "macro_recall": 0.7866666666666666,
+          "macro_f1": 0.7866666666666666,
+          "weighted_f1": 0.7894736842105263
+        },
+        "accuracy_gap": -0.056140350877193046,
+        "loss_gap": -0.12768363168365077
+      },
+      {
+        "epoch": 5,
+        "train": {
+          "loss": 0.49058485666910806,
+          "top1": 0.76,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.5149999999998727,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.5207569901148478,
+          "top1": 0.7466666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.20299999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.823843137254902,
+          "macro_recall": 0.7489285714285715,
+          "macro_f1": 0.7252303824484296,
+          "weighted_f1": 0.7227423424401096
+        },
+        "val": {
+          "loss": 0.5420745062200647,
+          "top1": 0.631578947368421,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.6083333333333333,
+          "macro_recall": 0.6833333333333333,
+          "macro_f1": 0.6005194805194805,
+          "weighted_f1": 0.5613123718386877
+        },
+        "accuracy_gap": 0.11508771929824568,
+        "loss_gap": 0.021317516105216927
+      },
+      {
+        "epoch": 6,
+        "train": {
+          "loss": 0.43518954118092856,
+          "top1": 0.8,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.688000000000102,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.3932351438204447,
+          "top1": 0.8533333333333334,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18699999999989814,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8701754385964913,
+          "macro_recall": 0.8608333333333335,
+          "macro_f1": 0.8494895635673625,
+          "weighted_f1": 0.8459261227071475
+        },
+        "val": {
+          "loss": 0.41173322263516876,
+          "top1": 0.8421052631578947,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8433333333333334,
+          "macro_recall": 0.8533333333333333,
+          "macro_f1": 0.8444444444444443,
+          "weighted_f1": 0.8362573099415204
+        },
+        "accuracy_gap": 0.011228070175438698,
+        "loss_gap": 0.01849807881472404
+      },
+      {
+        "epoch": 7,
+        "train": {
+          "loss": 0.4213628007968267,
+          "top1": 0.8,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.5470000000000255,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.2742977265516917,
+          "top1": 0.8266666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9103448275862069,
+          "macro_recall": 0.8266666666666668,
+          "macro_f1": 0.789281045751634,
+          "weighted_f1": 0.7854291938997822
+        },
+        "val": {
+          "loss": 0.35750800684878703,
+          "top1": 0.7368421052631579,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.675,
+          "macro_recall": 0.8,
+          "macro_f1": 0.7090909090909091,
+          "weighted_f1": 0.6650717703349283
+        },
+        "accuracy_gap": 0.0898245614035088,
+        "loss_gap": 0.08321028029709532
+      },
+      {
+        "epoch": 8,
+        "train": {
+          "loss": 0.2871024388074875,
+          "top1": 0.8266666666666667,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.4209999999998217,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.2292229719956716,
+          "top1": 0.92,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9454545454545455,
+          "macro_recall": 0.9199999999999999,
+          "macro_f1": 0.9184210526315789,
+          "weighted_f1": 0.9163157894736842
+        },
+        "val": {
+          "loss": 0.3591237303457762,
+          "top1": 0.7894736842105263,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8857142857142858,
+          "macro_recall": 0.8400000000000001,
+          "macro_f1": 0.7866666666666667,
+          "weighted_f1": 0.76140350877193
+        },
+        "accuracy_gap": 0.1305263157894737,
+        "loss_gap": 0.12990075835010462
+      },
+      {
+        "epoch": 9,
+        "train": {
+          "loss": 0.35137915968894956,
+          "top1": 0.8133333333333334,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.4839999999999236,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.20556552867094677,
+          "top1": 0.9733333333333334,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9777777777777779,
+          "macro_recall": 0.9733333333333334,
+          "macro_f1": 0.9739495798319329,
+          "weighted_f1": 0.9731652661064426
+        },
+        "val": {
+          "loss": 0.3065069584470046,
+          "top1": 0.8421052631578947,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9,
+          "macro_recall": 0.8800000000000001,
+          "macro_f1": 0.8476190476190476,
+          "weighted_f1": 0.8345864661654135
+        },
+        "accuracy_gap": 0.1312280701754387,
+        "loss_gap": 0.10094142977605783
+      },
+      {
+        "epoch": 10,
+        "train": {
+          "loss": 0.2691707738271604,
+          "top1": 0.9066666666666666,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.532000000000153,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.1674235596259435,
+          "top1": 0.9466666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.18699999999989814,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.96,
+          "macro_recall": 0.9466666666666667,
+          "macro_f1": 0.947008547008547,
+          "weighted_f1": 0.9455270655270654
+        },
+        "val": {
+          "loss": 0.3934576636866519,
+          "top1": 0.8421052631578947,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.07799999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8800000000000001,
+          "macro_recall": 0.8800000000000001,
+          "macro_f1": 0.8420634920634921,
+          "weighted_f1": 0.8243525480367586
+        },
+        "accuracy_gap": 0.10456140350877197,
+        "loss_gap": 0.22603410406070842
+      }
+    ],
+    "train": {
+      "samples": 75,
+      "correct": 55,
+      "top1": 0.7333333333333333,
+      "loss": 0.522843656539917,
+      "macro_f1": 0.736,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          11,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          11
+        ],
+        [
+          0,
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          13,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          12
+        ]
+      ],
+      "predictions": [
+        {
+          "video_file": "9979731168048327-NO.mp4",
+          "participant_id": "P51",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 115,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.005164755508303642,
+            0.5002459287643433,
+            0.009916514158248901,
+            0.000763932999689132,
+            0.4839089512825012
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "1555998439795525-YES.mp4",
+          "participant_id": "P40",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 629,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.01345677487552166,
+            0.5730354189872742,
+            0.006056565325707197,
+            0.0011083813151344657,
+            0.40634292364120483
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "7535449770372906-THANK YOU.mp4",
+          "participant_id": "P40",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 723,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.06127284839749336,
+            0.06512913852930069,
+            0.04453365504741669,
+            0.7893778681755066,
+            0.03968648612499237
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9616432008129339-NO.mp4",
+          "participant_id": "P29",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 883,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.004658374469727278,
+            0.4600982666015625,
+            0.0072150323539972305,
+            0.0005231657414697111,
+            0.5275052189826965
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "15769775934939156-THANK YOU.mp4",
+          "participant_id": "P37",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 894,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.005958247929811478,
+            0.0010122680105268955,
+            0.007762486580759287,
+            0.984443187713623,
+            0.0008237722213380039
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "43778843855311433-PLEASE.mp4",
+          "participant_id": "P11",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 1191,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.005356047302484512,
+            0.3326638638973236,
+            0.34456706047058105,
+            0.0036811537574976683,
+            0.3137318789958954
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5372668319999747-NO.mp4",
+          "participant_id": "P43",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 1393,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.019285108894109726,
+            0.6019962430000305,
+            0.011353749781847,
+            0.0022356859408318996,
+            0.36512917280197144
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "38970444942928073-YES.mp4",
+          "participant_id": "P14",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 1597,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.00513084651902318,
+            0.45072463154792786,
+            0.005267931614071131,
+            0.0004823973577003926,
+            0.5383941531181335
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6448349493816601-HELLO.mp4",
+          "participant_id": "P11",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 1844,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.8896974921226501,
+            0.006203174591064453,
+            0.000662163074593991,
+            0.09703397750854492,
+            0.006403210107237101
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "44272136216354463-PLEASE.mp4",
+          "participant_id": "P33",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 3755,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00048442231491208076,
+            0.008929732255637646,
+            0.9789983630180359,
+            0.004362109117209911,
+            0.007225340232253075
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "44146024789241256-YES.mp4",
+          "participant_id": "P37",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 3915,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.005577835254371166,
+            0.4536101818084717,
+            0.005805697292089462,
+            0.000522888673003763,
+            0.5344834327697754
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "09714329486323847-NO.mp4",
+          "participant_id": "P37",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 3973,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.0070950682274997234,
+            0.47277453541755676,
+            0.010839837603271008,
+            0.001085940864868462,
+            0.5082046389579773
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "9008261925178431-HELLO.mp4",
+          "participant_id": "P50",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 4604,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.5895903706550598,
+            0.010862183757126331,
+            0.0024048197083175182,
+            0.3859083354473114,
+            0.011234380304813385
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9960146118001314-PLEASE.mp4",
+          "participant_id": "P27",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 5305,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            5.201616295380518e-05,
+            0.0007014271104708314,
+            0.9954293966293335,
+            0.003000355791300535,
+            0.0008168542990460992
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9117047483562963-PLEASE.mp4",
+          "participant_id": "P31",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 6097,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00013726948236580938,
+            0.0028613689355552197,
+            0.9912397265434265,
+            0.002986998064443469,
+            0.0027746884152293205
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "709429051156695-YES.mp4",
+          "participant_id": "P31",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 7027,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.005929760634899139,
+            0.4605967402458191,
+            0.005883615463972092,
+            0.0005435331258922815,
+            0.5270463824272156
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "15689453699180178-YES.mp4",
+          "participant_id": "P29",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 7167,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.004303515423089266,
+            0.4381139576435089,
+            0.011692455969750881,
+            0.0006484658224508166,
+            0.54524165391922
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0755679379568106-HELLO.mp4",
+          "participant_id": "P16",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 7978,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.7072028517723083,
+            0.006064963061362505,
+            0.0011340220225974917,
+            0.28020915389060974,
+            0.005389024503529072
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "11225598264242453-HELLO.mp4",
+          "participant_id": "P31",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 8450,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9728463292121887,
+            0.005847231950610876,
+            0.00012386984599288553,
+            0.01622374914586544,
+            0.004958848003298044
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8486809407942575-HELLO.mp4",
+          "participant_id": "P37",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 8743,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.8797178864479065,
+            0.0081934230402112,
+            0.0005699562607333064,
+            0.10394471138715744,
+            0.0075739785097539425
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5956139983741693-PLEASE.mp4",
+          "participant_id": "P14",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 9118,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0001182833657367155,
+            0.001943799084983766,
+            0.9927552342414856,
+            0.0032236159313470125,
+            0.0019590442534536123
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9009854854743657-YES.mp4",
+          "participant_id": "P24",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 11608,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.021050242707133293,
+            0.4634549021720886,
+            0.00705783860757947,
+            0.001415798207744956,
+            0.5070211887359619
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6508465822424006-THANK YOU.mp4",
+          "participant_id": "P1",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 11846,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.019708603620529175,
+            0.005489944014698267,
+            0.021813107654452324,
+            0.9488604664802551,
+            0.004127871245145798
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6912280773625425-THANK YOU.mp4",
+          "participant_id": "P51",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 11893,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.008146688342094421,
+            0.0012845166493207216,
+            0.006252003833651543,
+            0.9833916425704956,
+            0.0009252026793546975
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "2140134632834978-NO.mp4",
+          "participant_id": "P16",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 12587,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.019252294674515724,
+            0.6356057524681091,
+            0.002875254023820162,
+            0.0007199132232926786,
+            0.34154680371284485
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6358167662084229-seedYES.mp4",
+          "participant_id": "P52",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 12847,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0045632170513272285,
+            0.4622897803783417,
+            0.005740348715335131,
+            0.0004852053534705192,
+            0.5269213318824768
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "3790733585897841-seedTHANK YOU.mp4",
+          "participant_id": "P52",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 13274,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.010199039243161678,
+            0.0018429287010803819,
+            0.006379279773682356,
+            0.9801672101020813,
+            0.0014116433449089527
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "1340650432799635-HELLO.mp4",
+          "participant_id": "P29",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 13329,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.8920435309410095,
+            0.012886886484920979,
+            0.001252517569810152,
+            0.08232727646827698,
+            0.011489851400256157
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8699610978899361-YES.mp4",
+          "participant_id": "P37",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 14159,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0038751454558223486,
+            0.44703197479248047,
+            0.00523498747497797,
+            0.00040525884833186865,
+            0.5434526801109314
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "95072139344285-PLEASE.mp4",
+          "participant_id": "P16",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 14870,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0001262970472453162,
+            0.002600708045065403,
+            0.9919089674949646,
+            0.0033903068397194147,
+            0.0019736899994313717
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "25802117645943423-HELLO.mp4",
+          "participant_id": "P41",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 16079,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.5926960706710815,
+            0.11877843737602234,
+            0.01036861352622509,
+            0.18980741500854492,
+            0.08834949135780334
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5082858473744953-NO.mp4",
+          "participant_id": "P40",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 16939,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.017001789063215256,
+            0.5920621156692505,
+            0.01172515470534563,
+            0.002873373217880726,
+            0.37633758783340454
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16728596536749274-YES.mp4",
+          "participant_id": "P34",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 17586,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.008482391946017742,
+            0.4750324487686157,
+            0.006991066038608551,
+            0.0008530965424142778,
+            0.5086410045623779
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4782730717831809-PLEASE.mp4",
+          "participant_id": "P40",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 17739,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0008319158223457634,
+            0.021452771499753,
+            0.9579581022262573,
+            0.005398348905146122,
+            0.014358822256326675
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5305284657006966-PLEASE.mp4",
+          "participant_id": "P50",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 20174,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00010744245810201392,
+            0.0027107554487884045,
+            0.9923337697982788,
+            0.00217284238897264,
+            0.0026752527337521315
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0022932153577568393-HELLO.mp4",
+          "participant_id": "P40",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 20803,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.8832957148551941,
+            0.05575486645102501,
+            0.001325390301644802,
+            0.02758718840777874,
+            0.03203687444329262
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0912245735671211-THANK YOU.mp4",
+          "participant_id": "P50",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 20938,
+          "expected": "THANKYOU",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0059004854410886765,
+            0.007495421916246414,
+            0.5327031016349792,
+            0.44683215022087097,
+            0.007068856153637171
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "6528064521146906-THANK YOU.mp4",
+          "participant_id": "P27",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 21180,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.005515365395694971,
+            0.0005619189469143748,
+            0.0029586562886834145,
+            0.990501880645752,
+            0.00046222194214351475
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5309657970849855-NO.mp4",
+          "participant_id": "P23",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 21287,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.0016777979908511043,
+            0.48563194274902344,
+            0.01806226558983326,
+            0.00038399448385462165,
+            0.49424389004707336
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "7973429116215278-NO.mp4",
+          "participant_id": "P2",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 21933,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.005115728825330734,
+            0.47651517391204834,
+            0.003757396014407277,
+            0.00038122720434330404,
+            0.5142304301261902
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "014439537236845323-THANK YOU.mp4",
+          "participant_id": "P43",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 22290,
+          "expected": "THANKYOU",
+          "prediction": "NO",
+          "scores": [
+            0.11237892508506775,
+            0.31857842206954956,
+            0.1215105876326561,
+            0.21632538735866547,
+            0.23120668530464172
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "15498675309554577-YES.mp4",
+          "participant_id": "P11",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 22993,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.10900331288576126,
+            0.4079238474369049,
+            0.01654365099966526,
+            0.08630243688821793,
+            0.38022685050964355
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "034197610787212396-THANK YOU.mp4",
+          "participant_id": "P11",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 23437,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.011628765612840652,
+            0.0014285787474364042,
+            0.0063016461208462715,
+            0.9794130325317383,
+            0.0012279090005904436
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "01379619951634381-NO.mp4",
+          "participant_id": "P31",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 23838,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.0029233123641461134,
+            0.45246461033821106,
+            0.0038614303339272738,
+            0.00027808689628727734,
+            0.5404725670814514
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "9092689562509508-YES.mp4",
+          "participant_id": "P29",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 24563,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0039303600788116455,
+            0.43137305974960327,
+            0.010284575633704662,
+            0.0005180746084079146,
+            0.5538939833641052
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "031705941185190545-THANK YOU.mp4",
+          "participant_id": "P16",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 24701,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.007414738181978464,
+            0.001070217345841229,
+            0.013994474895298481,
+            0.9767864942550659,
+            0.0007341137388721108
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6901051427765104-NO.mp4",
+          "participant_id": "P11",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 26098,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.0072904303669929504,
+            0.4857923686504364,
+            0.007753047626465559,
+            0.0008792625740170479,
+            0.49828487634658813
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "370678413428154-NO.mp4",
+          "participant_id": "P14",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 26971,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.009504467248916626,
+            0.48772430419921875,
+            0.004702755715698004,
+            0.0007247210014611483,
+            0.4973437786102295
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "5254351100197965-HELLO.mp4",
+          "participant_id": "P27",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 27142,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9776966571807861,
+            0.00418124720454216,
+            7.52110718167387e-05,
+            0.014367729425430298,
+            0.003679143264889717
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7199140986089654-YES.mp4",
+          "participant_id": "P50",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 27521,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.005798169411718845,
+            0.4486194849014282,
+            0.009086239151656628,
+            0.0006165174418129027,
+            0.5358795523643494
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7597723277213178-HELLO.mp4",
+          "participant_id": "P30",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 27893,
+          "expected": "HELLO",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.3996976613998413,
+            0.015642408281564713,
+            0.004388509318232536,
+            0.5669764280319214,
+            0.013294999487698078
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "7613696736100914-HELLO.mp4",
+          "participant_id": "P7",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 28320,
+          "expected": "HELLO",
+          "prediction": "YES",
+          "scores": [
+            0.006853066850453615,
+            0.48991283774375916,
+            0.002318016719073057,
+            0.00036390929017215967,
+            0.5005521774291992
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "8801721942460268-PLEASE.mp4",
+          "participant_id": "P29",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 28487,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00012532761320471764,
+            0.0028622096870094538,
+            0.9920152425765991,
+            0.002281952416524291,
+            0.0027151834219694138
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "180739946524912-seedHELLO.mp4",
+          "participant_id": "P52",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 29438,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.7224426865577698,
+            0.04457787424325943,
+            0.00404342170804739,
+            0.19030989706516266,
+            0.038626059889793396
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "31545854783740124-PLEASE.mp4",
+          "participant_id": "P7",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 29596,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            8.797061309451237e-05,
+            0.0017523306887596846,
+            0.9935444593429565,
+            0.002835300751030445,
+            0.0017799260094761848
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "32941176670637984-YES.mp4",
+          "participant_id": "P27",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 30668,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0038947262801229954,
+            0.44189342856407166,
+            0.003913789987564087,
+            0.00035283889155834913,
+            0.5499452352523804
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "04515307711600891-PLEASE.mp4",
+          "participant_id": "P37",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 31048,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            8.767697727307677e-05,
+            0.0015092416433617473,
+            0.9941038489341736,
+            0.002754990244284272,
+            0.0015442781150341034
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9644130188424822-NO.mp4",
+          "participant_id": "P27",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 31068,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.005645022727549076,
+            0.4787621796131134,
+            0.003498235484585166,
+            0.0004602149419952184,
+            0.511634349822998
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "274897834577152-THANK YOU.mp4",
+          "participant_id": "P31",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 31101,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.004878811538219452,
+            0.0003840085119009018,
+            0.0018097746651619673,
+            0.9926034808158875,
+            0.0003239997604396194
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "47017724784893633-seedPLEASE.mp4",
+          "participant_id": "P52",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 31494,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0020466800779104233,
+            0.06451530754566193,
+            0.8738070726394653,
+            0.006536172702908516,
+            0.053094763308763504
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8841964348021558-HELLO.mp4",
+          "participant_id": "P33",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 32250,
+          "expected": "HELLO",
+          "prediction": "NO",
+          "scores": [
+            0.007352166343480349,
+            0.529714822769165,
+            0.011691502295434475,
+            0.0007995109772309661,
+            0.45044201612472534
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "021145910536055412-THANK YOU.mp4",
+          "participant_id": "P2",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 33582,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.010396451689302921,
+            0.0016217298107221723,
+            0.006489673163741827,
+            0.9802329540252686,
+            0.001259309588931501
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "050364485120873326-YES.mp4",
+          "participant_id": "P33",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 34118,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.00677067507058382,
+            0.4930875301361084,
+            0.013865415006875992,
+            0.0008334964513778687,
+            0.4854429364204407
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "7932042062420475-NO.mp4",
+          "participant_id": "P33",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 34607,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.006692890077829361,
+            0.5009345412254333,
+            0.01877984218299389,
+            0.0011664621997624636,
+            0.47242629528045654
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "081380748015633-HELLO.mp4",
+          "participant_id": "P51",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 35164,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9107696413993835,
+            0.009926887229084969,
+            0.0007817213772796094,
+            0.07016245275735855,
+            0.008359277620911598
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6400788027798874-PLEASE.mp4",
+          "participant_id": "P51",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 35565,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00011736833403119817,
+            0.003433356760069728,
+            0.9908642172813416,
+            0.0024251227732747793,
+            0.0031598692294210196
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6137110171725737-NO.mp4",
+          "participant_id": "P50",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 35889,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.005314587149769068,
+            0.4756089448928833,
+            0.00431651109829545,
+            0.000504083523992449,
+            0.5142558813095093
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "3919396171653571-NO.mp4",
+          "participant_id": "P36",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 36072,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.007701440714299679,
+            0.48020827770233154,
+            0.004224164877086878,
+            0.0006651043659076095,
+            0.5072010159492493
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "39425766670939555-THANK YOU.mp4",
+          "participant_id": "P33",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 37108,
+          "expected": "THANKYOU",
+          "prediction": "PLEASE",
+          "scores": [
+            0.013756096363067627,
+            0.026079006493091583,
+            0.4906352162361145,
+            0.45067206025123596,
+            0.018857520073652267
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "8487114823108493-THANK YOU.mp4",
+          "participant_id": "P10",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 37308,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.007734290789812803,
+            0.0010878877947106957,
+            0.00513833062723279,
+            0.9851873517036438,
+            0.0008522268617525697
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "2688720555507844-seedNO.mp4",
+          "participant_id": "P52",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 38534,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.005402835085988045,
+            0.47880759835243225,
+            0.0055634621530771255,
+            0.0005380968214012682,
+            0.5096880197525024
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "18053723532999788-PLEASE.mp4",
+          "participant_id": "P30",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 38834,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0002715009031817317,
+            0.005694056395441294,
+            0.9858219027519226,
+            0.0029360628686845303,
+            0.005276437383145094
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "06476990357042611-THANK YOU.mp4",
+          "participant_id": "P14",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 39706,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.010721169412136078,
+            0.0021074542310088873,
+            0.009793663397431374,
+            0.9757202863693237,
+            0.0016573937609791756
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5932207271660643-THANK YOU.mp4",
+          "participant_id": "P29",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 39745,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.005296043585985899,
+            0.0006826476310379803,
+            0.005586827639490366,
+            0.9878859519958496,
+            0.0005485227447934449
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9953610281521326-YES.mp4",
+          "participant_id": "P46",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 39856,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.002629791619256139,
+            0.4195447862148285,
+            0.004153436049818993,
+            0.00022228423040360212,
+            0.5734497308731079
+          ],
+          "correct": true
+        }
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 11,
+          "support": 14,
+          "recall": 0.7857142857142857,
+          "f1": 0.88
+        },
+        "NO": {
+          "correct": 5,
+          "support": 16,
+          "recall": 0.3125,
+          "f1": 0.38461538461538464
+        },
+        "PLEASE": {
+          "correct": 14,
+          "support": 14,
+          "recall": 1.0,
+          "f1": 0.9333333333333333
+        },
+        "THANKYOU": {
+          "correct": 13,
+          "support": 16,
+          "recall": 0.8125,
+          "f1": 0.8666666666666666
+        },
+        "YES": {
+          "correct": 12,
+          "support": 15,
+          "recall": 0.8,
+          "f1": 0.6153846153846154
+        }
+      }
+    },
+    "validation": {
+      "samples": 19,
+      "correct": 15,
+      "top1": 0.7894736842105263,
+      "loss": 0.39519771776701274,
+      "macro_f1": 0.7866666666666666,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          3
+        ]
+      ],
+      "predictions": [
+        {
+          "video_file": "9161842981344352-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 284,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.224598228931427,
+            0.49345049262046814,
+            0.004837618675082922,
+            0.005666806362569332,
+            0.2714468240737915
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "020030442376253177-HELLO.mp4",
+          "participant_id": "P26",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 525,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9650930166244507,
+            0.00499313697218895,
+            0.00015173980500549078,
+            0.025344863533973694,
+            0.004417198710143566
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "05859480723249688-PLEASE.mp4",
+          "participant_id": "P26",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 823,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00011304461804684252,
+            0.0013664482394233346,
+            0.9923793077468872,
+            0.0046594589948654175,
+            0.0014818175695836544
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "05614933522741539-HELLO.mp4",
+          "participant_id": "P12",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 923,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9501241445541382,
+            0.00591066712513566,
+            0.0002596331760287285,
+            0.03933136537671089,
+            0.0043742419220507145
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8977694836593926-YES.mp4",
+          "participant_id": "P26",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 2172,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0066289580427110195,
+            0.45042771100997925,
+            0.0034256502985954285,
+            0.00042626544018276036,
+            0.5390914082527161
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6330094542104612-PLEASE.mp4",
+          "participant_id": "P39",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 2300,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0010011284612119198,
+            0.03136548399925232,
+            0.9353975653648376,
+            0.004477992653846741,
+            0.027757763862609863
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "42327270691916885-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 4133,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.005196277052164078,
+            0.47373008728027344,
+            0.027554208412766457,
+            0.000918093544896692,
+            0.4926013648509979
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "20675411351630046-HELLO.mp4",
+          "participant_id": "P21",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5098,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9377225637435913,
+            0.01411397010087967,
+            0.0004514829197432846,
+            0.03651958331465721,
+            0.011192360892891884
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16870669316247833-THANK YOU.mp4",
+          "participant_id": "P39",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 5131,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.023969490081071854,
+            0.016782496124505997,
+            0.030112221837043762,
+            0.9162932634353638,
+            0.012842478230595589
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4096147054343935-PLEASE.mp4",
+          "participant_id": "P12",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 5410,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00019784431788139045,
+            0.003845910308882594,
+            0.9876714944839478,
+            0.0054461597464978695,
+            0.0028385671321302652
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16493550450776628-HELLO.mp4",
+          "participant_id": "P39",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5516,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.5168042778968811,
+            0.23986734449863434,
+            0.007568776607513428,
+            0.047117508947849274,
+            0.18864211440086365
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "26056519285644875-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 5968,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.006339690648019314,
+            0.4731109142303467,
+            0.008317104540765285,
+            0.0006773966597393155,
+            0.5115548968315125
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8323715285073319-NO.mp4",
+          "participant_id": "P21",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 6050,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.01710130274295807,
+            0.5906046032905579,
+            0.0057506379671394825,
+            0.0014783290680497885,
+            0.38506510853767395
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9715589334909431-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 6926,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.02547820471227169,
+            0.5859293937683105,
+            0.004508713260293007,
+            0.0013198212254792452,
+            0.3827638328075409
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "42961246858695024-PLEASE.mp4",
+          "participant_id": "P21",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 7801,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0003147680836264044,
+            0.0050184642896056175,
+            0.985263466835022,
+            0.005686664488166571,
+            0.003716680919751525
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0006320057552187119-THANK YOU.mp4",
+          "participant_id": "P21",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 8509,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.01057011354714632,
+            0.005222375504672527,
+            0.17429772019386292,
+            0.8059445023536682,
+            0.003965221345424652
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7976564165646398-THANK YOU.mp4",
+          "participant_id": "P26",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 9523,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.015193832106888294,
+            0.0036187765654176474,
+            0.008659826591610909,
+            0.9696705341339111,
+            0.002857102081179619
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4656606080155459-NO.mp4",
+          "participant_id": "P39",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 9988,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.005633345805108547,
+            0.4801103472709656,
+            0.007550941314548254,
+            0.0005972394719719887,
+            0.5061081051826477
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "8079226457278508-NO.mp4",
+          "participant_id": "P26",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 10241,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.004708828870207071,
+            0.4765757620334625,
+            0.003034316236153245,
+            0.00037978924228809774,
+            0.5153012871742249
+          ],
+          "correct": false
+        }
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 4,
+          "support": 4,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 1,
+          "support": 3,
+          "recall": 0.3333333333333333,
+          "f1": 0.3333333333333333
+        },
+        "PLEASE": {
+          "correct": 4,
+          "support": 4,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "correct": 3,
+          "support": 3,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YES": {
+          "correct": 3,
+          "support": 5,
+          "recall": 0.6,
+          "f1": 0.6
+        }
+      }
+    }
+  },
+  "geometry": {
+    "selection": {
+      "policy": {
+        "accuracy_tolerance": "one validation example below best observed top-1",
+        "loss_tolerance": 0.1,
+        "selection": "eligible minimum absolute clean-train/validation accuracy gap; earliest tie",
+        "patience": 3,
+        "loss_min_delta": 0.001,
+        "sustained_gap_limit": 0.1,
+        "sustained_gap_epochs": 3
+      },
+      "validation_samples": 19,
+      "accuracy_floor": 0.9473684210526316,
+      "validation_loss_ceiling": 0.3373212505328028,
+      "eligible_epochs": [
+        5,
+        8
+      ],
+      "selected_epoch": 8,
+      "selected_accuracy_gap": 0.012631578947368438,
+      "test_used": false
+    },
+    "epochs_completed": 8,
+    "stop_reason": "validation_loss_patience",
+    "parameters": 789338,
+    "seconds": 32.88999999999987,
+    "checkpoint_sha256": "6f305835ffbcdc94a8d9cf4ffa989d4977f26e6c2a313a00e9a8e74d1f6fbb07",
+    "epoch_metrics": [
+      {
+        "epoch": 1,
+        "train": {
+          "loss": 1.430748697121938,
+          "top1": 0.38666666666666666,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 5.5,
+          "skipped_amp_updates": 1
+        },
+        "train_clean": {
+          "loss": 1.0437451155980428,
+          "top1": 0.6533333333333333,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.45299999999997453,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.5853333333333334,
+          "macro_recall": 0.6625,
+          "macro_f1": 0.5736292692814432,
+          "weighted_f1": 0.5660592547549069
+        },
+        "val": {
+          "loss": 1.0540707236842106,
+          "top1": 0.5789473684210527,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 3.0470000000000255,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.540952380952381,
+          "macro_recall": 0.6,
+          "macro_f1": 0.5121212121212121,
+          "weighted_f1": 0.4893673577884105
+        },
+        "accuracy_gap": 0.07438596491228067,
+        "loss_gap": 0.010325608086167781
+      },
+      {
+        "epoch": 2,
+        "train": {
+          "loss": 0.8834611002604167,
+          "top1": 0.6266666666666667,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.938000000000102,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.6423942033449809,
+          "top1": 0.8133333333333334,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.43800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8426709401709402,
+          "macro_recall": 0.8223809523809524,
+          "macro_f1": 0.807183908045977,
+          "weighted_f1": 0.8038850574712643
+        },
+        "val": {
+          "loss": 0.6793855334583082,
+          "top1": 0.7368421052631579,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.15599999999994907,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.6266666666666667,
+          "macro_recall": 0.6933333333333334,
+          "macro_f1": 0.6432323232323232,
+          "weighted_f1": 0.6732589048378522
+        },
+        "accuracy_gap": 0.0764912280701755,
+        "loss_gap": 0.036991330113327336
+      },
+      {
+        "epoch": 3,
+        "train": {
+          "loss": 0.5745892330010732,
+          "top1": 0.8266666666666667,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.6410000000000764,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.4057681771119436,
+          "top1": 0.9466666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.43699999999989814,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9483333333333335,
+          "macro_recall": 0.9491666666666667,
+          "macro_f1": 0.9470671116054877,
+          "weighted_f1": 0.946695340501792
+        },
+        "val": {
+          "loss": 0.3978994284805499,
+          "top1": 1.0,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.125,
+          "skipped_amp_updates": 0,
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        },
+        "accuracy_gap": -0.053333333333333344,
+        "loss_gap": -0.007868748631393696
+      },
+      {
+        "epoch": 4,
+        "train": {
+          "loss": 0.29584678610165915,
+          "top1": 0.92,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.6410000000000764,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.37188896278540295,
+          "top1": 0.9066666666666666,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.42200000000002547,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9147058823529411,
+          "macro_recall": 0.9080952380952381,
+          "macro_f1": 0.9079487179487179,
+          "weighted_f1": 0.9073076923076923
+        },
+        "val": {
+          "loss": 0.3283672332763672,
+          "top1": 0.8947368421052632,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.15599999999994907,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9266666666666665,
+          "macro_recall": 0.8666666666666666,
+          "macro_f1": 0.8795959595959596,
+          "weighted_f1": 0.8895268474215843
+        },
+        "accuracy_gap": 0.011929824561403457,
+        "loss_gap": -0.04352172950903577
+      },
+      {
+        "epoch": 5,
+        "train": {
+          "loss": 0.24558813134829202,
+          "top1": 0.9333333333333333,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.875,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.19426394134759903,
+          "top1": 0.9866666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.5619999999998981,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9866666666666667,
+          "macro_recall": 0.9866666666666667,
+          "macro_f1": 0.9862068965517242,
+          "weighted_f1": 0.9866666666666667
+        },
+        "val": {
+          "loss": 0.23732125053280279,
+          "top1": 1.0,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.1410000000000764,
+          "skipped_amp_updates": 0,
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        },
+        "accuracy_gap": -0.013333333333333308,
+        "loss_gap": 0.04305730918520376
+      },
+      {
+        "epoch": 6,
+        "train": {
+          "loss": 0.2738440827528636,
+          "top1": 0.88,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.9839999999999236,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.44326416035493216,
+          "top1": 0.9466666666666667,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.46900000000005093,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.96,
+          "macro_recall": 0.9438095238095239,
+          "macro_f1": 0.9468812260536398,
+          "weighted_f1": 0.9469997445721583
+        },
+        "val": {
+          "loss": 1.0211692609285052,
+          "top1": 0.7894736842105263,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.13999999999987267,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.8666666666666666,
+          "macro_recall": 0.7833333333333333,
+          "macro_f1": 0.7551515151515151,
+          "weighted_f1": 0.7655502392344498
+        },
+        "accuracy_gap": 0.15719298245614033,
+        "loss_gap": 0.5779051005735731
+      },
+      {
+        "epoch": 7,
+        "train": {
+          "loss": 0.3735135714213053,
+          "top1": 0.92,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.7970000000000255,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.24505176464716594,
+          "top1": 0.9333333333333333,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.43800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.9437908496732026,
+          "macro_recall": 0.9366666666666668,
+          "macro_f1": 0.9334714136438274,
+          "weighted_f1": 0.9328292780016919
+        },
+        "val": {
+          "loss": 0.43477003276348114,
+          "top1": 0.9473684210526315,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.15599999999994907,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.96,
+          "macro_recall": 0.9333333333333332,
+          "macro_f1": 0.9377777777777778,
+          "weighted_f1": 0.9450292397660819
+        },
+        "accuracy_gap": -0.014035087719298178,
+        "loss_gap": 0.1897182681163152
+      },
+      {
+        "epoch": 8,
+        "train": {
+          "loss": 0.24697861989339193,
+          "top1": 0.92,
+          "samples": 75,
+          "batches": 19,
+          "seconds": 2.686999999999898,
+          "skipped_amp_updates": 0
+        },
+        "train_clean": {
+          "loss": 0.13776173894604046,
+          "top1": 0.96,
+          "samples": 75,
+          "batches": 5,
+          "seconds": 0.43800000000010186,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.966013071895425,
+          "macro_recall": 0.9580952380952381,
+          "macro_f1": 0.9598935209482876,
+          "weighted_f1": 0.959730807844398
+        },
+        "val": {
+          "loss": 0.29478118372590917,
+          "top1": 0.9473684210526315,
+          "samples": 19,
+          "batches": 2,
+          "seconds": 0.1410000000000764,
+          "skipped_amp_updates": 0,
+          "macro_precision": 0.95,
+          "macro_recall": 0.95,
+          "macro_f1": 0.9428571428571428,
+          "weighted_f1": 0.9473684210526315
+        },
+        "accuracy_gap": 0.012631578947368438,
+        "loss_gap": 0.1570194447798687
+      }
+    ],
+    "train": {
+      "samples": 75,
+      "correct": 72,
+      "top1": 0.96,
+      "loss": 0.1377598293622335,
+      "macro_f1": 0.9598935209482876,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          16,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          14
+        ]
+      ],
+      "predictions": [
+        {
+          "video_file": "9979731168048327-NO.mp4",
+          "participant_id": "P51",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 115,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0005307217943482101,
+            0.8702899217605591,
+            0.0020265327766537666,
+            0.0002977079711854458,
+            0.1268550604581833
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "1555998439795525-YES.mp4",
+          "participant_id": "P40",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 629,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.006436500232666731,
+            0.1490919291973114,
+            0.005752762779593468,
+            0.0006286460557021201,
+            0.8380901217460632
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7535449770372906-THANK YOU.mp4",
+          "participant_id": "P40",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 723,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0018530196975916624,
+            0.0010599511442705989,
+            0.006160959601402283,
+            0.9893913269042969,
+            0.001534707727842033
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9616432008129339-NO.mp4",
+          "participant_id": "P29",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 883,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0009657583432272077,
+            0.6436219215393066,
+            0.0030631849076598883,
+            0.0003615830501075834,
+            0.3519875407218933
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "15769775934939156-THANK YOU.mp4",
+          "participant_id": "P37",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 894,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.000992976943962276,
+            0.0002578347048256546,
+            0.000783402705565095,
+            0.9975534081459045,
+            0.00041242127190344036
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "43778843855311433-PLEASE.mp4",
+          "participant_id": "P11",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 1191,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0021259449422359467,
+            0.0014148021582514048,
+            0.9067623615264893,
+            0.08718946576118469,
+            0.002507422585040331
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5372668319999747-NO.mp4",
+          "participant_id": "P43",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 1393,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.017427321523427963,
+            0.7705477476119995,
+            0.02755122259259224,
+            0.008378067053854465,
+            0.17609566450119019
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "38970444942928073-YES.mp4",
+          "participant_id": "P14",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 1597,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0009783910354599357,
+            0.2408112734556198,
+            0.0016497357282787561,
+            0.00017992679204326123,
+            0.7563806772232056
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6448349493816601-HELLO.mp4",
+          "participant_id": "P11",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 1844,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9967415928840637,
+            0.0011220809537917376,
+            4.8453577619511634e-05,
+            0.0005777387996204197,
+            0.00151006318628788
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "44272136216354463-PLEASE.mp4",
+          "participant_id": "P33",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 3755,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00041283771861344576,
+            0.0013496828032657504,
+            0.9869270920753479,
+            0.010264365002512932,
+            0.001046014134772122
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "44146024789241256-YES.mp4",
+          "participant_id": "P37",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 3915,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.000901264080312103,
+            0.24698416888713837,
+            0.0014458526857197285,
+            0.00023419216449838132,
+            0.7504344582557678
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "09714329486323847-NO.mp4",
+          "participant_id": "P37",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 3973,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0020379582419991493,
+            0.6503908038139343,
+            0.007842869497835636,
+            0.0016503888182342052,
+            0.33807799220085144
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9008261925178431-HELLO.mp4",
+          "participant_id": "P50",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 4604,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9897674918174744,
+            0.0029134706128388643,
+            0.00018771275063045323,
+            0.00335174729116261,
+            0.0037795272655785084
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9960146118001314-PLEASE.mp4",
+          "participant_id": "P27",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 5305,
+          "expected": "PLEASE",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0004965860862284899,
+            0.0005529008340090513,
+            0.47128844261169434,
+            0.5257602334022522,
+            0.0019017510348930955
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "9117047483562963-PLEASE.mp4",
+          "participant_id": "P31",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 6097,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00021089318033773452,
+            0.0005103725125081837,
+            0.9832487106323242,
+            0.015105831436812878,
+            0.0009241651860065758
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "709429051156695-YES.mp4",
+          "participant_id": "P31",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 7027,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0010775915579870343,
+            0.2220391184091568,
+            0.0030817873775959015,
+            0.00032103375997394323,
+            0.7734804153442383
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "15689453699180178-YES.mp4",
+          "participant_id": "P29",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 7167,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0011634008260443807,
+            0.24829775094985962,
+            0.0046013398095965385,
+            0.00030112944659776986,
+            0.7456364035606384
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0755679379568106-HELLO.mp4",
+          "participant_id": "P16",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 7978,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.997912585735321,
+            0.00038119222153909504,
+            2.7425354346632957e-05,
+            0.0010573184117674828,
+            0.0006214611348696053
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "11225598264242453-HELLO.mp4",
+          "participant_id": "P31",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 8450,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9965006113052368,
+            0.0012514690170064569,
+            3.1706964364275336e-05,
+            0.0006700266385450959,
+            0.0015462307492271066
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8486809407942575-HELLO.mp4",
+          "participant_id": "P37",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 8743,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9939716458320618,
+            0.0030891778878867626,
+            5.093537401990034e-05,
+            0.0009099323069676757,
+            0.0019782772287726402
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5956139983741693-PLEASE.mp4",
+          "participant_id": "P14",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 9118,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00024250221031252295,
+            0.0005943659343756735,
+            0.9633001089096069,
+            0.03474721312522888,
+            0.0011158570414409041
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9009854854743657-YES.mp4",
+          "participant_id": "P24",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 11608,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.004882856737822294,
+            0.13563254475593567,
+            0.0015945474151521921,
+            0.0006660057697445154,
+            0.8572239875793457
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6508465822424006-THANK YOU.mp4",
+          "participant_id": "P1",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 11846,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0018283247482031584,
+            0.000369006214896217,
+            0.003376377746462822,
+            0.9937600493431091,
+            0.0006662292871624231
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6912280773625425-THANK YOU.mp4",
+          "participant_id": "P51",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 11893,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0011852331226691604,
+            0.00024185521760955453,
+            0.0011454066261649132,
+            0.9970518350601196,
+            0.0003756917722057551
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "2140134632834978-NO.mp4",
+          "participant_id": "P16",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 12587,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.009023132734000683,
+            0.9067791700363159,
+            0.0003633580345194787,
+            0.00014709692914038897,
+            0.08368723839521408
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6358167662084229-seedYES.mp4",
+          "participant_id": "P52",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 12847,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0006898432038724422,
+            0.2533974051475525,
+            0.002347423695027828,
+            0.00024215773737523705,
+            0.7433232069015503
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "3790733585897841-seedTHANK YOU.mp4",
+          "participant_id": "P52",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 13274,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0007325196056626737,
+            0.00010273312364006415,
+            0.000790111196693033,
+            0.9982661604881287,
+            0.00010850781109184027
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "1340650432799635-HELLO.mp4",
+          "participant_id": "P29",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 13329,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9839498996734619,
+            0.007011768873780966,
+            0.0003866552433464676,
+            0.002735518617555499,
+            0.005916134919971228
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8699610978899361-YES.mp4",
+          "participant_id": "P37",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 14159,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.00045872913324274123,
+            0.3210143744945526,
+            0.00145641528069973,
+            0.00013245889567770064,
+            0.676937997341156
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "95072139344285-PLEASE.mp4",
+          "participant_id": "P16",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 14870,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.000120409662486054,
+            0.0008514616638422012,
+            0.9852644801139832,
+            0.0131382429972291,
+            0.0006253807805478573
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "25802117645943423-HELLO.mp4",
+          "participant_id": "P41",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 16079,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9667118191719055,
+            0.008189922198653221,
+            0.0027099966537207365,
+            0.014664416201412678,
+            0.0077238320372998714
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5082858473744953-NO.mp4",
+          "participant_id": "P40",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 16939,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0013640796532854438,
+            0.8674502372741699,
+            0.010358668863773346,
+            0.0035450707655400038,
+            0.11728204041719437
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16728596536749274-YES.mp4",
+          "participant_id": "P34",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 17586,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0014685970963910222,
+            0.2776871621608734,
+            0.005510047543793917,
+            0.0006736873183399439,
+            0.7146605253219604
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4782730717831809-PLEASE.mp4",
+          "participant_id": "P40",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 17739,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0002635106793604791,
+            0.001529785804450512,
+            0.9852555990219116,
+            0.011892511509358883,
+            0.0010586172575131059
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5305284657006966-PLEASE.mp4",
+          "participant_id": "P50",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 20174,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00019583472749218345,
+            0.0005333746667020023,
+            0.9891633987426758,
+            0.009344146586954594,
+            0.0007632782217115164
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0022932153577568393-HELLO.mp4",
+          "participant_id": "P40",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 20803,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.979602575302124,
+            0.0038275504484772682,
+            0.0012795672519132495,
+            0.008505278266966343,
+            0.006785139441490173
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0912245735671211-THANK YOU.mp4",
+          "participant_id": "P50",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 20938,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.000610215705819428,
+            0.0002248148957733065,
+            0.0007721386500634253,
+            0.9982059001922607,
+            0.00018692492449190468
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6528064521146906-THANK YOU.mp4",
+          "participant_id": "P27",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 21180,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0006492293905466795,
+            0.00012555196008179337,
+            0.00042744146776385605,
+            0.9986553192138672,
+            0.0001424080110155046
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5309657970849855-NO.mp4",
+          "participant_id": "P23",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 21287,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0005249731475487351,
+            0.8458630442619324,
+            0.011088237166404724,
+            0.0010278475238010287,
+            0.14149600267410278
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7973429116215278-NO.mp4",
+          "participant_id": "P2",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 21933,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0023447289131581783,
+            0.799671471118927,
+            0.001235585194081068,
+            0.00039723748341202736,
+            0.1963510513305664
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "014439537236845323-THANK YOU.mp4",
+          "participant_id": "P43",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 22290,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.009362771175801754,
+            0.0020542186684906483,
+            0.06842613965272903,
+            0.917321503162384,
+            0.0028353380039334297
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "15498675309554577-YES.mp4",
+          "participant_id": "P11",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 22993,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.026663409546017647,
+            0.4726202189922333,
+            0.004412599373608828,
+            0.03911839798092842,
+            0.45718541741371155
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "034197610787212396-THANK YOU.mp4",
+          "participant_id": "P11",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 23437,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.002204485470429063,
+            0.0003234155010432005,
+            0.001168081071227789,
+            0.9956633448600769,
+            0.0006406809552572668
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "01379619951634381-NO.mp4",
+          "participant_id": "P31",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 23838,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.00046906652278266847,
+            0.8940159678459167,
+            0.0006398868281394243,
+            0.00016530227730982006,
+            0.10470976680517197
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9092689562509508-YES.mp4",
+          "participant_id": "P29",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 24563,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0007939860806800425,
+            0.28938212990760803,
+            0.004463231656700373,
+            0.00023700504971202463,
+            0.7051236033439636
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "031705941185190545-THANK YOU.mp4",
+          "participant_id": "P16",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 24701,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0005016017821617424,
+            8.06541065685451e-05,
+            0.000836724357213825,
+            0.9984884262084961,
+            9.247039270121604e-05
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6901051427765104-NO.mp4",
+          "participant_id": "P11",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 26098,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0008270461694337428,
+            0.8739261031150818,
+            0.0020112914498895407,
+            0.0004909666604362428,
+            0.12274452298879623
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "370678413428154-NO.mp4",
+          "participant_id": "P14",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 26971,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0015260495711117983,
+            0.8940209746360779,
+            0.0008232420077547431,
+            0.0003411733778193593,
+            0.10328850895166397
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5254351100197965-HELLO.mp4",
+          "participant_id": "P27",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 27142,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9982861876487732,
+            0.0007632974302396178,
+            8.286076081276406e-06,
+            0.000253775913733989,
+            0.0006884043687023222
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7199140986089654-YES.mp4",
+          "participant_id": "P50",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 27521,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.001388777163811028,
+            0.24861949682235718,
+            0.004483027383685112,
+            0.00036299246130511165,
+            0.7451457381248474
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7597723277213178-HELLO.mp4",
+          "participant_id": "P30",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 27893,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.7080335021018982,
+            0.15016131103038788,
+            0.007973817177116871,
+            0.011333078145980835,
+            0.1224982738494873
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7613696736100914-HELLO.mp4",
+          "participant_id": "P7",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 28320,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9527139067649841,
+            0.024643903598189354,
+            0.00013962286175228655,
+            0.002082018880173564,
+            0.020420540124177933
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8801721942460268-PLEASE.mp4",
+          "participant_id": "P29",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 28487,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00012989010429009795,
+            0.00026860751677304506,
+            0.9887420535087585,
+            0.01042988896369934,
+            0.0004296529514249414
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "180739946524912-seedHELLO.mp4",
+          "participant_id": "P52",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 29438,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9872382879257202,
+            0.004019869025796652,
+            0.0006008647615090013,
+            0.003657452529296279,
+            0.004483392927795649
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "31545854783740124-PLEASE.mp4",
+          "participant_id": "P7",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 29596,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0002881556865759194,
+            0.0006443154998123646,
+            0.9695572257041931,
+            0.028516201302409172,
+            0.0009940448217093945
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "32941176670637984-YES.mp4",
+          "participant_id": "P27",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 30668,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0006243513198569417,
+            0.2876574695110321,
+            0.0010293812956660986,
+            0.000118927018775139,
+            0.7105699181556702
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "04515307711600891-PLEASE.mp4",
+          "participant_id": "P37",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 31048,
+          "expected": "PLEASE",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0008705004584044218,
+            0.0013351551024243236,
+            0.4186747372150421,
+            0.576748788356781,
+            0.00237089185975492
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "9644130188424822-NO.mp4",
+          "participant_id": "P27",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 31068,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0006474686088040471,
+            0.9278714060783386,
+            0.0004296255938243121,
+            0.00019708146282937378,
+            0.07085443288087845
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "274897834577152-THANK YOU.mp4",
+          "participant_id": "P31",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 31101,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0006083679618313909,
+            6.54741088510491e-05,
+            0.0002678282908163965,
+            0.9989572763442993,
+            0.00010101293446496129
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "47017724784893633-seedPLEASE.mp4",
+          "participant_id": "P52",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 31494,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.000609101087320596,
+            0.0006663585663773119,
+            0.9512192010879517,
+            0.046171095222234726,
+            0.001334302476607263
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8841964348021558-HELLO.mp4",
+          "participant_id": "P33",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 32250,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9025973677635193,
+            0.04501454159617424,
+            0.010224714875221252,
+            0.011757087893784046,
+            0.030406350269913673
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "021145910536055412-THANK YOU.mp4",
+          "participant_id": "P2",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 33582,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0009781435364857316,
+            0.00023518287343904376,
+            0.0011313469149172306,
+            0.9973952770233154,
+            0.00026006961707025766
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "050364485120873326-YES.mp4",
+          "participant_id": "P33",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 34118,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.006293972488492727,
+            0.22187015414237976,
+            0.08533000200986862,
+            0.007090338505804539,
+            0.6794155836105347
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7932042062420475-NO.mp4",
+          "participant_id": "P33",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 34607,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0011635757982730865,
+            0.8650834560394287,
+            0.009978408925235271,
+            0.0008397306664846838,
+            0.12293479591608047
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "081380748015633-HELLO.mp4",
+          "participant_id": "P51",
+          "gloss": "HELLO",
+          "split": "train",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 35164,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9934852719306946,
+            0.003049924736842513,
+            0.00011119864211650565,
+            0.0006159909535199404,
+            0.002737608505412936
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6400788027798874-PLEASE.mp4",
+          "participant_id": "P51",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 35565,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00024664332158863544,
+            0.0009030651417560875,
+            0.9874340891838074,
+            0.010125243104994297,
+            0.0012910569785162807
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6137110171725737-NO.mp4",
+          "participant_id": "P50",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 35889,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0006966980872675776,
+            0.9416007399559021,
+            0.0006713179172948003,
+            0.00031772811780683696,
+            0.05671343207359314
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "3919396171653571-NO.mp4",
+          "participant_id": "P36",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 36072,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0011150500504299998,
+            0.832250714302063,
+            0.0008786384132690728,
+            0.00026744671049527824,
+            0.1654881089925766
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "39425766670939555-THANK YOU.mp4",
+          "participant_id": "P33",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 37108,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.001913316547870636,
+            0.0008153081289492548,
+            0.005325570702552795,
+            0.991606593132019,
+            0.0003392078506294638
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8487114823108493-THANK YOU.mp4",
+          "participant_id": "P10",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 37308,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0006336768274195492,
+            9.635065362090245e-05,
+            0.0005698298336938024,
+            0.9985783100128174,
+            0.00012191763380542397
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "2688720555507844-seedNO.mp4",
+          "participant_id": "P52",
+          "gloss": "NO",
+          "split": "train",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 38534,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0006526680081151426,
+            0.870115339756012,
+            0.0023026380222290754,
+            0.0005942609277553856,
+            0.12633514404296875
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "18053723532999788-PLEASE.mp4",
+          "participant_id": "P30",
+          "gloss": "PLEASE",
+          "split": "train",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 38834,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00020368234254419804,
+            0.0005440186359919608,
+            0.9893891215324402,
+            0.009001404978334904,
+            0.0008617322309873998
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "06476990357042611-THANK YOU.mp4",
+          "participant_id": "P14",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 39706,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0012446660548448563,
+            0.00024235219461843371,
+            0.0010478580370545387,
+            0.9971511960029602,
+            0.00031393347308039665
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "5932207271660643-THANK YOU.mp4",
+          "participant_id": "P29",
+          "gloss": "THANKYOU",
+          "split": "train",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 39745,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0006140219629742205,
+            8.253271516878158e-05,
+            0.0010727858170866966,
+            0.9980766773223877,
+            0.00015389054897241294
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9953610281521326-YES.mp4",
+          "participant_id": "P46",
+          "gloss": "YES",
+          "split": "train",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 39856,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0004050813149660826,
+            0.1376146525144577,
+            0.0005916966474615037,
+            8.950746996561065e-05,
+            0.8612990975379944
+          ],
+          "correct": true
+        }
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 14,
+          "support": 14,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 16,
+          "support": 16,
+          "recall": 1.0,
+          "f1": 0.9696969696969697
+        },
+        "PLEASE": {
+          "correct": 12,
+          "support": 14,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923
+        },
+        "THANKYOU": {
+          "correct": 16,
+          "support": 16,
+          "recall": 1.0,
+          "f1": 0.9411764705882353
+        },
+        "YES": {
+          "correct": 14,
+          "support": 15,
+          "recall": 0.9333333333333333,
+          "f1": 0.9655172413793104
+        }
+      }
+    },
+    "validation": {
+      "samples": 19,
+      "correct": 18,
+      "top1": 0.9473684210526315,
+      "loss": 0.2947800284937808,
+      "macro_f1": 0.9428571428571428,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ],
+      "predictions": [
+        {
+          "video_file": "9161842981344352-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 284,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.18029719591140747,
+            0.168219655752182,
+            0.0018760658567771316,
+            0.0009657159098424017,
+            0.6486414074897766
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "020030442376253177-HELLO.mp4",
+          "participant_id": "P26",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 525,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9970570802688599,
+            0.0013091207947582006,
+            2.232109363831114e-05,
+            0.00043199872015975416,
+            0.0011793941957876086
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "05859480723249688-PLEASE.mp4",
+          "participant_id": "P26",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 823,
+          "expected": "PLEASE",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0007457042811438441,
+            0.0006254977197386324,
+            0.07576735317707062,
+            0.9212342500686646,
+            0.0016271778149530292
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "05614933522741539-HELLO.mp4",
+          "participant_id": "P12",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 923,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9984015822410583,
+            0.0003685638657771051,
+            2.4595972718088888e-05,
+            0.0005909798783250153,
+            0.0006142218480817974
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8977694836593926-YES.mp4",
+          "participant_id": "P26",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 2172,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0009250959265045822,
+            0.215997576713562,
+            0.0005699350731447339,
+            9.923349716700613e-05,
+            0.7824081778526306
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6330094542104612-PLEASE.mp4",
+          "participant_id": "P39",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 2300,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00041861768113449216,
+            0.0007051724824123085,
+            0.9718512296676636,
+            0.025949589908123016,
+            0.0010752595262601972
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "42327270691916885-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 4133,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.003883413039147854,
+            0.16138054430484772,
+            0.16593517363071442,
+            0.018257318064570427,
+            0.6505435109138489
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "20675411351630046-HELLO.mp4",
+          "participant_id": "P21",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5098,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9846916794776917,
+            0.008477755822241306,
+            0.00021578933228738606,
+            0.0020979514811187983,
+            0.004516814835369587
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16870669316247833-THANK YOU.mp4",
+          "participant_id": "P39",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 5131,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0012440382270142436,
+            0.0003542540653143078,
+            0.002308194525539875,
+            0.9959184527397156,
+            0.00017502630362287164
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4096147054343935-PLEASE.mp4",
+          "participant_id": "P12",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 5410,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00013085831596981734,
+            0.0010222683195024729,
+            0.9845070838928223,
+            0.013244036585092545,
+            0.0010956631740555167
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16493550450776628-HELLO.mp4",
+          "participant_id": "P39",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5516,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9091475605964661,
+            0.02949688397347927,
+            0.011819303035736084,
+            0.027008455246686935,
+            0.022527877241373062
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "26056519285644875-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 5968,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.0016065831296145916,
+            0.36145055294036865,
+            0.012350053526461124,
+            0.0012808796018362045,
+            0.6233119368553162
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8323715285073319-NO.mp4",
+          "participant_id": "P21",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 6050,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0050431531853973866,
+            0.6788330674171448,
+            0.005748223513364792,
+            0.0007948317215777934,
+            0.3095807433128357
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "9715589334909431-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 6926,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.010112866759300232,
+            0.19701719284057617,
+            0.0012016331311315298,
+            0.00017930587637238204,
+            0.7914890050888062
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "42961246858695024-PLEASE.mp4",
+          "participant_id": "P21",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 7801,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.0002398661890765652,
+            0.0007098418427631259,
+            0.979242205619812,
+            0.01879618689417839,
+            0.001011848682537675
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0006320057552187119-THANK YOU.mp4",
+          "participant_id": "P21",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 8509,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.000928213878069073,
+            0.00019154776236973703,
+            0.008152775466442108,
+            0.9904537200927734,
+            0.00027384411077946424
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7976564165646398-THANK YOU.mp4",
+          "participant_id": "P26",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 9523,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0009834268130362034,
+            8.780774078331888e-05,
+            0.0011698099551722407,
+            0.9975327253341675,
+            0.0002262043417431414
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4656606080155459-NO.mp4",
+          "participant_id": "P39",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 9988,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0016106009716168046,
+            0.5962558388710022,
+            0.015073458664119244,
+            0.002088347217068076,
+            0.3849717378616333
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8079226457278508-NO.mp4",
+          "participant_id": "P26",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 10241,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0011026053689420223,
+            0.9003233313560486,
+            0.0006233565509319305,
+            0.00023613779922015965,
+            0.09771458059549332
+          ],
+          "correct": true
+        }
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 4,
+          "support": 4,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 3,
+          "support": 3,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "PLEASE": {
+          "correct": 3,
+          "support": 4,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "THANKYOU": {
+          "correct": 3,
+          "support": 3,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "YES": {
+          "correct": 5,
+          "support": 5,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "validation_zero_geometry_ablation": {
+      "samples": 19,
+      "correct": 14,
+      "top1": 0.7368421052631579,
+      "loss": 0.4837722935174641,
+      "macro_f1": 0.734920634920635,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          3,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          2
+        ]
+      ],
+      "predictions": [
+        {
+          "video_file": "9161842981344352-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 284,
+          "expected": "YES",
+          "prediction": "HELLO",
+          "scores": [
+            0.5047464370727539,
+            0.19593189656734467,
+            0.0024688285775482655,
+            0.0021491488441824913,
+            0.2947036325931549
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "020030442376253177-HELLO.mp4",
+          "participant_id": "P26",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 525,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9956933856010437,
+            0.0018733214819803834,
+            2.6992785933543928e-05,
+            0.0004926832625642419,
+            0.0019137118943035603
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "05859480723249688-PLEASE.mp4",
+          "participant_id": "P26",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 823,
+          "expected": "PLEASE",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0005568300257436931,
+            0.0011204422917217016,
+            0.06877986341714859,
+            0.9274820685386658,
+            0.0020608087070286274
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "05614933522741539-HELLO.mp4",
+          "participant_id": "P12",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 923,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.9975810050964355,
+            0.0006434841197915375,
+            3.1741339626023546e-05,
+            0.0007330899825319648,
+            0.0010106139816343784
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8977694836593926-YES.mp4",
+          "participant_id": "P26",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 2172,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.004329739138484001,
+            0.49413660168647766,
+            0.001198807847686112,
+            0.00037355575477704406,
+            0.49996131658554077
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "6330094542104612-PLEASE.mp4",
+          "participant_id": "P39",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 2300,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.000354455754859373,
+            0.0013667527819052339,
+            0.9658267498016357,
+            0.03086506947875023,
+            0.0015870098723098636
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "42327270691916885-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 4133,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.008856961503624916,
+            0.3653772175312042,
+            0.302022248506546,
+            0.028285140171647072,
+            0.2954583764076233
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "20675411351630046-HELLO.mp4",
+          "participant_id": "P21",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5098,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.977681040763855,
+            0.010455180890858173,
+            0.00026148484903387725,
+            0.002381201833486557,
+            0.009221034124493599
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16870669316247833-THANK YOU.mp4",
+          "participant_id": "P39",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 5131,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0011402035597711802,
+            0.0007991057354956865,
+            0.004985573701560497,
+            0.9920380115509033,
+            0.001037153764627874
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4096147054343935-PLEASE.mp4",
+          "participant_id": "P12",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 5410,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00010241776908515021,
+            0.0022537908516824245,
+            0.9816882014274597,
+            0.014398236759006977,
+            0.0015573485288769007
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "16493550450776628-HELLO.mp4",
+          "participant_id": "P39",
+          "gloss": "HELLO",
+          "split": "val",
+          "class_id": 0,
+          "parent_class_id": 1136,
+          "parent_index": 5516,
+          "expected": "HELLO",
+          "prediction": "HELLO",
+          "scores": [
+            0.867406964302063,
+            0.04669482260942459,
+            0.01483736839145422,
+            0.029478829354047775,
+            0.04158196225762367
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "26056519285644875-YES.mp4",
+          "participant_id": "P39",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 5968,
+          "expected": "YES",
+          "prediction": "NO",
+          "scores": [
+            0.0056078326888382435,
+            0.5177823305130005,
+            0.02315320260822773,
+            0.0035995361395180225,
+            0.44985708594322205
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "8323715285073319-NO.mp4",
+          "participant_id": "P21",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 6050,
+          "expected": "NO",
+          "prediction": "YES",
+          "scores": [
+            0.012541824951767921,
+            0.43781808018684387,
+            0.00962554570287466,
+            0.0014891561586409807,
+            0.538525402545929
+          ],
+          "correct": false
+        },
+        {
+          "video_file": "9715589334909431-YES.mp4",
+          "participant_id": "P21",
+          "gloss": "YES",
+          "split": "val",
+          "class_id": 4,
+          "parent_class_id": 2717,
+          "parent_index": 6926,
+          "expected": "YES",
+          "prediction": "YES",
+          "scores": [
+            0.04217246547341347,
+            0.37195372581481934,
+            0.0023360394407063723,
+            0.0006537825684063137,
+            0.5828840136528015
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "42961246858695024-PLEASE.mp4",
+          "participant_id": "P21",
+          "gloss": "PLEASE",
+          "split": "val",
+          "class_id": 2,
+          "parent_class_id": 1785,
+          "parent_index": 7801,
+          "expected": "PLEASE",
+          "prediction": "PLEASE",
+          "scores": [
+            0.00018917807028628886,
+            0.0015412436332553625,
+            0.976291835308075,
+            0.020621614530682564,
+            0.0013561638770624995
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "0006320057552187119-THANK YOU.mp4",
+          "participant_id": "P21",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 8509,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.000692119705490768,
+            0.0003446375485509634,
+            0.008598045445978642,
+            0.989924430847168,
+            0.00044079814688302577
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "7976564165646398-THANK YOU.mp4",
+          "participant_id": "P26",
+          "gloss": "THANKYOU",
+          "split": "val",
+          "class_id": 3,
+          "parent_class_id": 2407,
+          "parent_index": 9523,
+          "expected": "THANKYOU",
+          "prediction": "THANKYOU",
+          "scores": [
+            0.0008701239130459726,
+            0.0004078188503626734,
+            0.0020878282375633717,
+            0.9961013793945312,
+            0.0005329358973540366
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "4656606080155459-NO.mp4",
+          "participant_id": "P39",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 9988,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.005426738411188126,
+            0.5823778510093689,
+            0.02840632200241089,
+            0.0051984963938593864,
+            0.3785906136035919
+          ],
+          "correct": true
+        },
+        {
+          "video_file": "8079226457278508-NO.mp4",
+          "participant_id": "P26",
+          "gloss": "NO",
+          "split": "val",
+          "class_id": 1,
+          "parent_class_id": 1583,
+          "parent_index": 10241,
+          "expected": "NO",
+          "prediction": "NO",
+          "scores": [
+            0.0025868406519293785,
+            0.667254626750946,
+            0.001334194908849895,
+            0.000439112278399989,
+            0.32838523387908936
+          ],
+          "correct": true
+        }
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 4,
+          "support": 4,
+          "recall": 1.0,
+          "f1": 0.888888888888889
+        },
+        "NO": {
+          "correct": 2,
+          "support": 3,
+          "recall": 0.6666666666666666,
+          "f1": 0.5714285714285715
+        },
+        "PLEASE": {
+          "correct": 3,
+          "support": 4,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "THANKYOU": {
+          "correct": 3,
+          "support": 3,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "YES": {
+          "correct": 2,
+          "support": 5,
+          "recall": 0.4,
+          "f1": 0.5
+        }
+      }
+    },
+    "geometry_head_weights": [
+      [
+        0.04952004551887512,
+        -0.039600927382707596,
+        0.04732079803943634,
+        -0.0358034186065197,
+        0.04384260252118111,
+        -0.05024435743689537,
+        0.04323936253786087,
+        -0.04961833730340004,
+        0.059492576867341995,
+        0.06446758657693863,
+        0.0620490238070488,
+        -0.06751473993062973,
+        0.06754058599472046,
+        -0.06519457697868347,
+        0.0016187757719308138,
+        -0.018803583458065987,
+        0.041802436113357544
+      ],
+      [
+        -0.03723267465829849,
+        0.0951090082526207,
+        -0.037552107125520706,
+        0.0955820307135582,
+        -0.04949766397476196,
+        0.09441296011209488,
+        -0.049681466072797775,
+        0.09438591450452805,
+        0.005855495110154152,
+        -0.0007236081291921437,
+        0.05579835921525955,
+        0.019221747294068336,
+        0.015907401219010353,
+        0.017663272097706795,
+        -0.08099444955587387,
+        -0.06486257165670395,
+        -0.06586193293333054
+      ],
+      [
+        0.014894784428179264,
+        -0.04318620264530182,
+        0.013822213746607304,
+        -0.04513153061270714,
+        0.013715339824557304,
+        -0.045158933848142624,
+        0.013098558411002159,
+        -0.04666486755013466,
+        -0.009366474114358425,
+        0.003446732647716999,
+        0.024574926123023033,
+        -0.026925234124064445,
+        0.02777639403939247,
+        -0.025253837928175926,
+        -0.026269827038049698,
+        -0.03938419744372368,
+        -0.041297055780887604
+      ],
+      [
+        0.03809899836778641,
+        0.0007648107130080462,
+        0.038526229560375214,
+        0.003418015781790018,
+        0.04012232646346092,
+        0.001642298884689808,
+        0.04049201309680939,
+        0.0042205494828522205,
+        0.04385893791913986,
+        0.04231541231274605,
+        0.03392751142382622,
+        -0.02667877823114395,
+        0.032994430512189865,
+        -0.028546160086989403,
+        0.018076246604323387,
+        0.029444484040141106,
+        0.026321981102228165
+      ],
+      [
+        -0.03161007538437843,
+        -0.10127510130405426,
+        -0.030810099095106125,
+        -0.10214252024888992,
+        -0.01907968334853649,
+        -0.09429626911878586,
+        -0.018759045749902725,
+        -0.09428080916404724,
+        -0.06377306580543518,
+        -0.06271276623010635,
+        -0.081516794860363,
+        0.05118236690759659,
+        -0.07062256336212158,
+        0.04781471937894821,
+        0.04744978994131088,
+        0.041222598403692245,
+        0.01843138039112091
+      ]
+    ]
+  },
+  "main_weights_unchanged": true,
+  "train_val_cache_unchanged": true,
+  "paired_validation_changes": {
+    "improved": 4,
+    "regressed": 1
+  },
+  "control_matches_historical": {
+    "epoch_equal": true,
+    "all_model_tensors_equal": true
+  },
+  "status": "complete"
+}

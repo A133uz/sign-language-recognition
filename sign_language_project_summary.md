@@ -1,6 +1,6 @@
 # Real-Time Sign Language Recognition Using Computer Vision and Deep Learning
 
-Updated 2026-11-11. This summary records the agreed design, verified work and
+Updated 2026-11-12. This summary records the agreed design, verified work and
 remaining decisions. Historical implementations remain in Git history; they
 are not active fallback recognizers.
 
@@ -12,13 +12,33 @@ its corresponding word/gloss on screen, supporting **American Sign Language
 RSL is the planned extension. The supervisor is aware of this language split.
 The application and university report take priority; publication is optional.
 
-**Current experimental direction (2026-11-11):** following supervisor feedback,
-return to five brief, distinct intended glosses—HELLO, NO, PLEASE, THANKYOU and YES—
-and select an earlier checkpoint with useful validation performance and a smaller
-clean train–validation gap. The corpus audit/cleaning was stopped by the user at
-214/836 shards; no source videos or features were modified. Full-vocabulary
-expansion remains a later target, and the existing GRU/ST-GCN baselines are preserved.
-See [the five-sign experiment](docs/five-sign-early-training-2026-11-11.md).
+**Current experimental direction (2026-11-12):** retain the five-sign baselines
+and expand the pilot to **15 labels**: HELLO, NO, PLEASE, THANKYOU, YES, ME, YOU,
+WE, MY, YOUR, OUR, HELP, GOOD, NEED and LOVE. Compare matched mean-pool GRU models
+with explicit hand geometry, with and without training-only temporal
+augmentation. The separate subset contains 219 training clips and 60 validation
+clips, preserving official signer separation. Keep useful validation performance
+and a smaller clean train–validation gap in checkpoint selection. No new
+held-out test evaluation is part of this experiment. See the
+[15-sign protocol and results](docs/fifteen-sign-temporal-2026-11-12.md).
+Both runs completed: control epoch 6 scored 49/60 validation clips (81.67%);
+temporal candidate epoch 13 scored 50/60 (83.33%). This is one net extra correct
+clip, with mixed per-class changes; both missed all four validation PLEASE
+examples. The expanded model has not yet had a webcam test or held-out test.
+The subsequent [PLEASE/MY experiment](docs/please-trajectory-fix-2026-11-12.md)
+freezes the temporal model's epoch-13 GRU and appends six wrist-path descriptors
+to the 17 hand/body summaries. A train-only L2-refitted linear head consumes
+256 pooled + 23 geometry values (279 inputs, 15 outputs). Selected C=0.1 scores
+**54/60 validation (90.00%), macro F1 0.885185, CE 0.386118**, including PLEASE
+4/4 and MY 4/4. Fresh application processing of their eight known validation
+videos also gives 4/4 each. ME improves by one; GOOD regresses by one. These
+development cases informed feature design and validation tuning, so the result
+is not independent evidence. Failed attempts are preserved; no new official
+test or webcam evaluation occurred. No further GRU epochs or MediaPipe training
+were needed for this selected readout.
+The corpus audit/cleaning remains stopped at the user's request, at 214/836
+shards. No source videos/features were modified; full-vocabulary expansion
+remains a later target. Existing GRU/ST-GCN and five-sign weights are preserved.
 
 The minor project covers isolated signs. A single sign can span many video
 frames, so temporal modeling is needed even when the output is one word.
@@ -98,6 +118,22 @@ compatibility validation, but do not need to be regenerated if they are usable.
 
 The selected baseline is **MediaPipe landmarks -> sequence preprocessing ->
 GRU -> linear classification layer -> sign label -> displayed text**.
+
+The current ASL experimental variant uses **masked mean pooling of the GRU's
+256-dimensional outputs plus 17 explicit hand-shape/motion summaries**, joined
+before the linear classifier. Its input to the head has 273 values; the new
+pilot head is `Linear(273, 15)`. The 17 summaries include fingertip distances,
+finger angles, their ranges and palm/wrist motion excursions. MediaPipe remains
+the frozen detector; the GRU and head are trained jointly. A separate
+[geometry-only classifier](docs/five-class-geometry-only-2026-11-12.md) is an
+experimental control, not an automatic application router.
+
+For ASL training, temporal sampling (when enabled) acts on cached normalized
+frames, followed by the existing spatial perturbation. Geometry summaries are
+then recalculated from the exact augmented sequence. They cannot be temporally
+augmented afterward because they summarize a whole clip. Frozen geometry
+imputation/scaling statistics are fitted on original training clips only.
+Validation and webcam inference use clean sequences without augmentation.
 
 ```text
 Webcam -> OpenCV frames -> pretrained MediaPipe landmark detection

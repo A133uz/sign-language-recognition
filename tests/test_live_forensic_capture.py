@@ -3,6 +3,7 @@ from pathlib import Path
 import pickle
 import json
 import tempfile
+from contextlib import nullcontext
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -18,8 +19,8 @@ if HAS_TORCH:
 
 class ImmediatePool:
     def __init__(self,*args,**kwargs):pass
-    def submit(self,fn,*args):
-        result=fn(*args)
+    def submit(self,fn,*args,**kwargs):
+        result=fn(*args,**kwargs)
         return SimpleNamespace(done=lambda:True,result=lambda:result)
     def shutdown(self,**kwargs):pass
 
@@ -35,7 +36,15 @@ class GuidedForensicCaptureTests(unittest.TestCase):
     def test_compact_prompts_measure_six_trials_without_exporting_coordinates(self):
         self.exercise_capture(True,True)
 
-    def exercise_capture(self,paired,compact=False):
+    def test_geometry_mode_needs_no_bank_and_scores_on_off_on_six_shared_captures(self):
+        self.exercise_capture(True,geometry=True)
+
+    @unittest.skipUnless(importlib.util.find_spec('sklearn') is not None,'Optional scikit-learn unavailable')
+    def test_geometry_only_mode_runs_ten_shared_captures_with_frozen_probe_identity(self):
+        self.exercise_capture(True,geometry_only=True)
+
+    def exercise_capture(self,paired,compact=False,geometry=False,geometry_only=False):
+        geometry=geometry or geometry_only
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'.cache').mkdir();bank=root/'.cache/bank.pkl'
             with bank.open('wb') as f:pickle.dump({'checkpoint_sha256':'fixture'},f)
@@ -56,16 +65,24 @@ class GuidedForensicCaptureTests(unittest.TestCase):
                 captures.append(expected)
                 return {'expected':expected,'variants':{'original':{'top5':[{'label':'NO','score':.7}]}}}
             recognizer=SimpleNamespace(epoch=18,checkpoint_sha256='fixture',hand_model=root/'hand.task',checkpoint=root/'best.pt',
-                                       labels={'HELLO':0},config={'cache_id':'fixture'})
+                                       labels={'HELLO':0},config={'cache_id':'fixture'},model=SimpleNamespace())
             candidate=SimpleNamespace(epoch=4,checkpoint_sha256='candidate',checkpoint=root/'candidate.pt',
                                        labels=recognizer.labels,config={'cache_id':'fixture','architecture':'gru-mean-pool-v1'},
                                        model=SimpleNamespace())
+            candidate.names=['HELLO']
+            probe=SimpleNamespace(names=candidate.names,config={'cache_id':'fixture'},path=root/'model.pkl',sha256='fixture')
             def paired_analyze(recognizer,other,reference,frames,timestamps,expected):
                 self.assertIs(other,candidate)
                 value=analyze(recognizer,reference,frames,timestamps,expected)
                 value['variants']['mean_pool']={'top5':[{'label':'HELLO','score':.8}]}
                 return value
             argv=['diagnostic','--bank',str(bank),'--report',str(report)]
+            if geometry:
+                bank.unlink()
+                argv=['diagnostic','--geometry-comparison','--report',str(report)]
+                recognizer.config['architecture']='gru-mean-pool-v1'
+                candidate.config['architecture']='gru-mean-pool-geometry-v1'
+            if geometry_only:argv+=['--geometry-only-comparison']
             if paired:argv+=['--candidate-checkpoint',str(candidate.checkpoint)]
             if compact:
                 reference=root/'reference.json';reference.write_text('{"cache_id":"fixture"}')
@@ -74,11 +91,20 @@ class GuidedForensicCaptureTests(unittest.TestCase):
                 value=paired_analyze(recognizer,other,bank,frames,timestamps,expected)
                 value['articulation']={'metrics':{'thumb_index_xy_range':.8,'palm_axis_xy_excursion_deg':20.}}
                 return value
+            def geometry_analyze(recognizer,other,frames,timestamps,expected,geometry_probe=None):
+                value=paired_analyze(recognizer,other,None,frames,timestamps,expected)
+                value['variants']['geometry_off']={'top5':[{'label':'NO','score':.6}]}
+                if geometry_only:
+                    self.assertIs(geometry_probe,probe)
+                    value['variants']['geometry_only']={'top5':[{'label':'NO','score':.9}]}
+                return value
             preview=SimpleNamespace(draw=lambda frame,stamp:(frame,0),close=lambda:None)
-            with patch.object(driver,'ROOT',root),patch.object(driver,'SignRecognizer',side_effect=[recognizer,candidate] if paired else [recognizer]),\
+            with (patch('sign_language.geometry_probe_runtime.GeometryProbe',return_value=probe) if geometry_only else nullcontext()),\
+                 patch.object(driver,'ROOT',root),patch.object(driver,'SignRecognizer',side_effect=[recognizer,candidate] if paired else [recognizer]),\
                  patch.object(driver,'ThreadPoolExecutor',ImmediatePool),patch.object(driver,'SkeletonPreview',return_value=preview),\
                  patch.object(driver,'analyze_capture',side_effect=analyze),patch.object(driver,'compare_pooling_capture',side_effect=paired_analyze),\
                  patch.object(driver,'compare_compact_capture',side_effect=compact_analyze),\
+                 patch.object(driver,'compare_geometry_capture',side_effect=geometry_analyze),\
                  patch.object(driver,'sha256',side_effect=lambda path:'candidate' if path==candidate.checkpoint else 'fixture'),\
                  patch.object(driver.time,'perf_counter',side_effect=tick),\
                  patch.object(driver.cv2,'VideoCapture',return_value=camera),patch.object(driver.cv2,'imshow'),\
@@ -87,8 +113,8 @@ class GuidedForensicCaptureTests(unittest.TestCase):
                  patch.object(driver.sys,'argv',argv):
                 driver.main()
             saved=json.loads(report.read_text())
-            self.assertEqual(captures,(['NO','YES','HELLO'] if compact else ['HELLO','THANKYOU','NO'])*2)
-            self.assertEqual(saved['status'],'complete');self.assertEqual(len(saved['trials']),6)
+            self.assertEqual(captures,['HELLO','THANKYOU','PLEASE','YES','NO']*2 if geometry_only else ['NO','HELLO']*3 if geometry else (['NO','YES','HELLO'] if compact else ['HELLO','THANKYOU','NO'])*2)
+            self.assertEqual(saved['status'],'complete');self.assertEqual(len(saved['trials']),10 if geometry_only else 6)
             self.assertTrue(camera.released);self.assertFalse(saved['camera_open'])
             self.assertFalse(saved['media_saved']);self.assertFalse(saved['coordinates_saved']);self.assertFalse(saved['embeddings_saved'])
             if paired:
@@ -96,5 +122,10 @@ class GuidedForensicCaptureTests(unittest.TestCase):
                 self.assertTrue(saved['candidate_checkpoint_unchanged'])
                 self.assertEqual(saved['trials'][0]['variants']['mean_pool']['top5'][0]['label'],'HELLO')
             if compact:self.assertEqual(saved['mode'],'compact_hand_articulation')
+            if geometry_only:
+                self.assertEqual(saved['mode'],'five_class_geometry_only_comparison')
+                self.assertTrue(saved['geometry_probe_unchanged'])
+                self.assertEqual(saved['geometry_probe']['sha256'],'fixture')
+            elif geometry:self.assertEqual(saved['mode'],'geometry_branch_comparison')
             self.assertEqual(sorted(p.name for p in root.rglob('*') if p.is_file()),
-                             ['bank.pkl','reference.json','report.json'] if compact else ['bank.pkl','report.json'])
+                             ['report.json'] if geometry else ['bank.pkl','reference.json','report.json'] if compact else ['bank.pkl','report.json'])

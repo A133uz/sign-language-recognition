@@ -15,7 +15,27 @@ signs and the selected checkpoint; live recognition remains unreliable in
 the user checks. See [ST-GCN live feedback](docs/stgcn-webcam-test-2026-11-11.md).
 The RSL extension is planned.
 
-The current supervisor-directed experiment uses **five signs: HELLO, NO, PLEASE,
+The 15-sign experiment adds ME, YOU, WE,
+MY, YOUR, OUR, HELP, GOOD, NEED and LOVE. It compares mean-pool GRU + explicit
+hand geometry with and without training-only temporal augmentation on 219/60
+official train/validation clips. See the
+[protocol and results](docs/fifteen-sign-temporal-2026-11-12.md). Existing
+five-sign models and webcam defaults are preserved; this experiment reads no
+official test data.
+The temporal candidate selected epoch 13: **50/60 validation correct (83.33%)**
+versus 49/60 for the matched control. Both miss all four validation PLEASE
+examples; this is not a demonstrated webcam improvement. The notebook update
+records the 273-input/15-output architecture and the separate training workflow.
+
+A [targeted PLEASE/MY correction](docs/please-trajectory-fix-2026-11-12.md)
+keeps that epoch-13 GRU frozen, adds six wrist-path descriptors and refits the
+linear readout with L2 regularization. It scores **54/60 development validation
+clips**, with **PLEASE 4/4 and MY 4/4**, including fresh application processing
+of their eight source videos. One GOOD clip regresses. These cases informed
+tuning; webcam/generalization improvement remains unverified. The notebooks
+record the new 279-input head and checks. Prior models/defaults are preserved.
+
+The earlier supervisor-directed experiment uses **five signs: HELLO, NO, PLEASE,
 THANKYOU and YES**, with earlier checkpoint selection. Its regularized GRU selected
 epoch 18 (88.0% clean training, 78.95% validation, 70.0% test on 60 clips); NO
 remains weak. See [the pilot protocol, curves and results](docs/five-sign-early-training-2026-11-11.md).
@@ -76,7 +96,8 @@ first guesses for hello, thank you, no, me and yes. See
 [ST-GCN settings and controls](docs/stgcn-training.md).
 
 Two [reporting notebooks](notebooks/README.md) record the workflow/investigation
-and model metrics, with 15 embedded graphs and completed ST-GCN test results.
+and model metrics, with 23 embedded graphs, the targeted trajectory-readout
+checks and historical completed ST-GCN test results.
 A third [dataset-distribution notebook](notebooks/03_asl_citizen_class_balance_and_distribution.ipynb)
 covers all 2,731 ASL Citizen classes with verified class/split counts, seven
 embedded graphs, signer coverage and a full-class table. Its portable snapshot

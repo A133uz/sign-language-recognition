@@ -1,0 +1,1712 @@
+{
+  "live": {
+    "status": "complete",
+    "session_id": "gru-geometry-guided-20261112-01",
+    "model": "SignMeanPoolGRU",
+    "epoch": 4,
+    "checkpoint_sha256": "3811868d39942b3962b75926c3bc5b3707c95fc13647bf0ea3a27ab94df4ab33",
+    "prompts": [
+      "NO",
+      "HELLO",
+      "NO",
+      "HELLO",
+      "NO",
+      "HELLO"
+    ],
+    "capture_seconds": 4.0,
+    "media_saved": false,
+    "coordinates_saved": false,
+    "embeddings_saved": false,
+    "production_model_trained": false,
+    "user_completion_confirmed": true,
+    "trials": [
+      {
+        "expected": "NO",
+        "captured_frames": 118,
+        "capture_seconds": 4.007,
+        "landmark_seconds": 5.178816499999812,
+        "quality": {
+          "frames": 118,
+          "frames_with_hands": 112,
+          "frames_with_body_anchor": 118
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9877555966377258
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.008529085665941238
+              },
+              {
+                "label": "NO",
+                "score": 0.0024376651272177696
+              },
+              {
+                "label": "YES",
+                "score": 0.0012486905325204134
+              },
+              {
+                "label": "PLEASE",
+                "score": 2.8953483706573024e-05
+              }
+            ],
+            "expected_score": 0.0024376651272177696,
+            "expected_rank": 3,
+            "correct": false
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.998753547668457
+              },
+              {
+                "label": "NO",
+                "score": 0.0009852313669398427
+              },
+              {
+                "label": "YES",
+                "score": 0.0001872102147899568
+              },
+              {
+                "label": "THANKYOU",
+                "score": 7.203513814602047e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.9690369299496524e-06
+              }
+            ],
+            "expected_score": 0.0009852313669398427,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.999600350856781
+              },
+              {
+                "label": "YES",
+                "score": 0.00018734604236669838
+              },
+              {
+                "label": "NO",
+                "score": 0.00016886094817891717
+              },
+              {
+                "label": "THANKYOU",
+                "score": 4.2053343349834904e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.4645045212091645e-06
+              }
+            ],
+            "expected_score": 0.00016886094817891717,
+            "expected_rank": 3,
+            "correct": false
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 6.92138671875,
+          "geometry_disabled_model": 8.68603515625,
+          "actual_geometry_effect": -1.7646484375,
+          "recurrent_component_fp32": 8.584493637084961,
+          "geometry_component_fp32": -1.7654846906661987,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.0012231320142745972
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.8885519504547119,
+            "standardized_value": 0.06726094335317612,
+            "hello_minus_no_logit_contribution": 0.0058350698091089725
+          },
+          "thumb_index_xy_range": {
+            "measurement": 1.667568564414978,
+            "standardized_value": 2.1643853187561035,
+            "hello_minus_no_logit_contribution": -0.2915642261505127
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.8890758752822876,
+            "standardized_value": 0.024913758039474487,
+            "hello_minus_no_logit_contribution": 0.0021145029459148645
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 1.6080237925052643,
+            "standardized_value": 2.1121139526367188,
+            "hello_minus_no_logit_contribution": -0.27750104665756226
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 1.042778730392456,
+            "standardized_value": 0.03045908361673355,
+            "hello_minus_no_logit_contribution": 0.0028430589009076357
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 1.7703819274902344,
+            "standardized_value": 1.8832577466964722,
+            "hello_minus_no_logit_contribution": -0.2724269926548004
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 1.0448755025863647,
+            "standardized_value": 0.01693432405591011,
+            "hello_minus_no_logit_contribution": 0.0015735513297840953
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 1.7708732336759567,
+            "standardized_value": 1.9064053297042847,
+            "hello_minus_no_logit_contribution": -0.27453047037124634
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.935196042060852,
+            "standardized_value": 0.27739399671554565,
+            "hello_minus_no_logit_contribution": 0.014878603629767895
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.9601950645446777,
+            "standardized_value": 0.35450008511543274,
+            "hello_minus_no_logit_contribution": 0.02311028353869915
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 169.42547607421875,
+            "standardized_value": 0.43025803565979004,
+            "hello_minus_no_logit_contribution": 0.002689398592337966
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 114.12604904174805,
+            "standardized_value": 2.9351720809936523,
+            "hello_minus_no_logit_contribution": -0.25458651781082153
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 169.2352294921875,
+            "standardized_value": 0.4803537130355835,
+            "hello_minus_no_logit_contribution": 0.02480219304561615
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 141.32388305664062,
+            "standardized_value": 2.959620475769043,
+            "hello_minus_no_logit_contribution": -0.24522778391838074
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 14.671379089355469,
+            "standardized_value": -0.30809909105300903,
+            "hello_minus_no_logit_contribution": -0.025453059002757072
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 7.4798903465271,
+            "standardized_value": -0.7445451021194458,
+            "hello_minus_no_logit_contribution": -0.03429299592971802
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.10102675424561709,
+            "standardized_value": -1.5580668449401855,
+            "hello_minus_no_logit_contribution": -0.16774828732013702
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            1.0,
+            1.0,
+            1.0,
+            0.7931034482758621
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 4,
+          "hand_frame_fraction": 0.9491525423728814
+        },
+        "articulation": {
+          "frames": 118,
+          "dominant_slot": 0,
+          "usable_frames": 111,
+          "usable_fraction": 0.940677966101695,
+          "single_hand_slot_changes": 1,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.8885519504547119,
+            "thumb_index_xy_range": 1.667568564414978,
+            "thumb_index_xyz_median": 0.8890758752822876,
+            "thumb_index_xyz_range": 1.6080237925052643,
+            "thumb_middle_xy_median": 1.042778730392456,
+            "thumb_middle_xy_range": 1.7703819274902344,
+            "thumb_middle_xyz_median": 1.0448755025863647,
+            "thumb_middle_xyz_range": 1.7708732336759567,
+            "index_tip_wrist_median": 1.935196042060852,
+            "middle_tip_wrist_median": 1.9601950645446777,
+            "index_pip_angle_median_deg": 169.42547607421875,
+            "index_pip_angle_range_deg": 114.12604904174805,
+            "middle_pip_angle_median_deg": 169.2352294921875,
+            "middle_pip_angle_range_deg": 141.32388305664062,
+            "palm_axis_xy_excursion_deg": 14.671379089355469,
+            "palm_axis_xyz_excursion_deg": 7.4798903465271,
+            "wrist_body_xy_excursion": 0.10102675424561709
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 1.429478645324707
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 1.3124253749847412
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 29,
+              "thumb_index_xy_median": 0.33476585149765015
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 22,
+              "thumb_index_xy_median": 1.351298213005066
+            }
+          ],
+          "orientation_contiguous_pairs": 110
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 1,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 3,
+        "source_capture_fps": 29.95031915933278,
+        "effective_capture_fps": 29.198901921637137,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.006635100000494
+      },
+      {
+        "expected": "HELLO",
+        "captured_frames": 120,
+        "capture_seconds": 4.002,
+        "landmark_seconds": 6.738910799999758,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 73,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.6549803614616394
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.3391363322734833
+              },
+              {
+                "label": "NO",
+                "score": 0.0027617241721600294
+              },
+              {
+                "label": "YES",
+                "score": 0.0025943999644368887
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0005270843394100666
+              }
+            ],
+            "expected_score": 0.6549803614616394,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9990910291671753
+              },
+              {
+                "label": "YES",
+                "score": 0.0004937613266520202
+              },
+              {
+                "label": "NO",
+                "score": 0.00021639408078044653
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00019350138609297574
+              },
+              {
+                "label": "PLEASE",
+                "score": 5.189474450162379e-06
+              }
+            ],
+            "expected_score": 0.9990910291671753,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9990787506103516
+              },
+              {
+                "label": "YES",
+                "score": 0.00044224836165085435
+              },
+              {
+                "label": "NO",
+                "score": 0.00026577641256153584
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00020759414474014193
+              },
+              {
+                "label": "PLEASE",
+                "score": 5.589215106738266e-06
+              }
+            ],
+            "expected_score": 0.9990787506103516,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 8.4375,
+          "geometry_disabled_model": 8.23193359375,
+          "actual_geometry_effect": 0.20556640625,
+          "recurrent_component_fp32": 8.127604484558105,
+          "geometry_component_fp32": 0.2073851227760315,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.001090511679649353
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.6149880290031433,
+            "standardized_value": -0.5088397860527039,
+            "hello_minus_no_logit_contribution": -0.04414323717355728
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.5249582409858704,
+            "standardized_value": -0.26098379492759705,
+            "hello_minus_no_logit_contribution": 0.035157110542058945
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.6149882674217224,
+            "standardized_value": -0.5622631907463074,
+            "hello_minus_no_logit_contribution": -0.047720909118652344
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.4907416582107544,
+            "standardized_value": -0.32174086570739746,
+            "hello_minus_no_logit_contribution": 0.042272068560123444
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.8189880847930908,
+            "standardized_value": -0.38334131240844727,
+            "hello_minus_no_logit_contribution": -0.03578117862343788
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.49869065880775443,
+            "standardized_value": -0.3723748028278351,
+            "hello_minus_no_logit_contribution": 0.05386674031615257
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.8215107321739197,
+            "standardized_value": -0.39479827880859375,
+            "hello_minus_no_logit_contribution": -0.03668498247861862
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.4602471709251404,
+            "standardized_value": -0.4434444010257721,
+            "hello_minus_no_logit_contribution": 0.06385788321495056
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.7894680500030518,
+            "standardized_value": -0.017906369641423225,
+            "hello_minus_no_logit_contribution": -0.00096044538076967
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.8477212190628052,
+            "standardized_value": 0.1759217232465744,
+            "hello_minus_no_logit_contribution": 0.011468547396361828
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 165.60208129882812,
+            "standardized_value": 0.24561657011508942,
+            "hello_minus_no_logit_contribution": 0.0015352667542174459
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 21.72496948242187,
+            "standardized_value": -0.2387520670890808,
+            "hello_minus_no_logit_contribution": 0.020708514377474785
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 166.99493408203125,
+            "standardized_value": 0.3739074766635895,
+            "hello_minus_no_logit_contribution": 0.019306033849716187
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 44.63262634277342,
+            "standardized_value": 0.3013916015625,
+            "hello_minus_no_logit_contribution": -0.02497265860438347
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 24.4354263305664,
+            "standardized_value": 0.12815488874912262,
+            "hello_minus_no_logit_contribution": 0.010587288066744804
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 23.046836280822763,
+            "standardized_value": 0.37863337993621826,
+            "hello_minus_no_logit_contribution": 0.017439471557736397
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.5668915557126097,
+            "standardized_value": 1.128039002418518,
+            "hello_minus_no_logit_contribution": 0.12144960463047028
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.8666666666666667,
+            0.9666666666666667,
+            0.4,
+            0.2
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.6083333333333333
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 67,
+          "usable_fraction": 0.5583333333333333,
+          "single_hand_slot_changes": 7,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.6149880290031433,
+            "thumb_index_xy_range": 0.5249582409858704,
+            "thumb_index_xyz_median": 0.6149882674217224,
+            "thumb_index_xyz_range": 0.4907416582107544,
+            "thumb_middle_xy_median": 0.8189880847930908,
+            "thumb_middle_xy_range": 0.49869065880775443,
+            "thumb_middle_xyz_median": 0.8215107321739197,
+            "thumb_middle_xyz_range": 0.4602471709251404,
+            "index_tip_wrist_median": 1.7894680500030518,
+            "middle_tip_wrist_median": 1.8477212190628052,
+            "index_pip_angle_median_deg": 165.60208129882812,
+            "index_pip_angle_range_deg": 21.72496948242187,
+            "middle_pip_angle_median_deg": 166.99493408203125,
+            "middle_pip_angle_range_deg": 44.63262634277342,
+            "palm_axis_xy_excursion_deg": 24.4354263305664,
+            "palm_axis_xyz_excursion_deg": 23.046836280822763,
+            "wrist_body_xy_excursion": 0.5668915557126097
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 23,
+              "thumb_index_xy_median": 0.6696926951408386
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 27,
+              "thumb_index_xy_median": 0.44888433814048767
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 0.694678544998169
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.4999256134033203
+            }
+          ],
+          "orientation_contiguous_pairs": 58
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 2,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.98131189875753,
+        "effective_capture_fps": 29.73513243378311,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.002493300000424
+      },
+      {
+        "expected": "NO",
+        "captured_frames": 120,
+        "capture_seconds": 4.005,
+        "landmark_seconds": 4.753421600000365,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 120,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9893107414245605
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.008095790632069111
+              },
+              {
+                "label": "NO",
+                "score": 0.0015996139263734221
+              },
+              {
+                "label": "YES",
+                "score": 0.000970688764937222
+              },
+              {
+                "label": "PLEASE",
+                "score": 2.3120073819882236e-05
+              }
+            ],
+            "expected_score": 0.0015996139263734221,
+            "expected_rank": 3,
+            "correct": false
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9987726807594299
+              },
+              {
+                "label": "NO",
+                "score": 0.000577610160689801
+              },
+              {
+                "label": "YES",
+                "score": 0.0005514959921129048
+              },
+              {
+                "label": "THANKYOU",
+                "score": 9.543287887936458e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 2.7660144041874446e-06
+              }
+            ],
+            "expected_score": 0.000577610160689801,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9997013211250305
+              },
+              {
+                "label": "YES",
+                "score": 0.00014127521717455238
+              },
+              {
+                "label": "NO",
+                "score": 0.00010143427789444104
+              },
+              {
+                "label": "THANKYOU",
+                "score": 5.463958950713277e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.392132617183961e-06
+              }
+            ],
+            "expected_score": 0.00010143427789444104,
+            "expected_rank": 3,
+            "correct": false
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 7.45538330078125,
+          "geometry_disabled_model": 9.19580078125,
+          "actual_geometry_effect": -1.74041748046875,
+          "recurrent_component_fp32": 9.088876724243164,
+          "geometry_component_fp32": -1.7383861541748047,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.0012918263673782349
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.4472660422325134,
+            "standardized_value": -0.862047016620636,
+            "hello_minus_no_logit_contribution": -0.07478492707014084
+          },
+          "thumb_index_xy_range": {
+            "measurement": 1.02963978946209,
+            "standardized_value": 0.8102818131446838,
+            "hello_minus_no_logit_contribution": -0.10915301740169525
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.451740562915802,
+            "standardized_value": -0.9119881987571716,
+            "hello_minus_no_logit_contribution": -0.07740308344364166
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 1.037598000466824,
+            "standardized_value": 0.8695151209831238,
+            "hello_minus_no_logit_contribution": -0.11424162983894348
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.4201658368110657,
+            "standardized_value": -1.1207841634750366,
+            "hello_minus_no_logit_contribution": -0.10461428761482239
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 1.4306197121739388,
+            "standardized_value": 1.2806124687194824,
+            "hello_minus_no_logit_contribution": -0.1852499544620514
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.4314301013946533,
+            "standardized_value": -1.1138414144515991,
+            "hello_minus_no_logit_contribution": -0.10349906235933304
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 1.4276213359087706,
+            "standardized_value": 1.2909817695617676,
+            "hello_minus_no_logit_contribution": -0.18590687215328217
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.4657756090164185,
+            "standardized_value": -0.6738304495811462,
+            "hello_minus_no_logit_contribution": -0.036142297089099884
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.2672415971755981,
+            "standardized_value": -0.7457244992256165,
+            "hello_minus_no_logit_contribution": -0.04861466959118843
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 132.19390869140625,
+            "standardized_value": -1.3677492141723633,
+            "hello_minus_no_logit_contribution": -0.008549341931939125
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 73.0951690673828,
+            "standardized_value": 1.5257848501205444,
+            "hello_minus_no_logit_contribution": -0.13234122097492218
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 86.6908187866211,
+            "standardized_value": -3.441692590713501,
+            "hello_minus_no_logit_contribution": -0.1777055561542511
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 126.32995643615723,
+            "standardized_value": 2.5474085807800293,
+            "hello_minus_no_logit_contribution": -0.21107278764247894
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 14.461916351318365,
+            "standardized_value": -0.31745782494544983,
+            "hello_minus_no_logit_contribution": -0.026226213201880455
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 11.170009565353393,
+            "standardized_value": -0.47829750180244446,
+            "hello_minus_no_logit_contribution": -0.022029899060726166
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.1765723575946034,
+            "standardized_value": -1.1224822998046875,
+            "hello_minus_no_logit_contribution": -0.12085134536027908
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "final_frame_has_hand": true,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 10,
+          "hand_frame_fraction": 1.0
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 120,
+          "usable_fraction": 1.0,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.4472660422325134,
+            "thumb_index_xy_range": 1.02963978946209,
+            "thumb_index_xyz_median": 0.451740562915802,
+            "thumb_index_xyz_range": 1.037598000466824,
+            "thumb_middle_xy_median": 0.4201658368110657,
+            "thumb_middle_xy_range": 1.4306197121739388,
+            "thumb_middle_xyz_median": 0.4314301013946533,
+            "thumb_middle_xyz_range": 1.4276213359087706,
+            "index_tip_wrist_median": 1.4657756090164185,
+            "middle_tip_wrist_median": 1.2672415971755981,
+            "index_pip_angle_median_deg": 132.19390869140625,
+            "index_pip_angle_range_deg": 73.0951690673828,
+            "middle_pip_angle_median_deg": 86.6908187866211,
+            "middle_pip_angle_range_deg": 126.32995643615723,
+            "palm_axis_xy_excursion_deg": 14.461916351318365,
+            "palm_axis_xyz_excursion_deg": 11.170009565353393,
+            "wrist_body_xy_excursion": 0.1765723575946034
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.40478718280792236
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 1.1079505681991577
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 1.0875072479248047
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.2796627879142761
+            }
+          ],
+          "orientation_contiguous_pairs": 119
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 3,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.963647353941973,
+        "effective_capture_fps": 29.712858926342072,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.004852899999605
+      },
+      {
+        "expected": "HELLO",
+        "captured_frames": 120,
+        "capture_seconds": 4.001,
+        "landmark_seconds": 7.090926899999431,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 82,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.8580260872840881
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.13287384808063507
+              },
+              {
+                "label": "NO",
+                "score": 0.004875508137047291
+              },
+              {
+                "label": "YES",
+                "score": 0.003780399914830923
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0004440705815795809
+              }
+            ],
+            "expected_score": 0.8580260872840881,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9985966086387634
+              },
+              {
+                "label": "YES",
+                "score": 0.0006219630013220012
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0004768173675984144
+              },
+              {
+                "label": "NO",
+                "score": 0.00028779564308933914
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.680907007539645e-05
+              }
+            ],
+            "expected_score": 0.9985966086387634,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9983931183815002
+              },
+              {
+                "label": "YES",
+                "score": 0.0006503278855234385
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0005423090187832713
+              },
+              {
+                "label": "NO",
+                "score": 0.00039560109144076705
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.8602153431857005e-05
+              }
+            ],
+            "expected_score": 0.9983931183815002,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 8.15185546875,
+          "geometry_disabled_model": 7.83349609375,
+          "actual_geometry_effect": 0.318359375,
+          "recurrent_component_fp32": 7.731348037719727,
+          "geometry_component_fp32": 0.31549373269081116,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.0014127939939498901
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.7615373134613037,
+            "standardized_value": -0.20022033154964447,
+            "hello_minus_no_logit_contribution": -0.01736965775489807
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.3799299478530883,
+            "standardized_value": -0.5688290596008301,
+            "hello_minus_no_logit_contribution": 0.07662692666053772
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.7639819383621216,
+            "standardized_value": -0.24307456612586975,
+            "hello_minus_no_logit_contribution": -0.02063044346868992
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.37354474365711215,
+            "standardized_value": -0.5770392417907715,
+            "hello_minus_no_logit_contribution": 0.07581456005573273
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.8874331712722778,
+            "standardized_value": -0.2567828297615051,
+            "hello_minus_no_logit_contribution": -0.023968176916241646
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.5871425867080687,
+            "standardized_value": -0.21548527479171753,
+            "hello_minus_no_logit_contribution": 0.031171521171927452
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.8875764608383179,
+            "standardized_value": -0.2730180323123932,
+            "hello_minus_no_logit_contribution": -0.025369061157107353
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.5976804971694946,
+            "standardized_value": -0.19703717529773712,
+            "hello_minus_no_logit_contribution": 0.028374191373586655
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.7254188060760498,
+            "standardized_value": -0.14769451320171356,
+            "hello_minus_no_logit_contribution": -0.00792190246284008
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.7801785469055176,
+            "standardized_value": 0.06868204474449158,
+            "hello_minus_no_logit_contribution": 0.004477464593946934
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 168.00209045410156,
+            "standardized_value": 0.36151912808418274,
+            "hello_minus_no_logit_contribution": 0.002259734785184264
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 21.540428161621094,
+            "standardized_value": -0.24509097635746002,
+            "hello_minus_no_logit_contribution": 0.02125832997262478
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 169.1524658203125,
+            "standardized_value": 0.4764212667942047,
+            "hello_minus_no_logit_contribution": 0.024599147960543633
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 18.397186279296875,
+            "standardized_value": -0.41987112164497375,
+            "hello_minus_no_logit_contribution": 0.034789618104696274
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 24.831993103027344,
+            "standardized_value": 0.1458733230829239,
+            "hello_minus_no_logit_contribution": 0.01205106545239687
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 17.34135284423828,
+            "standardized_value": -0.03302585706114769,
+            "hello_minus_no_logit_contribution": -0.0015211376594379544
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.5337104239744374,
+            "standardized_value": 0.9367216229438782,
+            "hello_minus_no_logit_contribution": 0.10085154324769974
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.6,
+            0.4,
+            0.9666666666666667,
+            0.7666666666666667
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 3,
+          "hand_frame_fraction": 0.6833333333333333
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 80,
+          "usable_fraction": 0.6666666666666666,
+          "single_hand_slot_changes": 3,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.7615373134613037,
+            "thumb_index_xy_range": 0.3799299478530883,
+            "thumb_index_xyz_median": 0.7639819383621216,
+            "thumb_index_xyz_range": 0.37354474365711215,
+            "thumb_middle_xy_median": 0.8874331712722778,
+            "thumb_middle_xy_range": 0.5871425867080687,
+            "thumb_middle_xyz_median": 0.8875764608383179,
+            "thumb_middle_xyz_range": 0.5976804971694946,
+            "index_tip_wrist_median": 1.7254188060760498,
+            "middle_tip_wrist_median": 1.7801785469055176,
+            "index_pip_angle_median_deg": 168.00209045410156,
+            "index_pip_angle_range_deg": 21.540428161621094,
+            "middle_pip_angle_median_deg": 169.1524658203125,
+            "middle_pip_angle_range_deg": 18.397186279296875,
+            "palm_axis_xy_excursion_deg": 24.831993103027344,
+            "palm_axis_xyz_excursion_deg": 17.34135284423828,
+            "wrist_body_xy_excursion": 0.5337104239744374
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 18,
+              "thumb_index_xy_median": 0.7272285223007202
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 0.6131521463394165
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 28,
+              "thumb_index_xy_median": 0.7991970777511597
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 23,
+              "thumb_index_xy_median": 0.8238837122917175
+            }
+          ],
+          "orientation_contiguous_pairs": 73
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 4,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.995684370909668,
+        "effective_capture_fps": 29.74256435891027,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.0005755000001955
+      },
+      {
+        "expected": "NO",
+        "captured_frames": 120,
+        "capture_seconds": 4.002,
+        "landmark_seconds": 4.1995280000001,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 67,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.5414360165596008
+              },
+              {
+                "label": "YES",
+                "score": 0.45150402188301086
+              },
+              {
+                "label": "HELLO",
+                "score": 0.004549093544483185
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.002305368660017848
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0002054139185929671
+              }
+            ],
+            "expected_score": 0.5414360165596008,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.6294719576835632
+              },
+              {
+                "label": "YES",
+                "score": 0.3700474500656128
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0003126907686237246
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0001515029725851491
+              },
+              {
+                "label": "THANKYOU",
+                "score": 1.641095514059998e-05
+              }
+            ],
+            "expected_score": 0.6294719576835632,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.6128478050231934
+              },
+              {
+                "label": "NO",
+                "score": 0.38276204466819763
+              },
+              {
+                "label": "HELLO",
+                "score": 0.003651250386610627
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0006754134083166718
+              },
+              {
+                "label": "THANKYOU",
+                "score": 6.343975110212341e-05
+              }
+            ],
+            "expected_score": 0.38276204466819763,
+            "expected_rank": 2,
+            "correct": false
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -7.607421875,
+          "geometry_disabled_model": -4.65234375,
+          "actual_geometry_effect": -2.955078125,
+          "recurrent_component_fp32": -4.756473064422607,
+          "geometry_component_fp32": -2.954576015472412,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 2.6300549507141113e-05
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.3686184585094452,
+            "standardized_value": -1.0276716947555542,
+            "hello_minus_no_logit_contribution": -0.08915331214666367
+          },
+          "thumb_index_xy_range": {
+            "measurement": 1.9198918610811233,
+            "standardized_value": 2.6999809741973877,
+            "hello_minus_no_logit_contribution": -0.3637142777442932
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.38990727066993713,
+            "standardized_value": -1.044453501701355,
+            "hello_minus_no_logit_contribution": -0.088645800948143
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 1.8902800351381304,
+            "standardized_value": 2.7269725799560547,
+            "hello_minus_no_logit_contribution": -0.35828450322151184
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.4832542836666107,
+            "standardized_value": -1.0041303634643555,
+            "hello_minus_no_logit_contribution": -0.0937257930636406
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 2.2188621386885643,
+            "standardized_value": 2.678738832473755,
+            "hello_minus_no_logit_contribution": -0.3874991536140442
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.4834617078304291,
+            "standardized_value": -1.017930507659912,
+            "hello_minus_no_logit_contribution": -0.09458694607019424
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 2.2181963101029396,
+            "standardized_value": 2.708420991897583,
+            "hello_minus_no_logit_contribution": -0.3900241553783417
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.2580721378326416,
+            "standardized_value": -1.0947166681289673,
+            "hello_minus_no_logit_contribution": -0.058717403560876846
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.0937552452087402,
+            "standardized_value": -1.021174430847168,
+            "hello_minus_no_logit_contribution": -0.06657157838344574
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 78.27162170410156,
+            "standardized_value": -3.9717938899993896,
+            "hello_minus_no_logit_contribution": -0.024826351553201675
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 122.65246353149413,
+            "standardized_value": 3.2280495166778564,
+            "hello_minus_no_logit_contribution": -0.27998965978622437
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 58.731468200683594,
+            "standardized_value": -4.7701640129089355,
+            "hello_minus_no_logit_contribution": -0.24629877507686615
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 144.3848823547363,
+            "standardized_value": 3.0437734127044678,
+            "hello_minus_no_logit_contribution": -0.25220051407814026
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 16.685206604003895,
+            "standardized_value": -0.21812200546264648,
+            "hello_minus_no_logit_contribution": -0.01801976189017296
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 19.11441671848297,
+            "standardized_value": 0.09490334242582321,
+            "hello_minus_no_logit_contribution": 0.004371152259409428
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.13495059380868846,
+            "standardized_value": -1.3624670505523682,
+            "hello_minus_no_logit_contribution": -0.14668916165828705
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            1.0,
+            1.0,
+            0.23333333333333334,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.5583333333333333
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 67,
+          "usable_fraction": 0.5583333333333333,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.3686184585094452,
+            "thumb_index_xy_range": 1.9198918610811233,
+            "thumb_index_xyz_median": 0.38990727066993713,
+            "thumb_index_xyz_range": 1.8902800351381304,
+            "thumb_middle_xy_median": 0.4832542836666107,
+            "thumb_middle_xy_range": 2.2188621386885643,
+            "thumb_middle_xyz_median": 0.4834617078304291,
+            "thumb_middle_xyz_range": 2.2181963101029396,
+            "index_tip_wrist_median": 1.2580721378326416,
+            "middle_tip_wrist_median": 1.0937552452087402,
+            "index_pip_angle_median_deg": 78.27162170410156,
+            "index_pip_angle_range_deg": 122.65246353149413,
+            "middle_pip_angle_median_deg": 58.731468200683594,
+            "middle_pip_angle_range_deg": 144.3848823547363,
+            "palm_axis_xy_excursion_deg": 16.685206604003895,
+            "palm_axis_xyz_excursion_deg": 19.11441671848297,
+            "wrist_body_xy_excursion": 0.13495059380868846
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.49299079179763794
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 1.2709274291992188
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.14933186769485474
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 66
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 5,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.986394423192046,
+        "effective_capture_fps": 29.73513243378311,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.001814899999772
+      },
+      {
+        "expected": "HELLO",
+        "captured_frames": 119,
+        "capture_seconds": 4.004,
+        "landmark_seconds": 4.417505599999458,
+        "quality": {
+          "frames": 119,
+          "frames_with_hands": 99,
+          "frames_with_body_anchor": 119
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.7897197008132935
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.20641344785690308
+              },
+              {
+                "label": "NO",
+                "score": 0.0019028594251722097
+              },
+              {
+                "label": "YES",
+                "score": 0.0016809082590043545
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0002831111487466842
+              }
+            ],
+            "expected_score": 0.7897197008132935,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9995614886283875
+              },
+              {
+                "label": "YES",
+                "score": 0.00021171331172809005
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0001617526140762493
+              },
+              {
+                "label": "NO",
+                "score": 6.21483995928429e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 2.811791773638106e-06
+              }
+            ],
+            "expected_score": 0.9995614886283875,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.999529242515564
+              },
+              {
+                "label": "YES",
+                "score": 0.00019477144815027714
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00017471991304773837
+              },
+              {
+                "label": "NO",
+                "score": 9.81526609393768e-05
+              },
+              {
+                "label": "PLEASE",
+                "score": 3.1122692689677933e-06
+              }
+            ],
+            "expected_score": 0.999529242515564,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 9.685546875,
+          "geometry_disabled_model": 9.228515625,
+          "actual_geometry_effect": 0.45703125,
+          "recurrent_component_fp32": 9.12187385559082,
+          "geometry_component_fp32": 0.4591628909111023,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.0009092241525650024
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.6926742792129517,
+            "standardized_value": -0.3452396094799042,
+            "hello_minus_no_logit_contribution": -0.029950475320219994
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.353713995218277,
+            "standardized_value": -0.6244765520095825,
+            "hello_minus_no_logit_contribution": 0.08412320166826248
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.7170783877372742,
+            "standardized_value": -0.34355586767196655,
+            "hello_minus_no_logit_contribution": -0.029158582910895348
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.3534543961286544,
+            "standardized_value": -0.6208035349845886,
+            "hello_minus_no_logit_contribution": 0.08156454563140869
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.8675851821899414,
+            "standardized_value": -0.29348278045654297,
+            "hello_minus_no_logit_contribution": -0.027393760159611702
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.49003799557685845,
+            "standardized_value": -0.3877222537994385,
+            "hello_minus_no_logit_contribution": 0.056086860597133636
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.8730794787406921,
+            "standardized_value": -0.29974061250686646,
+            "hello_minus_no_logit_contribution": -0.027852144092321396
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.4977480590343476,
+            "standardized_value": -0.37620824575424194,
+            "hello_minus_no_logit_contribution": 0.054175589233636856
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.7791317701339722,
+            "standardized_value": -0.038851603865623474,
+            "hello_minus_no_logit_contribution": -0.0020838866475969553
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.836782455444336,
+            "standardized_value": 0.15855389833450317,
+            "hello_minus_no_logit_contribution": 0.010336318053305149
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 168.47372436523438,
+            "standardized_value": 0.3842955231666565,
+            "hello_minus_no_logit_contribution": 0.002402102341875434
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 12.492338562011724,
+            "standardized_value": -0.5558876991271973,
+            "hello_minus_no_logit_contribution": 0.04821574687957764
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 169.17916870117188,
+            "standardized_value": 0.4776900112628937,
+            "hello_minus_no_logit_contribution": 0.024664657190442085
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 18.394425964355463,
+            "standardized_value": -0.4199469983577728,
+            "hello_minus_no_logit_contribution": 0.03479590266942978
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 55.96575317382812,
+            "standardized_value": 1.5369179248809814,
+            "hello_minus_no_logit_contribution": 0.12696973979473114
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 31.01795291900635,
+            "standardized_value": 0.9537614583969116,
+            "hello_minus_no_logit_contribution": 0.043929290026426315
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.3846813082409754,
+            "standardized_value": 0.07744238525629044,
+            "hello_minus_no_logit_contribution": 0.008337785489857197
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.6666666666666666,
+            0.7333333333333333,
+            1.0,
+            0.9310344827586207
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 9,
+          "hand_frame_fraction": 0.8319327731092437
+        },
+        "articulation": {
+          "frames": 119,
+          "dominant_slot": 0,
+          "usable_frames": 98,
+          "usable_fraction": 0.8235294117647058,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.6926742792129517,
+            "thumb_index_xy_range": 0.353713995218277,
+            "thumb_index_xyz_median": 0.7170783877372742,
+            "thumb_index_xyz_range": 0.3534543961286544,
+            "thumb_middle_xy_median": 0.8675851821899414,
+            "thumb_middle_xy_range": 0.49003799557685845,
+            "thumb_middle_xyz_median": 0.8730794787406921,
+            "thumb_middle_xyz_range": 0.4977480590343476,
+            "index_tip_wrist_median": 1.7791317701339722,
+            "middle_tip_wrist_median": 1.836782455444336,
+            "index_pip_angle_median_deg": 168.47372436523438,
+            "index_pip_angle_range_deg": 12.492338562011724,
+            "middle_pip_angle_median_deg": 169.17916870117188,
+            "middle_pip_angle_range_deg": 18.394425964355463,
+            "palm_axis_xy_excursion_deg": 55.96575317382812,
+            "palm_axis_xyz_excursion_deg": 31.01795291900635,
+            "wrist_body_xy_excursion": 0.3846813082409754
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.6273783445358276
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 22,
+              "thumb_index_xy_median": 0.7252459526062012
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.6589248180389404
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 27,
+              "thumb_index_xy_median": 0.7648831009864807
+            }
+          ],
+          "orientation_contiguous_pairs": 93
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 6,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 2,
+        "source_capture_fps": 29.96756759996931,
+        "effective_capture_fps": 29.470529470529474,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.004328999999416
+      }
+    ],
+    "candidate": {
+      "model": "SignGeometryMeanPoolGRU",
+      "epoch": 8,
+      "checkpoint_sha256": "6f305835ffbcdc94a8d9cf4ffa989d4977f26e6c2a313a00e9a8e74d1f6fbb07",
+      "architecture": "gru-mean-pool-geometry-v1"
+    },
+    "mode": "geometry_branch_comparison",
+    "variant_labels": {
+      "original": "Pooled control",
+      "mean_pool": "Full geometry model",
+      "geometry_off": "Same candidate with geometry disabled"
+    },
+    "interpretation": "Positive HELLO-minus-NO margins favor HELLO; geometry-off is a within-model intervention, not a replacement model.",
+    "camera_open": false,
+    "elapsed_seconds": 115.53769160000047,
+    "checkpoint_unchanged": true,
+    "candidate_checkpoint_unchanged": true
+  },
+  "summary": {
+    "original": {
+      "correct": 4,
+      "trials": 6,
+      "per_class": {
+        "NO": {
+          "correct": 1,
+          "trials": 3
+        },
+        "HELLO": {
+          "correct": 3,
+          "trials": 3
+        }
+      }
+    },
+    "mean_pool": {
+      "correct": 4,
+      "trials": 6,
+      "per_class": {
+        "NO": {
+          "correct": 1,
+          "trials": 3
+        },
+        "HELLO": {
+          "correct": 3,
+          "trials": 3
+        }
+      }
+    },
+    "geometry_off": {
+      "correct": 3,
+      "trials": 6,
+      "per_class": {
+        "NO": {
+          "correct": 0,
+          "trials": 3
+        },
+        "HELLO": {
+          "correct": 3,
+          "trials": 3
+        }
+      }
+    }
+  },
+  "source_sha256": "8fbcb79aba6bdb533fb8df26da8ff5f752a10231b3b71c9e5584624845612ce8",
+  "confirmation_source": "User: Completed all six; capture was normal",
+  "source_capture_log_modified": false,
+  "no_attempts_geometry_reduced_hello_margin": 3,
+  "max_absolute_amp_decomposition_residual": 0.0014127939939498901,
+  "limits": [
+    "Three attempts per class from one user; diagnostic, not a general performance estimate.",
+    "Geometry OFF retains the candidate recurrent weights and is not a separately trained control.",
+    "Aggregate tracking measures do not establish anatomical joint accuracy.",
+    "Capture-ending visibility differences are observational, not a controlled timing intervention.",
+    "No live media, coordinate arrays or embeddings retained. No training or official test evaluation."
+  ]
+}

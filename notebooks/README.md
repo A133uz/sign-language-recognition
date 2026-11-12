@@ -13,6 +13,24 @@ Three generated reporting notebooks accompany the existing Colab extraction note
   statistics, ranked/Lorenz plots, smallest/largest classes, signer distributions,
   the current five-sign subset, and an inspectable full-class table.
 
+Notebooks **01 and 02 now start with the trajectory-aware 15-class readout**:
+frozen epoch-13 two-layer 256-unit GRU, masked mean pooling, 17 hand/body + six
+wrist-path summaries, concatenation to 279 values and a refitted float32
+15-output head. The selected C=0.1 readout scores 54/60 development validation,
+PLEASE 4/4 and MY 4/4. Fresh application processing of their eight known source
+videos preserves both results. These clips informed tuning; webcam and new
+signer performance remain unverified. GOOD regresses by one clip. Both
+notebooks retain the original 17-feature model as the earlier baseline.
+
+That baseline has two 256-unit recurrent layers, masked mean pooling, 17 explicit
+geometry summaries, concatenation to 273 values and a 15-output linear head.
+They explain augmentation order and the separate training/inference paths.
+Notebook 02 includes completed matched temporal/control curves, class recall
+and confusion matrices. The selected temporal model scored 50/60 validation
+versus 49/60 for the control; both missed all four validation PLEASE examples.
+Neither development comparison has a new 15-class webcam or official-test evaluation.
+Historical full-vocabulary GRU/ST-GCN results are labeled separately.
+
 Graphs and tables are embedded. The notebooks can be read without the videos,
 checkpoints or raw feature cache. The first two use
 `artifacts/experiment_snapshot.json`: compact reports, histories and provenance,
@@ -32,7 +50,9 @@ The first two notebooks contain **completed ST-GCN results**, after successful
 training and frozen test evaluation on 2026-11-11 (Asia/Tashkent). The metrics
 notebook explains epoch-39 selection versus the final epoch 49 and compares
 aggregate metrics and individual classes with the GRU. Aggregate gains do not
-imply gains for every sign. There are 15 embedded figures across the notebooks.
+imply gains for every sign. There are now **23 embedded figures** across the
+first two notebooks: six in notebook 01 and seventeen in notebook 02. The
+dataset-distribution notebook and its separate snapshot remain unchanged.
 
 The completion pipeline generated the first final version automatically.
 `--require-complete` refuses incomplete ST-GCN results. Reload any previously

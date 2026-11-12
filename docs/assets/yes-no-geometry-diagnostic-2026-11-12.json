@@ -1,0 +1,3584 @@
+{
+  "status": "complete",
+  "config": {
+    "experiment": "step_1_fixed_yes_no_geometry_probe",
+    "diagnostic_only": true,
+    "labels": [
+      "NO",
+      "YES"
+    ],
+    "features": [
+      "thumb_index_xy_median",
+      "thumb_index_xy_range",
+      "thumb_index_xyz_median",
+      "thumb_index_xyz_range",
+      "thumb_middle_xy_median",
+      "thumb_middle_xy_range",
+      "thumb_middle_xyz_median",
+      "thumb_middle_xyz_range",
+      "index_tip_wrist_median",
+      "middle_tip_wrist_median",
+      "index_pip_angle_median_deg",
+      "index_pip_angle_range_deg",
+      "middle_pip_angle_median_deg",
+      "middle_pip_angle_range_deg",
+      "palm_axis_xy_excursion_deg",
+      "palm_axis_xyz_excursion_deg",
+      "wrist_body_xy_excursion"
+    ],
+    "cache_id": "503b1493e40a217009816bf4889e579b6554cf66fee51e990bcaac4185cfc0e9",
+    "model": "Median imputation + missingness indicators + StandardScaler + logistic regression",
+    "parameters": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "random_state": 42
+    },
+    "evaluation": "3-fold signer-grouped OOF on training only, then fixed fit on all training and evaluation on official validation",
+    "hyperparameter_search": false,
+    "official_test_examples_read": false,
+    "webcam_opened": false,
+    "main_models_changed": false,
+    "real_time_velocities_included": false,
+    "feature_scope": "Clip-level geometry/angle/motion-excursion summaries; no participant, filename, duration or presence-fraction features",
+    "versions": {
+      "python": "3.12.6",
+      "numpy": "1.26.4",
+      "scikit_learn": "1.9.1"
+    },
+    "source_sha256": {
+      "hand_articulation.py": "0f45f5f4a97d7fa34dce2a1c319106e1fc6ae32984d731b61ed6dec5ac9144d5",
+      "yes_no_geometry.py": "7cc953894a97dffee6e668344650684dc2e688a31b0e6b2a333edec0a308f528"
+    },
+    "train_val_cache_sha256": {
+      "train-features.npy": "c8a0e8f981820dda41553319b9aef4fd729c4f092e3e05dce9c103294d338b35",
+      "train-lengths.npy": "bc92e0ceec497e32f981dba143e769f250d2e3fe9d177271dde00185f09c7800",
+      "train-targets.npy": "b8023808306b79b025fc2246b7bb9aa8365cd13df58c802184f7371e1e193008",
+      "train-index.json": "eacdbc2f711faea32249d0c43e4fdc8e1c928506c95d4fbecef42a0521ee81bf",
+      "val-features.npy": "070518f5ff5b7c02d1ec84dbb04eb2424f57f1f7ce91679487124056e5d4deaa",
+      "val-lengths.npy": "ed48e12c42ec25b1b977e39a918695cc96d1825199fbf6d8d10a1b2887755bac",
+      "val-targets.npy": "d8b8598786130cc24a437a28c64382282f5e286b033275e1e83801f3da274eb4",
+      "val-index.json": "a2ce6973f5ffaed385ce31e7d26a8dfbf3fdf978463818d2fbb2c5aebf6eccd8"
+    }
+  },
+  "counts": {
+    "train": {
+      "NO": 16,
+      "YES": 15
+    },
+    "val": {
+      "NO": 3,
+      "YES": 5
+    }
+  },
+  "unique_signers": {
+    "train": 19,
+    "val": 3
+  },
+  "train_fit": {
+    "samples": 31,
+    "correct": 31,
+    "top1": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "confusion": [
+      [
+        16,
+        0
+      ],
+      [
+        0,
+        15
+      ]
+    ],
+    "labels": [
+      "NO",
+      "YES"
+    ],
+    "per_class": {
+      "NO": {
+        "support": 16,
+        "correct": 16,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "YES": {
+        "support": 15,
+        "correct": 15,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "train_grouped_oof": {
+    "samples": 31,
+    "correct": 30,
+    "top1": 0.967741935483871,
+    "balanced_accuracy": 0.9666666666666667,
+    "macro_f1": 0.9676071055381401,
+    "confusion": [
+      [
+        16,
+        0
+      ],
+      [
+        1,
+        14
+      ]
+    ],
+    "labels": [
+      "NO",
+      "YES"
+    ],
+    "per_class": {
+      "NO": {
+        "support": 16,
+        "correct": 16,
+        "precision": 0.9411764705882353,
+        "recall": 1.0,
+        "f1": 0.9696969696969697
+      },
+      "YES": {
+        "support": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_indices": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "heldout_indices": [
+        0,
+        1,
+        3,
+        4,
+        9,
+        13,
+        14,
+        15,
+        21,
+        23,
+        24
+      ],
+      "train_signers": [
+        "P11",
+        "P16",
+        "P2",
+        "P29",
+        "P31",
+        "P33",
+        "P36",
+        "P37",
+        "P46",
+        "P50",
+        "P52"
+      ],
+      "heldout_signers": [
+        "P14",
+        "P23",
+        "P24",
+        "P27",
+        "P34",
+        "P40",
+        "P43",
+        "P51"
+      ],
+      "metrics": {
+        "samples": 11,
+        "correct": 11,
+        "top1": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion": [
+          [
+            6,
+            0
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "labels": [
+          "NO",
+          "YES"
+        ],
+        "per_class": {
+          "NO": {
+            "support": 6,
+            "correct": 6,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "YES": {
+            "support": 5,
+            "correct": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "train_indices": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24,
+        25,
+        26
+      ],
+      "heldout_indices": [
+        2,
+        8,
+        11,
+        17,
+        19,
+        20,
+        22,
+        27,
+        28,
+        29,
+        30
+      ],
+      "train_signers": [
+        "P14",
+        "P16",
+        "P2",
+        "P23",
+        "P24",
+        "P27",
+        "P31",
+        "P33",
+        "P34",
+        "P37",
+        "P40",
+        "P43",
+        "P51"
+      ],
+      "heldout_signers": [
+        "P11",
+        "P29",
+        "P36",
+        "P46",
+        "P50",
+        "P52"
+      ],
+      "metrics": {
+        "samples": 11,
+        "correct": 10,
+        "top1": 0.9090909090909091,
+        "balanced_accuracy": 0.9166666666666667,
+        "macro_f1": 0.9090909090909091,
+        "confusion": [
+          [
+            5,
+            0
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "labels": [
+          "NO",
+          "YES"
+        ],
+        "per_class": {
+          "NO": {
+            "support": 5,
+            "correct": 5,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091
+          },
+          "YES": {
+            "support": 6,
+            "correct": 5,
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091
+          }
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "train_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        27,
+        28,
+        29,
+        30
+      ],
+      "heldout_indices": [
+        5,
+        6,
+        7,
+        10,
+        12,
+        16,
+        18,
+        25,
+        26
+      ],
+      "train_signers": [
+        "P11",
+        "P14",
+        "P23",
+        "P24",
+        "P27",
+        "P29",
+        "P34",
+        "P36",
+        "P40",
+        "P43",
+        "P46",
+        "P50",
+        "P51",
+        "P52"
+      ],
+      "heldout_signers": [
+        "P16",
+        "P2",
+        "P31",
+        "P33",
+        "P37"
+      ],
+      "metrics": {
+        "samples": 9,
+        "correct": 9,
+        "top1": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion": [
+          [
+            5,
+            0
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "labels": [
+          "NO",
+          "YES"
+        ],
+        "per_class": {
+          "NO": {
+            "support": 5,
+            "correct": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "YES": {
+            "support": 4,
+            "correct": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        }
+      }
+    }
+  ],
+  "validation": {
+    "samples": 8,
+    "correct": 8,
+    "top1": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "confusion": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "labels": [
+      "NO",
+      "YES"
+    ],
+    "per_class": {
+      "NO": {
+        "support": 3,
+        "correct": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "YES": {
+        "support": 5,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "predictions": {
+    "train_fit": [
+      {
+        "video_file": "9979731168048327-NO.mp4",
+        "participant_id": "P51",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.033019993252188455,
+        "correct": true
+      },
+      {
+        "video_file": "1555998439795525-YES.mp4",
+        "participant_id": "P40",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.994160058579977,
+        "correct": true
+      },
+      {
+        "video_file": "9616432008129339-NO.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.13009949760457853,
+        "correct": true
+      },
+      {
+        "video_file": "5372668319999747-NO.mp4",
+        "participant_id": "P43",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.013105368629391618,
+        "correct": true
+      },
+      {
+        "video_file": "38970444942928073-YES.mp4",
+        "participant_id": "P14",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9883988808481313,
+        "correct": true
+      },
+      {
+        "video_file": "44146024789241256-YES.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.981772946002656,
+        "correct": true
+      },
+      {
+        "video_file": "09714329486323847-NO.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.15152393879453338,
+        "correct": true
+      },
+      {
+        "video_file": "709429051156695-YES.mp4",
+        "participant_id": "P31",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9982123884467303,
+        "correct": true
+      },
+      {
+        "video_file": "15689453699180178-YES.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9153007891159082,
+        "correct": true
+      },
+      {
+        "video_file": "9009854854743657-YES.mp4",
+        "participant_id": "P24",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9741946153383612,
+        "correct": true
+      },
+      {
+        "video_file": "2140134632834978-NO.mp4",
+        "participant_id": "P16",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.0019463398563146714,
+        "correct": true
+      },
+      {
+        "video_file": "6358167662084229-seedYES.mp4",
+        "participant_id": "P52",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9694043767335585,
+        "correct": true
+      },
+      {
+        "video_file": "8699610978899361-YES.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9342104269822313,
+        "correct": true
+      },
+      {
+        "video_file": "5082858473744953-NO.mp4",
+        "participant_id": "P40",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.04171088439780119,
+        "correct": true
+      },
+      {
+        "video_file": "16728596536749274-YES.mp4",
+        "participant_id": "P34",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.980395561644701,
+        "correct": true
+      },
+      {
+        "video_file": "5309657970849855-NO.mp4",
+        "participant_id": "P23",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.037959810959177026,
+        "correct": true
+      },
+      {
+        "video_file": "7973429116215278-NO.mp4",
+        "participant_id": "P2",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.033475209689323986,
+        "correct": true
+      },
+      {
+        "video_file": "15498675309554577-YES.mp4",
+        "participant_id": "P11",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9123523169201249,
+        "correct": true
+      },
+      {
+        "video_file": "01379619951634381-NO.mp4",
+        "participant_id": "P31",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.011943507194716312,
+        "correct": true
+      },
+      {
+        "video_file": "9092689562509508-YES.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.8828895772542751,
+        "correct": true
+      },
+      {
+        "video_file": "6901051427765104-NO.mp4",
+        "participant_id": "P11",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.022416469140862722,
+        "correct": true
+      },
+      {
+        "video_file": "370678413428154-NO.mp4",
+        "participant_id": "P14",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.012075470874846944,
+        "correct": true
+      },
+      {
+        "video_file": "7199140986089654-YES.mp4",
+        "participant_id": "P50",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9592543334869833,
+        "correct": true
+      },
+      {
+        "video_file": "32941176670637984-YES.mp4",
+        "participant_id": "P27",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9640387367517051,
+        "correct": true
+      },
+      {
+        "video_file": "9644130188424822-NO.mp4",
+        "participant_id": "P27",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.005000296644132095,
+        "correct": true
+      },
+      {
+        "video_file": "050364485120873326-YES.mp4",
+        "participant_id": "P33",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9641863459706544,
+        "correct": true
+      },
+      {
+        "video_file": "7932042062420475-NO.mp4",
+        "participant_id": "P33",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.021680688926440823,
+        "correct": true
+      },
+      {
+        "video_file": "6137110171725737-NO.mp4",
+        "participant_id": "P50",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.0017399637681979306,
+        "correct": true
+      },
+      {
+        "video_file": "3919396171653571-NO.mp4",
+        "participant_id": "P36",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.026426375196635772,
+        "correct": true
+      },
+      {
+        "video_file": "2688720555507844-seedNO.mp4",
+        "participant_id": "P52",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.0537195780170732,
+        "correct": true
+      },
+      {
+        "video_file": "9953610281521326-YES.mp4",
+        "participant_id": "P46",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9839279972249632,
+        "correct": true
+      }
+    ],
+    "train_grouped_oof": [
+      {
+        "video_file": "9979731168048327-NO.mp4",
+        "participant_id": "P51",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.059625689248968786,
+        "correct": true
+      },
+      {
+        "video_file": "1555998439795525-YES.mp4",
+        "participant_id": "P40",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9896724930548507,
+        "correct": true
+      },
+      {
+        "video_file": "9616432008129339-NO.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.23350479426192888,
+        "correct": true
+      },
+      {
+        "video_file": "5372668319999747-NO.mp4",
+        "participant_id": "P43",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.02261705110446192,
+        "correct": true
+      },
+      {
+        "video_file": "38970444942928073-YES.mp4",
+        "participant_id": "P14",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9849884005666223,
+        "correct": true
+      },
+      {
+        "video_file": "44146024789241256-YES.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9712714198395523,
+        "correct": true
+      },
+      {
+        "video_file": "09714329486323847-NO.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.27564615578131685,
+        "correct": true
+      },
+      {
+        "video_file": "709429051156695-YES.mp4",
+        "participant_id": "P31",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9972475497783527,
+        "correct": true
+      },
+      {
+        "video_file": "15689453699180178-YES.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.7680455596151968,
+        "correct": true
+      },
+      {
+        "video_file": "9009854854743657-YES.mp4",
+        "participant_id": "P24",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9435689102990289,
+        "correct": true
+      },
+      {
+        "video_file": "2140134632834978-NO.mp4",
+        "participant_id": "P16",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.003942631804454372,
+        "correct": true
+      },
+      {
+        "video_file": "6358167662084229-seedYES.mp4",
+        "participant_id": "P52",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9724826788279398,
+        "correct": true
+      },
+      {
+        "video_file": "8699610978899361-YES.mp4",
+        "participant_id": "P37",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9012696510961986,
+        "correct": true
+      },
+      {
+        "video_file": "5082858473744953-NO.mp4",
+        "participant_id": "P40",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.08524366330290092,
+        "correct": true
+      },
+      {
+        "video_file": "16728596536749274-YES.mp4",
+        "participant_id": "P34",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9613268537539172,
+        "correct": true
+      },
+      {
+        "video_file": "5309657970849855-NO.mp4",
+        "participant_id": "P23",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.07367456813323436,
+        "correct": true
+      },
+      {
+        "video_file": "7973429116215278-NO.mp4",
+        "participant_id": "P2",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.09867049507724006,
+        "correct": true
+      },
+      {
+        "video_file": "15498675309554577-YES.mp4",
+        "participant_id": "P11",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "NO",
+        "yes_score": 0.03594300208766173,
+        "correct": false
+      },
+      {
+        "video_file": "01379619951634381-NO.mp4",
+        "participant_id": "P31",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.02041487735970562,
+        "correct": true
+      },
+      {
+        "video_file": "9092689562509508-YES.mp4",
+        "participant_id": "P29",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.8414273463765253,
+        "correct": true
+      },
+      {
+        "video_file": "6901051427765104-NO.mp4",
+        "participant_id": "P11",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.031162436910309035,
+        "correct": true
+      },
+      {
+        "video_file": "370678413428154-NO.mp4",
+        "participant_id": "P14",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.01712824353957957,
+        "correct": true
+      },
+      {
+        "video_file": "7199140986089654-YES.mp4",
+        "participant_id": "P50",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.8806842753201791,
+        "correct": true
+      },
+      {
+        "video_file": "32941176670637984-YES.mp4",
+        "participant_id": "P27",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9414768317018807,
+        "correct": true
+      },
+      {
+        "video_file": "9644130188424822-NO.mp4",
+        "participant_id": "P27",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.009563807490740366,
+        "correct": true
+      },
+      {
+        "video_file": "050364485120873326-YES.mp4",
+        "participant_id": "P33",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9655305612346236,
+        "correct": true
+      },
+      {
+        "video_file": "7932042062420475-NO.mp4",
+        "participant_id": "P33",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.028596010094301547,
+        "correct": true
+      },
+      {
+        "video_file": "6137110171725737-NO.mp4",
+        "participant_id": "P50",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.0009674167382522064,
+        "correct": true
+      },
+      {
+        "video_file": "3919396171653571-NO.mp4",
+        "participant_id": "P36",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.061193497691611226,
+        "correct": true
+      },
+      {
+        "video_file": "2688720555507844-seedNO.mp4",
+        "participant_id": "P52",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.02896647118782547,
+        "correct": true
+      },
+      {
+        "video_file": "9953610281521326-YES.mp4",
+        "participant_id": "P46",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9773522215733752,
+        "correct": true
+      }
+    ],
+    "validation": [
+      {
+        "video_file": "9161842981344352-YES.mp4",
+        "participant_id": "P21",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9195989197667465,
+        "correct": true
+      },
+      {
+        "video_file": "8977694836593926-YES.mp4",
+        "participant_id": "P26",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9873243874407399,
+        "correct": true
+      },
+      {
+        "video_file": "42327270691916885-YES.mp4",
+        "participant_id": "P39",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9716279780463716,
+        "correct": true
+      },
+      {
+        "video_file": "26056519285644875-YES.mp4",
+        "participant_id": "P39",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.7664873296812935,
+        "correct": true
+      },
+      {
+        "video_file": "8323715285073319-NO.mp4",
+        "participant_id": "P21",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.019324334904582616,
+        "correct": true
+      },
+      {
+        "video_file": "9715589334909431-YES.mp4",
+        "participant_id": "P21",
+        "capture_id": null,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.875461009121883,
+        "correct": true
+      },
+      {
+        "video_file": "4656606080155459-NO.mp4",
+        "participant_id": "P39",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.31517437600786424,
+        "correct": true
+      },
+      {
+        "video_file": "8079226457278508-NO.mp4",
+        "participant_id": "P26",
+        "capture_id": null,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.00396669894702562,
+        "correct": true
+      }
+    ]
+  },
+  "dataset_scalar_records": {
+    "train": [
+      {
+        "video_file": "9979731168048327-NO.mp4",
+        "participant_id": "P51",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 115,
+        "articulation": {
+          "frames": 58,
+          "dominant_slot": 1,
+          "usable_frames": 19,
+          "usable_fraction": 0.3275862068965517,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.24414843320846558,
+            "thumb_index_xy_range": 1.4213936209678648,
+            "thumb_index_xyz_median": 0.29118967056274414,
+            "thumb_index_xyz_range": 1.3736193478107452,
+            "thumb_middle_xy_median": 0.20882245898246765,
+            "thumb_middle_xy_range": 1.638373939692974,
+            "thumb_middle_xyz_median": 0.20997527241706848,
+            "thumb_middle_xyz_range": 1.6373118713498114,
+            "index_tip_wrist_median": 1.1922715902328491,
+            "middle_tip_wrist_median": 0.9389147162437439,
+            "index_pip_angle_median_deg": 142.99269104003906,
+            "index_pip_angle_range_deg": 59.08253479003906,
+            "middle_pip_angle_median_deg": 140.64352416992188,
+            "middle_pip_angle_range_deg": 94.61790313720704,
+            "palm_axis_xy_excursion_deg": 11.159533691406239,
+            "palm_axis_xyz_excursion_deg": 12.156162643432616,
+            "wrist_body_xy_excursion": 0.33778912910689984
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 1.1172122955322266
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.21480213105678558
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 1,
+              "thumb_index_xy_median": 0.17740273475646973
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 18
+        }
+      },
+      {
+        "video_file": "1555998439795525-YES.mp4",
+        "participant_id": "P40",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 629,
+        "articulation": {
+          "frames": 81,
+          "dominant_slot": 0,
+          "usable_frames": 44,
+          "usable_fraction": 0.5432098765432098,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.1546253263950348,
+            "thumb_index_xy_range": 0.24520268291234973,
+            "thumb_index_xyz_median": 0.159260556101799,
+            "thumb_index_xyz_range": 0.2584013007581234,
+            "thumb_middle_xy_median": 0.388078510761261,
+            "thumb_middle_xy_range": 0.2535708904266358,
+            "thumb_middle_xyz_median": 0.41844475269317627,
+            "thumb_middle_xyz_range": 0.23317315280437484,
+            "index_tip_wrist_median": 0.976363480091095,
+            "middle_tip_wrist_median": 0.7217006683349609,
+            "index_pip_angle_median_deg": 101.5091552734375,
+            "index_pip_angle_range_deg": 95.45829315185546,
+            "middle_pip_angle_median_deg": 103.77651977539062,
+            "middle_pip_angle_range_deg": 113.04573097229004,
+            "palm_axis_xy_excursion_deg": 21.10556488037109,
+            "palm_axis_xyz_excursion_deg": 9.801399421691894,
+            "wrist_body_xy_excursion": 0.45248053235744856
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.1835651844739914
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 20,
+              "thumb_index_xy_median": 0.14216598868370056
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 9,
+              "thumb_index_xy_median": 0.2756870985031128
+            }
+          ],
+          "orientation_contiguous_pairs": 43
+        }
+      },
+      {
+        "video_file": "9616432008129339-NO.mp4",
+        "participant_id": "P29",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 883,
+        "articulation": {
+          "frames": 75,
+          "dominant_slot": 1,
+          "usable_frames": 25,
+          "usable_fraction": 0.3333333333333333,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.259697824716568,
+            "thumb_index_xy_range": 0.8230401396751406,
+            "thumb_index_xyz_median": 0.28526630997657776,
+            "thumb_index_xyz_range": 0.7952320635318759,
+            "thumb_middle_xy_median": 0.19831253588199615,
+            "thumb_middle_xy_range": 0.8413840442895891,
+            "thumb_middle_xyz_median": 0.21393977105617523,
+            "thumb_middle_xyz_range": 0.8280268371105197,
+            "index_tip_wrist_median": 1.3040635585784912,
+            "middle_tip_wrist_median": 1.0821583271026611,
+            "index_pip_angle_median_deg": 140.0719451904297,
+            "index_pip_angle_range_deg": 79.7292984008789,
+            "middle_pip_angle_median_deg": 147.99720764160156,
+            "middle_pip_angle_range_deg": 55.93155670166013,
+            "palm_axis_xy_excursion_deg": 9.5573745727539,
+            "palm_axis_xyz_excursion_deg": 9.51676788330078,
+            "wrist_body_xy_excursion": 0.21993349630706904
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.22741058468818665
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.26792585849761963
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 24
+        }
+      },
+      {
+        "video_file": "5372668319999747-NO.mp4",
+        "participant_id": "P43",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 1393,
+        "articulation": {
+          "frames": 55,
+          "dominant_slot": 0,
+          "usable_frames": 27,
+          "usable_fraction": 0.4909090909090909,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.42577657103538513,
+            "thumb_index_xy_range": 1.3306362062692643,
+            "thumb_index_xyz_median": 0.4645470678806305,
+            "thumb_index_xyz_range": 1.2774811446666718,
+            "thumb_middle_xy_median": 0.4966258406639099,
+            "thumb_middle_xy_range": 1.555355067551136,
+            "thumb_middle_xyz_median": 0.4987874925136566,
+            "thumb_middle_xyz_range": 1.5056008875370026,
+            "index_tip_wrist_median": 1.6473127603530884,
+            "middle_tip_wrist_median": 1.4542268514633179,
+            "index_pip_angle_median_deg": 154.4339141845703,
+            "index_pip_angle_range_deg": 47.78265686035158,
+            "middle_pip_angle_median_deg": 156.6078643798828,
+            "middle_pip_angle_range_deg": 53.79146881103516,
+            "palm_axis_xy_excursion_deg": 10.89853210449219,
+            "palm_axis_xyz_excursion_deg": 11.395826578140262,
+            "wrist_body_xy_excursion": 0.1722739411204373
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.618114709854126
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.9044702649116516
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.3242606222629547
+            }
+          ],
+          "orientation_contiguous_pairs": 26
+        }
+      },
+      {
+        "video_file": "38970444942928073-YES.mp4",
+        "participant_id": "P14",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 1597,
+        "articulation": {
+          "frames": 56,
+          "dominant_slot": 1,
+          "usable_frames": 25,
+          "usable_fraction": 0.44642857142857145,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.24994909763336182,
+            "thumb_index_xy_range": 0.09586125016212463,
+            "thumb_index_xyz_median": 0.26536884903907776,
+            "thumb_index_xyz_range": 0.15412065386772153,
+            "thumb_middle_xy_median": 0.47955837845802307,
+            "thumb_middle_xy_range": 0.12729975581169128,
+            "thumb_middle_xyz_median": 0.4797602593898773,
+            "thumb_middle_xyz_range": 0.13062913417816158,
+            "index_tip_wrist_median": 0.8730329871177673,
+            "middle_tip_wrist_median": 0.6518784761428833,
+            "index_pip_angle_median_deg": 108.70018768310547,
+            "index_pip_angle_range_deg": 34.67408294677736,
+            "middle_pip_angle_median_deg": 115.37565612792969,
+            "middle_pip_angle_range_deg": 29.87323150634765,
+            "palm_axis_xy_excursion_deg": 10.620777130126953,
+            "palm_axis_xyz_excursion_deg": 14.301542043685913,
+            "wrist_body_xy_excursion": 0.19246695174429937
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.23154494166374207
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 13,
+              "thumb_index_xy_median": 0.24913112819194794
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.2955183684825897
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 23
+        }
+      },
+      {
+        "video_file": "44146024789241256-YES.mp4",
+        "participant_id": "P37",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 3915,
+        "articulation": {
+          "frames": 56,
+          "dominant_slot": 1,
+          "usable_frames": 27,
+          "usable_fraction": 0.48214285714285715,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.17335788905620575,
+            "thumb_index_xy_range": 0.3624940767884255,
+            "thumb_index_xyz_median": 0.20370693504810333,
+            "thumb_index_xyz_range": 0.36872720420360566,
+            "thumb_middle_xy_median": 0.33131465315818787,
+            "thumb_middle_xy_range": 0.2338831663131714,
+            "thumb_middle_xyz_median": 0.33282339572906494,
+            "thumb_middle_xyz_range": 0.2442506015300751,
+            "index_tip_wrist_median": 1.0120770931243896,
+            "middle_tip_wrist_median": 0.8085432052612305,
+            "index_pip_angle_median_deg": 97.16173553466797,
+            "index_pip_angle_range_deg": 61.79011535644531,
+            "middle_pip_angle_median_deg": 103.9272689819336,
+            "middle_pip_angle_range_deg": 64.84066009521486,
+            "palm_axis_xy_excursion_deg": 29.008495330810547,
+            "palm_axis_xyz_excursion_deg": 14.173339462280275,
+            "wrist_body_xy_excursion": 0.28065697000958045
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.2375764548778534
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.10566417872905731
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.43137210607528687
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 26
+        }
+      },
+      {
+        "video_file": "09714329486323847-NO.mp4",
+        "participant_id": "P37",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 3973,
+        "articulation": {
+          "frames": 40,
+          "dominant_slot": 1,
+          "usable_frames": 14,
+          "usable_fraction": 0.35,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.3203732967376709,
+            "thumb_index_xy_range": 0.5850209072232246,
+            "thumb_index_xyz_median": 0.36751848459243774,
+            "thumb_index_xyz_range": 0.5780634239315987,
+            "thumb_middle_xy_median": 0.3303600549697876,
+            "thumb_middle_xy_range": 0.6347861424088479,
+            "thumb_middle_xyz_median": 0.34107065200805664,
+            "thumb_middle_xyz_range": 0.6190366879105569,
+            "index_tip_wrist_median": 1.4674816131591797,
+            "middle_tip_wrist_median": 1.3269973993301392,
+            "index_pip_angle_median_deg": 158.48875427246094,
+            "index_pip_angle_range_deg": 47.6159683227539,
+            "middle_pip_angle_median_deg": 151.42091369628906,
+            "middle_pip_angle_range_deg": 34.508803558349626,
+            "palm_axis_xy_excursion_deg": 12.334764099121102,
+            "palm_axis_xyz_excursion_deg": 11.287264251708985,
+            "wrist_body_xy_excursion": 0.18228190114339735
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 1,
+              "thumb_index_xy_median": 1.3318368196487427
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 10,
+              "thumb_index_xy_median": 0.3203732967376709
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.2415120005607605
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 13
+        }
+      },
+      {
+        "video_file": "709429051156695-YES.mp4",
+        "participant_id": "P31",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 7027,
+        "articulation": {
+          "frames": 93,
+          "dominant_slot": 1,
+          "usable_frames": 37,
+          "usable_fraction": 0.3978494623655914,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.641859769821167,
+            "thumb_index_xy_range": 0.24648010730743408,
+            "thumb_index_xyz_median": 0.6842560768127441,
+            "thumb_index_xyz_range": 0.33422490358352663,
+            "thumb_middle_xy_median": 0.9135047793388367,
+            "thumb_middle_xy_range": 0.22019478082656874,
+            "thumb_middle_xyz_median": 0.9240413904190063,
+            "thumb_middle_xyz_range": 0.25286585092544556,
+            "index_tip_wrist_median": 1.0509793758392334,
+            "middle_tip_wrist_median": 0.7248131036758423,
+            "index_pip_angle_median_deg": 115.8355484008789,
+            "index_pip_angle_range_deg": 85.58600311279295,
+            "middle_pip_angle_median_deg": 132.84283447265625,
+            "middle_pip_angle_range_deg": 98.89773559570312,
+            "palm_axis_xy_excursion_deg": 30.814425659179683,
+            "palm_axis_xyz_excursion_deg": 17.737284088134764,
+            "wrist_body_xy_excursion": 0.34345790733039105
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.682249128818512
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 23,
+              "thumb_index_xy_median": 0.6403646469116211
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 0.7228843569755554
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 36
+        }
+      },
+      {
+        "video_file": "15689453699180178-YES.mp4",
+        "participant_id": "P29",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 7167,
+        "articulation": {
+          "frames": 47,
+          "dominant_slot": 1,
+          "usable_frames": 16,
+          "usable_fraction": 0.3404255319148936,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.26918941736221313,
+            "thumb_index_xy_range": 0.2886119410395622,
+            "thumb_index_xyz_median": 0.34532424807548523,
+            "thumb_index_xyz_range": 0.26548781991004944,
+            "thumb_middle_xy_median": 0.5454171895980835,
+            "thumb_middle_xy_range": 0.2545527219772339,
+            "thumb_middle_xyz_median": 0.5456928014755249,
+            "thumb_middle_xyz_range": 0.26135125756263733,
+            "index_tip_wrist_median": 1.3327648639678955,
+            "middle_tip_wrist_median": 0.9566056728363037,
+            "index_pip_angle_median_deg": 137.0175018310547,
+            "index_pip_angle_range_deg": 38.94821548461914,
+            "middle_pip_angle_median_deg": 132.2273712158203,
+            "middle_pip_angle_range_deg": 36.34524917602539,
+            "palm_axis_xy_excursion_deg": 31.884790039062494,
+            "palm_axis_xyz_excursion_deg": 19.029703903198243,
+            "wrist_body_xy_excursion": 0.15852116770146515
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.25248438119888306
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.2600298523902893
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 1,
+              "thumb_index_xy_median": 0.2880081236362457
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 14
+        }
+      },
+      {
+        "video_file": "9009854854743657-YES.mp4",
+        "participant_id": "P24",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 11608,
+        "articulation": {
+          "frames": 66,
+          "dominant_slot": 1,
+          "usable_frames": 24,
+          "usable_fraction": 0.36363636363636365,
+          "single_hand_slot_changes": 5,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.42934828996658325,
+            "thumb_index_xy_range": 0.6532620042562485,
+            "thumb_index_xyz_median": 0.4843801259994507,
+            "thumb_index_xyz_range": 0.5491666510701179,
+            "thumb_middle_xy_median": 0.6366393566131592,
+            "thumb_middle_xy_range": 0.6498579442501067,
+            "thumb_middle_xyz_median": 0.6404635906219482,
+            "thumb_middle_xyz_range": 0.6397939175367355,
+            "index_tip_wrist_median": 1.454742193222046,
+            "middle_tip_wrist_median": 1.0594353675842285,
+            "index_pip_angle_median_deg": 144.0421142578125,
+            "index_pip_angle_range_deg": 96.9739585876465,
+            "middle_pip_angle_median_deg": 133.18087768554688,
+            "middle_pip_angle_range_deg": 122.21802558898925,
+            "palm_axis_xy_excursion_deg": 92.42400026321411,
+            "palm_axis_xyz_excursion_deg": 76.35043239593506,
+            "wrist_body_xy_excursion": 0.25017828947179555
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 13,
+              "thumb_index_xy_median": 0.4776838719844818
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 0.29151585698127747
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 21
+        }
+      },
+      {
+        "video_file": "2140134632834978-NO.mp4",
+        "participant_id": "P16",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 12587,
+        "articulation": {
+          "frames": 73,
+          "dominant_slot": 0,
+          "usable_frames": 42,
+          "usable_fraction": 0.5753424657534246,
+          "single_hand_slot_changes": 1,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.8460221886634827,
+            "thumb_index_xy_range": 1.927938950061798,
+            "thumb_index_xyz_median": 0.846847414970398,
+            "thumb_index_xyz_range": 1.857116685807705,
+            "thumb_middle_xy_median": 0.8819215297698975,
+            "thumb_middle_xy_range": 2.4975808806717397,
+            "thumb_middle_xyz_median": 0.8854556679725647,
+            "thumb_middle_xyz_range": 2.4359472721815107,
+            "index_tip_wrist_median": 1.8822605609893799,
+            "middle_tip_wrist_median": 1.7899110317230225,
+            "index_pip_angle_median_deg": 172.51881408691406,
+            "index_pip_angle_range_deg": 54.53810729980468,
+            "middle_pip_angle_median_deg": 171.60653686523438,
+            "middle_pip_angle_range_deg": 93.68860778808595,
+            "palm_axis_xy_excursion_deg": 6.738391113281253,
+            "palm_axis_xyz_excursion_deg": 20.098546695709228,
+            "wrist_body_xy_excursion": 0.19209041801428844
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 2.0627779960632324
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 18,
+              "thumb_index_xy_median": 0.4581166207790375
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.5019296407699585
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 41
+        }
+      },
+      {
+        "video_file": "6358167662084229-seedYES.mp4",
+        "participant_id": "P52",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 12847,
+        "articulation": {
+          "frames": 88,
+          "dominant_slot": 1,
+          "usable_frames": 35,
+          "usable_fraction": 0.3977272727272727,
+          "single_hand_slot_changes": 1,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.07052664458751678,
+            "thumb_index_xy_range": 0.2687920488417148,
+            "thumb_index_xyz_median": 0.10320797562599182,
+            "thumb_index_xyz_range": 0.24699422121047976,
+            "thumb_middle_xy_median": 0.2802604138851166,
+            "thumb_middle_xy_range": 0.2569719672203064,
+            "thumb_middle_xyz_median": 0.31492239236831665,
+            "thumb_middle_xyz_range": 0.22376003861427307,
+            "index_tip_wrist_median": 0.8833017945289612,
+            "middle_tip_wrist_median": 0.6511484980583191,
+            "index_pip_angle_median_deg": 132.44515991210938,
+            "index_pip_angle_range_deg": 86.23276062011718,
+            "middle_pip_angle_median_deg": 140.08932495117188,
+            "middle_pip_angle_range_deg": 107.58598403930662,
+            "palm_axis_xy_excursion_deg": 24.401324462890614,
+            "palm_axis_xyz_excursion_deg": 23.932265710830688,
+            "wrist_body_xy_excursion": 0.5551779591124266
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.16509845852851868
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 22,
+              "thumb_index_xy_median": 0.04598189890384674
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.2638950049877167
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 34
+        }
+      },
+      {
+        "video_file": "8699610978899361-YES.mp4",
+        "participant_id": "P37",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 14159,
+        "articulation": {
+          "frames": 57,
+          "dominant_slot": 1,
+          "usable_frames": 24,
+          "usable_fraction": 0.42105263157894735,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.20218335092067719,
+            "thumb_index_xy_range": 0.3162905052304268,
+            "thumb_index_xyz_median": 0.2336341142654419,
+            "thumb_index_xyz_range": 0.2683166831731796,
+            "thumb_middle_xy_median": 0.14661777019500732,
+            "thumb_middle_xy_range": 0.4700142979621887,
+            "thumb_middle_xyz_median": 0.14849618077278137,
+            "thumb_middle_xyz_range": 0.45914780497550967,
+            "index_tip_wrist_median": 0.9721171855926514,
+            "middle_tip_wrist_median": 0.7527318000793457,
+            "index_pip_angle_median_deg": 103.40095520019531,
+            "index_pip_angle_range_deg": 63.08942718505858,
+            "middle_pip_angle_median_deg": 105.37965393066406,
+            "middle_pip_angle_range_deg": 86.85520401000976,
+            "palm_axis_xy_excursion_deg": 8.845407867431646,
+            "palm_axis_xyz_excursion_deg": 9.125625014305113,
+            "wrist_body_xy_excursion": 0.15727060968616688
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 8,
+              "thumb_index_xy_median": 0.33154743909835815
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.15593650937080383
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 2,
+              "thumb_index_xy_median": 0.3432777523994446
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 23
+        }
+      },
+      {
+        "video_file": "5082858473744953-NO.mp4",
+        "participant_id": "P40",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 16939,
+        "articulation": {
+          "frames": 95,
+          "dominant_slot": 1,
+          "usable_frames": 27,
+          "usable_fraction": 0.28421052631578947,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.2177932858467102,
+            "thumb_index_xy_range": 1.1168598800897598,
+            "thumb_index_xyz_median": 0.25815168023109436,
+            "thumb_index_xyz_range": 1.0773142069578172,
+            "thumb_middle_xy_median": 0.13066701591014862,
+            "thumb_middle_xy_range": 1.3624576799571515,
+            "thumb_middle_xyz_median": 0.1517423838376999,
+            "thumb_middle_xyz_range": 1.3130357265472412,
+            "index_tip_wrist_median": 1.451685905456543,
+            "middle_tip_wrist_median": 1.2067068815231323,
+            "index_pip_angle_median_deg": 132.0103302001953,
+            "index_pip_angle_range_deg": 49.388034057617176,
+            "middle_pip_angle_median_deg": 127.59085083007812,
+            "middle_pip_angle_range_deg": 49.75848693847658,
+            "palm_axis_xy_excursion_deg": 5.981193542480469,
+            "palm_axis_xyz_excursion_deg": 10.003710746765137,
+            "wrist_body_xy_excursion": 0.294519338189837
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 1.2926671504974365
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 21,
+              "thumb_index_xy_median": 0.20058852434158325
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 25
+        }
+      },
+      {
+        "video_file": "16728596536749274-YES.mp4",
+        "participant_id": "P34",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 17586,
+        "articulation": {
+          "frames": 73,
+          "dominant_slot": 1,
+          "usable_frames": 31,
+          "usable_fraction": 0.4246575342465753,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.34779953956604004,
+            "thumb_index_xy_range": 0.26998019218444824,
+            "thumb_index_xyz_median": 0.3687616288661957,
+            "thumb_index_xyz_range": 0.25314682722091675,
+            "thumb_middle_xy_median": 0.5021178126335144,
+            "thumb_middle_xy_range": 0.25943630933761597,
+            "thumb_middle_xyz_median": 0.502400279045105,
+            "thumb_middle_xyz_range": 0.27632102370262146,
+            "index_tip_wrist_median": 1.0016196966171265,
+            "middle_tip_wrist_median": 0.7901633381843567,
+            "index_pip_angle_median_deg": 124.70799255371094,
+            "index_pip_angle_range_deg": 96.73728561401367,
+            "middle_pip_angle_median_deg": 130.11929321289062,
+            "middle_pip_angle_range_deg": 106.88571166992188,
+            "palm_axis_xy_excursion_deg": 10.428977966308594,
+            "palm_axis_xyz_excursion_deg": 13.811092376708984,
+            "wrist_body_xy_excursion": 0.3324048430757462
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 16,
+              "thumb_index_xy_median": 0.4031054973602295
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.22581306099891663
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 30
+        }
+      },
+      {
+        "video_file": "5309657970849855-NO.mp4",
+        "participant_id": "P23",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 21287,
+        "articulation": {
+          "frames": 95,
+          "dominant_slot": 1,
+          "usable_frames": 42,
+          "usable_fraction": 0.4421052631578947,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.325141966342926,
+            "thumb_index_xy_range": 1.1916955038905144,
+            "thumb_index_xyz_median": 0.3994675874710083,
+            "thumb_index_xyz_range": 1.1430556774139404,
+            "thumb_middle_xy_median": 0.3869275450706482,
+            "thumb_middle_xy_range": 1.3802750200033187,
+            "thumb_middle_xyz_median": 0.41122880578041077,
+            "thumb_middle_xyz_range": 1.3613922178745268,
+            "index_tip_wrist_median": 1.6862965822219849,
+            "middle_tip_wrist_median": 1.5067875385284424,
+            "index_pip_angle_median_deg": 149.15972900390625,
+            "index_pip_angle_range_deg": 40.06926574707032,
+            "middle_pip_angle_median_deg": 138.10369873046875,
+            "middle_pip_angle_range_deg": 57.94813232421873,
+            "palm_axis_xy_excursion_deg": 15.009364080429073,
+            "palm_axis_xyz_excursion_deg": 12.664014434814453,
+            "wrist_body_xy_excursion": 0.3522277778620596
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 8,
+              "thumb_index_xy_median": 0.3162533640861511
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 13,
+              "thumb_index_xy_median": 0.7376675605773926
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 21,
+              "thumb_index_xy_median": 0.30804017186164856
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 40
+        }
+      },
+      {
+        "video_file": "7973429116215278-NO.mp4",
+        "participant_id": "P2",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 21933,
+        "articulation": {
+          "frames": 88,
+          "dominant_slot": 1,
+          "usable_frames": 30,
+          "usable_fraction": 0.3409090909090909,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.47748783230781555,
+            "thumb_index_xy_range": 0.7615632683038712,
+            "thumb_index_xyz_median": 0.48239031434059143,
+            "thumb_index_xyz_range": 0.7392877817153931,
+            "thumb_middle_xy_median": 0.49313098192214966,
+            "thumb_middle_xy_range": 0.9306287035346031,
+            "thumb_middle_xyz_median": 0.5027590394020081,
+            "thumb_middle_xyz_range": 0.9188942641019822,
+            "index_tip_wrist_median": 1.7070080041885376,
+            "middle_tip_wrist_median": 1.6778532266616821,
+            "index_pip_angle_median_deg": 172.5594482421875,
+            "index_pip_angle_range_deg": 18.24932708740235,
+            "middle_pip_angle_median_deg": 162.92727661132812,
+            "middle_pip_angle_range_deg": 31.037271118164057,
+            "palm_axis_xy_excursion_deg": 6.945268249511727,
+            "palm_axis_xyz_excursion_deg": 6.887378978729247,
+            "wrist_body_xy_excursion": 0.1774669962576523
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.8274946212768555
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 16,
+              "thumb_index_xy_median": 0.25069674849510193
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 29
+        }
+      },
+      {
+        "video_file": "15498675309554577-YES.mp4",
+        "participant_id": "P11",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 22993,
+        "articulation": {
+          "frames": 47,
+          "dominant_slot": 1,
+          "usable_frames": 37,
+          "usable_fraction": 0.7872340425531915,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 1.3280600309371948,
+            "thumb_index_xy_range": 1.1104978442192077,
+            "thumb_index_xyz_median": 1.3281607627868652,
+            "thumb_index_xyz_range": 1.082566225528717,
+            "thumb_middle_xy_median": 1.4087388515472412,
+            "thumb_middle_xy_range": 1.389456781744957,
+            "thumb_middle_xyz_median": 1.4203158617019653,
+            "thumb_middle_xyz_range": 1.390047189593315,
+            "index_tip_wrist_median": 1.8302983045578003,
+            "middle_tip_wrist_median": 1.685807466506958,
+            "index_pip_angle_median_deg": 140.76333618164062,
+            "index_pip_angle_range_deg": 44.35551147460937,
+            "middle_pip_angle_median_deg": 135.6215057373047,
+            "middle_pip_angle_range_deg": 19.662463378906267,
+            "palm_axis_xy_excursion_deg": 7.204826354980469,
+            "palm_axis_xyz_excursion_deg": 11.331279158592224,
+            "wrist_body_xy_excursion": 0.7678932635257808
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 5,
+              "thumb_index_xy_median": 0.530204713344574
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 9,
+              "thumb_index_xy_median": 0.43811672925949097
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 1.3831043243408203
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 1.3293391466140747
+            }
+          ],
+          "orientation_contiguous_pairs": 34
+        }
+      },
+      {
+        "video_file": "01379619951634381-NO.mp4",
+        "participant_id": "P31",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 23838,
+        "articulation": {
+          "frames": 86,
+          "dominant_slot": 1,
+          "usable_frames": 33,
+          "usable_fraction": 0.38372093023255816,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.5802246332168579,
+            "thumb_index_xy_range": 1.5864838123321534,
+            "thumb_index_xyz_median": 0.5866619944572449,
+            "thumb_index_xyz_range": 1.5271758437156677,
+            "thumb_middle_xy_median": 0.7307268977165222,
+            "thumb_middle_xy_range": 1.8622134536504749,
+            "thumb_middle_xyz_median": 0.7322919964790344,
+            "thumb_middle_xyz_range": 1.856374391913414,
+            "index_tip_wrist_median": 1.7884243726730347,
+            "middle_tip_wrist_median": 1.6015899181365967,
+            "index_pip_angle_median_deg": 170.94235229492188,
+            "index_pip_angle_range_deg": 70.0926727294922,
+            "middle_pip_angle_median_deg": 161.3164825439453,
+            "middle_pip_angle_range_deg": 87.70730285644531,
+            "palm_axis_xy_excursion_deg": 8.42019348144531,
+            "palm_axis_xyz_excursion_deg": 20.39819450378418,
+            "wrist_body_xy_excursion": 0.36851883447513917
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 1.0525974035263062
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 18,
+              "thumb_index_xy_median": 0.36423927545547485
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 32
+        }
+      },
+      {
+        "video_file": "9092689562509508-YES.mp4",
+        "participant_id": "P29",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 24563,
+        "articulation": {
+          "frames": 48,
+          "dominant_slot": 1,
+          "usable_frames": 15,
+          "usable_fraction": 0.3125,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.1577535718679428,
+            "thumb_index_xy_range": 0.24549903124570843,
+            "thumb_index_xyz_median": 0.23750168085098267,
+            "thumb_index_xyz_range": 0.2231731235980987,
+            "thumb_middle_xy_median": 0.3958621323108673,
+            "thumb_middle_xy_range": 0.26308919787406926,
+            "thumb_middle_xyz_median": 0.3959392011165619,
+            "thumb_middle_xyz_range": 0.2631191432476044,
+            "index_tip_wrist_median": 1.193222165107727,
+            "middle_tip_wrist_median": 0.8128040432929993,
+            "index_pip_angle_median_deg": 145.71153259277344,
+            "index_pip_angle_range_deg": 47.01969909667967,
+            "middle_pip_angle_median_deg": 138.4583740234375,
+            "middle_pip_angle_range_deg": 82.99343109130857,
+            "palm_axis_xy_excursion_deg": 23.966220092773426,
+            "palm_axis_xyz_excursion_deg": 16.552733421325684,
+            "wrist_body_xy_excursion": 0.17269684499885957
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 5,
+              "thumb_index_xy_median": 0.234938383102417
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 10,
+              "thumb_index_xy_median": 0.1535414457321167
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 14
+        }
+      },
+      {
+        "video_file": "6901051427765104-NO.mp4",
+        "participant_id": "P11",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 26098,
+        "articulation": {
+          "frames": 46,
+          "dominant_slot": 1,
+          "usable_frames": 11,
+          "usable_fraction": 0.2391304347826087,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.3395417034626007,
+            "thumb_index_xy_range": 1.6080624386668205,
+            "thumb_index_xyz_median": 0.33956417441368103,
+            "thumb_index_xyz_range": 1.5829119980335236,
+            "thumb_middle_xy_median": 0.48652541637420654,
+            "thumb_middle_xy_range": 1.7053581178188324,
+            "thumb_middle_xyz_median": 0.49024829268455505,
+            "thumb_middle_xyz_range": 1.6931096464395523,
+            "index_tip_wrist_median": 1.5365115404129028,
+            "middle_tip_wrist_median": 1.3026784658432007,
+            "index_pip_angle_median_deg": 157.71368408203125,
+            "index_pip_angle_range_deg": 66.71478271484375,
+            "middle_pip_angle_median_deg": 122.0602035522461,
+            "middle_pip_angle_range_deg": 87.60247802734375,
+            "palm_axis_xy_excursion_deg": 6.07034454345704,
+            "palm_axis_xyz_excursion_deg": 13.84650001525879,
+            "wrist_body_xy_excursion": 0.22033606869860337
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 2,
+              "thumb_index_xy_median": 1.7790095806121826
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.14796532690525055
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 1,
+              "thumb_index_xy_median": 0.3395417034626007
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 1,
+              "thumb_index_xy_median": 0.3635052740573883
+            }
+          ],
+          "orientation_contiguous_pairs": 8
+        }
+      },
+      {
+        "video_file": "370678413428154-NO.mp4",
+        "participant_id": "P14",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 26971,
+        "articulation": {
+          "frames": 53,
+          "dominant_slot": 1,
+          "usable_frames": 23,
+          "usable_fraction": 0.4339622641509434,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.4260086119174957,
+            "thumb_index_xy_range": 1.3979809939861298,
+            "thumb_index_xyz_median": 0.4879603385925293,
+            "thumb_index_xyz_range": 1.389080563187599,
+            "thumb_middle_xy_median": 0.6145452260971069,
+            "thumb_middle_xy_range": 1.6528314217925073,
+            "thumb_middle_xyz_median": 0.6355668902397156,
+            "thumb_middle_xyz_range": 1.6517561063170432,
+            "index_tip_wrist_median": 1.5331900119781494,
+            "middle_tip_wrist_median": 1.2910289764404297,
+            "index_pip_angle_median_deg": 169.30015563964844,
+            "index_pip_angle_range_deg": 52.44407501220704,
+            "middle_pip_angle_median_deg": 163.68421936035156,
+            "middle_pip_angle_range_deg": 69.63580780029298,
+            "palm_axis_xy_excursion_deg": 10.165675354003909,
+            "palm_axis_xyz_excursion_deg": 8.640360069274902,
+            "wrist_body_xy_excursion": 0.13185562099876877
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 5,
+              "thumb_index_xy_median": 1.5843021869659424
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 13,
+              "thumb_index_xy_median": 0.22343282401561737
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 5,
+              "thumb_index_xy_median": 0.3996039032936096
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 22
+        }
+      },
+      {
+        "video_file": "7199140986089654-YES.mp4",
+        "participant_id": "P50",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 27521,
+        "articulation": {
+          "frames": 79,
+          "dominant_slot": 1,
+          "usable_frames": 30,
+          "usable_fraction": 0.379746835443038,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.16413307189941406,
+            "thumb_index_xy_range": 0.24069490134716032,
+            "thumb_index_xyz_median": 0.20102638006210327,
+            "thumb_index_xyz_range": 0.21103426516056062,
+            "thumb_middle_xy_median": 0.3431940972805023,
+            "thumb_middle_xy_range": 0.3065690040588379,
+            "thumb_middle_xyz_median": 0.34367257356643677,
+            "thumb_middle_xyz_range": 0.3089134275913238,
+            "index_tip_wrist_median": 1.013390302658081,
+            "middle_tip_wrist_median": 0.7495124340057373,
+            "index_pip_angle_median_deg": 115.91091918945312,
+            "index_pip_angle_range_deg": 35.812869262695315,
+            "middle_pip_angle_median_deg": 116.80056762695312,
+            "middle_pip_angle_range_deg": 51.19016799926757,
+            "palm_axis_xy_excursion_deg": 8.015277862548828,
+            "palm_axis_xyz_excursion_deg": 7.857922267913823,
+            "wrist_body_xy_excursion": 0.3493281483376345
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.2745669484138489
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 20,
+              "thumb_index_xy_median": 0.14806893467903137
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.2807095944881439
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 29
+        }
+      },
+      {
+        "video_file": "32941176670637984-YES.mp4",
+        "participant_id": "P27",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 30668,
+        "articulation": {
+          "frames": 46,
+          "dominant_slot": 1,
+          "usable_frames": 23,
+          "usable_fraction": 0.5,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.2478734403848648,
+            "thumb_index_xy_range": 0.24377348423004153,
+            "thumb_index_xyz_median": 0.2767552435398102,
+            "thumb_index_xyz_range": 0.2326550543308258,
+            "thumb_middle_xy_median": 0.4456637501716614,
+            "thumb_middle_xy_range": 0.26849644184112553,
+            "thumb_middle_xyz_median": 0.46015048027038574,
+            "thumb_middle_xyz_range": 0.2649348139762878,
+            "index_tip_wrist_median": 1.0010873079299927,
+            "middle_tip_wrist_median": 0.7312522530555725,
+            "index_pip_angle_median_deg": 126.0024642944336,
+            "index_pip_angle_range_deg": 74.93902893066408,
+            "middle_pip_angle_median_deg": 129.1104278564453,
+            "middle_pip_angle_range_deg": 65.80452728271484,
+            "palm_axis_xy_excursion_deg": 20.26123657226563,
+            "palm_axis_xyz_excursion_deg": 16.453950500488283,
+            "wrist_body_xy_excursion": 0.21672541497397949
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 8,
+              "thumb_index_xy_median": 0.17681431770324707
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.2600056529045105
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.28883516788482666
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 22
+        }
+      },
+      {
+        "video_file": "9644130188424822-NO.mp4",
+        "participant_id": "P27",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 31068,
+        "articulation": {
+          "frames": 60,
+          "dominant_slot": 1,
+          "usable_frames": 26,
+          "usable_fraction": 0.43333333333333335,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.5468065738677979,
+            "thumb_index_xy_range": 1.6509869173169136,
+            "thumb_index_xyz_median": 0.5479249954223633,
+            "thumb_index_xyz_range": 1.6283781975507736,
+            "thumb_middle_xy_median": 0.5002614855766296,
+            "thumb_middle_xy_range": 1.9928039591759443,
+            "thumb_middle_xyz_median": 0.5027467012405396,
+            "thumb_middle_xyz_range": 1.9661207906901836,
+            "index_tip_wrist_median": 1.7139034271240234,
+            "middle_tip_wrist_median": 1.4982261657714844,
+            "index_pip_angle_median_deg": 170.2055206298828,
+            "index_pip_angle_range_deg": 54.87904739379883,
+            "middle_pip_angle_median_deg": 134.4995574951172,
+            "middle_pip_angle_range_deg": 80.41926193237305,
+            "palm_axis_xy_excursion_deg": 5.417510986328125,
+            "palm_axis_xyz_excursion_deg": 10.612391889095306,
+            "wrist_body_xy_excursion": 0.21579959821760872
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 1.8459978103637695
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.5858887434005737
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 4,
+              "thumb_index_xy_median": 0.27595311403274536
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 25
+        }
+      },
+      {
+        "video_file": "050364485120873326-YES.mp4",
+        "participant_id": "P33",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 34118,
+        "articulation": {
+          "frames": 128,
+          "dominant_slot": 0,
+          "usable_frames": 28,
+          "usable_fraction": 0.21875,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.25059792399406433,
+            "thumb_index_xy_range": 0.24069695472717284,
+            "thumb_index_xyz_median": 0.2655327320098877,
+            "thumb_index_xyz_range": 0.2216603755950928,
+            "thumb_middle_xy_median": 0.45271486043930054,
+            "thumb_middle_xy_range": 0.18573636412620548,
+            "thumb_middle_xyz_median": 0.4843337833881378,
+            "thumb_middle_xyz_range": 0.18767547607421875,
+            "index_tip_wrist_median": 0.8658876419067383,
+            "middle_tip_wrist_median": 0.6309611797332764,
+            "index_pip_angle_median_deg": 153.02041625976562,
+            "index_pip_angle_range_deg": 60.80107116699219,
+            "middle_pip_angle_median_deg": 152.57852172851562,
+            "middle_pip_angle_range_deg": 64.94805450439452,
+            "palm_axis_xy_excursion_deg": 37.463345336914074,
+            "palm_axis_xyz_excursion_deg": 37.41470451354979,
+            "wrist_body_xy_excursion": 0.3728426237318719
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 16,
+              "thumb_index_xy_median": 0.236425518989563
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.3431262671947479
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 27
+        }
+      },
+      {
+        "video_file": "7932042062420475-NO.mp4",
+        "participant_id": "P33",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 34607,
+        "articulation": {
+          "frames": 128,
+          "dominant_slot": 1,
+          "usable_frames": 42,
+          "usable_fraction": 0.328125,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.26143956184387207,
+            "thumb_index_xy_range": 1.609079773724079,
+            "thumb_index_xyz_median": 0.33411115407943726,
+            "thumb_index_xyz_range": 1.5653639450669288,
+            "thumb_middle_xy_median": 0.44752079248428345,
+            "thumb_middle_xy_range": 1.5274128675460812,
+            "thumb_middle_xyz_median": 0.4507230520248413,
+            "thumb_middle_xyz_range": 1.5242107599973675,
+            "index_tip_wrist_median": 1.2179930210113525,
+            "middle_tip_wrist_median": 0.8206581473350525,
+            "index_pip_angle_median_deg": 153.2901611328125,
+            "index_pip_angle_range_deg": 69.21458435058594,
+            "middle_pip_angle_median_deg": 156.01763916015625,
+            "middle_pip_angle_range_deg": 43.68324432373046,
+            "palm_axis_xy_excursion_deg": 8.432319641113267,
+            "palm_axis_xyz_excursion_deg": 13.903661155700682,
+            "wrist_body_xy_excursion": 0.26342306421080375
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 20,
+              "thumb_index_xy_median": 1.1551094055175781
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 22,
+              "thumb_index_xy_median": 0.1750490963459015
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 41
+        }
+      },
+      {
+        "video_file": "6137110171725737-NO.mp4",
+        "participant_id": "P50",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 35889,
+        "articulation": {
+          "frames": 72,
+          "dominant_slot": 1,
+          "usable_frames": 33,
+          "usable_fraction": 0.4583333333333333,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.6181492209434509,
+            "thumb_index_xy_range": 1.7322899848222733,
+            "thumb_index_xyz_median": 0.628318727016449,
+            "thumb_index_xyz_range": 1.728720685839653,
+            "thumb_middle_xy_median": 0.5839096307754517,
+            "thumb_middle_xy_range": 2.1823039621114733,
+            "thumb_middle_xyz_median": 0.5860298871994019,
+            "thumb_middle_xyz_range": 2.1708337664604187,
+            "index_tip_wrist_median": 1.8018555641174316,
+            "middle_tip_wrist_median": 1.8117706775665283,
+            "index_pip_angle_median_deg": 169.62709045410156,
+            "index_pip_angle_range_deg": 38.24803466796877,
+            "middle_pip_angle_median_deg": 159.8200225830078,
+            "middle_pip_angle_range_deg": 68.30180511474609,
+            "palm_axis_xy_excursion_deg": 5.3802337646484375,
+            "palm_axis_xyz_excursion_deg": 15.739103698730467,
+            "wrist_body_xy_excursion": 0.35902376425807814
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 1.9808684587478638
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 18,
+              "thumb_index_xy_median": 0.601353645324707
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 9,
+              "thumb_index_xy_median": 0.3893083930015564
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 32
+        }
+      },
+      {
+        "video_file": "3919396171653571-NO.mp4",
+        "participant_id": "P36",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 36072,
+        "articulation": {
+          "frames": 46,
+          "dominant_slot": 1,
+          "usable_frames": 23,
+          "usable_fraction": 0.5,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.11589661985635757,
+            "thumb_index_xy_range": 1.3676273342221976,
+            "thumb_index_xyz_median": 0.13345205783843994,
+            "thumb_index_xyz_range": 1.3115764617919923,
+            "thumb_middle_xy_median": 0.27478402853012085,
+            "thumb_middle_xy_range": 1.414567479491234,
+            "thumb_middle_xyz_median": 0.27488163113594055,
+            "thumb_middle_xyz_range": 1.4171440601348877,
+            "index_tip_wrist_median": 1.0247548818588257,
+            "middle_tip_wrist_median": 0.7310433387756348,
+            "index_pip_angle_median_deg": 156.5526885986328,
+            "index_pip_angle_range_deg": 34.49485473632811,
+            "middle_pip_angle_median_deg": 148.39068603515625,
+            "middle_pip_angle_range_deg": 46.25302734374998,
+            "palm_axis_xy_excursion_deg": 11.168739318847656,
+            "palm_axis_xyz_excursion_deg": 15.192472553253172,
+            "wrist_body_xy_excursion": 0.1628687069689751
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 4,
+              "thumb_index_xy_median": 1.176795482635498
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.07179441303014755
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.09883474558591843
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 22
+        }
+      },
+      {
+        "video_file": "2688720555507844-seedNO.mp4",
+        "participant_id": "P52",
+        "gloss": "NO",
+        "split": "train",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 38534,
+        "articulation": {
+          "frames": 104,
+          "dominant_slot": 1,
+          "usable_frames": 36,
+          "usable_fraction": 0.34615384615384615,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.5509985685348511,
+            "thumb_index_xy_range": 1.757800742983818,
+            "thumb_index_xyz_median": 0.5527132153511047,
+            "thumb_index_xyz_range": 1.724356085062027,
+            "thumb_middle_xy_median": 0.585848331451416,
+            "thumb_middle_xy_range": 1.9779765717685223,
+            "thumb_middle_xyz_median": 0.585914134979248,
+            "thumb_middle_xyz_range": 1.9796633534133434,
+            "index_tip_wrist_median": 1.442671537399292,
+            "middle_tip_wrist_median": 1.2871599197387695,
+            "index_pip_angle_median_deg": 151.72171020507812,
+            "index_pip_angle_range_deg": 62.76810836791992,
+            "middle_pip_angle_median_deg": 128.27505493164062,
+            "middle_pip_angle_range_deg": 87.37683486938477,
+            "palm_axis_xy_excursion_deg": 21.3033447265625,
+            "palm_axis_xyz_excursion_deg": 23.588153839111328,
+            "wrist_body_xy_excursion": 0.5208400932509109
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 1.898188591003418
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 26,
+              "thumb_index_xy_median": 0.5509985685348511
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.21094654500484467
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 35
+        }
+      },
+      {
+        "video_file": "9953610281521326-YES.mp4",
+        "participant_id": "P46",
+        "gloss": "YES",
+        "split": "train",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 39856,
+        "articulation": {
+          "frames": 128,
+          "dominant_slot": 1,
+          "usable_frames": 51,
+          "usable_fraction": 0.3984375,
+          "single_hand_slot_changes": 7,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.32548341155052185,
+            "thumb_index_xy_range": 0.688528873026371,
+            "thumb_index_xyz_median": 0.41756969690322876,
+            "thumb_index_xyz_range": 0.620128408074379,
+            "thumb_middle_xy_median": 0.4423809349536896,
+            "thumb_middle_xy_range": 0.711870402097702,
+            "thumb_middle_xyz_median": 0.4584093689918518,
+            "thumb_middle_xyz_range": 0.6634348630905151,
+            "index_tip_wrist_median": 1.2500509023666382,
+            "middle_tip_wrist_median": 0.9057722091674805,
+            "index_pip_angle_median_deg": 148.40850830078125,
+            "index_pip_angle_range_deg": 58.943756103515625,
+            "middle_pip_angle_median_deg": 144.71556091308594,
+            "middle_pip_angle_range_deg": 114.41667938232422,
+            "palm_axis_xy_excursion_deg": 148.4240951538086,
+            "palm_axis_xyz_excursion_deg": 86.3495787743479,
+            "wrist_body_xy_excursion": 0.6340285924583013
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 13,
+              "thumb_index_xy_median": 0.1591482311487198
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.2899128496646881
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 16,
+              "thumb_index_xy_median": 0.3935878872871399
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.48284104466438293
+            }
+          ],
+          "orientation_contiguous_pairs": 40
+        }
+      }
+    ],
+    "val": [
+      {
+        "video_file": "9161842981344352-YES.mp4",
+        "participant_id": "P21",
+        "gloss": "YES",
+        "split": "val",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 284,
+        "articulation": {
+          "frames": 57,
+          "dominant_slot": 0,
+          "usable_frames": 28,
+          "usable_fraction": 0.49122807017543857,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.19110213220119476,
+            "thumb_index_xy_range": 0.3859354630112648,
+            "thumb_index_xyz_median": 0.20924022793769836,
+            "thumb_index_xyz_range": 0.3329024240374565,
+            "thumb_middle_xy_median": 0.2738281190395355,
+            "thumb_middle_xy_range": 0.37927462160587316,
+            "thumb_middle_xyz_median": 0.30072322487831116,
+            "thumb_middle_xyz_range": 0.36425395160913465,
+            "index_tip_wrist_median": 0.991594672203064,
+            "middle_tip_wrist_median": 0.7158148288726807,
+            "index_pip_angle_median_deg": 116.16970825195312,
+            "index_pip_angle_range_deg": 79.59551353454592,
+            "middle_pip_angle_median_deg": 138.03297424316406,
+            "middle_pip_angle_range_deg": 109.7991798400879,
+            "palm_axis_xy_excursion_deg": 13.930167388916018,
+            "palm_axis_xyz_excursion_deg": 14.84656231403351,
+            "wrist_body_xy_excursion": 0.22366118271960572
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.4480038285255432
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.19110213220119476
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 8,
+              "thumb_index_xy_median": 0.11178775876760483
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 27
+        }
+      },
+      {
+        "video_file": "8977694836593926-YES.mp4",
+        "participant_id": "P26",
+        "gloss": "YES",
+        "split": "val",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 2172,
+        "articulation": {
+          "frames": 64,
+          "dominant_slot": 1,
+          "usable_frames": 26,
+          "usable_fraction": 0.40625,
+          "single_hand_slot_changes": 3,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.18883703649044037,
+            "thumb_index_xy_range": 0.33511796221137047,
+            "thumb_index_xyz_median": 0.2326878309249878,
+            "thumb_index_xyz_range": 0.25565144419670105,
+            "thumb_middle_xy_median": 0.5126131772994995,
+            "thumb_middle_xy_range": 0.1855161339044571,
+            "thumb_middle_xyz_median": 0.5239695310592651,
+            "thumb_middle_xyz_range": 0.1863948255777359,
+            "index_tip_wrist_median": 1.0720802545547485,
+            "middle_tip_wrist_median": 0.6765408515930176,
+            "index_pip_angle_median_deg": 102.65165710449219,
+            "index_pip_angle_range_deg": 90.14264488220215,
+            "middle_pip_angle_median_deg": 111.8531494140625,
+            "middle_pip_angle_range_deg": 72.12528800964355,
+            "palm_axis_xy_excursion_deg": 13.570358276367188,
+            "palm_axis_xyz_excursion_deg": 14.01589453220367,
+            "wrist_body_xy_excursion": 0.1544699309541901
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 9,
+              "thumb_index_xy_median": 0.24840465188026428
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.18561111390590668
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 2,
+              "thumb_index_xy_median": 0.21952426433563232
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 24
+        }
+      },
+      {
+        "video_file": "42327270691916885-YES.mp4",
+        "participant_id": "P39",
+        "gloss": "YES",
+        "split": "val",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 4133,
+        "articulation": {
+          "frames": 118,
+          "dominant_slot": 1,
+          "usable_frames": 41,
+          "usable_fraction": 0.3474576271186441,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.2566413879394531,
+            "thumb_index_xy_range": 0.4721168130636215,
+            "thumb_index_xyz_median": 0.28688904643058777,
+            "thumb_index_xyz_range": 0.4728003889322281,
+            "thumb_middle_xy_median": 0.3618083596229553,
+            "thumb_middle_xy_range": 0.4732099175453186,
+            "thumb_middle_xyz_median": 0.3703543543815613,
+            "thumb_middle_xyz_range": 0.5091356784105301,
+            "index_tip_wrist_median": 1.0638554096221924,
+            "middle_tip_wrist_median": 0.8079035878181458,
+            "index_pip_angle_median_deg": 140.62890625,
+            "index_pip_angle_range_deg": 48.75768280029297,
+            "middle_pip_angle_median_deg": 141.9183807373047,
+            "middle_pip_angle_range_deg": 55.247772216796875,
+            "palm_axis_xy_excursion_deg": 94.34355735778809,
+            "palm_axis_xyz_excursion_deg": 81.53629779815674,
+            "wrist_body_xy_excursion": 0.5018139508932302
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.26514580845832825
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 26,
+              "thumb_index_xy_median": 0.2476060837507248
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 40
+        }
+      },
+      {
+        "video_file": "26056519285644875-YES.mp4",
+        "participant_id": "P39",
+        "gloss": "YES",
+        "split": "val",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 5968,
+        "articulation": {
+          "frames": 107,
+          "dominant_slot": 1,
+          "usable_frames": 38,
+          "usable_fraction": 0.35514018691588783,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.19553978741168976,
+            "thumb_index_xy_range": 0.2991695359349251,
+            "thumb_index_xyz_median": 0.2135034203529358,
+            "thumb_index_xyz_range": 0.3484561413526538,
+            "thumb_middle_xy_median": 0.1403149515390396,
+            "thumb_middle_xy_range": 0.7205525547266007,
+            "thumb_middle_xyz_median": 0.18433846533298492,
+            "thumb_middle_xyz_range": 0.6721749350428583,
+            "index_tip_wrist_median": 0.9237124919891357,
+            "middle_tip_wrist_median": 0.6982021331787109,
+            "index_pip_angle_median_deg": 138.1119384765625,
+            "index_pip_angle_range_deg": 84.17618141174317,
+            "middle_pip_angle_median_deg": 142.19110107421875,
+            "middle_pip_angle_range_deg": 89.52368774414063,
+            "palm_axis_xy_excursion_deg": 18.551873016357447,
+            "palm_axis_xyz_excursion_deg": 13.488443231582643,
+            "wrist_body_xy_excursion": 0.4170405670260076
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 18,
+              "thumb_index_xy_median": 0.21542778611183167
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 20,
+              "thumb_index_xy_median": 0.18689681589603424
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 37
+        }
+      },
+      {
+        "video_file": "8323715285073319-NO.mp4",
+        "participant_id": "P21",
+        "gloss": "NO",
+        "split": "val",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 6050,
+        "articulation": {
+          "frames": 59,
+          "dominant_slot": 0,
+          "usable_frames": 41,
+          "usable_fraction": 0.6949152542372882,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.4415213465690613,
+            "thumb_index_xy_range": 1.1045392155647278,
+            "thumb_index_xyz_median": 0.4895642399787903,
+            "thumb_index_xyz_range": 1.055417776107788,
+            "thumb_middle_xy_median": 0.32641884684562683,
+            "thumb_middle_xy_range": 1.3941558599472046,
+            "thumb_middle_xyz_median": 0.36063843965530396,
+            "thumb_middle_xyz_range": 1.3714604824781418,
+            "index_tip_wrist_median": 1.5418429374694824,
+            "middle_tip_wrist_median": 1.385410189628601,
+            "index_pip_angle_median_deg": 155.90634155273438,
+            "index_pip_angle_range_deg": 36.15986633300781,
+            "middle_pip_angle_median_deg": 152.9405975341797,
+            "middle_pip_angle_range_deg": 58.91778564453125,
+            "palm_axis_xy_excursion_deg": 10.219886779785156,
+            "palm_axis_xyz_excursion_deg": 9.589656829833984,
+            "wrist_body_xy_excursion": 0.1450745962902173
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 14,
+              "thumb_index_xy_median": 0.7813183069229126
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 15,
+              "thumb_index_xy_median": 0.39379578828811646
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.4149123430252075
+            }
+          ],
+          "orientation_contiguous_pairs": 40
+        }
+      },
+      {
+        "video_file": "9715589334909431-YES.mp4",
+        "participant_id": "P21",
+        "gloss": "YES",
+        "split": "val",
+        "class_id": 4,
+        "parent_class_id": 2717,
+        "parent_index": 6926,
+        "articulation": {
+          "frames": 47,
+          "dominant_slot": 0,
+          "usable_frames": 25,
+          "usable_fraction": 0.5319148936170213,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.16326601803302765,
+            "thumb_index_xy_range": 0.28846644759178164,
+            "thumb_index_xyz_median": 0.17346376180648804,
+            "thumb_index_xyz_range": 0.2751782894134522,
+            "thumb_middle_xy_median": 0.1540077030658722,
+            "thumb_middle_xy_range": 0.2568865835666657,
+            "thumb_middle_xyz_median": 0.2697450518608093,
+            "thumb_middle_xyz_range": 0.20208627879619606,
+            "index_tip_wrist_median": 1.0307282209396362,
+            "middle_tip_wrist_median": 0.7120668292045593,
+            "index_pip_angle_median_deg": 119.35221099853516,
+            "index_pip_angle_range_deg": 73.47780151367189,
+            "middle_pip_angle_median_deg": 133.59361267089844,
+            "middle_pip_angle_range_deg": 78.31898803710939,
+            "palm_axis_xy_excursion_deg": 4.989579772949213,
+            "palm_axis_xyz_excursion_deg": 10.279285144805907,
+            "wrist_body_xy_excursion": 0.1724620859015
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 5,
+              "thumb_index_xy_median": 0.40472525358200073
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.14751701056957245
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 8,
+              "thumb_index_xy_median": 0.15598277747631073
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 24
+        }
+      },
+      {
+        "video_file": "4656606080155459-NO.mp4",
+        "participant_id": "P39",
+        "gloss": "NO",
+        "split": "val",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 9988,
+        "articulation": {
+          "frames": 124,
+          "dominant_slot": 1,
+          "usable_frames": 39,
+          "usable_fraction": 0.31451612903225806,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.3002954423427582,
+            "thumb_index_xy_range": 0.8724572569131857,
+            "thumb_index_xyz_median": 0.32727721333503723,
+            "thumb_index_xyz_range": 0.8614326477050787,
+            "thumb_middle_xy_median": 0.21120181679725647,
+            "thumb_middle_xy_range": 0.7982040435075761,
+            "thumb_middle_xyz_median": 0.21181559562683105,
+            "thumb_middle_xyz_range": 0.7949012875556947,
+            "index_tip_wrist_median": 1.4621652364730835,
+            "middle_tip_wrist_median": 1.3138009309768677,
+            "index_pip_angle_median_deg": 137.67822265625,
+            "index_pip_angle_range_deg": 66.01967163085938,
+            "middle_pip_angle_median_deg": 103.13953399658203,
+            "middle_pip_angle_range_deg": 76.86751251220704,
+            "palm_axis_xy_excursion_deg": 6.940483093261719,
+            "palm_axis_xyz_excursion_deg": 9.616083908081059,
+            "wrist_body_xy_excursion": 0.2676636006625844
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 20,
+              "thumb_index_xy_median": 0.6315984725952148
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.24502816796302795
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 38
+        }
+      },
+      {
+        "video_file": "8079226457278508-NO.mp4",
+        "participant_id": "P26",
+        "gloss": "NO",
+        "split": "val",
+        "class_id": 1,
+        "parent_class_id": 1583,
+        "parent_index": 10241,
+        "articulation": {
+          "frames": 68,
+          "dominant_slot": 1,
+          "usable_frames": 30,
+          "usable_fraction": 0.4411764705882353,
+          "single_hand_slot_changes": 1,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.4934324026107788,
+            "thumb_index_xy_range": 1.2899764090776447,
+            "thumb_index_xyz_median": 0.49516135454177856,
+            "thumb_index_xyz_range": 1.2862162381410602,
+            "thumb_middle_xy_median": 0.5473148822784424,
+            "thumb_middle_xy_range": 1.6335652559995655,
+            "thumb_middle_xyz_median": 0.5520976781845093,
+            "thumb_middle_xyz_range": 1.6329535603523258,
+            "index_tip_wrist_median": 1.8293497562408447,
+            "middle_tip_wrist_median": 1.824465274810791,
+            "index_pip_angle_median_deg": 173.5643310546875,
+            "index_pip_angle_range_deg": 6.564308166503906,
+            "middle_pip_angle_median_deg": 161.32437133789062,
+            "middle_pip_angle_range_deg": 23.01831359863283,
+            "palm_axis_xy_excursion_deg": 10.129512786865234,
+            "palm_axis_xyz_excursion_deg": 15.262391519546508,
+            "wrist_body_xy_excursion": 0.26062020295117144
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 9,
+              "thumb_index_xy_median": 1.2291406393051147
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 17,
+              "thumb_index_xy_median": 0.43984466791152954
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 4,
+              "thumb_index_xy_median": 0.8180159330368042
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 29
+        }
+      }
+    ]
+  },
+  "seconds": 0.07447600000023158,
+  "model_sha256": "ad526ed6229d85d394c432a512b43ac073a89361acbbbd5103ac08c971dc9494",
+  "standardized_coefficients": [
+    {
+      "feature": "thumb_index_xy_median",
+      "coefficient_toward_yes": 0.1297182578131155
+    },
+    {
+      "feature": "thumb_index_xy_range",
+      "coefficient_toward_yes": -0.6408559849475275
+    },
+    {
+      "feature": "thumb_index_xyz_median",
+      "coefficient_toward_yes": 0.15936552601935305
+    },
+    {
+      "feature": "thumb_index_xyz_range",
+      "coefficient_toward_yes": -0.6553778571693808
+    },
+    {
+      "feature": "thumb_middle_xy_median",
+      "coefficient_toward_yes": 0.4950881261489416
+    },
+    {
+      "feature": "thumb_middle_xy_range",
+      "coefficient_toward_yes": -0.576837094159442
+    },
+    {
+      "feature": "thumb_middle_xyz_median",
+      "coefficient_toward_yes": 0.4898203868630541
+    },
+    {
+      "feature": "thumb_middle_xyz_range",
+      "coefficient_toward_yes": -0.5735811224820293
+    },
+    {
+      "feature": "index_tip_wrist_median",
+      "coefficient_toward_yes": -0.4031445989224874
+    },
+    {
+      "feature": "middle_tip_wrist_median",
+      "coefficient_toward_yes": -0.4823417438793775
+    },
+    {
+      "feature": "index_pip_angle_median_deg",
+      "coefficient_toward_yes": -0.5314753562147511
+    },
+    {
+      "feature": "index_pip_angle_range_deg",
+      "coefficient_toward_yes": -0.006062439441812277
+    },
+    {
+      "feature": "middle_pip_angle_median_deg",
+      "coefficient_toward_yes": -0.5150880265797335
+    },
+    {
+      "feature": "middle_pip_angle_range_deg",
+      "coefficient_toward_yes": 0.24469947461285527
+    },
+    {
+      "feature": "palm_axis_xy_excursion_deg",
+      "coefficient_toward_yes": 0.3163664463312428
+    },
+    {
+      "feature": "palm_axis_xyz_excursion_deg",
+      "coefficient_toward_yes": 0.28113092542438134
+    },
+    {
+      "feature": "wrist_body_xy_excursion",
+      "coefficient_toward_yes": 0.30277878512408635
+    }
+  ],
+  "retrospective_live": {
+    "metrics": {
+      "samples": 4,
+      "correct": 4,
+      "top1": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "confusion": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "labels": [
+        "NO",
+        "YES"
+      ],
+      "per_class": {
+        "NO": {
+          "support": 2,
+          "correct": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YES": {
+          "support": 2,
+          "correct": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "predictions": [
+      {
+        "video_file": null,
+        "participant_id": null,
+        "capture_id": 1,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.04528729568072422,
+        "correct": true
+      },
+      {
+        "video_file": null,
+        "participant_id": null,
+        "capture_id": 2,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.993290578802376,
+        "correct": true
+      },
+      {
+        "video_file": null,
+        "participant_id": null,
+        "capture_id": 4,
+        "expected": "NO",
+        "predicted": "NO",
+        "yes_score": 0.024403010798959686,
+        "correct": true
+      },
+      {
+        "video_file": null,
+        "participant_id": null,
+        "capture_id": 5,
+        "expected": "YES",
+        "predicted": "YES",
+        "yes_score": 0.9963229605222916,
+        "correct": true
+      }
+    ],
+    "source_sha256": "0f387411477bc9bade18cc09d40861324eb6a25e6c146997554c4db2cf91e6ce",
+    "used_for_fitting_or_parameter_selection": false,
+    "limits": "Previously inspected four scalar summaries; design-informed, not fresh live validation; only NO/YES inputs."
+  },
+  "main_weights_unchanged": true,
+  "train_val_cache_unchanged": true
+}

@@ -104,3 +104,37 @@ class NotebookTests(unittest.TestCase):
                 self.assertEqual(Path(run.call_args.args[0][2]),root/'scripts/build_project_notebooks.py')
                 self.assertTrue(run.call_args.kwargs['check'])
             self.assertEqual(hashlib.sha256((output/'best.pt').read_bytes()).hexdigest(),digest)
+
+    def test_current_pilot_architecture_and_results_render_as_read_only_cells(self):
+        labels=['HELLO','NO','PLEASE','THANKYOU','YES','ME','YOU','WE','MY','YOUR','OUR','HELP','GOOD','NEED','LOVE']
+        metrics={'correct':15,'samples':15,'top1':1.,'macro_f1':1.,'loss':.2,'top5':1.,
+                 'confusion':[[int(i==j) for j in range(15)] for i in range(15)],
+                 'per_class':{g:{'support':1,'correct':1,'recall':1.} for g in labels}}
+        run={'selection':{'selected_epoch':1},'epochs_completed':1,'parameters':792078,
+             'train':metrics,'validation':metrics,
+             'epoch_metrics':[{'epoch':1,'train_clean':metrics,'val':metrics}]}
+        report={'status':'complete','control':copy.deepcopy(run),'temporal':copy.deepcopy(run),
+                'specification':{'classes':labels,'counts':{s:{g:1 for g in labels} for s in ('train','val')},
+                                 'participants':{'train':['fixture train'],'val':['fixture val']}},
+                'paired_validation_changes':{'improved':0,'regressed':0}}
+        config={'model':{'hidden_size':256,'layers':2,'classes':15},'geometry_features':[f'fixture feature {i}' for i in range(17)],
+                'temporal_augmentation':{'fixture':True}}
+        snapshot={'generated_utc':'SYNTHETIC CURRENT-PILOT TEST','models':{},'stgcn_complete':False,
+                  'fifteen_sign_temporal':{'report':report,'configs':{'control':config,'temporal':config},'runtime_verification':None}}
+        notebook=self.builder.Notebook('current-pilot-fixture')
+        notebook.code(self.builder.SETUP)
+        self.builder.append_current_pilot(notebook,snapshot)
+        forbidden={'run','Popen','train','evaluate','VideoCapture','write_text','save','savez'}
+        for cell in notebook.cells:
+            if cell['cell_type']=='code':
+                for node in ast.walk(ast.parse(''.join(cell['source']))):
+                    if isinstance(node,ast.Call):
+                        name=node.func.attr if isinstance(node.func,ast.Attribute) else getattr(node.func,'id','')
+                        self.assertNotIn(name,forbidden)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'artifacts').mkdir()
+            (root/'artifacts/experiment_snapshot.json').write_text(json.dumps(snapshot))
+            result=notebook.execute(root,root/'figures')
+            images=sum(o['output_type']=='display_data' for c in result['cells'] for o in c.get('outputs',[]))
+            self.assertEqual(images,4)
+            self.assertTrue(all(c['execution_count'] for c in result['cells'] if c['cell_type']=='code'))

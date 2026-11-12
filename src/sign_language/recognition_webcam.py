@@ -30,7 +30,10 @@ class SkeletonPreview:
 def model_display_name(recognizer):
     """Describe the actual loaded class, rather than a default or filename."""
     name = type(getattr(recognizer, 'model', None)).__name__
-    return {'SignSTGCN': 'ST-GCN', 'SignGRU': 'GRU', 'SignMeanPoolGRU': 'GRU mean-pool'}.get(name, 'Unknown model')
+    return {'SignSTGCN': 'ST-GCN', 'SignGRU': 'GRU', 'SignMeanPoolGRU': 'GRU mean-pool',
+            'SignGeometryMeanPoolGRU': 'GRU mean-pool + geometry',
+            'SignTrajectoryMeanPoolGRU': 'GRU mean-pool + hand/path geometry',
+            'SignTrajectoryReadoutGRU': 'Frozen GRU + trajectory readout'}.get(name, 'Unknown model')
 
 
 def state_headline(state, now, deadline, capture_started, model_name, auto_finish=False, max_seconds=8.):

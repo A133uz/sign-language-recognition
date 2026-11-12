@@ -133,6 +133,29 @@ def gather_snapshot():
                  'scripts/build_project_notebooks.py'):
         provenance[path] = sha(ROOT/path)
     snapshot['source_sha256'] = provenance
+    latest = read('docs/assets/fifteen-sign-temporal-2026-11-12.json')
+    if latest is not None:
+        if latest.get('status') != 'complete':
+            raise ValueError('Current pilot notebook requires completed paired results')
+        snapshot['fifteen_sign_temporal'] = {
+            'report': latest,
+            'configs': {name: read(f'models/asl-gru-fifteen-signs-temporal-v1/{name}/config.json')
+                        for name in ('control','temporal')},
+            'runtime_verification': read('.cache/fifteen-sign-runtime-20261112.json'),
+        }
+    readout = read('docs/assets/please-trajectory-readout-study-2026-11-12.json')
+    if readout is not None:
+        runtime = read('docs/assets/please-trajectory-runtime-2026-11-12.json')
+        if readout.get('status') != 'complete' or not readout.get('selected'):
+            raise ValueError('Trajectory report requires a completed, qualified readout study')
+        if not runtime or runtime.get('status') != 'complete' or not runtime.get('fresh_acceptance_met'):
+            raise ValueError('Trajectory report requires completed fresh-video application checks')
+        snapshot['trajectory_readout'] = {
+            'study': readout, 'runtime': runtime,
+            'config': read(str(Path(readout['selected']['checkpoint']).with_name('config.json'))),
+            'ablation': read('docs/assets/please-trajectory-readout-ablation-2026-11-12.json'),
+            'joint_attempt': read('docs/assets/please-trajectory-fix-2026-11-12.json'),
+        }
     snapshot['stgcn_complete'] = bool(models.get('stgcn',{}).get('status') == 'completed' and
                                      (models.get('stgcn',{}).get('test') or {}).get('status') == 'complete')
     return snapshot
@@ -286,6 +309,8 @@ def make_workflow(snapshot):
     [investigation log](../docs/recognition-investigation-2026-11-10.md) and
     [project summary](../sign_language_project_summary.md).''')
     n.code(SETUP)
+    if snapshot.get('fifteen_sign_temporal'):
+        append_current_pilot(n, snapshot, include_results=False)
     n.markdown('''## 1. Scope and implementation history
 
     - Goal: one isolated ASL sign from a webcam clip → its text/gloss. Continuous
@@ -526,6 +551,262 @@ def make_workflow(snapshot):
     return n
 
 
+def append_trajectory_readout(n, snapshot, include_results=True):
+    """Latest targeted development result, including the unsuccessful controls."""
+    current=snapshot['trajectory_readout']
+    selected=current['study']['selected']
+    n.markdown('''## Latest development model: frozen GRU + wrist-path readout
+
+    The four known validation PLEASE clips now rank PLEASE first, while MY stays
+    4/4. **These cases informed feature design and validation tuning. They are
+    development results, not independent evidence of webcam/generalization
+    accuracy.** The 219/60 official train/validation subset and all 15 labels
+    are preserved. No new official test data was read or webcam opened.
+
+    Keep the temporal baseline's epoch-13 recurrent weights fixed. Add six
+    label-independent wrist-path descriptors to the original 17 summaries:
+    loop strength, turn coherence, absolute turning, axis ratio, endpoint/path
+    ratio and path length. Windows of 12/24/36 cached steps never bridge absent
+    tracking. Only the readout is refitted on original training examples, using
+    L2-regularized multinomial cross-entropy (C=0.1, lbfgs). No further GRU epochs
+    run for this candidate. Epoch 13 identifies the inherited backbone.
+
+    New input to the head: 256 pooled + 23 standardized summaries = 279 values.
+    Linear(279,15) has 4,200 parameters; total neural parameters are 792,168.
+    Training-only medians/means/scales are frozen. Runtime is Torch, including
+    a float32 head; sklearn is only the fitting tool. MediaPipe stays frozen.
+    Source videos/caches and previous models/defaults are unchanged.''')
+    n.code(r'''
+    TR = S['trajectory_readout']
+    TS = TR['study']['selected']
+    print('Checkpoint:', TS['checkpoint'])
+    print('SHA-256:', TS['checkpoint_sha256'])
+    print('C:', TS['C'], '| frozen backbone epoch:', TR['config']['backbone_epoch'])
+    print('Application verification: all 60 cached score vectors match; max difference:',
+          TR['runtime']['cached_max_score_difference'])
+    print('Fresh original-video PLEASE/MY:', TR['runtime']['fresh_per_class'])
+    print('Features:', ', '.join(TR['config']['geometry_features']))
+    from matplotlib.patches import FancyBboxPatch
+    fig, ax = plt.subplots(figsize=(12,8))
+    ax.set(xlim=(0,12),ylim=(0,10)); ax.axis('off')
+    def tr_box(x,y,w,h,text,color):
+        ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.06',facecolor=color,edgecolor='#475569'))
+        ax.text(x+w/2,y+h/2,text,ha='center',va='center',fontsize=10)
+    tr_box(3.3,8.8,5.4,.8,'Frozen MediaPipe Hands + Pose\nSame normalized [B,T<=128,254]', '#e2e8f0')
+    tr_box(.3,6.6,5.2,1.1,'FROZEN GRU, 2 layers x 256\nInherited temporal-model epoch 13', '#dbeafe')
+    tr_box(6.5,6.6,5.2,1.1,'FIXED 17 hand/body + 6 path features\nNo label, filename or prompt input', '#ccfbf1')
+    tr_box(.3,4.8,5.2,.9,'Masked mean -> [B,256]\nNo padded frames in pooling', '#dbeafe')
+    tr_box(6.5,4.8,5.2,.9,'Training-only imputation + z-score\nFrozen statistics -> [B,23]', '#ccfbf1')
+    tr_box(3.3,3.3,5.4,.8,'Concatenate -> [B,279]', '#fef3c7')
+    tr_box(3.3,2.0,5.4,.8,'REFITTED float32 Linear(279,15)', '#fef3c7')
+    tr_box(3.3,.4,5.4,1.1,'15 logits -> gloss\nClosed-set isolated sign; webcam not validated', '#ede9fe')
+    for start,end in [((6,8.8),(2.9,7.7)),((6,8.8),(9.1,7.7)),
+                      ((2.9,6.6),(2.9,5.7)),((9.1,6.6),(9.1,5.7)),
+                      ((2.9,4.8),(6,4.1)),((9.1,4.8),(6,4.1)),
+                      ((6,3.3),(6,2.8)),((6,2.0),(6,1.5))]:
+        ax.annotate('',xy=end,xytext=start,arrowprops={'arrowstyle':'->','color':'#475569','lw':1.5})
+    finish('Latest development architecture: frozen backbone, refitted trajectory-aware head')
+    ''')
+    rows=[(r['participant_id'],r['video_file'],r['top5'][0]['label'],f"{r['top5'][0]['score']:.2%}")
+          for r in current['runtime']['fresh_videos'] if r['expected']=='PLEASE']
+    n.markdown('### Fresh original-video application results\n\n'+
+               md_table(['Participant','Known PLEASE video','First guess','Uncalibrated score'],rows)+
+               '\n\nMY also remains 4/4. Fresh extraction checks application consistency on the same known recordings; it is not a new-signers test.')
+    if include_results:
+        n.code(r'''
+        print('Development grid; declared after the initial C=1 failure:')
+        for item in TR['study']['candidates']:
+            v=item['validation']
+            print(f'C={item["C"]:g}: {v["correct"]}/60; PLEASE {v["per_class"]["PLEASE"]["correct"]}/4; '
+                  f'MY {v["per_class"]["MY"]["correct"]}/4; CE={v["loss"]:.4f}; accepted={item["acceptance_met"]}')
+        print('Selection: lowest validation CE among candidates satisfying PLEASE 4/4, MY 4/4, overall >=50/60.')
+        print('Selected:', TS['validation']['correct'], '/60; macro F1:', TS['validation']['macro_f1'])
+        print('Matched fixed-C readout ablation:')
+        for dimensions,result in TR['ablation']['results'].items():
+            print(dimensions,'descriptors:',result['correct'],'/60;',
+                  {g:result['per_class'][g] for g in ('PLEASE','MY')})
+        labels_tr=TR['runtime']['labels']; positions_tr=np.arange(len(labels_tr))
+        fig,ax=plt.subplots(figsize=(14,5))
+        for offset,key,color in [(-.19,'before','#64748b'),(.19,'after','#0f766e')]:
+            changes=TR['runtime']['class_changes']
+            bars=ax.bar(positions_tr+offset,[100*changes[g][key]/changes[g]['support'] for g in labels_tr],
+                        .36,label=key,color=color)
+            for bar,g in zip(bars,labels_tr):
+                ax.text(bar.get_x()+bar.get_width()/2,bar.get_height()+1,
+                        f'{changes[g][key]}/{changes[g]["support"]}',ha='center',fontsize=7)
+        ax.set(xticks=positions_tr,xticklabels=labels_tr,ylim=(0,120),ylabel='Development validation recall (%)')
+        ax.tick_params(axis='x',rotation=35,labelsize=9);ax.legend(ncols=2,fontsize=8)
+        finish('Original temporal head vs selected trajectory readout: retain the GOOD regression')
+        ''')
+    n.markdown('''PLEASE improves 0/4 -> 4/4; ME improves 3/5 -> 4/5; GOOD regresses
+    4/4 -> 3/4. Overall is 54/60 (90%), macro F1 0.885185, CE 0.386118.
+    THANKYOU remains 1/3; failures are not hidden. The failed joint-training and
+    scalar controls remain recorded, and no successful joint epoch met the
+    acceptance criteria. Validation tuning and very small per-class support
+    limit conclusions. A controlled webcam check and later frozen test evaluation
+    are still needed. The application default was not changed.
+
+    [Full protocol, attempts and checks](../docs/please-trajectory-fix-2026-11-12.md).
+    Earlier 17-feature pilot training and full-vocabulary history follow.''')
+
+
+def append_current_pilot(n, snapshot, include_results=True):
+    """Current architecture and frozen development results; keep history intact."""
+    pilot = snapshot['fifteen_sign_temporal']
+    result = pilot['report']
+    if snapshot.get('trajectory_readout'):
+        append_trajectory_readout(n,snapshot,include_results)
+    n.markdown('''## 15-class baseline: pooled GRU + hand geometry
+
+    **This is the baseline for the subsequent trajectory-aware readout.**
+    MediaPipe Hands/Pose are frozen detectors. The sequence model
+    and linear classifier are trained jointly; the geometry calculations are
+    fixed measurements, not a second neural network. RSL remains planned.
+
+    **Training:** original cached normalized frames → training-only temporal
+    sampling (candidate only) → spatial perturbation → two parallel branches:
+    packed GRU/mean pooling and recalculated clip geometry → linear head →
+    cross-entropy → backward propagation/AdamW. Geometry measurement uses CPU
+    NumPy without differentiation; gradients update the GRU and head on CUDA.
+
+    **Webcam:** OpenCV frames → one MediaPipe Hands/Pose pass → the same
+    normalization/masks/cache precision → clean parallel branches → 15 logits
+    → label-to-text. No augmentation or training occurs at inference. Softmax
+    scores are uncalibrated; idle/unknown/continuous-sign rejection is not solved.
+
+    Cached per-frame coordinates exist before augmentation. The **17 final
+    clip summaries are recalculated afterward**, so both branches describe the
+    same actual sequence. Frozen imputation/standardization is fitted only on
+    original training clips. Padding is excluded by real lengths, while real
+    frames with absent hands remain part of the sequence.''')
+    n.code(r'''
+    P15 = S['fifteen_sign_temporal']
+    R15 = P15['report']
+    C15 = P15['configs']['temporal']
+    print('Classes:', ', '.join(R15['specification']['classes']))
+    print('Train / validation clips:', *[sum(R15['specification']['counts'][s].values()) for s in ('train','val')])
+    print('Train / validation signers:', *[len(R15['specification']['participants'][s]) for s in ('train','val')])
+    print('Model:', C15['model'])
+    print('Parameters:', R15['temporal']['parameters'])
+    print('Input: [batch, <=128, 254]; head: [batch, 273] -> [batch, 15]')
+    print('Temporal augmentation:', C15['temporal_augmentation'])
+    print('Geometry features (fixed order):')
+    for i, name in enumerate(C15['geometry_features'], 1):
+        print(f'  {i:2d}. {name}')
+    print('Runtime verification:', P15.get('runtime_verification'))
+    ''')
+    n.code(r'''
+    from matplotlib.patches import FancyBboxPatch
+    fig, ax = plt.subplots(figsize=(12,9))
+    ax.set(xlim=(0,12), ylim=(0,10)); ax.axis('off')
+    def box15(x,y,w,h,text,color):
+        ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.06',
+                     facecolor=color,edgecolor='#475569',linewidth=1.2))
+        ax.text(x+w/2,y+h/2,text,ha='center',va='center',fontsize=10)
+    def arrow15(start,end):
+        ax.annotate('',xy=end,xytext=start,arrowprops={'arrowstyle':'->','color':'#475569','lw':1.6})
+    box15(3.3,8.8,5.4,.8,'Normalized Hands + Pose sequence\n[B, T<=128, 254]', '#e2e8f0')
+    box15(.3,6.6,5.2,1.1,'Packed GRU: 2 layers, 256 units\nReal lengths exclude padding', '#dbeafe')
+    box15(6.5,6.6,5.2,1.1,'17 clip geometry measurements\nDistances, angles, motion ranges', '#ccfbf1')
+    box15(.3,4.8,5.2,.9,'Masked temporal mean -> [B,256]\nDropout 0.5 during training', '#dbeafe')
+    box15(6.5,4.8,5.2,.9,'Train-median imputation + z-score\nFrozen statistics -> [B,17]', '#ccfbf1')
+    box15(3.3,3.3,5.4,.8,'Concatenate -> [B,273]', '#fef3c7')
+    box15(3.3,2.0,5.4,.8,'Trainable Linear(273,15) -> logits', '#fef3c7')
+    box15(3.3,.5,5.4,1.,'Train: CrossEntropyLoss\nInference: label ID -> displayed gloss', '#ede9fe')
+    for start,end in [((6,8.8),(2.9,7.7)),((6,8.8),(9.1,7.7)),
+                      ((2.9,6.6),(2.9,5.7)),((9.1,6.6),(9.1,5.7)),
+                      ((2.9,4.8),(6,4.1)),((9.1,4.8),(6,4.1)),
+                      ((6,3.3),(6,2.8)),((6,2.0),(6,1.5))]:
+        arrow15(start,end)
+    finish('Current architecture: pooled GRU + explicit geometry, 15 classes')
+    ''')
+    n.markdown('''The same model is used for the matched 15-class control. Its
+    training loader omits temporal augmentation but retains the existing spatial
+    perturbations. Temporal sampling uses ordered original frames, modest speed
+    variation, and optional changes to existing hand-absent edge spans. These
+    spans are tracking proxies, not ground-truth sign boundaries. No synthetic
+    poses, fractional masks, reversal or frame-order shuffling are introduced.
+    Geometry is fixed feature engineering; it summarizes motion as well as shape.
+
+    Architecture tensors: 254 input channels → two 256-unit recurrent layers →
+    a 256-value mean representation; concatenate 17 summaries → 273 inputs to
+    15 outputs. The head has 4,110 parameters, included in the total 792,078.
+    MediaPipe detector weights are separate and are not counted as trainable.
+    Sources: [protocol/results](../docs/fifteen-sign-temporal-2026-11-12.md),
+    `src/sign_language/gru_geometry_model.py`, `temporal_augmentation.py` and
+    `scripts/run_fifteen_sign_temporal_trial.py`.''')
+    if not include_results:
+        n.markdown('Historical workflow/investigation records follow. Current paired learning curves and per-class results are in notebook 02.')
+        return
+    n.code(r'''
+    for key in ('control','temporal'):
+        run=R15[key]; v=run['validation']; t=run['train']
+        print(f'{key}: epoch {run["selection"]["selected_epoch"]}; train {t["correct"]}/{t["samples"]}; '
+              f'val {v["correct"]}/{v["samples"]}; macro F1 {v["macro_f1"]:.4f}; '
+              f'CE {v["loss"]:.4f}; top5 {v["top5"]:.2%}')
+    print('Paired validation changes:', R15['paired_validation_changes'])
+    fig,axs=plt.subplots(1,2,figsize=(13,4.5))
+    for key,color in [('control','#2563eb'),('temporal','#b45309')]:
+        run=R15[key]; rows=run['epoch_metrics']; epochs=[r['epoch'] for r in rows]
+        for split,style in [('train_clean','--'),('val','-')]:
+            axs[0].plot(epochs,[r[split]['top1']*100 for r in rows],style,color=color,label=key+' '+split)
+        axs[0].axvline(run['selection']['selected_epoch'],color=color,alpha=.3)
+        axs[1].plot(epochs,[r['val']['loss'] for r in rows],color=color,label=key)
+    axs[0].set(xlabel='Epoch',ylabel='Top-1 (%)',ylim=(0,105)); axs[0].legend(fontsize=8)
+    axs[1].set(xlabel='Epoch',ylabel='Validation cross-entropy'); axs[1].legend(fontsize=8)
+    finish('15-class matched training: selected epochs, not the last epochs')
+    ''')
+    n.code(r'''
+    labels15=R15['specification']['classes']; positions15=np.arange(len(labels15))
+    fig,ax=plt.subplots(figsize=(14,5))
+    for offset,key,color in [(-.19,'control','#2563eb'),(.19,'temporal','#b45309')]:
+        metrics15=R15[key]['validation']
+        bars15=ax.bar(positions15+offset,[metrics15['per_class'][g]['recall']*100 for g in labels15],.36,label=key,color=color)
+        for bar,g in zip(bars15,labels15):
+            item15=metrics15['per_class'][g]
+            ax.text(bar.get_x()+bar.get_width()/2,bar.get_height()+1,f'{item15["correct"]}/{item15["support"]}',ha='center',fontsize=7)
+    ax.set(xticks=positions15,xticklabels=labels15,ylim=(0,119),ylabel='Validation recall (%)')
+    ax.tick_params(axis='x',rotation=35,labelsize=9); ax.legend(loc='upper left',ncols=2,fontsize=8)
+    finish('15-class validation: small per-class denominators and regressions remain visible')
+    ''')
+    n.code(r'''
+    fig,axs=plt.subplots(1,2,figsize=(16,8))
+    for ax,key in zip(axs,('control','temporal')):
+        cm15=np.asarray(R15[key]['validation']['confusion'])
+        ax.imshow(cm15/cm15.sum(1,keepdims=True),vmin=0,vmax=1,cmap='Blues')
+        for (i,j),value in np.ndenumerate(cm15):
+            if value:
+                ax.text(j,i,str(value),ha='center',va='center',fontsize=8,color='white' if value/cm15[i].sum()>.6 else 'black')
+        ax.set(xticks=positions15,yticks=positions15,xticklabels=labels15,yticklabels=labels15,
+               xlabel='Predicted',ylabel='True label',title=key)
+        ax.tick_params(labelsize=8); plt.setp(ax.get_xticklabels(),rotation=65,ha='right')
+    finish('15-class confusion counts; blank cells are zero')
+    ''')
+    control, temporal = result['control'], result['temporal']
+    n.markdown(f'''### What these results establish
+
+    The fixed temporal candidate selected epoch {temporal['selection']['selected_epoch']}
+    after {temporal['epochs_completed']} epochs; the matched control selected epoch
+    {control['selection']['selected_epoch']} after {control['epochs_completed']}.
+    Validation is **{temporal['validation']['correct']}/{temporal['validation']['samples']}**
+    versus **{control['validation']['correct']}/{control['validation']['samples']}**.
+    This is one more correct clip, not convincing evidence of general improvement.
+    Four old validation errors were corrected and three previously correct clips
+    regressed. YOU improves, but YES and THANKYOU regress; PLEASE is **0/4** for
+    both models, all predicted MY. ME remains 3/5. Keep these errors visible.
+
+    No new official test or 15-class webcam evaluation has occurred. Historical
+    five-class live results are a different task and cannot validate this model.
+    One seed and 3-5 validation examples per class limit conclusions. The old
+    five-class models/defaults remain preserved. Checkpoint selection uses the
+    recorded competitive-validation/small-gap rule, not simply the last epoch
+    or lowest loss. No graph in this notebook trains or changes a model.
+
+    **Historical full-vocabulary experiments follow**, with their own selection
+    policies, class counts and held-out evaluations; they are not direct
+    augmentation controls for this 15-label pilot.''')
+
+
 def make_metrics(snapshot):
     n=Notebook('02_model_training_and_evaluation')
     pending='' if snapshot['stgcn_complete'] else '**DRAFT: ST-GCN curves are partial; its test results are not available yet.**'
@@ -535,19 +816,24 @@ def make_metrics(snapshot):
 
     This read-only notebook loads a portable snapshot of real epoch/evaluation
     reports. It does not train or evaluate a model. Missing test results are
-    reported as unavailable, never as zeros. Checkpoints are selected by minimum
-    validation cross-entropy. ASL Citizen official splits are signer-disjoint.
+    reported as unavailable, never as zeros. Historical full-vocabulary models
+    use minimum validation cross-entropy; the current pilot's recorded
+    competitive-validation/small-gap rule is described separately below.
+    ASL Citizen official splits are signer-disjoint.
 
     Models differ in input representation and capacity; this is not a pure
     architecture-only ablation. Offline scores do not establish webcam accuracy.
     The existing held-out test has been seen during project development; no
     model settings are selected in this notebook from its scores.''')
     n.code(SETUP)
+    if snapshot.get('fifteen_sign_temporal'):
+        append_current_pilot(n, snapshot)
     if snapshot['stgcn_complete']:
         current=snapshot['models']['stgcn'];baseline=snapshot['models']['gru_regularized']
         test=current['test']['metrics'];old=baseline['test']['metrics']
         last=current['history'][-1];selected=current['selected']
-        n.markdown(f'''## Final result
+        heading='Historical full-vocabulary result' if snapshot.get('fifteen_sign_temporal') else 'Final result'
+        n.markdown(f'''## {heading}
 
         **ST-GCN training and frozen test evaluation completed successfully.**
         It trained for {len(current['history'])} epochs and selected epoch

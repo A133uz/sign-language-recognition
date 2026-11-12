@@ -1,0 +1,3372 @@
+{
+  "live": {
+    "status": "complete",
+    "session_id": "five-class-geometry-live-20261112-01",
+    "model": "SignMeanPoolGRU",
+    "epoch": 4,
+    "checkpoint_sha256": "3811868d39942b3962b75926c3bc5b3707c95fc13647bf0ea3a27ab94df4ab33",
+    "prompts": [
+      "HELLO",
+      "THANKYOU",
+      "PLEASE",
+      "YES",
+      "NO",
+      "HELLO",
+      "THANKYOU",
+      "PLEASE",
+      "YES",
+      "NO"
+    ],
+    "capture_seconds": 4.0,
+    "media_saved": false,
+    "coordinates_saved": false,
+    "embeddings_saved": false,
+    "production_model_trained": false,
+    "user_completion_confirmed": true,
+    "trials": [
+      {
+        "expected": "HELLO",
+        "captured_frames": 120,
+        "capture_seconds": 4.006,
+        "landmark_seconds": 4.955637899999601,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 106,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9461118578910828
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.046600840985774994
+              },
+              {
+                "label": "NO",
+                "score": 0.004113904200494289
+              },
+              {
+                "label": "YES",
+                "score": 0.002974731381982565
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0001986145507544279
+              }
+            ],
+            "expected_score": 0.9461118578910828,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9985737800598145
+              },
+              {
+                "label": "YES",
+                "score": 0.000607096531894058
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0005987798213027418
+              },
+              {
+                "label": "NO",
+                "score": 0.0002015970239881426
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.8714856196311302e-05
+              }
+            ],
+            "expected_score": 0.9985737800598145,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9983707070350647
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0007065116660669446
+              },
+              {
+                "label": "YES",
+                "score": 0.0005816575139760971
+              },
+              {
+                "label": "NO",
+                "score": 0.00032082991674542427
+              },
+              {
+                "label": "PLEASE",
+                "score": 2.0350362319732085e-05
+              }
+            ],
+            "expected_score": 0.9983707070350647,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.84589611594909
+              },
+              {
+                "label": "YES",
+                "score": 0.062064859693673965
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.053256921686411156
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.02302478667635279
+              },
+              {
+                "label": "NO",
+                "score": 0.015757315994472148
+              }
+            ],
+            "expected_score": 0.84589611594909,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 8.5078125,
+          "geometry_disabled_model": 8.04296875,
+          "actual_geometry_effect": 0.46484375,
+          "recurrent_component_fp32": 7.937509059906006,
+          "geometry_component_fp32": 0.4673413932323456,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.0006388574838638306
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.6114279627799988,
+            "standardized_value": -0.516336977481842,
+            "hello_minus_no_logit_contribution": -0.04479363560676575
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.3187526106834412,
+            "standardized_value": -0.6986874938011169,
+            "hello_minus_no_logit_contribution": 0.09412015229463577
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.6337891221046448,
+            "standardized_value": -0.521986186504364,
+            "hello_minus_no_logit_contribution": -0.04430248215794563
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.29498738050460827,
+            "standardized_value": -0.7481663227081299,
+            "hello_minus_no_logit_contribution": 0.09829816222190857
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.8625853061676025,
+            "standardized_value": -0.3027278184890747,
+            "hello_minus_no_logit_contribution": -0.028256693854928017
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.3573145985603332,
+            "standardized_value": -0.6231372952461243,
+            "hello_minus_no_logit_contribution": 0.09014137089252472
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.8710699081420898,
+            "standardized_value": -0.30344489216804504,
+            "hello_minus_no_logit_contribution": -0.02819634974002838
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.385470449924469,
+            "standardized_value": -0.5775131583213806,
+            "hello_minus_no_logit_contribution": 0.08316434919834137
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.8047839403152466,
+            "standardized_value": 0.013129453174769878,
+            "hello_minus_no_logit_contribution": 0.0007042255019769073
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.849831461906433,
+            "standardized_value": 0.17927221953868866,
+            "hello_minus_no_logit_contribution": 0.011686970479786396
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 167.62864685058594,
+            "standardized_value": 0.3434845805168152,
+            "hello_minus_no_logit_contribution": 0.0021470068022608757
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 11.35425109863283,
+            "standardized_value": -0.5949802994728088,
+            "hello_minus_no_logit_contribution": 0.051606498658657074
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 167.2328643798828,
+            "standardized_value": 0.38521257042884827,
+            "hello_minus_no_logit_contribution": 0.019889753311872482
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 13.393441772460932,
+            "standardized_value": -0.5574336647987366,
+            "hello_minus_no_logit_contribution": 0.04618775472044945
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 39.79667282104492,
+            "standardized_value": 0.8144896030426025,
+            "hello_minus_no_logit_contribution": 0.06728760898113251
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 19.2689790725708,
+            "standardized_value": 0.10605522245168686,
+            "hello_minus_no_logit_contribution": 0.004884796217083931
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.44015072939291333,
+            "standardized_value": 0.39727067947387695,
+            "hello_minus_no_logit_contribution": 0.042771898210048676
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.5666666666666667,
+            1.0,
+            1.0,
+            0.9666666666666667
+          ],
+          "final_frame_has_hand": true,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 10,
+          "hand_frame_fraction": 0.8833333333333333
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 105,
+          "usable_fraction": 0.875,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.6114279627799988,
+            "thumb_index_xy_range": 0.3187526106834412,
+            "thumb_index_xyz_median": 0.6337891221046448,
+            "thumb_index_xyz_range": 0.29498738050460827,
+            "thumb_middle_xy_median": 0.8625853061676025,
+            "thumb_middle_xy_range": 0.3573145985603332,
+            "thumb_middle_xyz_median": 0.8710699081420898,
+            "thumb_middle_xyz_range": 0.385470449924469,
+            "index_tip_wrist_median": 1.8047839403152466,
+            "middle_tip_wrist_median": 1.849831461906433,
+            "index_pip_angle_median_deg": 167.62864685058594,
+            "index_pip_angle_range_deg": 11.35425109863283,
+            "middle_pip_angle_median_deg": 167.2328643798828,
+            "middle_pip_angle_range_deg": 13.393441772460932,
+            "palm_axis_xy_excursion_deg": 39.79667282104492,
+            "palm_axis_xyz_excursion_deg": 19.2689790725708,
+            "wrist_body_xy_excursion": 0.44015072939291333
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 16,
+              "thumb_index_xy_median": 0.6794949769973755
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.5771048665046692
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.6584937572479248
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 29,
+              "thumb_index_xy_median": 0.5061209201812744
+            }
+          ],
+          "orientation_contiguous_pairs": 101
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 1,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.95694587738338,
+        "effective_capture_fps": 29.70544183724413,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.0057488000002195
+      },
+      {
+        "expected": "THANKYOU",
+        "captured_frames": 120,
+        "capture_seconds": 4.004,
+        "landmark_seconds": 6.795977400000083,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 81,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.9956467747688293
+              },
+              {
+                "label": "HELLO",
+                "score": 0.00299734971486032
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0011603874154388905
+              },
+              {
+                "label": "NO",
+                "score": 0.00010654523794073611
+              },
+              {
+                "label": "YES",
+                "score": 8.884818089427426e-05
+              }
+            ],
+            "expected_score": 0.9956467747688293,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.9996778964996338
+              },
+              {
+                "label": "HELLO",
+                "score": 0.00019480042101349682
+              },
+              {
+                "label": "PLEASE",
+                "score": 9.230971045326442e-05
+              },
+              {
+                "label": "YES",
+                "score": 1.884565244836267e-05
+              },
+              {
+                "label": "NO",
+                "score": 1.6182630133698694e-05
+              }
+            ],
+            "expected_score": 0.9996778964996338,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.99955815076828
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0002377445052843541
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.00014988867042120546
+              },
+              {
+                "label": "YES",
+                "score": 3.405439929338172e-05
+              },
+              {
+                "label": "NO",
+                "score": 2.0176565158180892e-05
+              }
+            ],
+            "expected_score": 0.99955815076828,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.7162162342814453
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.17582490246216498
+              },
+              {
+                "label": "NO",
+                "score": 0.0641261034217892
+              },
+              {
+                "label": "YES",
+                "score": 0.03216917120990292
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.01166358862469761
+              }
+            ],
+            "expected_score": 0.17582490246216498,
+            "expected_rank": 2,
+            "correct": false
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 2.488037109375,
+          "geometry_disabled_model": 2.4666748046875,
+          "actual_geometry_effect": 0.0213623046875,
+          "recurrent_component_fp32": 2.362799644470215,
+          "geometry_component_fp32": 0.020450333133339882,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.0011862274259328842
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.9364359378814697,
+            "standardized_value": 0.1681002676486969,
+            "hello_minus_no_logit_contribution": 0.014583155512809753
+          },
+          "thumb_index_xy_range": {
+            "measurement": 1.0132850587368014,
+            "standardized_value": 0.7755661606788635,
+            "hello_minus_no_logit_contribution": -0.10447646677494049
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.9602383375167847,
+            "standardized_value": 0.17736485600471497,
+            "hello_minus_no_logit_contribution": 0.015053469687700272
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.9566627770662316,
+            "standardized_value": 0.6932080984115601,
+            "hello_minus_no_logit_contribution": -0.09107745438814163
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 1.1293059587478638,
+            "standardized_value": 0.19045236706733704,
+            "hello_minus_no_logit_contribution": 0.01777687482535839
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 1.2524182856082917,
+            "standardized_value": 0.9645318388938904,
+            "hello_minus_no_logit_contribution": -0.1395265907049179
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 1.158561110496521,
+            "standardized_value": 0.22649319469928741,
+            "hello_minus_no_logit_contribution": 0.021045934408903122
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 1.2184251606464387,
+            "standardized_value": 0.9159093499183655,
+            "hello_minus_no_logit_contribution": -0.13189484179019928
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.935171127319336,
+            "standardized_value": 0.2773435115814209,
+            "hello_minus_no_logit_contribution": 0.014875896275043488
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 2.0304269790649414,
+            "standardized_value": 0.46600955724716187,
+            "hello_minus_no_logit_contribution": 0.03037972003221512
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 176.8336181640625,
+            "standardized_value": 0.7880160808563232,
+            "hello_minus_no_logit_contribution": 0.004925624001771212
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 18.98631591796874,
+            "standardized_value": -0.332823246717453,
+            "hello_minus_no_logit_contribution": 0.028867918998003006
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 177.23800659179688,
+            "standardized_value": 0.8606007099151611,
+            "hello_minus_no_logit_contribution": 0.04443555697798729
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 36.569114685058594,
+            "standardized_value": 0.07971015572547913,
+            "hello_minus_no_logit_contribution": -0.006604611873626709
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 61.65657806396479,
+            "standardized_value": 1.7911819219589233,
+            "hello_minus_no_logit_contribution": 0.14797531068325043
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 46.56842575073243,
+            "standardized_value": 2.0757510662078857,
+            "hello_minus_no_logit_contribution": 0.09560699760913849
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.46549310820392964,
+            "standardized_value": 0.5433909296989441,
+            "hello_minus_no_logit_contribution": 0.05850384011864662
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.9666666666666667,
+            0.8333333333333334,
+            0.5666666666666667,
+            0.3333333333333333
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.675
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 80,
+          "usable_fraction": 0.6666666666666666,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.9364359378814697,
+            "thumb_index_xy_range": 1.0132850587368014,
+            "thumb_index_xyz_median": 0.9602383375167847,
+            "thumb_index_xyz_range": 0.9566627770662316,
+            "thumb_middle_xy_median": 1.1293059587478638,
+            "thumb_middle_xy_range": 1.2524182856082917,
+            "thumb_middle_xyz_median": 1.158561110496521,
+            "thumb_middle_xyz_range": 1.2184251606464387,
+            "index_tip_wrist_median": 1.935171127319336,
+            "middle_tip_wrist_median": 2.0304269790649414,
+            "index_pip_angle_median_deg": 176.8336181640625,
+            "index_pip_angle_range_deg": 18.98631591796874,
+            "middle_pip_angle_median_deg": 177.23800659179688,
+            "middle_pip_angle_range_deg": 36.569114685058594,
+            "palm_axis_xy_excursion_deg": 61.65657806396479,
+            "palm_axis_xyz_excursion_deg": 46.56842575073243,
+            "wrist_body_xy_excursion": 0.46549310820392964
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 29,
+              "thumb_index_xy_median": 0.9864842891693115
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 24,
+              "thumb_index_xy_median": 0.7792487144470215
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 17,
+              "thumb_index_xy_median": 1.2967151403427124
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 10,
+              "thumb_index_xy_median": 0.44767332077026367
+            }
+          ],
+          "orientation_contiguous_pairs": 74
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 2,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.9735940130152,
+        "effective_capture_fps": 29.720279720279724,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.003523899999891
+      },
+      {
+        "expected": "PLEASE",
+        "captured_frames": 121,
+        "capture_seconds": 4.035,
+        "landmark_seconds": 4.117464899999504,
+        "quality": {
+          "frames": 121,
+          "frames_with_hands": 65,
+          "frames_with_body_anchor": 121
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9941222071647644
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.002160873031243682
+              },
+              {
+                "label": "NO",
+                "score": 0.0019332148367539048
+              },
+              {
+                "label": "YES",
+                "score": 0.0017202767776325345
+              },
+              {
+                "label": "HELLO",
+                "score": 6.339970423141494e-05
+              }
+            ],
+            "expected_score": 0.9941222071647644,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9909981489181519
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.008416196331381798
+              },
+              {
+                "label": "YES",
+                "score": 0.0003101735492236912
+              },
+              {
+                "label": "NO",
+                "score": 0.0002382832462899387
+              },
+              {
+                "label": "HELLO",
+                "score": 3.7226276617730036e-05
+              }
+            ],
+            "expected_score": 0.9909981489181519,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9900856018066406
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.009073958732187748
+              },
+              {
+                "label": "NO",
+                "score": 0.00044563133269548416
+              },
+              {
+                "label": "YES",
+                "score": 0.0003644247481133789
+              },
+              {
+                "label": "HELLO",
+                "score": 3.0414566936087795e-05
+              }
+            ],
+            "expected_score": 0.9900856018066406,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.5371991262258187
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.23251207642772323
+              },
+              {
+                "label": "HELLO",
+                "score": 0.2113896369643397
+              },
+              {
+                "label": "YES",
+                "score": 0.015712724399763397
+              },
+              {
+                "label": "NO",
+                "score": 0.0031864359823550446
+              }
+            ],
+            "expected_score": 0.5371991262258187,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -1.8564453125,
+          "geometry_disabled_model": -2.6845703125,
+          "actual_geometry_effect": 0.828125,
+          "recurrent_component_fp32": -2.790027141571045,
+          "geometry_component_fp32": 0.8300028443336487,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -2.1919608116149902e-05
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.9415264129638672,
+            "standardized_value": 0.17882034182548523,
+            "hello_minus_no_logit_contribution": 0.015513150952756405
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.1863153457641603,
+            "standardized_value": -0.9798063039779663,
+            "hello_minus_no_logit_contribution": 0.13198964297771454
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.9702005982398987,
+            "standardized_value": 0.1987069845199585,
+            "hello_minus_no_logit_contribution": 0.01686483807861805
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.17872447967529292,
+            "standardized_value": -1.0014300346374512,
+            "hello_minus_no_logit_contribution": 0.13157333433628082
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 1.2424812316894531,
+            "standardized_value": 0.3997192680835724,
+            "hello_minus_no_logit_contribution": 0.03730989992618561
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.2585656881332399,
+            "standardized_value": -0.7982907891273499,
+            "hello_minus_no_logit_contribution": 0.11547859758138657
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 1.2641490697860718,
+            "standardized_value": 0.42112553119659424,
+            "hello_minus_no_logit_contribution": 0.03913133218884468
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.24033615589141832,
+            "standardized_value": -0.8377276062965393,
+            "hello_minus_no_logit_contribution": 0.12063634395599365
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.999944806098938,
+            "standardized_value": 0.4085996448993683,
+            "hello_minus_no_logit_contribution": 0.021916091442108154
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 2.162797451019287,
+            "standardized_value": 0.6761784553527832,
+            "hello_minus_no_logit_contribution": 0.04408087953925133
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 174.32994079589844,
+            "standardized_value": 0.6671071648597717,
+            "hello_minus_no_logit_contribution": 0.004169863183051348
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 8.741842651367193,
+            "standardized_value": -0.6847150921821594,
+            "hello_minus_no_logit_contribution": 0.05938978120684624
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 175.49700927734375,
+            "standardized_value": 0.7778782844543457,
+            "hello_minus_no_logit_contribution": 0.04016433283686638
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 6.9118499755859375,
+            "standardized_value": -0.735625147819519,
+            "hello_minus_no_logit_contribution": 0.0609523169696331
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 23.115365600585932,
+            "standardized_value": 0.06917506456375122,
+            "hello_minus_no_logit_contribution": 0.005714775063097477
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 20.686565017700197,
+            "standardized_value": 0.2083362638950348,
+            "hello_minus_no_logit_contribution": 0.009595758281648159
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.3318187123139418,
+            "standardized_value": -0.22735543549060822,
+            "hello_minus_no_logit_contribution": -0.02447807975113392
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            1.0,
+            1.0,
+            0.13333333333333333,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.5371900826446281
+        },
+        "articulation": {
+          "frames": 121,
+          "dominant_slot": 0,
+          "usable_frames": 65,
+          "usable_fraction": 0.5371900826446281,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.9415264129638672,
+            "thumb_index_xy_range": 0.1863153457641603,
+            "thumb_index_xyz_median": 0.9702005982398987,
+            "thumb_index_xyz_range": 0.17872447967529292,
+            "thumb_middle_xy_median": 1.2424812316894531,
+            "thumb_middle_xy_range": 0.2585656881332399,
+            "thumb_middle_xyz_median": 1.2641490697860718,
+            "thumb_middle_xyz_range": 0.24033615589141832,
+            "index_tip_wrist_median": 1.999944806098938,
+            "middle_tip_wrist_median": 2.162797451019287,
+            "index_pip_angle_median_deg": 174.32994079589844,
+            "index_pip_angle_range_deg": 8.741842651367193,
+            "middle_pip_angle_median_deg": 175.49700927734375,
+            "middle_pip_angle_range_deg": 6.9118499755859375,
+            "palm_axis_xy_excursion_deg": 23.115365600585932,
+            "palm_axis_xyz_excursion_deg": 20.686565017700197,
+            "wrist_body_xy_excursion": 0.3318187123139418
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 31,
+              "thumb_index_xy_median": 0.9211186170578003
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.9489264488220215
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 4,
+              "thumb_index_xy_median": 0.5928782224655151
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 64
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 3,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 122,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.986758987218426,
+        "effective_capture_fps": 29.739776951672862,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.035114300000714
+      },
+      {
+        "expected": "YES",
+        "captured_frames": 120,
+        "capture_seconds": 4.005,
+        "landmark_seconds": 6.245777699999962,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 52,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.5330607295036316
+              },
+              {
+                "label": "YES",
+                "score": 0.414338082075119
+              },
+              {
+                "label": "HELLO",
+                "score": 0.04698951169848442
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.004290356300771236
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.001321325427852571
+              }
+            ],
+            "expected_score": 0.414338082075119,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.8214497566223145
+              },
+              {
+                "label": "NO",
+                "score": 0.1510651558637619
+              },
+              {
+                "label": "HELLO",
+                "score": 0.02637968584895134
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0009088549413718283
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00019655367941595614
+              }
+            ],
+            "expected_score": 0.8214497566223145,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.5561152100563049
+              },
+              {
+                "label": "NO",
+                "score": 0.34868842363357544
+              },
+              {
+                "label": "HELLO",
+                "score": 0.09266430884599686
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0019630338065326214
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0005690482212230563
+              }
+            ],
+            "expected_score": 0.5561152100563049,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.9927789585854525
+              },
+              {
+                "label": "NO",
+                "score": 0.006231636669048167
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0008561313532621463
+              },
+              {
+                "label": "PLEASE",
+                "score": 8.591369841895295e-05
+              },
+              {
+                "label": "THANKYOU",
+                "score": 4.735969381818181e-05
+              }
+            ],
+            "expected_score": 0.9927789585854525,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -1.7451171875,
+          "geometry_disabled_model": -1.3251953125,
+          "actual_geometry_effect": -0.419921875,
+          "recurrent_component_fp32": -1.4284684658050537,
+          "geometry_component_fp32": -0.4193304181098938,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.0009192079305648804
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.2738259434700012,
+            "standardized_value": -1.2272961139678955,
+            "hello_minus_no_logit_contribution": -0.10647127777338028
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.287456364929676,
+            "standardized_value": -0.7651187181472778,
+            "hello_minus_no_logit_contribution": 0.10306909680366516
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.2829534709453583,
+            "standardized_value": -1.2735801935195923,
+            "hello_minus_no_logit_contribution": -0.10809244960546494
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.3143030047416686,
+            "standardized_value": -0.7060897350311279,
+            "hello_minus_no_logit_contribution": 0.09276991337537766
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.5665566921234131,
+            "standardized_value": -0.8500999212265015,
+            "hello_minus_no_logit_contribution": -0.07934854924678802
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.19553101658821098,
+            "standardized_value": -0.9100971221923828,
+            "hello_minus_no_logit_contribution": 0.13165220618247986
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.5906735062599182,
+            "standardized_value": -0.8203049898147583,
+            "hello_minus_no_logit_contribution": -0.07622341811656952
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.19247208237648006,
+            "standardized_value": -0.9235441088676453,
+            "hello_minus_no_logit_contribution": 0.13299427926540375
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.3950756788253784,
+            "standardized_value": -0.8170953989028931,
+            "hello_minus_no_logit_contribution": -0.04382660984992981
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 0.8956537246704102,
+            "standardized_value": -1.3357065916061401,
+            "hello_minus_no_logit_contribution": -0.08707630634307861
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 141.36729431152344,
+            "standardized_value": -0.9247430562973022,
+            "hello_minus_no_logit_contribution": -0.005780258681625128
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 95.32483139038087,
+            "standardized_value": 2.289361000061035,
+            "hello_minus_no_logit_contribution": -0.1985711306333542
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 131.32769775390625,
+            "standardized_value": -1.3207991123199463,
+            "hello_minus_no_logit_contribution": -0.06819706410169601
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 127.51072006225587,
+            "standardized_value": 2.5798697471618652,
+            "hello_minus_no_logit_contribution": -0.21376244723796844
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 23.89887695312501,
+            "standardized_value": 0.10418200492858887,
+            "hello_minus_no_logit_contribution": 0.008606811054050922
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 24.83335723876953,
+            "standardized_value": 0.5075334906578064,
+            "hello_minus_no_logit_contribution": 0.023376479744911194
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.4929530024847109,
+            "standardized_value": 0.7017205357551575,
+            "hello_minus_no_logit_contribution": 0.07555029541254044
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.8,
+            0.9333333333333333,
+            0.0,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.43333333333333335
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 52,
+          "usable_fraction": 0.43333333333333335,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.2738259434700012,
+            "thumb_index_xy_range": 0.287456364929676,
+            "thumb_index_xyz_median": 0.2829534709453583,
+            "thumb_index_xyz_range": 0.3143030047416686,
+            "thumb_middle_xy_median": 0.5665566921234131,
+            "thumb_middle_xy_range": 0.19553101658821098,
+            "thumb_middle_xyz_median": 0.5906735062599182,
+            "thumb_middle_xyz_range": 0.19247208237648006,
+            "index_tip_wrist_median": 1.3950756788253784,
+            "middle_tip_wrist_median": 0.8956537246704102,
+            "index_pip_angle_median_deg": 141.36729431152344,
+            "index_pip_angle_range_deg": 95.32483139038087,
+            "middle_pip_angle_median_deg": 131.32769775390625,
+            "middle_pip_angle_range_deg": 127.51072006225587,
+            "palm_axis_xy_excursion_deg": 23.89887695312501,
+            "palm_axis_xyz_excursion_deg": 24.83335723876953,
+            "wrist_body_xy_excursion": 0.4929530024847109
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 24,
+              "thumb_index_xy_median": 0.13590683043003082
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 28,
+              "thumb_index_xy_median": 0.3008233308792114
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 51
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 4,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.96110524219916,
+        "effective_capture_fps": 29.712858926342072,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.005192700000407
+      },
+      {
+        "expected": "NO",
+        "captured_frames": 120,
+        "capture_seconds": 4.003,
+        "landmark_seconds": 4.034219299999677,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 58,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.5146668553352356
+              },
+              {
+                "label": "YES",
+                "score": 0.47691962122917175
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.004066161345690489
+              },
+              {
+                "label": "HELLO",
+                "score": 0.004058227874338627
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0002891368349082768
+              }
+            ],
+            "expected_score": 0.5146668553352356,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.829024612903595
+              },
+              {
+                "label": "YES",
+                "score": 0.17007941007614136
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0005216053687036037
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0003335009387228638
+              },
+              {
+                "label": "THANKYOU",
+                "score": 4.0855291445041075e-05
+              }
+            ],
+            "expected_score": 0.829024612903595,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.5882612466812134
+              },
+              {
+                "label": "NO",
+                "score": 0.406681627035141
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0027833508793264627
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0021299049258232117
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00014381390064954758
+              }
+            ],
+            "expected_score": 0.406681627035141,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.9994851405600333
+              },
+              {
+                "label": "YES",
+                "score": 0.0005075721610361955
+              },
+              {
+                "label": "HELLO",
+                "score": 7.273001591902619e-06
+              },
+              {
+                "label": "THANKYOU",
+                "score": 7.422997679989653e-09
+              },
+              {
+                "label": "PLEASE",
+                "score": 6.854341056428899e-09
+              }
+            ],
+            "expected_score": 0.9994851405600333,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -7.818359375,
+          "geometry_disabled_model": -4.984375,
+          "actual_geometry_effect": -2.833984375,
+          "recurrent_component_fp32": -5.088412284851074,
+          "geometry_component_fp32": -2.831441879272461,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.002106115221977234
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.24717354774475098,
+            "standardized_value": -1.283423662185669,
+            "hello_minus_no_logit_contribution": -0.1113404929637909
+          },
+          "thumb_index_xy_range": {
+            "measurement": 2.1671710580587384,
+            "standardized_value": 3.2248694896698,
+            "hello_minus_no_logit_contribution": -0.43442198634147644
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.2765439748764038,
+            "standardized_value": -1.287311315536499,
+            "hello_minus_no_logit_contribution": -0.10925784707069397
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 2.1336060434579847,
+            "standardized_value": 3.2570269107818604,
+            "hello_minus_no_logit_contribution": -0.4279259443283081
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.424247145652771,
+            "standardized_value": -1.1132376194000244,
+            "hello_minus_no_logit_contribution": -0.10390989482402802
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 2.1793626070022585,
+            "standardized_value": 2.608677625656128,
+            "hello_minus_no_logit_contribution": -0.37736430764198303
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.42529141902923584,
+            "standardized_value": -1.1251569986343384,
+            "hello_minus_no_logit_contribution": -0.10455051809549332
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 2.170256555080414,
+            "standardized_value": 2.6224687099456787,
+            "hello_minus_no_logit_contribution": -0.37764665484428406
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.1825326681137085,
+            "standardized_value": -1.247788429260254,
+            "hello_minus_no_logit_contribution": -0.06692773103713989
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 0.8847582340240479,
+            "standardized_value": -1.3530056476593018,
+            "hello_minus_no_logit_contribution": -0.08820405602455139
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 128.92434692382812,
+            "standardized_value": -1.5256446599960327,
+            "hello_minus_no_logit_contribution": -0.00953629333525896
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 96.02229309082031,
+            "standardized_value": 2.3133184909820557,
+            "hello_minus_no_logit_contribution": -0.20064911246299744
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 140.2843475341797,
+            "standardized_value": -0.8952294588088989,
+            "hello_minus_no_logit_contribution": -0.04622355103492737
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 109.15405731201172,
+            "standardized_value": 2.075209856033325,
+            "hello_minus_no_logit_contribution": -0.1719474196434021
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 16.861416625976574,
+            "standardized_value": -0.21024908125400543,
+            "hello_minus_no_logit_contribution": -0.017369354143738747
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 12.452975273132324,
+            "standardized_value": -0.3857296109199524,
+            "hello_minus_no_logit_contribution": -0.0177663154900074
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.103198135336213,
+            "standardized_value": -1.5455468893051147,
+            "hello_minus_no_logit_contribution": -0.16640032827854156
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.7,
+            1.0,
+            0.23333333333333334,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.48333333333333334
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 57,
+          "usable_fraction": 0.475,
+          "single_hand_slot_changes": 1,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.24717354774475098,
+            "thumb_index_xy_range": 2.1671710580587384,
+            "thumb_index_xyz_median": 0.2765439748764038,
+            "thumb_index_xyz_range": 2.1336060434579847,
+            "thumb_middle_xy_median": 0.424247145652771,
+            "thumb_middle_xy_range": 2.1793626070022585,
+            "thumb_middle_xyz_median": 0.42529141902923584,
+            "thumb_middle_xyz_range": 2.170256555080414,
+            "index_tip_wrist_median": 1.1825326681137085,
+            "middle_tip_wrist_median": 0.8847582340240479,
+            "index_pip_angle_median_deg": 128.92434692382812,
+            "index_pip_angle_range_deg": 96.02229309082031,
+            "middle_pip_angle_median_deg": 140.2843475341797,
+            "middle_pip_angle_range_deg": 109.15405731201172,
+            "palm_axis_xy_excursion_deg": 16.861416625976574,
+            "palm_axis_xyz_excursion_deg": 12.452975273132324,
+            "wrist_body_xy_excursion": 0.103198135336213
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 21,
+              "thumb_index_xy_median": 2.0681815147399902
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.2171507030725479
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 6,
+              "thumb_index_xy_median": 0.11782534420490265
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 56
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 5,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.974817406527304,
+        "effective_capture_fps": 29.727704221833623,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.0033604999998715
+      },
+      {
+        "expected": "HELLO",
+        "captured_frames": 120,
+        "capture_seconds": 4.006,
+        "landmark_seconds": 4.177606899999773,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 86,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9335569143295288
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.05869768559932709
+              },
+              {
+                "label": "NO",
+                "score": 0.004223078954964876
+              },
+              {
+                "label": "YES",
+                "score": 0.0032873316667973995
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.00023501462419517338
+              }
+            ],
+            "expected_score": 0.9335569143295288,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9987574815750122
+              },
+              {
+                "label": "YES",
+                "score": 0.0005947736208327115
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.000417684466810897
+              },
+              {
+                "label": "NO",
+                "score": 0.00021653316798619926
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.3508643860404845e-05
+              }
+            ],
+            "expected_score": 0.9987574815750122,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.9986000657081604
+              },
+              {
+                "label": "YES",
+                "score": 0.0005701205809600651
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0004763536271639168
+              },
+              {
+                "label": "NO",
+                "score": 0.0003387763281352818
+              },
+              {
+                "label": "PLEASE",
+                "score": 1.4632575584982987e-05
+              }
+            ],
+            "expected_score": 0.9986000657081604,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "HELLO",
+                "score": 0.8126686369704896
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.07941937387509226
+              },
+              {
+                "label": "YES",
+                "score": 0.06471485197759085
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.025512280214448235
+              },
+              {
+                "label": "NO",
+                "score": 0.0176848569623792
+              }
+            ],
+            "expected_score": 0.8126686369704896,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 8.4365234375,
+          "geometry_disabled_model": 7.98876953125,
+          "actual_geometry_effect": 0.44775390625,
+          "recurrent_component_fp32": 7.883657455444336,
+          "geometry_component_fp32": 0.4495390057563782,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.00027392804622650146
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.6388697624206543,
+            "standardized_value": -0.45854702591896057,
+            "hello_minus_no_logit_contribution": -0.03978020325303078
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.37347463965415983,
+            "standardized_value": -0.5825315117835999,
+            "hello_minus_no_logit_contribution": 0.07847278565168381
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.6421866416931152,
+            "standardized_value": -0.5039961934089661,
+            "hello_minus_no_logit_contribution": -0.04277561977505684
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.37152182459831273,
+            "standardized_value": -0.5814458727836609,
+            "hello_minus_no_logit_contribution": 0.07639352232217789
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.9215300679206848,
+            "standardized_value": -0.19373592734336853,
+            "hello_minus_no_logit_contribution": -0.01808336190879345
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.34209063053131117,
+            "standardized_value": -0.6501404047012329,
+            "hello_minus_no_logit_contribution": 0.09404756128787994
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.9246524572372437,
+            "standardized_value": -0.20467513799667358,
+            "hello_minus_no_logit_contribution": -0.01901858299970627
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.3432772874832155,
+            "standardized_value": -0.6531622409820557,
+            "hello_minus_no_logit_contribution": 0.09405814111232758
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.7672932147979736,
+            "standardized_value": -0.0628410205245018,
+            "hello_minus_no_logit_contribution": -0.00337060890160501
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 1.8541337251663208,
+            "standardized_value": 0.18610307574272156,
+            "hello_minus_no_logit_contribution": 0.012132281437516212
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 167.595947265625,
+            "standardized_value": 0.3419054448604584,
+            "hello_minus_no_logit_contribution": 0.0021371361799538136
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 14.739608764648438,
+            "standardized_value": -0.47869524359703064,
+            "hello_minus_no_logit_contribution": 0.041520342230796814
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 168.6627655029297,
+            "standardized_value": 0.45315346121788025,
+            "hello_minus_no_logit_contribution": 0.02339775674045086
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 9.634359741210943,
+            "standardized_value": -0.6607781052589417,
+            "hello_minus_no_logit_contribution": 0.054750651121139526
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 32.83632278442383,
+            "standardized_value": 0.5035037398338318,
+            "hello_minus_no_logit_contribution": 0.04159606620669365
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 28.422863602638245,
+            "standardized_value": 0.7665217518806458,
+            "hello_minus_no_logit_contribution": 0.035305216908454895
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.4014637421166244,
+            "standardized_value": 0.17420734465122223,
+            "hello_minus_no_logit_contribution": 0.018755923956632614
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.6666666666666666,
+            0.9666666666666667,
+            1.0,
+            0.23333333333333334
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.7166666666666667
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 85,
+          "usable_fraction": 0.7083333333333334,
+          "single_hand_slot_changes": 2,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.6388697624206543,
+            "thumb_index_xy_range": 0.37347463965415983,
+            "thumb_index_xyz_median": 0.6421866416931152,
+            "thumb_index_xyz_range": 0.37152182459831273,
+            "thumb_middle_xy_median": 0.9215300679206848,
+            "thumb_middle_xy_range": 0.34209063053131117,
+            "thumb_middle_xyz_median": 0.9246524572372437,
+            "thumb_middle_xyz_range": 0.3432772874832155,
+            "index_tip_wrist_median": 1.7672932147979736,
+            "middle_tip_wrist_median": 1.8541337251663208,
+            "index_pip_angle_median_deg": 167.595947265625,
+            "index_pip_angle_range_deg": 14.739608764648438,
+            "middle_pip_angle_median_deg": 168.6627655029297,
+            "middle_pip_angle_range_deg": 9.634359741210943,
+            "palm_axis_xy_excursion_deg": 32.83632278442383,
+            "palm_axis_xyz_excursion_deg": 28.422863602638245,
+            "wrist_body_xy_excursion": 0.4014637421166244
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.6701675653457642
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 29,
+              "thumb_index_xy_median": 0.7426114082336426
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.56983482837677
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 7,
+              "thumb_index_xy_median": 0.613864541053772
+            }
+          ],
+          "orientation_contiguous_pairs": 82
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 6,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.955146661149662,
+        "effective_capture_fps": 29.70544183724413,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.005989399999635
+      },
+      {
+        "expected": "THANKYOU",
+        "captured_frames": 120,
+        "capture_seconds": 4.004,
+        "landmark_seconds": 6.5095377999996344,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 75,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.990384578704834
+              },
+              {
+                "label": "HELLO",
+                "score": 0.005951190833002329
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.003031789092347026
+              },
+              {
+                "label": "NO",
+                "score": 0.0003515982534736395
+              },
+              {
+                "label": "YES",
+                "score": 0.0002808666031342
+              }
+            ],
+            "expected_score": 0.990384578704834,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.9992156028747559
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0003398137341719121
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0002972604415845126
+              },
+              {
+                "label": "YES",
+                "score": 9.631802822696045e-05
+              },
+              {
+                "label": "NO",
+                "score": 5.090495687909424e-05
+              }
+            ],
+            "expected_score": 0.9992156028747559,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.9989379048347473
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0004596042854245752
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0004504946991801262
+              },
+              {
+                "label": "YES",
+                "score": 8.966570749180391e-05
+              },
+              {
+                "label": "NO",
+                "score": 6.235271575860679e-05
+              }
+            ],
+            "expected_score": 0.9989379048347473,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "THANKYOU",
+                "score": 0.5431515926354156
+              },
+              {
+                "label": "YES",
+                "score": 0.32230191505186745
+              },
+              {
+                "label": "NO",
+                "score": 0.06608750737045718
+              },
+              {
+                "label": "HELLO",
+                "score": 0.06596629782239714
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0024926871198625326
+              }
+            ],
+            "expected_score": 0.5431515926354156,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": 1.8984375,
+          "geometry_disabled_model": 1.99755859375,
+          "actual_geometry_effect": -0.09912109375,
+          "recurrent_component_fp32": 1.893091082572937,
+          "geometry_component_fp32": -0.09853904694318771,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.00028456002473831177
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.7978928685188293,
+            "standardized_value": -0.12365883588790894,
+            "hello_minus_no_logit_contribution": -0.010727740824222565
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.7501299977302551,
+            "standardized_value": 0.21697844564914703,
+            "hello_minus_no_logit_contribution": -0.02922915294766426
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.8204150795936584,
+            "standardized_value": -0.12217803299427032,
+            "hello_minus_no_logit_contribution": -0.010369604453444481
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.750991940498352,
+            "standardized_value": 0.24518075585365295,
+            "hello_minus_no_logit_contribution": -0.032213181257247925
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.9818554520606995,
+            "standardized_value": -0.08219118416309357,
+            "hello_minus_no_logit_contribution": -0.007671746890991926
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.9078395366668701,
+            "standardized_value": 0.3533433973789215,
+            "hello_minus_no_logit_contribution": -0.05111370608210564
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 1.010485053062439,
+            "standardized_value": -0.046458255499601364,
+            "hello_minus_no_logit_contribution": -0.004316939506679773
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.9396717548370361,
+            "standardized_value": 0.4161263406276703,
+            "hello_minus_no_logit_contribution": -0.059923965483903885
+          },
+          "index_tip_wrist_median": {
+            "measurement": 2.0031917095184326,
+            "standardized_value": 0.4151791036128998,
+            "hello_minus_no_logit_contribution": 0.02226899564266205
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 2.0945634841918945,
+            "standardized_value": 0.5678411722183228,
+            "hello_minus_no_logit_contribution": 0.037018243223428726
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 174.95433044433594,
+            "standardized_value": 0.6972604990005493,
+            "hello_minus_no_logit_contribution": 0.004358341451734304
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 92.54816436767578,
+            "standardized_value": 2.193984270095825,
+            "hello_minus_no_logit_contribution": -0.19029848277568817
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 173.06509399414062,
+            "standardized_value": 0.6623273491859436,
+            "hello_minus_no_logit_contribution": 0.03419807180762291
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 116.10202026367188,
+            "standardized_value": 2.2662229537963867,
+            "hello_minus_no_logit_contribution": -0.18777436017990112
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 68.72279052734373,
+            "standardized_value": 2.1068978309631348,
+            "hello_minus_no_logit_contribution": 0.17405761778354645
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 49.071530151367185,
+            "standardized_value": 2.2563538551330566,
+            "hello_minus_no_logit_contribution": 0.10392537713050842
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.5472767478199193,
+            "standardized_value": 1.0149428844451904,
+            "hello_minus_no_logit_contribution": 0.10927318781614304
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.6333333333333333,
+            1.0,
+            0.5333333333333333,
+            0.3333333333333333
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.625
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 71,
+          "usable_fraction": 0.5916666666666667,
+          "single_hand_slot_changes": 5,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.7978928685188293,
+            "thumb_index_xy_range": 0.7501299977302551,
+            "thumb_index_xyz_median": 0.8204150795936584,
+            "thumb_index_xyz_range": 0.750991940498352,
+            "thumb_middle_xy_median": 0.9818554520606995,
+            "thumb_middle_xy_range": 0.9078395366668701,
+            "thumb_middle_xyz_median": 1.010485053062439,
+            "thumb_middle_xyz_range": 0.9396717548370361,
+            "index_tip_wrist_median": 2.0031917095184326,
+            "middle_tip_wrist_median": 2.0945634841918945,
+            "index_pip_angle_median_deg": 174.95433044433594,
+            "index_pip_angle_range_deg": 92.54816436767578,
+            "middle_pip_angle_median_deg": 173.06509399414062,
+            "middle_pip_angle_range_deg": 116.10202026367188,
+            "palm_axis_xy_excursion_deg": 68.72279052734373,
+            "palm_axis_xyz_excursion_deg": 49.071530151367185,
+            "wrist_body_xy_excursion": 0.5472767478199193
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.7972273826599121
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.9871469736099243
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 12,
+              "thumb_index_xy_median": 0.880233645439148
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 10,
+              "thumb_index_xy_median": 0.4655168950557709
+            }
+          ],
+          "orientation_contiguous_pairs": 66
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 7,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 1,
+        "source_capture_fps": 29.97011979057269,
+        "effective_capture_fps": 29.720279720279724,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.003987999999481
+      },
+      {
+        "expected": "PLEASE",
+        "captured_frames": 119,
+        "capture_seconds": 4.003,
+        "landmark_seconds": 4.506329800000458,
+        "quality": {
+          "frames": 119,
+          "frames_with_hands": 119,
+          "frames_with_body_anchor": 119
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9981020092964172
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0012022432638332248
+              },
+              {
+                "label": "NO",
+                "score": 0.00034343620063737035
+              },
+              {
+                "label": "YES",
+                "score": 0.000340430939104408
+              },
+              {
+                "label": "HELLO",
+                "score": 1.1913512025785167e-05
+              }
+            ],
+            "expected_score": 0.9981020092964172,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9959902167320251
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0036593740805983543
+              },
+              {
+                "label": "YES",
+                "score": 0.0001786656357580796
+              },
+              {
+                "label": "NO",
+                "score": 0.0001620427065063268
+              },
+              {
+                "label": "HELLO",
+                "score": 9.589910405338742e-06
+              }
+            ],
+            "expected_score": 0.9959902167320251,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.9950811862945557
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.004367162007838488
+              },
+              {
+                "label": "NO",
+                "score": 0.0003072223626077175
+              },
+              {
+                "label": "YES",
+                "score": 0.00023624664754606783
+              },
+              {
+                "label": "HELLO",
+                "score": 8.068142960837577e-06
+              }
+            ],
+            "expected_score": 0.9950811862945557,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "PLEASE",
+                "score": 0.6603585293325961
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.16843346748309193
+              },
+              {
+                "label": "HELLO",
+                "score": 0.15719354229121327
+              },
+              {
+                "label": "YES",
+                "score": 0.010942604748688974
+              },
+              {
+                "label": "NO",
+                "score": 0.003071856144409659
+              }
+            ],
+            "expected_score": 0.6603585293325961,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -2.8271484375,
+          "geometry_disabled_model": -3.6396484375,
+          "actual_geometry_effect": 0.8125,
+          "recurrent_component_fp32": -3.7442235946655273,
+          "geometry_component_fp32": 0.813744068145752,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -0.0002698153257369995
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.9697322249412537,
+            "standardized_value": 0.23821921646595,
+            "hello_minus_no_logit_contribution": 0.02066616527736187
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.154097318649292,
+            "standardized_value": -1.048194169998169,
+            "hello_minus_no_logit_contribution": 0.1412021666765213
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.9842492341995239,
+            "standardized_value": 0.22880332171916962,
+            "hello_minus_no_logit_contribution": 0.019419202581048012
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.15377447605133043,
+            "standardized_value": -1.0557804107666016,
+            "hello_minus_no_logit_contribution": 0.13871417939662933
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 1.2949484586715698,
+            "standardized_value": 0.4967338740825653,
+            "hello_minus_no_logit_contribution": 0.046365268528461456
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.2210183620452879,
+            "standardized_value": -0.8648895025253296,
+            "hello_minus_no_logit_contribution": 0.1251125931739807
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 1.3183629512786865,
+            "standardized_value": 0.5210590362548828,
+            "hello_minus_no_logit_contribution": 0.048417236655950546
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.2211859464645387,
+            "standardized_value": -0.8720623850822449,
+            "hello_minus_no_logit_contribution": 0.12558069825172424
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.9173812866210938,
+            "standardized_value": 0.2412945181131363,
+            "hello_minus_no_logit_contribution": 0.012942333705723286
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 2.0888423919677734,
+            "standardized_value": 0.5587576031684875,
+            "hello_minus_no_logit_contribution": 0.03642607480287552
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 176.13784790039062,
+            "standardized_value": 0.7544155716896057,
+            "hello_minus_no_logit_contribution": 0.004715598654001951
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 5.519628906250006,
+            "standardized_value": -0.7953962683677673,
+            "hello_minus_no_logit_contribution": 0.06898988038301468
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 176.37667846679688,
+            "standardized_value": 0.8196752071380615,
+            "hello_minus_no_logit_contribution": 0.042322441935539246
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 4.581036376953108,
+            "standardized_value": -0.7997037172317505,
+            "hello_minus_no_logit_contribution": 0.06626173108816147
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 14.192651367187523,
+            "standardized_value": -0.32948845624923706,
+            "hello_minus_no_logit_contribution": -0.02722010388970375
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 7.1719148635864265,
+            "standardized_value": -0.7667660117149353,
+            "hello_minus_no_logit_contribution": -0.03531646728515625
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.33765515893480097,
+            "standardized_value": -0.1937033087015152,
+            "hello_minus_no_logit_contribution": -0.020854944363236427
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "final_frame_has_hand": true,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 10,
+          "hand_frame_fraction": 1.0
+        },
+        "articulation": {
+          "frames": 119,
+          "dominant_slot": 0,
+          "usable_frames": 119,
+          "usable_fraction": 1.0,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.9697322249412537,
+            "thumb_index_xy_range": 0.154097318649292,
+            "thumb_index_xyz_median": 0.9842492341995239,
+            "thumb_index_xyz_range": 0.15377447605133043,
+            "thumb_middle_xy_median": 1.2949484586715698,
+            "thumb_middle_xy_range": 0.2210183620452879,
+            "thumb_middle_xyz_median": 1.3183629512786865,
+            "thumb_middle_xyz_range": 0.2211859464645387,
+            "index_tip_wrist_median": 1.9173812866210938,
+            "middle_tip_wrist_median": 2.0888423919677734,
+            "index_pip_angle_median_deg": 176.13784790039062,
+            "index_pip_angle_range_deg": 5.519628906250006,
+            "middle_pip_angle_median_deg": 176.37667846679688,
+            "middle_pip_angle_range_deg": 4.581036376953108,
+            "palm_axis_xy_excursion_deg": 14.192651367187523,
+            "palm_axis_xyz_excursion_deg": 7.1719148635864265,
+            "wrist_body_xy_excursion": 0.33765515893480097
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.9958998560905457
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.9457855820655823
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.9913697242736816
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 29,
+              "thumb_index_xy_median": 0.9845154881477356
+            }
+          ],
+          "orientation_contiguous_pairs": 118
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 8,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 2,
+        "source_capture_fps": 29.974602519284446,
+        "effective_capture_fps": 29.477891581314015,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.003389200000129
+      },
+      {
+        "expected": "YES",
+        "captured_frames": 118,
+        "capture_seconds": 4.003,
+        "landmark_seconds": 4.027450800000224,
+        "quality": {
+          "frames": 118,
+          "frames_with_hands": 59,
+          "frames_with_body_anchor": 118
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.5012580752372742
+              },
+              {
+                "label": "YES",
+                "score": 0.4877375364303589
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0073518590070307255
+              },
+              {
+                "label": "HELLO",
+                "score": 0.003312124637886882
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00034034322015941143
+              }
+            ],
+            "expected_score": 0.4877375364303589,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.6467245221138
+              },
+              {
+                "label": "NO",
+                "score": 0.34888169169425964
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.003380468115210533
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0008664819761179388
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0001467969996156171
+              }
+            ],
+            "expected_score": 0.6467245221138,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.5332449674606323
+              },
+              {
+                "label": "NO",
+                "score": 0.4570003151893616
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0063739740289747715
+              },
+              {
+                "label": "HELLO",
+                "score": 0.003007913241162896
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00037282571429386735
+              }
+            ],
+            "expected_score": 0.5332449674606323,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.8486773995964333
+              },
+              {
+                "label": "NO",
+                "score": 0.1498023878140299
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0009316298754318312
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0005729412019620774
+              },
+              {
+                "label": "THANKYOU",
+                "score": 1.5641512142849988e-05
+              }
+            ],
+            "expected_score": 0.8486773995964333,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -5.998046875,
+          "geometry_disabled_model": -5.0234375,
+          "actual_geometry_effect": -0.974609375,
+          "recurrent_component_fp32": -5.1274003982543945,
+          "geometry_component_fp32": -0.9754958152770996,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": 0.0012484341859817505
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.31265079975128174,
+            "standardized_value": -1.1455345153808594,
+            "hello_minus_no_logit_contribution": -0.09937823563814163
+          },
+          "thumb_index_xy_range": {
+            "measurement": 0.7144080549478531,
+            "standardized_value": 0.1411529928445816,
+            "hello_minus_no_logit_contribution": -0.019014710560441017
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.33594828844070435,
+            "standardized_value": -1.160049557685852,
+            "hello_minus_no_logit_contribution": -0.09845677018165588
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 0.646926088631153,
+            "standardized_value": 0.018486764281988144,
+            "hello_minus_no_logit_contribution": -0.002428891835734248
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.6579762697219849,
+            "standardized_value": -0.6810604333877563,
+            "hello_minus_no_logit_contribution": -0.06357035785913467
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 0.6401458889245986,
+            "standardized_value": -0.12147189676761627,
+            "hello_minus_no_logit_contribution": 0.017571797594428062
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.6619917154312134,
+            "standardized_value": -0.6888427734375,
+            "hello_minus_no_logit_contribution": -0.06400784105062485
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 0.6644472926855087,
+            "standardized_value": -0.07732953131198883,
+            "hello_minus_no_logit_contribution": 0.011135781183838844
+          },
+          "index_tip_wrist_median": {
+            "measurement": 0.9706794023513794,
+            "standardized_value": -1.6770837306976318,
+            "hello_minus_no_logit_contribution": -0.08995387703180313
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 0.6627156138420105,
+            "standardized_value": -1.7055498361587524,
+            "hello_minus_no_logit_contribution": -0.11118683218955994
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 141.21836853027344,
+            "standardized_value": -0.9319350719451904,
+            "hello_minus_no_logit_contribution": -0.005825213622301817
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 98.90794982910154,
+            "standardized_value": 2.4124393463134766,
+            "hello_minus_no_logit_contribution": -0.20924651622772217
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 144.33981323242188,
+            "standardized_value": -0.7025365233421326,
+            "hello_minus_no_logit_contribution": -0.036274198442697525
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 104.7944492340088,
+            "standardized_value": 1.9553560018539429,
+            "hello_minus_no_logit_contribution": -0.1620165854692459
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 23.362234497070318,
+            "standardized_value": 0.080205038189888,
+            "hello_minus_no_logit_contribution": 0.006625996436923742
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 16.855430793762206,
+            "standardized_value": -0.06808584928512573,
+            "hello_minus_no_logit_contribution": -0.0031359654385596514
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.2966122398027115,
+            "standardized_value": -0.43035057187080383,
+            "hello_minus_no_logit_contribution": -0.046333421021699905
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.6333333333333333,
+            1.0,
+            0.10344827586206896,
+            0.2413793103448276
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 2,
+          "hand_frame_fraction": 0.5
+        },
+        "articulation": {
+          "frames": 118,
+          "dominant_slot": 0,
+          "usable_frames": 52,
+          "usable_fraction": 0.4406779661016949,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.31265079975128174,
+            "thumb_index_xy_range": 0.7144080549478531,
+            "thumb_index_xyz_median": 0.33594828844070435,
+            "thumb_index_xyz_range": 0.646926088631153,
+            "thumb_middle_xy_median": 0.6579762697219849,
+            "thumb_middle_xy_range": 0.6401458889245986,
+            "thumb_middle_xyz_median": 0.6619917154312134,
+            "thumb_middle_xyz_range": 0.6644472926855087,
+            "index_tip_wrist_median": 0.9706794023513794,
+            "middle_tip_wrist_median": 0.6627156138420105,
+            "index_pip_angle_median_deg": 141.21836853027344,
+            "index_pip_angle_range_deg": 98.90794982910154,
+            "middle_pip_angle_median_deg": 144.33981323242188,
+            "middle_pip_angle_range_deg": 104.7944492340088,
+            "palm_axis_xy_excursion_deg": 23.362234497070318,
+            "palm_axis_xyz_excursion_deg": 16.855430793762206,
+            "wrist_body_xy_excursion": 0.2966122398027115
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 19,
+              "thumb_index_xy_median": 0.7882795333862305
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.25863027572631836
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 3,
+              "thumb_index_xy_median": 0.31760716438293457
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 50
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 9,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 121,
+        "fps_limit_dropped_frames": 3,
+        "source_capture_fps": 29.975718918284286,
+        "effective_capture_fps": 29.228078940794404,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.003240099999857
+      },
+      {
+        "expected": "NO",
+        "captured_frames": 120,
+        "capture_seconds": 4.03,
+        "landmark_seconds": 6.22494800000004,
+        "quality": {
+          "frames": 120,
+          "frames_with_hands": 52,
+          "frames_with_body_anchor": 120
+        },
+        "variants": {
+          "original": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.524893045425415
+              },
+              {
+                "label": "YES",
+                "score": 0.46412211656570435
+              },
+              {
+                "label": "HELLO",
+                "score": 0.005657155532389879
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.004891080781817436
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.00043665917473845184
+              }
+            ],
+            "expected_score": 0.524893045425415,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "mean_pool": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.807292103767395
+              },
+              {
+                "label": "YES",
+                "score": 0.19137455523014069
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0008522886782884598
+              },
+              {
+                "label": "HELLO",
+                "score": 0.0004073382879141718
+              },
+              {
+                "label": "THANKYOU",
+                "score": 7.374842243734747e-05
+              }
+            ],
+            "expected_score": 0.807292103767395,
+            "expected_rank": 1,
+            "correct": true
+          },
+          "geometry_off": {
+            "top5": [
+              {
+                "label": "YES",
+                "score": 0.587640643119812
+              },
+              {
+                "label": "NO",
+                "score": 0.4038791358470917
+              },
+              {
+                "label": "HELLO",
+                "score": 0.004281231202185154
+              },
+              {
+                "label": "PLEASE",
+                "score": 0.0039019135292619467
+              },
+              {
+                "label": "THANKYOU",
+                "score": 0.0002970876230392605
+              }
+            ],
+            "expected_score": 0.4038791358470917,
+            "expected_rank": 2,
+            "correct": false
+          },
+          "geometry_only": {
+            "top5": [
+              {
+                "label": "NO",
+                "score": 0.9978946764241149
+              },
+              {
+                "label": "YES",
+                "score": 0.0021030912064870094
+              },
+              {
+                "label": "HELLO",
+                "score": 2.229454209570824e-06
+              },
+              {
+                "label": "THANKYOU",
+                "score": 2.1385384041326293e-09
+              },
+              {
+                "label": "PLEASE",
+                "score": 7.766501680621983e-10
+              }
+            ],
+            "expected_score": 0.9978946764241149,
+            "expected_rank": 1,
+            "correct": true
+          }
+        },
+        "variant_meanings": {
+          "original": "Separately trained mean-pool control",
+          "mean_pool": "Geometry candidate with full inputs",
+          "geometry_off": "Same candidate, standardized geometry set to zero",
+          "geometry_only": "Frozen five-class geometry-only logistic regression; CPU"
+        },
+        "hello_minus_no_margin": {
+          "positive_favors": "HELLO",
+          "negative_favors": "NO",
+          "full_model": -7.591796875,
+          "geometry_disabled_model": -4.546875,
+          "actual_geometry_effect": -3.044921875,
+          "recurrent_component_fp32": -4.651150703430176,
+          "geometry_component_fp32": -3.044224262237549,
+          "classifier_bias_component_fp32": 0.10360090434551239,
+          "amp_decomposition_residual": -2.2813677787780762e-05
+        },
+        "geometry_measurements": {
+          "thumb_index_xy_median": {
+            "measurement": 0.19532008469104767,
+            "standardized_value": -1.3926223516464233,
+            "hello_minus_no_logit_contribution": -0.1208137795329094
+          },
+          "thumb_index_xy_range": {
+            "measurement": 2.0891295403242114,
+            "standardized_value": 3.0592141151428223,
+            "hello_minus_no_logit_contribution": -0.41210654377937317
+          },
+          "thumb_index_xyz_median": {
+            "measurement": 0.2208649218082428,
+            "standardized_value": -1.4065923690795898,
+            "hello_minus_no_logit_contribution": -0.11938157677650452
+          },
+          "thumb_index_xyz_range": {
+            "measurement": 2.0313481658697126,
+            "standardized_value": 3.034271478652954,
+            "hello_minus_no_logit_contribution": -0.3986591100692749
+          },
+          "thumb_middle_xy_median": {
+            "measurement": 0.28464123606681824,
+            "standardized_value": -1.3713760375976562,
+            "hello_minus_no_logit_contribution": -0.12800459563732147
+          },
+          "thumb_middle_xy_range": {
+            "measurement": 2.33048292696476,
+            "standardized_value": 2.8767237663269043,
+            "hello_minus_no_logit_contribution": -0.4161391258239746
+          },
+          "thumb_middle_xyz_median": {
+            "measurement": 0.28588318824768066,
+            "standardized_value": -1.3821308612823486,
+            "hello_minus_no_logit_contribution": -0.12842874228954315
+          },
+          "thumb_middle_xyz_range": {
+            "measurement": 2.329946121573448,
+            "standardized_value": 2.9087793827056885,
+            "hello_minus_no_logit_contribution": -0.41887661814689636
+          },
+          "index_tip_wrist_median": {
+            "measurement": 1.280592918395996,
+            "standardized_value": -1.0490810871124268,
+            "hello_minus_no_logit_contribution": -0.05626964569091797
+          },
+          "middle_tip_wrist_median": {
+            "measurement": 0.9916213750839233,
+            "standardized_value": -1.1833356618881226,
+            "hello_minus_no_logit_contribution": -0.07714306563138962
+          },
+          "index_pip_angle_median_deg": {
+            "measurement": 119.12545013427734,
+            "standardized_value": -1.9988583326339722,
+            "hello_minus_no_logit_contribution": -0.012494193390011787
+          },
+          "index_pip_angle_range_deg": {
+            "measurement": 88.1807815551758,
+            "standardized_value": 2.0439670085906982,
+            "hello_minus_no_logit_contribution": -0.1772865206003189
+          },
+          "middle_pip_angle_median_deg": {
+            "measurement": 96.53709411621094,
+            "standardized_value": -2.9738528728485107,
+            "hello_minus_no_logit_contribution": -0.15354950726032257
+          },
+          "middle_pip_angle_range_deg": {
+            "measurement": 120.14824142456055,
+            "standardized_value": 2.3774611949920654,
+            "hello_minus_no_logit_contribution": -0.19699130952358246
+          },
+          "palm_axis_xy_excursion_deg": {
+            "measurement": 9.188337707519523,
+            "standardized_value": -0.55307936668396,
+            "hello_minus_no_logit_contribution": -0.04569166898727417
+          },
+          "palm_axis_xyz_excursion_deg": {
+            "measurement": 13.579226303100585,
+            "standardized_value": -0.30446889996528625,
+            "hello_minus_no_logit_contribution": -0.014023530296981335
+          },
+          "wrist_body_xy_excursion": {
+            "measurement": 0.10003386460533611,
+            "standardized_value": -1.5637915134429932,
+            "hello_minus_no_logit_contribution": -0.16836462914943695
+          }
+        },
+        "tracking_summary": {
+          "hand_presence_by_quarter": [
+            0.36666666666666664,
+            1.0,
+            0.36666666666666664,
+            0.0
+          ],
+          "final_frame_has_hand": false,
+          "final_window_frames": 10,
+          "final_window_hand_frames": 0,
+          "hand_frame_fraction": 0.43333333333333335
+        },
+        "articulation": {
+          "frames": 120,
+          "dominant_slot": 0,
+          "usable_frames": 52,
+          "usable_fraction": 0.43333333333333335,
+          "single_hand_slot_changes": 0,
+          "insufficient": false,
+          "metrics": {
+            "thumb_index_xy_median": 0.19532008469104767,
+            "thumb_index_xy_range": 2.0891295403242114,
+            "thumb_index_xyz_median": 0.2208649218082428,
+            "thumb_index_xyz_range": 2.0313481658697126,
+            "thumb_middle_xy_median": 0.28464123606681824,
+            "thumb_middle_xy_range": 2.33048292696476,
+            "thumb_middle_xyz_median": 0.28588318824768066,
+            "thumb_middle_xyz_range": 2.329946121573448,
+            "index_tip_wrist_median": 1.280592918395996,
+            "middle_tip_wrist_median": 0.9916213750839233,
+            "index_pip_angle_median_deg": 119.12545013427734,
+            "index_pip_angle_range_deg": 88.1807815551758,
+            "middle_pip_angle_median_deg": 96.53709411621094,
+            "middle_pip_angle_range_deg": 120.14824142456055,
+            "palm_axis_xy_excursion_deg": 9.188337707519523,
+            "palm_axis_xyz_excursion_deg": 13.579226303100585,
+            "wrist_body_xy_excursion": 0.10003386460533611
+          },
+          "quarters": [
+            {
+              "quarter": 1,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 1.4643124341964722
+            },
+            {
+              "quarter": 2,
+              "usable_frames": 30,
+              "thumb_index_xy_median": 0.3808867335319519
+            },
+            {
+              "quarter": 3,
+              "usable_frames": 11,
+              "thumb_index_xy_median": 0.16530916094779968
+            },
+            {
+              "quarter": 4,
+              "usable_frames": 0,
+              "thumb_index_xy_median": null
+            }
+          ],
+          "orientation_contiguous_pairs": 51
+        },
+        "identical_observations_for_all_variants": true,
+        "interpretation": "Geometry-off is a diagnostic intervention, not a separately trained model; scalar margins explain decisions on this capture only.",
+        "capture_id": 10,
+        "capture_fps_limit": 30.0,
+        "source_frame_count": 122,
+        "fps_limit_dropped_frames": 2,
+        "source_capture_fps": 30.021130906422158,
+        "effective_capture_fps": 29.52853598014888,
+        "capture_stop_reason": "time_limit",
+        "capture_wall_seconds": 4.030494399999952
+      }
+    ],
+    "candidate": {
+      "model": "SignGeometryMeanPoolGRU",
+      "epoch": 8,
+      "checkpoint_sha256": "6f305835ffbcdc94a8d9cf4ffa989d4977f26e6c2a313a00e9a8e74d1f6fbb07",
+      "architecture": "gru-mean-pool-geometry-v1"
+    },
+    "mode": "five_class_geometry_only_comparison",
+    "variant_labels": {
+      "original": "Pooled control",
+      "mean_pool": "Full geometry model",
+      "geometry_off": "Same candidate with geometry disabled",
+      "geometry_only": "Geometry-only logistic regression"
+    },
+    "interpretation": "Positive HELLO-minus-NO margins favor HELLO; geometry-off is a within-model intervention, not a replacement model.",
+    "geometry_probe": {
+      "model": "Multinomial logistic regression on 17 geometry summaries",
+      "path": "E:\\minor_major_proj\\models\\asl-five-class-geometry-only-v1\\model.pkl",
+      "sha256": "6ed7a25dc62eb66bb012ae79f070163008cbfb6937ae417278f227d60b1a5e45",
+      "device": "cpu",
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ]
+    },
+    "camera_open": false,
+    "elapsed_seconds": 155.49941789999957,
+    "checkpoint_unchanged": true,
+    "candidate_checkpoint_unchanged": true,
+    "geometry_probe_unchanged": true
+  },
+  "summary": {
+    "original": {
+      "correct": 8,
+      "trials": 10,
+      "top1": 0.8,
+      "macro_f1": 0.7333333333333333,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "PLEASE": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YES": {
+          "correct": 0,
+          "trials": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    "mean_pool": {
+      "correct": 10,
+      "trials": 10,
+      "top1": 1.0,
+      "macro_f1": 1.0,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "PLEASE": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YES": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    },
+    "geometry_off": {
+      "correct": 8,
+      "trials": 10,
+      "top1": 0.8,
+      "macro_f1": 0.7333333333333333,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NO": {
+          "correct": 0,
+          "trials": 2,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "PLEASE": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YES": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        }
+      }
+    },
+    "geometry_only": {
+      "correct": 9,
+      "trials": 10,
+      "top1": 0.9,
+      "macro_f1": 0.8933333333333333,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "NO": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "PLEASE": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "correct": 1,
+          "trials": 2,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "YES": {
+          "correct": 2,
+          "trials": 2,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    }
+  },
+  "source_sha256": "92339eead86c28343ea5a2098d6056e77851905b2651686f479c76219a9ed26b",
+  "confirmation_source": "User: Completed all ten; capture was normal",
+  "source_capture_log_modified": false,
+  "current_model_files_match": true,
+  "limits": [
+    "Two attempts per class, one signer, one session; not general accuracy.",
+    "Fresh captures after freezing models, from the same user involved in earlier development.",
+    "Do not discard previous failed NO captures or infer a fix from this session.",
+    "Tracking counts do not measure anatomical landmark accuracy. Softmax scores are uncalibrated.",
+    "No model fitting, threshold adjustment, live media/coordinates/embeddings or official test evaluation."
+  ]
+}

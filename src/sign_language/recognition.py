@@ -42,6 +42,25 @@ class SignRecognizer:
         elif architecture == 'gru-mean-pool-v1':
             from sign_language.gru_mean_pool_model import SignMeanPoolGRU
             model_class, source_files = SignMeanPoolGRU, ('gru_model.py', 'gru_mean_pool_model.py')
+        elif architecture == 'gru-mean-pool-geometry-v1':
+            from sign_language.gru_geometry_model import FEATURES, SignGeometryMeanPoolGRU
+            if self.config.get('geometry_features') != list(FEATURES):
+                raise ValueError('Geometry feature schema differs from checkpoint')
+            model_class = SignGeometryMeanPoolGRU
+            source_files = ('gru_model.py', 'gru_mean_pool_model.py',
+                            'gru_geometry_model.py', 'hand_articulation.py')
+        elif architecture in ('gru-mean-pool-trajectory-v1','gru-mean-pool-trajectory-readout-v1'):
+            from sign_language.gru_trajectory_model import SignTrajectoryMeanPoolGRU
+            from sign_language.trajectory_geometry import FEATURES, CONFIG as TRAJECTORY_CONFIG
+            if self.config.get('geometry_features') != list(FEATURES) or self.config.get('trajectory_geometry') != TRAJECTORY_CONFIG:
+                raise ValueError('Trajectory geometry schema differs from checkpoint')
+            model_class = SignTrajectoryMeanPoolGRU
+            source_files = ('gru_model.py', 'gru_mean_pool_model.py', 'gru_geometry_model.py',
+                            'hand_articulation.py', 'gru_trajectory_model.py', 'trajectory_geometry.py', 'wrist_trajectory.py')
+            if architecture == 'gru-mean-pool-trajectory-readout-v1':
+                from sign_language.gru_trajectory_readout import SignTrajectoryReadoutGRU
+                model_class=SignTrajectoryReadoutGRU
+                source_files=(*source_files,'gru_trajectory_readout.py')
         else:
             raise ValueError('Unknown checkpoint architecture')
         for name in ('preprocessing.py', *source_files):
@@ -57,6 +76,15 @@ class SignRecognizer:
         torch.backends.cudnn.enabled = self.config.get('cudnn_enabled', False)
         self.model = model_class(**self.config['model']).to(self.device).eval()
         self.model.load_state_dict(state['model'], strict=True)
+        if architecture in ('gru-mean-pool-geometry-v1','gru-mean-pool-trajectory-v1','gru-mean-pool-trajectory-readout-v1'):
+            for name in ('median', 'mean', 'scale'):
+                expected = torch.as_tensor(self.config['geometry_statistics'][name],
+                                           dtype=torch.float32, device=self.device)
+                actual = getattr(self.model, 'geometry_' + name)
+                if not torch.equal(expected, actual) or not torch.isfinite(actual).all():
+                    raise ValueError('Checkpoint geometry normalization differs from configuration')
+                if name == 'scale' and torch.any(actual <= 0):
+                    raise ValueError('Checkpoint geometry scale must be positive')
         self.hand_model = Path(models) / 'hand_landmarker.task'
         self.pose_model = Path(models) / 'pose_landmarker_lite.task'
         for path in (self.hand_model, self.pose_model):
