@@ -1,0 +1,195 @@
+{
+  "schema": "curated-sign-models-v1",
+  "date_local": "2026-11-14",
+  "retained_models": [
+    {
+      "id": "gru_regularized_full",
+      "name": "Regularized GRU \u2014 full vocabulary",
+      "checkpoint": "models/asl-gru-128-cv-regularized-v1/official-refit/best.pt",
+      "checkpoint_sha256": "6e09a1b3c62ea364e2a86b5551eaefe71651332f75fb64a060ed184de7032b39",
+      "epoch": 37,
+      "architecture": "gru",
+      "reason": "Plain last-state GRU reference for the original pipeline and full vocabulary.",
+      "evaluation": {
+        "scope": "Full official 2731-label test",
+        "classes": 2731,
+        "top1": 0.4992258887101181,
+        "macro_precision": 0.5276069328170414,
+        "macro_recall": 0.49927253245769415,
+        "macro_f1": 0.4946873925055633,
+        "weighted_f1": 0.49554291161634056,
+        "top5": 0.7624237272699675,
+        "loss": 2.4430363325251787,
+        "samples": 32941
+      },
+      "dependencies": [
+        "models/asl-gru-128-cv-regularized-v1/official-refit/best.pt",
+        "models/asl-gru-128-cv-regularized-v1/official-refit/config.json",
+        "models/asl-gru-128-cv-regularized-v1/official-refit/labels.json"
+      ]
+    },
+    {
+      "id": "gru_regularized_five",
+      "name": "Regularized GRU \u2014 five signs",
+      "checkpoint": "models/asl-gru-five-signs-early-v2/regularized/best.pt",
+      "checkpoint_sha256": "78b1a4b02ad7ed9118d9b63ee2f9fe0f5c1d91c6c54c66c41e4c18695d18ca7c",
+      "epoch": 18,
+      "architecture": "gru",
+      "reason": "Like-for-like five-label plain GRU baseline; preserves the existing webcam default.",
+      "evaluation": {
+        "scope": "Official selected-vocabulary test",
+        "classes": 5,
+        "top1": 0.7,
+        "macro_precision": 0.7199095022624435,
+        "macro_recall": 0.6936663336663337,
+        "macro_f1": 0.6724017729697243,
+        "weighted_f1": 0.6880626299050909,
+        "samples": 60,
+        "correct": 42,
+        "top5": 1.0,
+        "loss": 0.7457591533660889
+      },
+      "dependencies": [
+        "models/asl-gru-five-signs-early-v2/regularized/best.pt",
+        "models/asl-gru-five-signs-early-v2/regularized/config.json",
+        "models/asl-gru-five-signs-early-v2/regularized/labels.json"
+      ]
+    },
+    {
+      "id": "gru_mean_five",
+      "name": "Mean-pooled GRU \u2014 five signs",
+      "checkpoint": "models/asl-gru-five-signs-mean-pool-v1/best.pt",
+      "checkpoint_sha256": "909e90daffb8d244c7492d1303ab8dfeeddd8b325c0335ad74207711385466c9",
+      "epoch": 4,
+      "architecture": "gru-mean-pool-v1",
+      "reason": "Isolates temporal mean pooling from the plain five-label GRU.",
+      "evaluation": {
+        "scope": "Official selected-vocabulary test",
+        "classes": 5,
+        "top1": 0.7833333333333333,
+        "macro_precision": 0.765933014354067,
+        "macro_recall": 0.7602597402597403,
+        "macro_f1": 0.7468614718614719,
+        "weighted_f1": 0.7644931457431458,
+        "samples": 60,
+        "correct": 47,
+        "top5": 1.0,
+        "loss": 0.6376575708389283
+      },
+      "dependencies": [
+        "models/asl-gru-five-signs-mean-pool-v1/best.pt",
+        "models/asl-gru-five-signs-mean-pool-v1/config.json",
+        "models/asl-gru-five-signs-mean-pool-v1/labels.json"
+      ]
+    },
+    {
+      "id": "gru_geometry_five",
+      "name": "Mean-pooled GRU + geometry \u2014 five signs",
+      "checkpoint": "models/asl-gru-five-signs-geometry-v1/geometry/epoch-005.pt",
+      "checkpoint_sha256": "64882d993f74cb6ba41177b6b41c13c2a2a672ca4f8e53b9a0fc3f314c4f3bd3",
+      "epoch": 5,
+      "architecture": "gru-mean-pool-geometry-v1",
+      "reason": "Strongest recorded five-label checkpoint; explicit geometry implementation. Retrospective test leader, not independently selected by validation.",
+      "evaluation": {
+        "scope": "Official selected-vocabulary test",
+        "classes": 5,
+        "top1": 0.9833333333333333,
+        "macro_precision": 0.9833333333333332,
+        "macro_recall": 0.9800000000000001,
+        "macro_f1": 0.9807780320366133,
+        "weighted_f1": 0.983257055682685,
+        "samples": 60,
+        "correct": 59,
+        "top5": 1.0,
+        "loss": 0.16509089469909669
+      },
+      "dependencies": [
+        "models/asl-gru-five-signs-geometry-v1/geometry/epoch-005.pt",
+        "models/asl-gru-five-signs-geometry-v1/geometry/config.json",
+        "models/asl-gru-five-signs-geometry-v1/geometry/labels.json"
+      ]
+    },
+    {
+      "id": "gru_readout_fifteen",
+      "name": "Frozen GRU + trajectory readout \u2014 fifteen signs",
+      "checkpoint": "models/asl-gru-fifteen-signs-trajectory-readout-c01/best.pt",
+      "checkpoint_sha256": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+      "epoch": 13,
+      "architecture": "gru-mean-pool-trajectory-readout-v1",
+      "reason": "Current fifteen-label implementation; one representative of the near-equivalent C-grid, selected before test evaluation.",
+      "evaluation": {
+        "scope": "Official selected-vocabulary test",
+        "classes": 15,
+        "top1": 0.8076923076923077,
+        "macro_precision": 0.8311697561697563,
+        "macro_recall": 0.8088511488511488,
+        "macro_f1": 0.8033390319599322,
+        "weighted_f1": 0.8054988376073696,
+        "samples": 182,
+        "correct": 147,
+        "top5": 1.0,
+        "loss": 0.5241798175560249
+      },
+      "dependencies": [
+        "models/asl-gru-fifteen-signs-trajectory-readout-c01/best.pt",
+        "models/asl-gru-fifteen-signs-trajectory-readout-c01/config.json",
+        "models/asl-gru-fifteen-signs-trajectory-readout-c01/labels.json"
+      ]
+    },
+    {
+      "id": "stgcn_full",
+      "name": "ST-GCN \u2014 full vocabulary",
+      "checkpoint": "models/asl-stgcn27-v1/best.pt",
+      "checkpoint_sha256": "6617c495405197dd4c232e4a27e2a438fd698c8f9ba6b0d1edc1b795b5e86fad",
+      "epoch": 39,
+      "architecture": "stgcn27-v1",
+      "reason": "Distinct graph-convolution sequence architecture with completed full test evaluation.",
+      "evaluation": {
+        "scope": "Full official 2731-label test",
+        "classes": 2731,
+        "top1": 0.5724780668467867,
+        "macro_precision": 0.5998055511414396,
+        "macro_recall": 0.5732010707251408,
+        "macro_f1": 0.5674471933318482,
+        "weighted_f1": 0.5676416272784719,
+        "top5": 0.8231990528520688,
+        "loss": 2.0882795464199626,
+        "samples": 32941
+      },
+      "dependencies": [
+        "models/asl-stgcn27-v1/best.pt",
+        "models/asl-stgcn27-v1/config.json",
+        "models/asl-stgcn27-v1/labels.json"
+      ]
+    },
+    {
+      "id": "i3d_official",
+      "name": "Official pretrained I3D \u2014 full vocabulary",
+      "checkpoint": "models/asl-citizen-official-i3d-v1/ASL_citizen_I3D_weights.pt",
+      "checkpoint_sha256": "3538319620331d5ba731e0f9ac79161deeb37a895b7680d215864fc00a14477d",
+      "epoch": null,
+      "architecture": "official-asl-citizen-i3d",
+      "reason": "Authors' independent video-pixel baseline; keeps the original 2731-output weights.",
+      "evaluation": {
+        "scope": "182-video matched subset, original 2731-label outputs",
+        "classes": 2731,
+        "samples": 182,
+        "correct": 117,
+        "top1": 0.6428571428571429,
+        "top5": 0.8791208791208791,
+        "mrr": 0.7506045179566571,
+        "dcg": 0.8076322237145537
+      },
+      "dependencies": [
+        "models/asl-citizen-official-i3d-v1/ASL_citizen_I3D_weights.pt",
+        "models/asl-citizen-official-i3d-v1/config.json",
+        "models/asl-citizen-official-i3d-v1/labels.json"
+      ]
+    }
+  ],
+  "history_root": "data/model-history/2026-11-14",
+  "training_implementation_rule": "Notebook-first; webcam integration/runtime remains Python.",
+  "policy": "Keep meaningful implementations and vocabularies with useful results; remove smoke/fold/resume/epoch duplicates and marginal variants.",
+  "new_archive": "models/archives/curated-models-2026-11-14.zip",
+  "limitations": "Different vocabularies/splits are not directly ranked. Epoch-5 five-sign result is retrospective. No live reliability claim."
+}

@@ -1,0 +1,921 @@
+{
+  "status": "complete",
+  "date_local": "2026-11-14",
+  "checkpoint_sha256": "3538319620331d5ba731e0f9ac79161deeb37a895b7680d215864fc00a14477d",
+  "official_full": {
+    "classes": 2731,
+    "samples": 182,
+    "correct": 117,
+    "top1": 0.6428571428571429,
+    "top5": 0.8791208791208791,
+    "mrr": 0.7506045179566571,
+    "dcg": 0.8076322237145537
+  },
+  "official_restricted": {
+    "5": {
+      "classes": 5,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES"
+      ],
+      "metrics": {
+        "top1": 0.9666666666666667,
+        "macro_precision": 0.9684848484848485,
+        "macro_recall": 0.9651515151515152,
+        "macro_f1": 0.9653601770543301,
+        "weighted_f1": 0.9665917041479262,
+        "samples": 60,
+        "correct": 58,
+        "loss": 0.045314944801419475,
+        "top5": 1.0
+      },
+      "confusion": [
+        [
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          13,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          11,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          10
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "support": 14,
+          "correct": 14,
+          "precision": 0.9333333333333333,
+          "recall": 1.0,
+          "f1": 0.9655172413793104
+        },
+        "NO": {
+          "support": 11,
+          "correct": 10,
+          "precision": 1.0,
+          "recall": 0.9090909090909091,
+          "f1": 0.9523809523809523
+        },
+        "PLEASE": {
+          "support": 13,
+          "correct": 13,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "support": 12,
+          "correct": 11,
+          "precision": 1.0,
+          "recall": 0.9166666666666666,
+          "f1": 0.9565217391304348
+        },
+        "YES": {
+          "support": 10,
+          "correct": 10,
+          "precision": 0.9090909090909091,
+          "recall": 1.0,
+          "f1": 0.9523809523809523
+        }
+      },
+      "interpretation": "Output logits restricted and renormalized to the same pilot labels; original 2731-output weights/head unchanged, no training."
+    },
+    "15": {
+      "classes": 15,
+      "labels": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES",
+        "ME",
+        "YOU",
+        "WE",
+        "MY",
+        "YOUR",
+        "OUR",
+        "HELP",
+        "GOOD",
+        "NEED",
+        "LOVE"
+      ],
+      "metrics": {
+        "top1": 0.9065934065934066,
+        "macro_precision": 0.9015096015096015,
+        "macro_recall": 0.9043667443667444,
+        "macro_f1": 0.8889447657123818,
+        "weighted_f1": 0.8913820169977806,
+        "samples": 182,
+        "correct": 165,
+        "loss": 0.2865779197838953,
+        "top5": 1.0
+      },
+      "confusion": [
+        [
+          14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          13,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12
+        ]
+      ],
+      "per_class": {
+        "HELLO": {
+          "support": 14,
+          "correct": 14,
+          "precision": 0.9333333333333333,
+          "recall": 1.0,
+          "f1": 0.9655172413793104
+        },
+        "NO": {
+          "support": 11,
+          "correct": 10,
+          "precision": 0.8333333333333334,
+          "recall": 0.9090909090909091,
+          "f1": 0.8695652173913043
+        },
+        "PLEASE": {
+          "support": 13,
+          "correct": 13,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "THANKYOU": {
+          "support": 12,
+          "correct": 1,
+          "precision": 0.5,
+          "recall": 0.08333333333333333,
+          "f1": 0.14285714285714285
+        },
+        "YES": {
+          "support": 10,
+          "correct": 9,
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1": 0.9
+        },
+        "ME": {
+          "support": 13,
+          "correct": 12,
+          "precision": 1.0,
+          "recall": 0.9230769230769231,
+          "f1": 0.9600000000000001
+        },
+        "YOU": {
+          "support": 12,
+          "correct": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "WE": {
+          "support": 12,
+          "correct": 12,
+          "precision": 0.9230769230769231,
+          "recall": 1.0,
+          "f1": 0.9600000000000001
+        },
+        "MY": {
+          "support": 13,
+          "correct": 13,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "YOUR": {
+          "support": 11,
+          "correct": 11,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "OUR": {
+          "support": 12,
+          "correct": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "HELP": {
+          "support": 13,
+          "correct": 13,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GOOD": {
+          "support": 12,
+          "correct": 11,
+          "precision": 0.5238095238095238,
+          "recall": 0.9166666666666666,
+          "f1": 0.6666666666666667
+        },
+        "NEED": {
+          "support": 12,
+          "correct": 10,
+          "precision": 0.9090909090909091,
+          "recall": 0.8333333333333334,
+          "f1": 0.8695652173913043
+        },
+        "LOVE": {
+          "support": 12,
+          "correct": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "interpretation": "Output logits restricted and renormalized to the same pilot labels; original 2731-output weights/head unchanged, no training."
+    }
+  },
+  "project_small_vocab": [
+    {
+      "checkpoint": "models/asl-gru-five-signs-geometry-v1/geometry/best.pt",
+      "epoch": 8,
+      "classes": 5,
+      "metrics": {
+        "top1": 0.85,
+        "macro_precision": 0.8893772893772892,
+        "macro_recall": 0.8318881118881117,
+        "macro_f1": 0.8407320261437908,
+        "weighted_f1": 0.8469063180827888,
+        "samples": 60,
+        "correct": 51,
+        "top5": 1.0,
+        "loss": 0.41866122086842855
+      },
+      "official_correct_project_wrong": 8,
+      "project_correct_official_wrong": 1
+    },
+    {
+      "checkpoint": "models/asl-gru-five-signs-geometry-v1/geometry/epoch-005.pt",
+      "epoch": 5,
+      "classes": 5,
+      "metrics": {
+        "top1": 0.9833333333333333,
+        "macro_precision": 0.9833333333333332,
+        "macro_recall": 0.9800000000000001,
+        "macro_f1": 0.9807780320366133,
+        "weighted_f1": 0.983257055682685,
+        "samples": 60,
+        "correct": 59,
+        "top5": 1.0,
+        "loss": 0.16509089469909669
+      },
+      "official_correct_project_wrong": 1,
+      "project_correct_official_wrong": 2
+    },
+    {
+      "checkpoint": "models/asl-gru-fifteen-signs-trajectory-readout-c01/best.pt",
+      "epoch": 13,
+      "classes": 15,
+      "metrics": {
+        "top1": 0.8076923076923077,
+        "macro_precision": 0.8311697561697563,
+        "macro_recall": 0.8088511488511488,
+        "macro_f1": 0.8033390319599322,
+        "weighted_f1": 0.8054988376073696,
+        "samples": 182,
+        "correct": 147,
+        "top5": 1.0,
+        "loss": 0.5241798175560249
+      },
+      "official_correct_project_wrong": 26,
+      "project_correct_official_wrong": 8
+    }
+  ],
+  "project_full_vocab_same_videos": [
+    {
+      "evaluation": "asl-gru-regularized-test-v1",
+      "classes": 2731,
+      "samples": 182,
+      "correct": 97,
+      "top1": 0.532967032967033,
+      "top5": 0.7747252747252747,
+      "source_report_sha256": "98957b59ea1bfdd244bc5a5af319359386a49ae8244648122b50baea62d6e300"
+    },
+    {
+      "evaluation": "asl-stgcn27-test-v1",
+      "classes": 2731,
+      "samples": 182,
+      "correct": 90,
+      "top1": 0.4945054945054945,
+      "top5": 0.8461538461538461,
+      "source_report_sha256": "122463915918bab58b3648ae41417f2ea9df3bf8c3675133204a1ac3f5be67f0"
+    }
+  ],
+  "baseline_report_sha256": "d23ef775ccbd4fe65bcedfaf779e7efe97da4d205682c5381ec15d6220fd6a12",
+  "training": false,
+  "existing_models_changed": false,
+  "preprocessing_matches_upstream": true,
+  "limits": [
+    "Restricted scores renormalize the released 2731 outputs; no weights or head were retrained.",
+    "Released I3D trained on the full vocabulary; small project models trained on selected-class subsets. This is not an architecture-only ablation.",
+    "182 chosen official test videos are not the entire 32941-video official test set; no published-score reproduction claim.",
+    "The epoch-5 GRU was identified retrospectively by its test score.",
+    "Order-dependent upstream endpoint padding is seeded/disclosed. A separate confirmed four-trial webcam check is reported descriptively."
+  ],
+  "webcam": {
+    "session": {
+      "status": "complete",
+      "session_id": "official-citizen-i3d-webcam-20261114-151453",
+      "model": "Official ASL Citizen InceptionI3d",
+      "checkpoint_sha256": "3538319620331d5ba731e0f9ac79161deeb37a895b7680d215864fc00a14477d",
+      "commit": "17f0148b00ef87a5957ec103da8d10bd8eb1fa23",
+      "full_output_classes": 2731,
+      "secondary_output_view": [
+        "HELLO",
+        "NO",
+        "PLEASE",
+        "THANKYOU",
+        "YES",
+        "ME",
+        "YOU",
+        "WE",
+        "MY",
+        "YOUR",
+        "OUR",
+        "HELP",
+        "GOOD",
+        "NEED",
+        "LOVE"
+      ],
+      "capture_seconds": 3,
+      "fps_limit": 30,
+      "prompts": [
+        "HELLO",
+        "THANKYOU",
+        "YOU",
+        "ME"
+      ],
+      "training": false,
+      "landmark_extraction": false,
+      "existing_recognizer_changed": false,
+      "media_saved": false,
+      "coordinates_saved": false,
+      "user_completion_confirmed": true,
+      "trials": [
+        {
+          "full_top5": [
+            {
+              "label": "WRITEONWALL",
+              "score": 0.985315440456865
+            },
+            {
+              "label": "CONDUCT3",
+              "score": 0.002187369495982845
+            },
+            {
+              "label": "NONSENSE",
+              "score": 0.0015016894790894045
+            },
+            {
+              "label": "BECAUSE",
+              "score": 0.0013689745742579177
+            },
+            {
+              "label": "MAKEBELIEVE",
+              "score": 0.001246261090883129
+            }
+          ],
+          "pilot15_top5": [
+            {
+              "label": "HELLO",
+              "score": 0.8340785667016121
+            },
+            {
+              "label": "NEED",
+              "score": 0.040223408663986146
+            },
+            {
+              "label": "YES",
+              "score": 0.033997460534498314
+            },
+            {
+              "label": "GOOD",
+              "score": 0.029488447525195124
+            },
+            {
+              "label": "NO",
+              "score": 0.011135049903163882
+            }
+          ],
+          "input": {
+            "captured_frames": 89,
+            "selected_before_padding": 64,
+            "source_start_frame": 12,
+            "frame_skip": 1,
+            "model_frames": 64,
+            "crop_size": 224,
+            "padding_seed": 0,
+            "channel_order": "BGR per upstream"
+          },
+          "captured_seconds": 2.971,
+          "media_saved": false,
+          "coordinates_saved": false,
+          "capture_fps_limit": 30.0,
+          "source_frame_count": 90,
+          "fps_limit_dropped_frames": 1,
+          "source_capture_fps": 29.653509404541467,
+          "effective_capture_fps": 29.619656681252103,
+          "capture_id": 1,
+          "prompted_label": "HELLO",
+          "user_confirmation": true,
+          "trial_status": "confirmed_valid",
+          "user_confirmed_label": "HELLO"
+        },
+        {
+          "full_top5": [
+            {
+              "label": "JAWDROP",
+              "score": 0.3130200056412686
+            },
+            {
+              "label": "GOOD",
+              "score": 0.25699645114411057
+            },
+            {
+              "label": "FLASHLIGHT2",
+              "score": 0.05121069494439583
+            },
+            {
+              "label": "BIRTHDAY",
+              "score": 0.027504389832295053
+            },
+            {
+              "label": "WELCOME1",
+              "score": 0.02650836545338107
+            }
+          ],
+          "pilot15_top5": [
+            {
+              "label": "GOOD",
+              "score": 0.9880827282052792
+            },
+            {
+              "label": "THANKYOU",
+              "score": 0.005069964732957129
+            },
+            {
+              "label": "YOUR",
+              "score": 0.00395406194956633
+            },
+            {
+              "label": "YOU",
+              "score": 0.0015590697717984766
+            },
+            {
+              "label": "WE",
+              "score": 0.0005805175576698073
+            }
+          ],
+          "input": {
+            "captured_frames": 88,
+            "selected_before_padding": 64,
+            "source_start_frame": 12,
+            "frame_skip": 1,
+            "model_frames": 64,
+            "crop_size": 224,
+            "padding_seed": 0,
+            "channel_order": "BGR per upstream"
+          },
+          "captured_seconds": 2.999,
+          "media_saved": false,
+          "coordinates_saved": false,
+          "capture_fps_limit": 30.0,
+          "source_frame_count": 91,
+          "fps_limit_dropped_frames": 3,
+          "source_capture_fps": 29.665893804195562,
+          "effective_capture_fps": 29.00966988996332,
+          "capture_id": 2,
+          "prompted_label": "THANKYOU",
+          "user_confirmation": true,
+          "trial_status": "confirmed_valid",
+          "user_confirmed_label": "THANKYOU"
+        },
+        {
+          "full_top5": [
+            {
+              "label": "LAMP1",
+              "score": 0.005571980773878023
+            },
+            {
+              "label": "IGNORE",
+              "score": 0.004879182488129435
+            },
+            {
+              "label": "FALL2",
+              "score": 0.004801820203230209
+            },
+            {
+              "label": "GARLIC",
+              "score": 0.004558847601854993
+            },
+            {
+              "label": "GREEN",
+              "score": 0.004135896102169471
+            }
+          ],
+          "pilot15_top5": [
+            {
+              "label": "HELLO",
+              "score": 0.173543979413231
+            },
+            {
+              "label": "YES",
+              "score": 0.13611838122770645
+            },
+            {
+              "label": "NEED",
+              "score": 0.12158211657716332
+            },
+            {
+              "label": "GOOD",
+              "score": 0.07990578559013134
+            },
+            {
+              "label": "NO",
+              "score": 0.06286551357190412
+            }
+          ],
+          "input": {
+            "captured_frames": 89,
+            "selected_before_padding": 64,
+            "source_start_frame": 12,
+            "frame_skip": 1,
+            "model_frames": 64,
+            "crop_size": 224,
+            "padding_seed": 0,
+            "channel_order": "BGR per upstream"
+          },
+          "captured_seconds": 2.969,
+          "media_saved": false,
+          "coordinates_saved": false,
+          "capture_fps_limit": 30.0,
+          "source_frame_count": 90,
+          "fps_limit_dropped_frames": 1,
+          "source_capture_fps": 29.65412494876689,
+          "effective_capture_fps": 29.63960929605928,
+          "capture_id": 3,
+          "prompted_label": "YOU",
+          "user_confirmation": true,
+          "trial_status": "confirmed_valid",
+          "user_confirmed_label": "YOU"
+        },
+        {
+          "full_top5": [
+            {
+              "label": "BLOUSE",
+              "score": 0.3392665794179286
+            },
+            {
+              "label": "BENEFIT",
+              "score": 0.01783133837393654
+            },
+            {
+              "label": "FEDUP",
+              "score": 0.011642100476862954
+            },
+            {
+              "label": "UPSET1",
+              "score": 0.009451673985060407
+            },
+            {
+              "label": "SCISSORS",
+              "score": 0.009081761750575679
+            }
+          ],
+          "pilot15_top5": [
+            {
+              "label": "ME",
+              "score": 0.3018802029108056
+            },
+            {
+              "label": "WE",
+              "score": 0.1960981263415249
+            },
+            {
+              "label": "MY",
+              "score": 0.10551038306105402
+            },
+            {
+              "label": "GOOD",
+              "score": 0.081945093558813
+            },
+            {
+              "label": "NO",
+              "score": 0.05126496666644105
+            }
+          ],
+          "input": {
+            "captured_frames": 87,
+            "selected_before_padding": 64,
+            "source_start_frame": 11,
+            "frame_skip": 1,
+            "model_frames": 64,
+            "crop_size": 224,
+            "padding_seed": 0,
+            "channel_order": "BGR per upstream"
+          },
+          "captured_seconds": 2.968,
+          "media_saved": false,
+          "coordinates_saved": false,
+          "capture_fps_limit": 30.0,
+          "source_frame_count": 90,
+          "fps_limit_dropped_frames": 3,
+          "source_capture_fps": 29.659106560402265,
+          "effective_capture_fps": 28.975741239892184,
+          "capture_id": 4,
+          "prompted_label": "ME",
+          "user_confirmation": true,
+          "trial_status": "confirmed_valid",
+          "user_confirmed_label": "ME"
+        }
+      ],
+      "camera_open": false,
+      "checkpoint_unchanged": true
+    },
+    "confirmed_trials": 4,
+    "full_correct": 0,
+    "pilot15_correct": 2,
+    "source_report_sha256": "562c2d3ffe58d94b108d8ea5c800bcba51a70a9314f3cd5c9d8df51741a73173",
+    "limits": "Four trials, one signer/session; descriptive diagnostic only. Full 2731-way versus restricted 15-way are different output tasks. No personal media or coordinates saved."
+  }
+}

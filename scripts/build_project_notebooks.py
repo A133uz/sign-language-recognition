@@ -21,6 +21,9 @@ import subprocess
 import sys
 import textwrap
 
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
+from sign_language.model_history import artifact_path
+
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -44,15 +47,15 @@ def gather_snapshot():
     provenance = {}
 
     def read(relative):
-        path = ROOT/relative
+        path = artifact_path(ROOT,relative)
         if not path.exists():
             return None
-        provenance[relative] = sha(path)
+        provenance[path.relative_to(ROOT).as_posix()] = sha(path)
         return json.loads(path.read_text(encoding='utf-8'))
 
     models = {}
     for key, label, folder, evaluation in MODELS:
-        path = ROOT/folder
+        path = artifact_path(ROOT,folder,prefer_history=True)
         config = read(folder+'/config.json')
         if config is None:
             continue
@@ -64,12 +67,13 @@ def gather_snapshot():
         if test and test['status'] == 'complete':
             chosen = next(r for r in records if r['epoch'] == test['checkpoint_epoch'])
             assert abs(chosen['val']['loss']-test['validation_at_selection']['loss']) < 1e-9
-            assert sha(path/'best.pt') == test['checkpoint_sha256']
+            assert sha(ROOT/folder/'best.pt') == test['checkpoint_sha256']
         hidden = config['model'].get('hidden_size', 0)
         parameters = status.get('parameters') or (9*hidden**2+3505*hidden+2731 if hidden else None)
         item = {'label': label, 'folder': folder, 'status': status.get('status', 'unknown'),
                 'config': config, 'history': records, 'selected': chosen,
-                'parameters': parameters, 'test': test}
+                'parameters': parameters, 'test': test,
+                'weights_retained':(ROOT/folder/'best.pt').is_file()}
         if test and test['status'] == 'complete':
             per_class = ROOT/evaluation/'per-class.csv'
             if per_class.exists():
@@ -156,6 +160,45 @@ def gather_snapshot():
             'ablation': read('docs/assets/please-trajectory-readout-ablation-2026-11-12.json'),
             'joint_attempt': read('docs/assets/please-trajectory-fix-2026-11-12.json'),
         }
+    pronouns=read('docs/assets/pronoun-diagnostic-summary-2026-11-14.json')
+    if pronouns is not None:
+        snapshot['pronoun_investigation']=pronouns
+    timing=read('docs/assets/capture-timing-normalization-2026-11-14.json')
+    if timing is not None:
+        snapshot['capture_timing_normalization']=timing
+    three_seconds=read('docs/assets/pronouns-three-second-check-2026-11-14.json')
+    if three_seconds is not None:
+        snapshot['pronouns_three_seconds']={
+            key:three_seconds[key] for key in ('session_id','user_feedback','counts','protected_files_unchanged','limits')}
+        snapshot['pronouns_three_seconds']['controls']=[
+            row for row in three_seconds['controls'] if row['variant']=='original']
+    pose_result=read('docs/assets/pose-entry-exit-results-2026-11-14.json')
+    if pose_result is not None:
+        snapshot['pose_entry_exit']={key:pose_result[key] for key in
+            ('status','session_id','counts','rows','protected_unchanged','limits')}
+        you_audit=read('docs/assets/you-source-audit-2026-11-14.json')
+        if you_audit:
+            snapshot['pose_entry_exit']['you_audit']={key:you_audit[key] for key in
+                ('status','counts','full_validation_reproduction','protected_inputs_unchanged')}
+    live_review=read('docs/assets/you-live-landmark-review-2026-11-14.json')
+    if live_review is not None:
+        snapshot['you_landmark_review']={key:live_review[key] for key in
+            ('status','session_id','geometry_enabled','geometry_features','head_interventions_performed',
+             'samples','public_probe_statistics','public_probe_records','ram_images_cleared','protected_unchanged',
+             'observed_image_notes','interpretation','limits')}
+        snapshot['you_landmark_review']['predictions']=[{
+            key:t[key] for key in ('capture_id','top5','intended_condition','user_confirmation','capture_seconds')}
+            for t in live_review['live']['trials']]
+    benchmark=read('docs/assets/small-vocab-snapshot-test-2026-11-14.json')
+    if benchmark is not None:
+        if benchmark['status']!='complete':raise ValueError('Snapshot benchmark must be complete')
+        snapshot['small_vocab_test_benchmark']=benchmark
+        snapshot['source_sha256']['docs/assets/small-vocab-snapshot-test-2026-11-14.json']=sha(ROOT/'docs/assets/small-vocab-snapshot-test-2026-11-14.json')
+    official=read('docs/assets/official-citizen-i3d-comparison-2026-11-14.json')
+    if official is not None:
+        snapshot['official_citizen_i3d']=official
+        snapshot['source_sha256']['docs/assets/official-citizen-i3d-comparison-2026-11-14.json']=sha(ROOT/'docs/assets/official-citizen-i3d-comparison-2026-11-14.json')
+    snapshot['model_retention'] = read('docs/assets/retained-models-2026-11-14.json')
     snapshot['stgcn_complete'] = bool(models.get('stgcn',{}).get('status') == 'completed' and
                                      (models.get('stgcn',{}).get('test') or {}).get('status') == 'complete')
     return snapshot
@@ -290,6 +333,34 @@ print('Read-only report: no training, extraction, downloads, webcam or weight up
 '''
 
 
+def append_model_retention(n,snapshot):
+    if snapshot.get('model_retention'):
+        n.markdown('''## Retained models and notebook-first implementation
+
+        New model design and training must be implemented in Jupyter notebooks,
+        including the actual definitions, training code and configuration.
+        Webcam/inference integration remains in Python modules. This notebook
+        records historical experiments; it does not rerun their training.
+
+        Checkpoint curation on 2026-11-14 retained seven useful architecture,
+        implementation or vocabulary references from 185 checkpoint files.
+        The 178 removed checkpoints include unsuccessful runs, epoch duplicates
+        and marginal hyperparameter variants. Their metrics and source records
+        remain in metadata history. Curves below may therefore describe models
+        whose weights have intentionally been removed.
+
+        Scores have different vocabularies and test scopes. The five-sign
+        geometry epoch 5 is a retrospective test leader, not an independently
+        validation-selected result. Offline accuracy does not prove webcam
+        reliability. The existing webcam default is unchanged.''')
+        rows = ['| Model | Classes | Epoch | Test top-1 | Clips | Evaluation scope |',
+                '|---|---:|---:|---:|---:|---|']
+        for row in snapshot['model_retention']['retained_models']:
+            ev=row['evaluation']
+            rows.append(f"| {row['name']} | {ev['classes']} | {row['epoch'] or 'official'} | {ev['top1']*100:.2f}% | {ev['samples']} | {ev['scope']} |")
+        n.markdown('\n'.join(rows))
+
+
 def make_workflow(snapshot):
     n = Notebook('01_project_workflow_and_investigation')
     pending = '' if snapshot['stgcn_complete'] else '**DRAFT SNAPSHOT: ST-GCN is still training; final refresh is scheduled after evaluation.**'
@@ -304,11 +375,13 @@ def make_workflow(snapshot):
     landmark archives, checkpoints or a running kernel. Rerunning needs Python,
     NumPy and Matplotlib (plus an IPython kernel in a notebook editor).
 
-    Training/program code remains in ordinary Python modules. The notebook is a
-    research record, not a second implementation. For detailed actions see the
+    Historical training code remains as a record. New model architecture and
+    training implementation belong in Jupyter notebooks; webcam integration
+    remains in Python modules. This notebook reports previous experiments. For detailed actions see the
     [investigation log](../docs/recognition-investigation-2026-11-10.md) and
     [project summary](../sign_language_project_summary.md).''')
     n.code(SETUP)
+    append_model_retention(n,snapshot)
     if snapshot.get('fifteen_sign_temporal'):
         append_current_pilot(n, snapshot, include_results=False)
     n.markdown('''## 1. Scope and implementation history
@@ -807,6 +880,444 @@ def append_current_pilot(n, snapshot, include_results=True):
     augmentation controls for this 15-label pilot.''')
 
 
+def append_pronoun_diagnosis(n,snapshot):
+    n.markdown('''## ME/WE diagnosis: frozen-model experiments, 2026-11-14
+
+    This investigation changes no model or default and reads no new official
+    test examples. All 37 ME/WE train/validation clips were audited: raw hashes,
+    full video decode/FPS, record identities and exact float16 prepared inputs.
+    The full 60-example development validation output reproduces exactly.
+    Twelve public-video contact sheets were reviewed; sampled detector misses
+    occur even in correctly classified clips. Presence does not prove accurate
+    joints, and a review flag is not a confirmed corrupt or mislabeled example.
+
+    The four additive WE-minus-ME terms are bias, pooled GRU, original 17 hand
+    summaries and six path summaries. Positive favors WE. Group zeroing uses
+    standardized training means without refitting. Reverse/shuffle/static/
+    reflection/slot controls recalculate geometry. Changes indicate sensitivity,
+    not a valid repair. The GRU already receives ordered body-relative positions.
+
+    New live trials use the same transient observations for all controls. Only
+    user-confirmed trials enter accuracy counts; no video, joint arrays or
+    embeddings are saved. Historical five ME failures are a separate session.
+    [Protocol and findings](../docs/pronoun-investigation-2026-11-14.md).''')
+    n.code(r'''
+    PD=S['pronoun_investigation']
+    print('Investigation status:',PD['status'])
+    print('Audit counts:',PD['counts'])
+    print('Protected inputs unchanged:',PD['protected_inputs_unchanged'])
+    print('Validation reproduction:',PD['full_validation_reproduction']['correct'],'/60; maximum score difference:',
+          PD['full_validation_reproduction']['maximum_score_difference'])
+    print('Offline validation controls:')
+    for control,result in PD['offline_controls']['val'].items():
+        print(control,{g:f'{r["correct"]}/{r["support"]}' for g,r in result.items()})
+    if PD['live'] is None:
+        print('Live trials pending or not yet user-confirmed; no new live accuracy conclusion.')
+    else:
+        print('Live session:',PD['live']['session_id'],'confirmed:',len(PD['live']['confirmed_trials']),
+              'excluded:',PD['live']['excluded_trials'])
+        for control,result in PD['live']['controls'].items():
+            print(control,{g:f'{r["correct"]}/{r["support"]}' for g,r in result.items()})
+        print('Actual competing classes in failed captures:')
+        for item in PD['live'].get('actual_competitor_explanations',[]):
+            print('Capture',item['capture_id'],item['full_winner'],'minus',item['expected'])
+            for window,explanation in item['windows'].items():
+                print(window,explanation.get('actual_margin'),explanation.get('components',explanation.get('reason')))
+        print('Retained live FPS:',PD['live'].get('effective_fps_range'),
+              '| camera-loop FPS:',PD['live'].get('source_fps_range'),
+              '| dataset FPS:',PD.get('dataset_fps_range'))
+    ''')
+    n.code(r'''
+    groups_pd=[('Offline validation',[(r['gloss']+' '+r['participant_id']+' '+r['video_file'][:7],r)
+                for r in PD['offline_validation_margins']])]
+    if PD['live'] is not None:
+        live_pd=[r for r in PD['live']['confirmed_trials'] if r['windows']['full']['status']=='scored']
+        if live_pd:
+            groups_pd.append(('Confirmed live trials',[(f'#{r["capture_id"]} {r["prompted_label"]}',
+                r['windows']['full']['variants']['original']['margin_explanation']) for r in live_pd]))
+    fig,axes=plt.subplots(1,len(groups_pd),figsize=(8*len(groups_pd),7),squeeze=False)
+    for ax,(title,data) in zip(axes.flat,groups_pd):
+        positive=np.zeros(len(data));negative=np.zeros(len(data));positions=np.arange(len(data))
+        for key,color in [('bias','#64748b'),('pooled_gru','#2563eb'),
+                          ('original_17_geometry','#0d9488'),('six_path_geometry','#d97706')]:
+            values=np.array([r['components'][key] for _,r in data])
+            ax.barh(positions,values,left=np.where(values>=0,positive,negative),label=key,color=color)
+            positive+=np.maximum(values,0);negative+=np.minimum(values,0)
+        ax.scatter([r['actual_margin'] for _,r in data],positions,c='black',marker='x',label='actual margin',zorder=4)
+        ax.axvline(0,c='black',lw=.8);ax.invert_yaxis()
+        ax.set(yticks=positions,yticklabels=[label for label,_ in data],title=title,
+               xlabel='WE minus ME logit contribution (positive favors WE)')
+        ax.legend(fontsize=7,loc='upper center',bbox_to_anchor=(.5,-.13),ncols=2)
+    finish('WE-minus-ME contributions; actual NEED/YES competition is reported separately')
+    ''')
+    if snapshot['pronoun_investigation'].get('findings'):
+        n.markdown('''### Evidence-supported interpretation
+
+        In the new confirmed session the unchanged model gets ME 3/3, PLEASE
+        3/3 and WE 1/3. The two WE failures instead rank NEED and YES first.
+        First-two-second views of the same observations get WE 3/3 but regress
+        one ME and one PLEASE. Their largest competitor-margin changes occur
+        in the pooled recurrent contribution. Cropping also refits per-clip
+        normalization, so this does not isolate the GRU or later frames alone.
+
+        Actual retained live cadence was 13.92-17.55 FPS, versus 29.73-30.97
+        FPS in these dataset videos. The camera loop delivered 22.20-25.85 FPS
+        and the limiter discarded additional frames. Arrival-time traces were
+        not saved; the cause and independent effect of those losses is unresolved.
+
+        The next smallest experiment should instrument arrival/keep/drop interval
+        aggregates and compare prefixes with normalization held fixed. Only then
+        consider a separate motion-aware segmentation/pooling candidate with
+        consistent train/live sampling. Fixed cropping, path-feature removal,
+        mirroring and label overrides are not supported blanket repairs. The old
+        five ME failures cannot be exactly diagnosed from count-only logs.''')
+    elif snapshot['pronoun_investigation'].get('withdrawn_findings'):
+        n.markdown('''### Gesture-label correction
+
+        The user clarified that WE was misunderstood in both nine-trial sessions.
+        WE captures 2, 5 and 8 are excluded from semantic accuracy and WE-failure
+        conclusions. The earlier WE 1/3 and prefix WE 3/3 claims are withdrawn.
+        The response/margin data are preserved as observations on unverified
+        gestures. ME and PLEASE remain valid in this earlier session (3/3 each).
+        A correctly performed WE test is needed before measuring live WE accuracy.
+        [Correction ledger](../docs/assets/pronoun-gesture-feedback-correction-2026-11-14.json).''')
+
+
+def append_capture_timing(n,snapshot):
+    n.markdown('''## Capture timing and normalization held fixed
+
+    A diagnostic adapter reproduces the frozen production preprocessor and
+    prepared inputs on all 37 audited ME/WE clips, before independent 128-frame
+    selection. The matched prefix uses identical raw-frame IDs either with
+    its own preprocessing fit or with full-capture preprocessing held fixed.
+    The latter is retrospective: it uses future full-capture context, not a
+    proposed streaming normalizer. Geometry still follows the actual window.
+    Refitting can change scale medians, short-gap interpolation and hand-slot
+    initialization; feature and mask differences are reported explicitly.
+
+    Instrumentation keeps arrival/decision traces in RAM and saves only interval
+    and stage aggregates. Replay verifies the existing limiter's decisions;
+    neither the limiter nor the models/defaults are changed. Application arrival
+    times are not hardware exposure timestamps. Test jobs finish before capture.
+    Only explicitly confirmed trials enter accuracy counts.
+    [Detailed report](../docs/capture-timing-normalization-2026-11-14.md).''')
+    n.code(r'''
+    CT=S['capture_timing_normalization']
+    print('Status:',CT['status'],'| adapter-verified clips:',CT['verified_dataset_clips'])
+    print('Protected inputs unchanged:',CT['protected_inputs_unchanged'])
+    print('Model:',CT['checkpoint_sha256'])
+    if CT['live'] is None or not CT['live']['confirmed_trials']:
+        print('New live results pending confirmation; no timing or accuracy conclusion.')
+    else:
+        CL=CT['live']
+        print('Session:',CL['session_id'],'| confirmed:',len(CL['confirmed_trials']))
+        for name,result in CL['controls'].items():
+            print(name,{g:f'{r["correct"]}/{r["support"]}' for g,r in result.items()})
+        print('Arrival FPS range:',CL['source_fps_range'],'| kept:',CL['retained_fps_range'])
+        print('Total drops:',CL['total_drops'],'| within 100ms of long gap:',CL['drops_near_long_gaps'])
+        if CL.get('gesture_validity_correction'):
+            print('WE trials excluded after user corrected the gesture labels; no WE accuracy claim.')
+            print('Matched prefix refit/fixed agreement:',CL['prefix_refit_vs_fixed_first_guess_agreement'])
+        for trial in CL['confirmed_trials']:
+            timing=trial['capture_timing']
+            print('Capture',trial['capture_id'],trial['prompted_label'],
+                  'replay mismatches:',timing['limiter_replay_mismatches'],
+                  'stage p50 milliseconds:',{k:round(v['p50'],3) for k,v in timing['stages_ms'].items()})
+            for window in ('first_two_seconds','detected_hand_envelope'):
+                comparison=trial['normalization_comparison'].get(window)
+                if comparison:
+                    print(window,'full scale:',trial['normalization_comparison']['full_context'],
+                          'refitted scale:',comparison['refitted_context'],
+                          'feature/mask differences:',comparison['matched_frame_feature_differences'])
+        print('Competing-class margins on matched windows:')
+        for row in CL['competitor_comparisons']:
+            print(row['capture_id'],row['competitor'],'minus',row['expected'])
+            for window,e in row['windows'].items():
+                print(window,e.get('actual_margin'),e.get('components',e.get('reason')))
+    ''')
+
+    if snapshot['capture_timing_normalization'].get('live',{}):
+        if snapshot['capture_timing_normalization']['live'].get('gesture_validity_correction'):
+            n.markdown('''### Corrected interpretation
+
+            The user misunderstood WE in both sessions; captures 2, 5 and 8
+            are excluded from recognition accuracy and WE-failure conclusions.
+            In the latest valid ME/PLEASE captures, full-window results are
+            ME 1/3 and PLEASE 2/3 at about 29.7 retained FPS. Both prefix refits
+            and fixed-context prefixes give ME 0/3 and PLEASE 3/3, with identical
+            first guesses on all six matched captures. Thus neither a normal
+            capture rate nor fixed normalization is sufficient to repair ME.
+            Verify ME/WE against dataset references before further model tuning.
+            No wrong-gesture trial is treated as a training example.''')
+    n.code(r'''
+    if CT['live'] is not None and CT['live']['confirmed_trials']:
+        CL=CT['live'];trials_ct=CL['confirmed_trials']
+        fig,axes=plt.subplots(1,2,figsize=(14,4.8))
+        for offset,key,label,color in [(-.25,'full/current','Full','#64748b'),
+                (0.,'first_two_seconds/current','Prefix refit','#2563eb'),
+                (.25,'first_two_seconds_fixed_normalization/current','Prefix fixed','#0d9488')]:
+            result=CL['controls'][key];names_ct=[g for g in ('ME','WE','PLEASE') if g in result]
+            bars=axes[0].bar(np.arange(len(names_ct))+offset,[result[g]['correct'] for g in names_ct],.24,label=label,color=color)
+            for bar,g in zip(bars,names_ct):
+                axes[0].text(bar.get_x()+bar.get_width()/2,bar.get_height()+.05,
+                             f'{result[g]["correct"]}/{result[g]["support"]}',ha='center',fontsize=8)
+        axes[0].set(xticks=np.arange(len(names_ct)),xticklabels=names_ct,ylim=(0,4),ylabel='Correct confirmed trials');axes[0].legend(fontsize=8)
+        positions_ct=np.arange(len(trials_ct))
+        axes[1].plot(positions_ct,[r['source_capture_fps'] for r in trials_ct],'o-',label='Application arrivals')
+        axes[1].plot(positions_ct,[r['effective_capture_fps'] for r in trials_ct],'o-',label='Kept frames')
+        axes[1].axhline(30,c='gray',ls='--',label='Requested FPS')
+        axes[1].set(xticks=positions_ct,xticklabels=[r['capture_id'] for r in trials_ct],xlabel='Capture',ylabel='FPS');axes[1].legend(fontsize=8)
+        finish('Matched preprocessing controls and measured cadence; no model retraining')
+    else:
+        print('Timing plot awaits confirmed data; no synthetic accuracy bars are drawn.')
+    ''')
+
+
+def append_three_second_pronouns(n):
+    n.markdown('''## Three-second ME / WE / YOU check — 14 November 2026
+
+    Six prompted captures used the same frozen 15-class model and automatic
+    three-second input cap. The user identified capture **#2 as LOVE instead of
+    WE**; exclude it from prompted-sign accuracy. The other five were confirmed.
+    These few trials do not estimate general accuracy. All 15 labels compete.
+
+    Both ME attempts remain WE across the full, first-two-second and hand-envelope
+    windows, even with all readout geometry disabled. Repeating one active frame
+    instead produces ME on both, demonstrating sequence sensitivity, not a valid
+    recognizer correction. YOU is YES in both full captures; one matched cropped
+    capture becomes YOU with the original head or geometry disabled, but that
+    does not fix the other attempt. The single valid WE becomes correct only in
+    its first-two-second proxy. No universal window/head fix is supported.
+
+    [Detailed report](../docs/pronouns-three-second-check-2026-11-14.md).
+    Model/preprocessor hashes match; no training or live coordinates were saved.''')
+    n.code(r'''
+    TS=S['pronouns_three_seconds']
+    print('Session:',TS['session_id'],'| counts:',TS['counts'])
+    print('Excluded:',TS['user_feedback']['invalid_prompted_capture_ids'])
+    print('Protected files unchanged:',TS['protected_files_unchanged'])
+    full_ts=[r for r in TS['controls'] if r['window']=='full']
+    fig,ax=plt.subplots(figsize=(10,4.5))
+    labels_ts=[f"#{r['capture_id']} {r['expected_label']}" for r in full_ts]
+    for offset,window,label in [(-.25,'full','Full 3s'),(0.,'first_two_seconds','First 2s proxy'),(.25,'detected_hand_envelope','Hand envelope proxy')]:
+        rows_ts={r['capture_id']:r for r in TS['controls'] if r['window']==window}
+        scores_ts=[next((p['score'] for p in rows_ts[r['capture_id']]['current_top5'] if p['label']==r['expected_label']),np.nan) for r in full_ts]
+        bars=ax.bar(np.arange(len(full_ts))+offset,scores_ts,.24,label=label)
+        for bar,r in zip(bars,full_ts):
+            height=bar.get_height()
+            ax.text(bar.get_x()+bar.get_width()/2,(height if np.isfinite(height) else 0.)+.015,rows_ts[r['capture_id']]['current_top5'][0]['label'],rotation=90,ha='center',va='bottom',fontsize=8)
+    ax.set(xticks=np.arange(len(full_ts)),xticklabels=labels_ts,ylim=(0,1.02),ylabel='Intended-label softmax score (top-five entries only)')
+    ax.legend(fontsize=8)
+    print('A missing top-five score is unavailable and has no bar; it is not treated as zero.')
+    finish('Five confirmed captures; annotations show the first guess; #2 excluded')
+    ''')
+
+
+def append_pose_entry_exit(n):
+    n.markdown('''## Held pronoun pose versus natural entry/exit — 14 November 2026
+
+    Eight trials were explicitly confirmed by the user. ME hold #1 had no
+    usable hand or body anchors and is unscorable, not a wrong model prediction.
+    ME #2 was PLEASE, while the repeated ME hold #5 and natural attempt #6 were
+    correct. All four YOU trials were YES, including both held poses. There is
+    no repeated hold-versus-motion improvement. Full-context-fixed normalization
+    does not change any matched window's first guess in this session.
+
+    The separate YOU source audit passed on all 15 training and four validation
+    clips, reproduced their prepared float16 inputs and all 60 saved validation
+    score vectors exactly. Public contact sheets show sampled missed detections
+    during pointing, but source/cache integrity does not establish accurate
+    live tracking. Neither a universal slot swap nor geometry suppression is
+    supported. These small diagnostic conditions are not general sign accuracy.
+
+    [Protocol, observations and unresolved measurements](../docs/pose-entry-exit-investigation-2026-11-14.md).
+    No retraining, personal media or live coordinate storage occurred.''')
+    n.code(r'''
+    PE=S['pose_entry_exit']
+    print('Session:',PE['session_id'],'| frozen inputs unchanged:',PE['protected_unchanged'])
+    for condition,value in PE['counts'].items():
+        print(condition,value)
+    if 'you_audit' in PE:
+        print('YOU audit:',PE['you_audit']['counts'],
+              '| exact saved score difference:',PE['you_audit']['full_validation_reproduction']['maximum_score_difference'])
+    rows_pe=PE['rows'];ids_pe=sorted({r['capture_id'] for r in rows_pe})
+    fig,axes=plt.subplots(2,4,figsize=(16,7))
+    for ax,capture_pe in zip(axes.flat,ids_pe):
+        sample_pe={r['window']:r for r in rows_pe if r['capture_id']==capture_pe}
+        full_pe=sample_pe['full']
+        for suffix,label,color in [('', 'Refit','#2563eb'),('_fixed_normalization','Full-context fixed','#0d9488')]:
+            ax.plot(range(3),[sample_pe[w+suffix].get('expected_score',np.nan) for w in ('first_second','middle_second','last_second')],
+                    'o-',label=label,color=color)
+        first_pe=full_pe['top5'][0]['label'] if full_pe['status']=='scored' else 'UNAVAILABLE'
+        ax.set(title=f"#{capture_pe} {full_pe['label']} {full_pe['condition']}\nFull: {first_pe}",
+               xticks=range(3),xticklabels=['0–1s','1–2s','2–3s'],ylim=(-.03,1.03))
+    for ax in list(axes.flat)[len(ids_pe):]:ax.set_visible(False)
+    axes.flat[0].legend(fontsize=8)
+    fig.supylabel('Intended-label softmax score; gaps are unscorable')
+    finish('Confirmed pose controls: timed windows; no training or coordinate storage')
+    ''')
+
+
+def append_you_landmark_review(n):
+    n.markdown('''## Live YOU landmark review with geometry enabled — 14 November 2026
+
+    Two confirmed three-second captures used the unchanged production model,
+    all 23 geometry features and all 15 labels. No geometry ablation, alternate
+    head, slot transformation or temporal intervention was run in this review.
+    Both attempts were YES. Four annotated boards were inspected through a
+    RAM-only loopback preview and cleared; no personal images appear here.
+
+    The first capture's projected index joints compress/overlap; the user
+    confirmed the index was straight toward the camera. The second has a more
+    visible extended index and still fails. Thus compressed pointing estimates
+    are a supported concern, not a complete explanation. Public probes use a
+    fixed middle tracked frame and may include rest/transition. Their shape
+    descriptors overlap; no threshold classifier or physical joint-error rate
+    is inferred. The graph contains aggregate descriptors only.
+
+    [Review protocol and findings](../docs/you-live-landmark-review-2026-11-14.md).''')
+    n.code(r'''
+    YR=S['you_landmark_review']
+    print('Geometry enabled:',YR['geometry_enabled'],'| features:',YR['geometry_features'],
+          '| head interventions:',YR['head_interventions_performed'])
+    print('RAM cleared:',YR['ram_images_cleared'],'| protected hashes unchanged:',YR['protected_unchanged'])
+    for r in YR['predictions']:
+        print('#',r['capture_id'],r['intended_condition'],r['top5'][:2],'confirmed:',r['user_confirmation'])
+    fig,axes=plt.subplots(1,2,figsize=(13,5.5))
+    dimensions_yr=[('projected_index_chord_over_bone_path','projected_tip_to_mcp_over_palm','Projected index chord / bone path','Projected index tip-to-MCP / palm'),
+                   ('projected_tip_to_wrist_over_palm','estimated_local_index_z_span_over_palm','Projected index tip-to-wrist / palm','Estimated local index z span / palm')]
+    for ax,(x,y,xlabel,ylabel) in zip(axes,dimensions_yr):
+        for gloss,color in [('YOU','#2563eb'),('YES','#d97706')]:
+            points_yr=[r['metrics'] for r in YR['public_probe_records'] if r['gloss']==gloss and r['metrics']]
+            ax.scatter([p[x] for p in points_yr],[p[y] for p in points_yr],c=color,s=30,alpha=.65,label=f'Public {gloss} ({len(points_yr)})')
+        for r in YR['samples']:
+            if not r['metrics']:continue
+            p=r['metrics'][0];ax.scatter([p[x]],[p[y]],marker='X',s=80,c='#dc2626')
+            ax.annotate(f"#{r['capture_id']}.{r['sample']}",(p[x],p[y]),xytext=(4,5 if r['sample']==1 else -14),textcoords='offset points',fontsize=8)
+        ax.set(xlabel=xlabel,ylabel=ylabel);ax.legend(fontsize=8)
+    finish('Geometry enabled: public hand-shape probes and four live aggregate samples')
+    ''')
+
+
+def append_small_vocab_test(n):
+    n.markdown('''## Official test: every stored small-vocabulary snapshot — 14 November 2026
+
+    Frozen sweep: **152 checkpoint paths / 133 distinct files**, including all
+    stored epochs, best.pt and minimum-val-loss.pt. Five labels use all 60
+    official test clips; fifteen use all 182, from 11 training/validation-disjoint
+    signers. Geometry remains enabled where trained; no augmentation, training,
+    default change or test-driven checkpoint replacement occurs.
+
+    Previously validation-selected geometry GRU epoch 8 scores 51/60 (85%).
+    Its stored epoch 5 reaches 59/60 (98.33%), discovered retrospectively. The
+    current fifteen-sign C=0.1 readout scores 147/182 (80.77%), tied in top-1
+    with C=1, 10 and 100. Its ME/YOU/WE recalls are 10/13, 11/12 and 12/12;
+    dataset test success does not establish webcam performance. Five-label
+    top-five is necessarily 100%. These task sizes cannot be ranked directly.
+
+    Every epoch is shown descriptively. Using this sweep to pick a new model
+    would consume the test as selection evidence. Historical full-vocabulary
+    experiments already used these test videos/signers; no newly sealed holdout
+    is claimed. [Full report](../docs/small-vocab-snapshot-test-2026-11-14.md)
+    and [all 152 CSV rows](../docs/assets/small-vocab-snapshot-test-2026-11-14.csv).
+    These cells display saved results without running inference.''')
+    n.code(r'''
+    SB=S['small_vocab_test_benchmark']
+    print('Complete:',SB['snapshot_paths'],'paths /',SB['unique_checkpoint_files'],'unique files')
+    print('Protected inputs/chunks unchanged:',SB['protected_unchanged'],SB['parent_test_chunks_unchanged'])
+    for classes,leaders_sb in SB['retrospective_test_leaders'].items():
+        for r in leaders_sb:print('Retrospective test leader:',classes,r['checkpoint'],r['metrics'])
+    fig,axes=plt.subplots(1,2,figsize=(17,8))
+    for ax,classes in zip(axes,(5,15)):
+        rows_sb=sorted([r for r in SB['validation_selected_snapshots'] if r['classes']==classes],key=lambda r:r['metrics']['top1'])
+        positions_sb=np.arange(len(rows_sb))
+        ax.barh(positions_sb-.17,[r['metrics']['top1'] for r in rows_sb],.32,label='Top-1',color='#2563eb')
+        ax.barh(positions_sb+.17,[r['metrics']['macro_f1'] for r in rows_sb],.32,label='Macro F1',color='#0d9488')
+        labels_sb=[r['checkpoint'].removeprefix('models/asl-').removesuffix('/best.pt').replace('-five-signs','').replace('-fifteen-signs','')+f" e{r['epoch']}" for r in rows_sb]
+        ax.set(yticks=positions_sb,yticklabels=labels_sb,xlim=(0,1.05),title=f"{classes} labels / {SB['groups'][str(classes)]['samples']} test clips")
+        ax.tick_params(axis='y',labelsize=7);ax.legend(fontsize=8)
+        for r in rows_sb:print(r['checkpoint'],r['metrics'])
+    finish('Pre-existing best.pt artifacts: official test results; C-grid candidates included')
+    ''')
+    n.code(r'''
+    reference_paths_sb=['models/asl-gru-five-signs-geometry-v1/geometry/best.pt','models/asl-gru-fifteen-signs-trajectory-readout-c01/best.pt']
+    fig,axes=plt.subplots(1,2,figsize=(17,7))
+    for ax,path in zip(axes,reference_paths_sb):
+        r=next(r for r in SB['checkpoints'] if any(a['checkpoint']==path for a in r['aliases']))
+        cm_sb=np.asarray(r['confusion']);rates_sb=cm_sb/cm_sb.sum(1)[:,None]
+        ax.imshow(rates_sb,vmin=0,vmax=1,cmap='Blues')
+        for i in range(len(cm_sb)):
+            for j in range(len(cm_sb)):
+                if cm_sb[i,j]:ax.text(j,i,str(cm_sb[i,j]),ha='center',va='center',fontsize=7,color='white' if rates_sb[i,j]>.55 else 'black')
+        ax.set(xticks=range(len(cm_sb)),yticks=range(len(cm_sb)),xticklabels=r['labels'],yticklabels=r['labels'],xlabel='Predicted',ylabel='True',title=f"{r['classes']} labels: {r['metrics']['correct']}/{r['metrics']['samples']}")
+        ax.tick_params(axis='x',labelrotation=90,labelsize=8);ax.tick_params(axis='y',labelsize=8)
+        print(path,r['per_class'])
+    finish('Reference snapshots: official test confusion counts; row-normalized colors')
+    ''')
+    n.code(r'''
+    fig,axes=plt.subplots(1,2,figsize=(16,6))
+    for ax,classes in zip(axes,(5,15)):
+        parents_sb=sorted({str(Path(r['checkpoint']).parent) for r in SB['snapshot_rows'] if r['classes']==classes and r['artifact_role'].startswith('epoch-')})
+        for parent in parents_sb:
+            rows_sb=sorted([r for r in SB['snapshot_rows'] if str(Path(r['checkpoint']).parent)==parent and r['artifact_role'].startswith('epoch-')],key=lambda r:r['epoch'])
+            label_sb=parent.replace('models/asl-','').replace('-five-signs','').replace('-fifteen-signs','')
+            ax.plot([r['epoch'] for r in rows_sb],[r['metrics']['top1'] for r in rows_sb],'.-',lw=1,label=label_sb)
+        ax.set(xlabel='Stored epoch',ylabel='Official test top-1',ylim=(0,1.03),title=f'{classes} labels: retrospective epoch sweep')
+        ax.legend(fontsize=6)
+    finish('Every saved epoch: descriptive test curves, no checkpoint replacement')
+    ''')
+
+
+def append_official_citizen_i3d(n):
+    n.markdown('''## Authors' pretrained ASL Citizen I3D — 14 November 2026
+
+    Independent pixel baseline: video → official 64-frame / 224×224 loader →
+    released I3D → interpolated temporal-max logits → 2,731 sign scores.
+    Official model weights, source commit and label mapping are pinned. No
+    training, MediaPipe inference, GRU modification or geometry ablation occurs.
+    The unmodified loader retains OpenCV BGR order despite its RGB name.
+
+    On the matched 182 test videos, original full-vocabulary I3D gives 117/182
+    (64.29%). The same logits restricted to 15 labels give 165/182 (90.66%);
+    restricting to five gives 58/60 (96.67%). Restricted scores are separate
+    tasks, not the full-vocabulary result. The released model learned all
+    classes; this is not an architecture-only comparison against subset GRUs.
+    The 182-video subset does not reproduce the full published test benchmark.
+
+    A confirmed four-trial webcam check gives 0/4 full-vocabulary and 2/4 in the
+    15-label view: HELLO and ME succeed only in the restricted view; THANKYOU
+    becomes GOOD and YOU becomes HELLO. Four attempts do not estimate general
+    live accuracy. These failures arise independently of our landmark model;
+    exact causes remain unresolved. No live media or coordinates were saved.
+
+    [Source, protocol, measured results and reproduction](../docs/official-asl-citizen-baseline-2026-11-14.md).
+    The following cells display saved results, without inference or camera use.''')
+    n.code(r'''
+    OI=S['official_citizen_i3d']
+    print('Official checkpoint:',OI['checkpoint_sha256'])
+    print('Full 2731-way task:',OI['official_full'])
+    print('Project full-vocabulary checkpoints on identical videos:',OI['project_full_vocab_same_videos'])
+    fig,axes=plt.subplots(1,2,figsize=(13,5))
+    for ax,classes in zip(axes,(5,15)):
+        refs_oi=[r for r in OI['project_small_vocab'] if r['classes']==classes]
+        labels_oi=['Official I3D\nrestricted outputs']+['GRU geometry e'+str(r['epoch'])+('\nretrospective' if 'epoch-005' in r['checkpoint'] else '\npreselected') for r in refs_oi]
+        scores_oi=[OI['official_restricted'][str(classes)]['metrics']['top1']]+[r['metrics']['top1'] for r in refs_oi]
+        f1_oi=[OI['official_restricted'][str(classes)]['metrics']['macro_f1']]+[r['metrics']['macro_f1'] for r in refs_oi]
+        x_oi=np.arange(len(labels_oi));bars=ax.bar(x_oi-.18,scores_oi,.35,label='Top-1',color='#2563eb')
+        ax.bar(x_oi+.18,f1_oi,.35,label='Macro F1',color='#0d9488')
+        ax.bar_label(bars,labels=[f'{v:.2%}' for v in scores_oi],padding=3,fontsize=9)
+        ax.set(xticks=x_oi,xticklabels=labels_oi,ylim=(0,1.12),title=f"{classes} labels; identical test clips")
+        ax.legend(fontsize=8)
+        print(classes,OI['official_restricted'][str(classes)]['per_class'])
+    finish('Official pretrained pixel baseline versus frozen landmark snapshots')
+    if 'webcam' in OI:
+        print('Confirmed webcam trials:',OI['webcam']['confirmed_trials'],
+              '| full correct:',OI['webcam']['full_correct'],'| 15-label correct:',OI['webcam']['pilot15_correct'])
+        for r in OI['webcam']['session']['trials']:
+            print('#',r['capture_id'],r['user_confirmed_label'],'| full:',r['full_top5'][0],'| 15-label:',r['pilot15_top5'][0])
+    ''')
+
+
 def make_metrics(snapshot):
     n=Notebook('02_model_training_and_evaluation')
     pending='' if snapshot['stgcn_complete'] else '**DRAFT: ST-GCN curves are partial; its test results are not available yet.**'
@@ -826,6 +1337,21 @@ def make_metrics(snapshot):
     The existing held-out test has been seen during project development; no
     model settings are selected in this notebook from its scores.''')
     n.code(SETUP)
+    append_model_retention(n,snapshot)
+    if snapshot.get('official_citizen_i3d'):
+        append_official_citizen_i3d(n)
+    if snapshot.get('small_vocab_test_benchmark'):
+        append_small_vocab_test(n)
+    if snapshot.get('you_landmark_review'):
+        append_you_landmark_review(n)
+    if snapshot.get('pose_entry_exit'):
+        append_pose_entry_exit(n)
+    if snapshot.get('pronouns_three_seconds'):
+        append_three_second_pronouns(n)
+    if snapshot.get('capture_timing_normalization'):
+        append_capture_timing(n,snapshot)
+    if snapshot.get('pronoun_investigation'):
+        append_pronoun_diagnosis(n,snapshot)
     if snapshot.get('fifteen_sign_temporal'):
         append_current_pilot(n, snapshot)
     if snapshot['stgcn_complete']:

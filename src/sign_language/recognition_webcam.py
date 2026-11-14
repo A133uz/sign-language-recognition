@@ -36,7 +36,7 @@ def model_display_name(recognizer):
             'SignTrajectoryReadoutGRU': 'Frozen GRU + trajectory readout'}.get(name, 'Unknown model')
 
 
-def state_headline(state, now, deadline, capture_started, model_name, auto_finish=False, max_seconds=8.):
+def state_headline(state, now, deadline, capture_started, model_name, auto_finish=True, max_seconds=3.):
     if state == 'countdown':
         return f'GET READY: {max(1, int(deadline-now)+1)}'
     if state == 'recording':
@@ -59,7 +59,7 @@ def _write_report(path, report, recognizer):
     write_json(path,report)
 
 
-def run_recognition(recognizer, report_path, camera=0, max_seconds=8.0, capture_fps=30., expected_sign=None, auto_finish=False):
+def run_recognition(recognizer, report_path, camera=0, max_seconds=3.0, capture_fps=30., expected_sign=None, auto_finish=True):
     if not 1 <= max_seconds <= 10:
         raise ValueError('Capture limit must be between one and ten seconds')
     limiter = FrameRateLimiter(capture_fps)
@@ -102,7 +102,8 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=8.0, capture_
         report['camera_reported_fps'] = device_fps if np.isfinite(device_fps) and device_fps > 0 else None
         report.update(status='running', camera_open=True)
         _write_report(report_path,report,recognizer)
-        print(f'WINDOW_READY | {title} | model={model_name} | Space: start/stop | Q: exit', flush=True)
+        capture_controls=f'Space: start | automatic {max_seconds:g}s capture' if auto_finish else 'Space: start/stop'
+        print(f'WINDOW_READY | {title} | model={model_name} | {capture_controls} | Q: exit', flush=True)
         while True:
             ok, frame = capture.read()
             if not ok or frame is None:
@@ -134,7 +135,10 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=8.0, capture_
                 capture_started = now
                 source_frames = 0
                 limiter = FrameRateLimiter(capture_fps)
-            if state == 'recording':
+            # A delayed camera/UI cycle may arrive after the deadline. Do not
+            # feed its frame to inference: actual retained timestamps stay
+            # within the requested capture duration even if the UI wakes late.
+            if state == 'recording' and now-capture_started <= max_seconds:
                 source_frames += 1
                 if limiter.accept(now-capture_started):
                     frames.append(frame.copy())
@@ -151,8 +155,10 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=8.0, capture_
             if expected_sign is not None:headline+=f' | sign {expected_sign}'
             capture_number = result['capture_id'] if result else len(report['trials'])+1
             lines = [f'MODEL: {model_name} | epoch {recognizer.epoch} | {str(recognizer.device).upper()} | {len(recognizer.names):,} labels',
-                     headline, f'Capture #{capture_number} | Space: start/stop | R: clear | Q: close',
+                     headline, f'Capture #{capture_number} | '+('Space: start | auto stop' if auto_finish else 'Space: start/stop')+' | R: clear | Q: close',
                      f'{session_id} | uncalibrated scores | hands {hands}/2']
+            review_instructions=getattr(recognizer,'review_instructions',None)
+            if callable(review_instructions):lines[3]=review_instructions()
             if result:
                 lines += [f'{i+1}. {item["label"]}   {item["score"]*100:.1f}%'
                           for i, item in enumerate(result['top5'])]

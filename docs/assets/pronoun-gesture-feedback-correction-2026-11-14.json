@@ -1,0 +1,47 @@
+{
+  "date_local": "2026-11-14",
+  "generated_utc": "2026-11-14T07:29:06.766797+00:00",
+  "user_statement": "I misunderstood the WE sign; this applies to both nine-trial sessions.",
+  "scope_confirmed_by_user": "Both sessions",
+  "sessions": [
+    {
+      "session_id": "pronoun-live-20261114-115103",
+      "prior_report_sha256": "6c4414f24534cfe94a3d54b3fe576343f35b7e424b7a0f39f6d05c465bbfa47a",
+      "corrected_report_sha256": "33eb7e9b7ead5ddc655375562d54c446fd224aeca3b0552550017757c0d7212f",
+      "excluded_capture_ids": [
+        2,
+        5,
+        8
+      ],
+      "valid_capture_ids": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "backup_path": ".cache/pronoun-live-20261114-115103.before-we-gesture-correction.json"
+    },
+    {
+      "session_id": "pronoun-timing-live-20261114-121755",
+      "prior_report_sha256": "54e43544057a89465c0f6351cd69e8aa5ccf9fcfefc9a8bd3c74b0e2b1e654f4",
+      "corrected_report_sha256": "ad60f449d731384dcb77050dd9e9b640e7b552a07172635cfb9a0d1dc020c798",
+      "excluded_capture_ids": [
+        2,
+        5,
+        8
+      ],
+      "valid_capture_ids": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "backup_path": ".cache/pronoun-timing-live-20261114-121755.before-we-gesture-correction.json"
+    }
+  ],
+  "limits": "No actual replacement sign label is inferred. Prompt labels and predictions are preserved; WE attempts are excluded from semantic accuracy and WE-failure conclusions. Dataset labels are untouched."
+}

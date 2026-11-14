@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "models": [
+    {
+      "id": "gru_regularized_full",
+      "checkpoint": "models/asl-gru-128-cv-regularized-v1/official-refit/best.pt",
+      "loaded_class": "SignGRU",
+      "labels": 2731,
+      "status": "passed"
+    },
+    {
+      "id": "gru_regularized_five",
+      "checkpoint": "models/asl-gru-five-signs-early-v2/regularized/best.pt",
+      "loaded_class": "SignGRU",
+      "labels": 5,
+      "status": "passed"
+    },
+    {
+      "id": "gru_mean_five",
+      "checkpoint": "models/asl-gru-five-signs-mean-pool-v1/best.pt",
+      "loaded_class": "SignMeanPoolGRU",
+      "labels": 5,
+      "status": "passed"
+    },
+    {
+      "id": "gru_geometry_five",
+      "checkpoint": "models/asl-gru-five-signs-geometry-v1/geometry/epoch-005.pt",
+      "loaded_class": "SignGeometryMeanPoolGRU",
+      "labels": 5,
+      "status": "passed"
+    },
+    {
+      "id": "gru_readout_fifteen",
+      "checkpoint": "models/asl-gru-fifteen-signs-trajectory-readout-c01/best.pt",
+      "loaded_class": "SignTrajectoryReadoutGRU",
+      "labels": 15,
+      "status": "passed"
+    },
+    {
+      "id": "stgcn_full",
+      "checkpoint": "models/asl-stgcn27-v1/best.pt",
+      "loaded_class": "SignSTGCN",
+      "labels": 2731,
+      "status": "passed"
+    },
+    {
+      "id": "i3d_official",
+      "checkpoint": "models/asl-citizen-official-i3d-v1/ASL_citizen_I3D_weights.pt",
+      "loaded_class": "InceptionI3d",
+      "labels": 2731,
+      "status": "passed"
+    }
+  ]
+}

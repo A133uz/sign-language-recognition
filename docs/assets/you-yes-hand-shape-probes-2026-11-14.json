@@ -1,0 +1,873 @@
+{
+  "status": "complete",
+  "records": [
+    {
+      "video_file": "1555998439795525-YES.mp4",
+      "participant_id": "P40",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 629,
+      "probe_frame_index": 48,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 81.38433456420898,
+        "projected_tip_to_mcp_over_palm": 0.3703967568363135,
+        "projected_tip_to_wrist_over_palm": 0.7651329436499665,
+        "projected_index_chord_over_bone_path": 0.6929893493652344,
+        "estimated_local_index_z_span_over_palm": 0.37355840317158917
+      }
+    },
+    {
+      "video_file": "38970444942928073-YES.mp4",
+      "participant_id": "P14",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 1597,
+      "probe_frame_index": 21,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 103.1412124633789,
+        "projected_tip_to_mcp_over_palm": 0.4971259271724638,
+        "projected_tip_to_wrist_over_palm": 0.7533150749782249,
+        "projected_index_chord_over_bone_path": 0.6502329707145691,
+        "estimated_local_index_z_span_over_palm": 0.3387290871870359
+      }
+    },
+    {
+      "video_file": "9739021665350334-YOU.mp4",
+      "participant_id": "P33",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 1962,
+      "probe_frame_index": 72,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 43.29028129577637,
+        "projected_tip_to_mcp_over_palm": 0.9766401979153242,
+        "projected_tip_to_wrist_over_palm": 0.8909256132257841,
+        "projected_index_chord_over_bone_path": 0.8994485139846802,
+        "estimated_local_index_z_span_over_palm": 0.9553873216553599
+      }
+    },
+    {
+      "video_file": "44146024789241256-YES.mp4",
+      "participant_id": "P37",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 3915,
+      "probe_frame_index": 21,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 99.54367637634277,
+        "projected_tip_to_mcp_over_palm": 0.44347312407626394,
+        "projected_tip_to_wrist_over_palm": 0.8488332579191372,
+        "projected_index_chord_over_bone_path": 0.5784991979598999,
+        "estimated_local_index_z_span_over_palm": 0.379261305255429
+      }
+    },
+    {
+      "video_file": "7590157290604365-YOU.mp4",
+      "participant_id": "P40",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 6562,
+      "probe_frame_index": 49,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 89.13224220275879,
+        "projected_tip_to_mcp_over_palm": 0.11396164192201039,
+        "projected_tip_to_wrist_over_palm": 1.0232403717749035,
+        "projected_index_chord_over_bone_path": 0.5190631151199341,
+        "estimated_local_index_z_span_over_palm": 0.3020533333732783
+      }
+    },
+    {
+      "video_file": "709429051156695-YES.mp4",
+      "participant_id": "P31",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 7027,
+      "probe_frame_index": 39,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 76.32687568664551,
+        "projected_tip_to_mcp_over_palm": 0.7864451131280461,
+        "projected_tip_to_wrist_over_palm": 0.9124468526272348,
+        "projected_index_chord_over_bone_path": 0.7598884701728821,
+        "estimated_local_index_z_span_over_palm": 0.4849534944479589
+      }
+    },
+    {
+      "video_file": "15689453699180178-YES.mp4",
+      "participant_id": "P29",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 7167,
+      "probe_frame_index": 16,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 39.36406135559082,
+        "projected_tip_to_mcp_over_palm": 1.1369241507396148,
+        "projected_tip_to_wrist_over_palm": 1.2050703056312584,
+        "projected_index_chord_over_bone_path": 0.8461409211158752,
+        "estimated_local_index_z_span_over_palm": 0.7622808029128644
+      }
+    },
+    {
+      "video_file": "14637905185166056-YOU.mp4",
+      "participant_id": "P4",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 7181,
+      "probe_frame_index": 45,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 46.886701583862305,
+        "projected_tip_to_mcp_over_palm": 0.9213643363361238,
+        "projected_tip_to_wrist_over_palm": 2.3078628036173425,
+        "projected_index_chord_over_bone_path": 0.9451590776443481,
+        "estimated_local_index_z_span_over_palm": 0.7636247319445606
+      }
+    },
+    {
+      "video_file": "6515372118413638-YOU.mp4",
+      "participant_id": "P16",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 8065,
+      "probe_frame_index": 22,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 95.80487251281738,
+        "projected_tip_to_mcp_over_palm": 0.8456533725454711,
+        "projected_tip_to_wrist_over_palm": 2.0944326468919714,
+        "projected_index_chord_over_bone_path": 0.9997527599334717,
+        "estimated_local_index_z_span_over_palm": 0.4139666264809943
+      }
+    },
+    {
+      "video_file": "7924736335453846-YOU.mp4",
+      "participant_id": "P30",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 8382,
+      "probe_frame_index": 49,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 36.3338565826416,
+        "projected_tip_to_mcp_over_palm": 1.2250452179477522,
+        "projected_tip_to_wrist_over_palm": 2.8921430879337175,
+        "projected_index_chord_over_bone_path": 0.9967886805534363,
+        "estimated_local_index_z_span_over_palm": 1.1669112499839234
+      }
+    },
+    {
+      "video_file": "9009854854743657-YES.mp4",
+      "participant_id": "P24",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 11608,
+      "probe_frame_index": 30,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 39.427313804626465,
+        "projected_tip_to_mcp_over_palm": 0.7219736283708776,
+        "projected_tip_to_wrist_over_palm": 1.6947565019900206,
+        "projected_index_chord_over_bone_path": 0.5448086261749268,
+        "estimated_local_index_z_span_over_palm": 0.53747611267669
+      }
+    },
+    {
+      "video_file": "17987836792170242-YOU.mp4",
+      "participant_id": "P51",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 11734,
+      "probe_frame_index": 16,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 29.56716299057007,
+        "projected_tip_to_mcp_over_palm": 0.5528483271239373,
+        "projected_tip_to_wrist_over_palm": 0.9025693699734876,
+        "projected_index_chord_over_bone_path": 0.5000118613243103,
+        "estimated_local_index_z_span_over_palm": 1.3259202795949834
+      }
+    },
+    {
+      "video_file": "08882787638193945-YOU.mp4",
+      "participant_id": "P37",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 12809,
+      "probe_frame_index": 49,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 89.6108627319336,
+        "projected_tip_to_mcp_over_palm": 1.228935292101852,
+        "projected_tip_to_wrist_over_palm": 2.7178949765760856,
+        "projected_index_chord_over_bone_path": 0.999800443649292,
+        "estimated_local_index_z_span_over_palm": 0.5134483705426983
+      }
+    },
+    {
+      "video_file": "6358167662084229-seedYES.mp4",
+      "participant_id": "P52",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 12847,
+      "probe_frame_index": 33,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 58.795738220214844,
+        "projected_tip_to_mcp_over_palm": 0.3850415154139863,
+        "projected_tip_to_wrist_over_palm": 0.7079597838181529,
+        "projected_index_chord_over_bone_path": 0.6379319429397583,
+        "estimated_local_index_z_span_over_palm": 0.341439179391356
+      }
+    },
+    {
+      "video_file": "8699610978899361-YES.mp4",
+      "participant_id": "P37",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 14159,
+      "probe_frame_index": 19,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 97.3447322845459,
+        "projected_tip_to_mcp_over_palm": 0.4927623125918763,
+        "projected_tip_to_wrist_over_palm": 0.728328892899077,
+        "projected_index_chord_over_bone_path": 0.7511978149414062,
+        "estimated_local_index_z_span_over_palm": 0.4269165262039504
+      }
+    },
+    {
+      "video_file": "24903533651693976-seedYOU.mp4",
+      "participant_id": "P52",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 14865,
+      "probe_frame_index": 59,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 47.13925361633301,
+        "projected_tip_to_mcp_over_palm": 0.6775122706082592,
+        "projected_tip_to_wrist_over_palm": 2.1358588636772393,
+        "projected_index_chord_over_bone_path": 0.939355194568634,
+        "estimated_local_index_z_span_over_palm": 0.5846289603955889
+      }
+    },
+    {
+      "video_file": "677386009297865-YOU.mp4",
+      "participant_id": "P2",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 15812,
+      "probe_frame_index": 26,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 36.635379791259766,
+        "projected_tip_to_mcp_over_palm": 2.116004355592532,
+        "projected_tip_to_wrist_over_palm": 2.7835302790734238,
+        "projected_index_chord_over_bone_path": 0.9689754247665405,
+        "estimated_local_index_z_span_over_palm": 0.6773073290679834
+      }
+    },
+    {
+      "video_file": "16728596536749274-YES.mp4",
+      "participant_id": "P34",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 17586,
+      "probe_frame_index": 36,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 141.30531311035156,
+        "projected_tip_to_mcp_over_palm": 0.5272079868604413,
+        "projected_tip_to_wrist_over_palm": 0.76526563926577,
+        "projected_index_chord_over_bone_path": 0.8308106064796448,
+        "estimated_local_index_z_span_over_palm": 0.40680171663021286
+      }
+    },
+    {
+      "video_file": "7807683495721192-YOU.mp4",
+      "participant_id": "P29",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 18420,
+      "probe_frame_index": 24,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 37.63986825942993,
+        "projected_tip_to_mcp_over_palm": 1.8998443369530138,
+        "projected_tip_to_wrist_over_palm": 2.68114209486673,
+        "projected_index_chord_over_bone_path": 0.9866566061973572,
+        "estimated_local_index_z_span_over_palm": 0.7076630241830382
+      }
+    },
+    {
+      "video_file": "15498675309554577-YES.mp4",
+      "participant_id": "P11",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 22993,
+      "probe_frame_index": 28,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 36.814587116241455,
+        "projected_tip_to_mcp_over_palm": 0.8989878154855883,
+        "projected_tip_to_wrist_over_palm": 1.898285860314742,
+        "projected_index_chord_over_bone_path": 0.9445151090621948,
+        "estimated_local_index_z_span_over_palm": 0.12777968969553252
+      }
+    },
+    {
+      "video_file": "9092689562509508-YES.mp4",
+      "participant_id": "P29",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 24563,
+      "probe_frame_index": 14,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 58.18898677825928,
+        "projected_tip_to_mcp_over_palm": 0.6911518083702399,
+        "projected_tip_to_wrist_over_palm": 0.789844887965081,
+        "projected_index_chord_over_bone_path": 0.8103748559951782,
+        "estimated_local_index_z_span_over_palm": 0.4512325746336079
+      }
+    },
+    {
+      "video_file": "7199140986089654-YES.mp4",
+      "participant_id": "P50",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 27521,
+      "probe_frame_index": 32,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 84.6705150604248,
+        "projected_tip_to_mcp_over_palm": 0.7040220437430527,
+        "projected_tip_to_wrist_over_palm": 0.9089935885587711,
+        "projected_index_chord_over_bone_path": 0.7918329834938049,
+        "estimated_local_index_z_span_over_palm": 0.4612859240577103
+      }
+    },
+    {
+      "video_file": "32941176670637984-YES.mp4",
+      "participant_id": "P27",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 30668,
+      "probe_frame_index": 15,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 115.36826133728027,
+        "projected_tip_to_mcp_over_palm": 0.642608408414515,
+        "projected_tip_to_wrist_over_palm": 0.7885239764213966,
+        "projected_index_chord_over_bone_path": 0.8980997800827026,
+        "estimated_local_index_z_span_over_palm": 0.43928412094693675
+      }
+    },
+    {
+      "video_file": "2775935043696396-YOU.mp4",
+      "participant_id": "P31",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 31190,
+      "probe_frame_index": 19,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 60.524115562438965,
+        "projected_tip_to_mcp_over_palm": 1.129757460650807,
+        "projected_tip_to_wrist_over_palm": 2.5324698745204675,
+        "projected_index_chord_over_bone_path": 0.999682605266571,
+        "estimated_local_index_z_span_over_palm": 0.5166969107827595
+      }
+    },
+    {
+      "video_file": "050364485120873326-YES.mp4",
+      "participant_id": "P33",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 34118,
+      "probe_frame_index": 128,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 73.68029117584229,
+        "projected_tip_to_mcp_over_palm": 0.8986939256635295,
+        "projected_tip_to_wrist_over_palm": 0.6889397320467927,
+        "projected_index_chord_over_bone_path": 0.9587023258209229,
+        "estimated_local_index_z_span_over_palm": 0.3594766189246782
+      }
+    },
+    {
+      "video_file": "3273120364218567-YOU.mp4",
+      "participant_id": "P27",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 34542,
+      "probe_frame_index": 13,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 102.40594863891602,
+        "projected_tip_to_mcp_over_palm": 0.2165512343870512,
+        "projected_tip_to_wrist_over_palm": 1.2595604487298522,
+        "projected_index_chord_over_bone_path": 0.995780348777771,
+        "estimated_local_index_z_span_over_palm": 0.6415846576126262
+      }
+    },
+    {
+      "video_file": "15737752814991346-YOU.mp4",
+      "participant_id": "P50",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 35949,
+      "probe_frame_index": 22,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 55.59254169464111,
+        "projected_tip_to_mcp_over_palm": 1.3788786493336551,
+        "projected_tip_to_wrist_over_palm": 2.0081128087323683,
+        "projected_index_chord_over_bone_path": 0.6775251626968384,
+        "estimated_local_index_z_span_over_palm": 1.0086043771461086
+      }
+    },
+    {
+      "video_file": "5547769757240029-YOU.mp4",
+      "participant_id": "P7",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 37757,
+      "probe_frame_index": 26,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 89.44071769714355,
+        "projected_tip_to_mcp_over_palm": 0.7600951491484974,
+        "projected_tip_to_wrist_over_palm": 1.8976994177877813,
+        "projected_index_chord_over_bone_path": 0.9933078289031982,
+        "estimated_local_index_z_span_over_palm": 0.6066600565397233
+      }
+    },
+    {
+      "video_file": "6298308396800849-YOU.mp4",
+      "participant_id": "P11",
+      "gloss": "YOU",
+      "split": "train",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 38099,
+      "probe_frame_index": 14,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 57.21956253051758,
+        "projected_tip_to_mcp_over_palm": 0.6184099800896881,
+        "projected_tip_to_wrist_over_palm": 2.145313443243944,
+        "projected_index_chord_over_bone_path": 0.97953861951828,
+        "estimated_local_index_z_span_over_palm": 0.6497725131027052
+      }
+    },
+    {
+      "video_file": "9953610281521326-YES.mp4",
+      "participant_id": "P46",
+      "gloss": "YES",
+      "split": "train",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 39856,
+      "probe_frame_index": 319,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 77.13637351989746,
+        "projected_tip_to_mcp_over_palm": 1.4247812436057607,
+        "projected_tip_to_wrist_over_palm": 2.4651736111325753,
+        "projected_index_chord_over_bone_path": 0.9934414029121399,
+        "estimated_local_index_z_span_over_palm": 0.2363120778256588
+      }
+    },
+    {
+      "video_file": "35038040842137197-YOU.mp4",
+      "participant_id": "P39",
+      "gloss": "YOU",
+      "split": "val",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 169,
+      "probe_frame_index": 71,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 42.96181678771973,
+        "projected_tip_to_mcp_over_palm": 1.4433020642313334,
+        "projected_tip_to_wrist_over_palm": 0.8583147072070623,
+        "projected_index_chord_over_bone_path": 0.9883542656898499,
+        "estimated_local_index_z_span_over_palm": 1.05265708933415
+      }
+    },
+    {
+      "video_file": "9161842981344352-YES.mp4",
+      "participant_id": "P21",
+      "gloss": "YES",
+      "split": "val",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 284,
+      "probe_frame_index": 23,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 81.26148223876953,
+        "projected_tip_to_mcp_over_palm": 0.6413040008524937,
+        "projected_tip_to_wrist_over_palm": 0.7263718764391113,
+        "projected_index_chord_over_bone_path": 0.7891479730606079,
+        "estimated_local_index_z_span_over_palm": 0.5110263207432468
+      }
+    },
+    {
+      "video_file": "6229294436435182-YOU.mp4",
+      "participant_id": "P12",
+      "gloss": "YOU",
+      "split": "val",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 453,
+      "probe_frame_index": 20,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 58.283796310424805,
+        "projected_tip_to_mcp_over_palm": 0.723288836339497,
+        "projected_tip_to_wrist_over_palm": 1.8638802035310813,
+        "projected_index_chord_over_bone_path": 0.9906983375549316,
+        "estimated_local_index_z_span_over_palm": 0.415302244179374
+      }
+    },
+    {
+      "video_file": "8977694836593926-YES.mp4",
+      "participant_id": "P26",
+      "gloss": "YES",
+      "split": "val",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 2172,
+      "probe_frame_index": 20,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 70.06805419921875,
+        "projected_tip_to_mcp_over_palm": 0.31996090194208165,
+        "projected_tip_to_wrist_over_palm": 1.3181205329727046,
+        "projected_index_chord_over_bone_path": 0.9241980910301208,
+        "estimated_local_index_z_span_over_palm": 0.3958132575708082
+      }
+    },
+    {
+      "video_file": "42327270691916885-YES.mp4",
+      "participant_id": "P39",
+      "gloss": "YES",
+      "split": "val",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 4133,
+      "probe_frame_index": 65,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 82.33795166015625,
+        "projected_tip_to_mcp_over_palm": 0.5647418969255573,
+        "projected_tip_to_wrist_over_palm": 0.721036141843183,
+        "projected_index_chord_over_bone_path": 0.7250970602035522,
+        "estimated_local_index_z_span_over_palm": 0.5092263973054614
+      }
+    },
+    {
+      "video_file": "26056519285644875-YES.mp4",
+      "participant_id": "P39",
+      "gloss": "YES",
+      "split": "val",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 5968,
+      "probe_frame_index": 54,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 88.79629135131836,
+        "projected_tip_to_mcp_over_palm": 0.5357175077215404,
+        "projected_tip_to_wrist_over_palm": 0.6352208782633295,
+        "projected_index_chord_over_bone_path": 0.7658756971359253,
+        "estimated_local_index_z_span_over_palm": 0.40540857951795767
+      }
+    },
+    {
+      "video_file": "9715589334909431-YES.mp4",
+      "participant_id": "P21",
+      "gloss": "YES",
+      "split": "val",
+      "class_id": 4,
+      "parent_class_id": 2717,
+      "parent_index": 6926,
+      "probe_frame_index": 19,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 90.45083045959473,
+        "projected_tip_to_mcp_over_palm": 0.4486825655912616,
+        "projected_tip_to_wrist_over_palm": 0.7586860797618672,
+        "projected_index_chord_over_bone_path": 0.6960994005203247,
+        "estimated_local_index_z_span_over_palm": 0.4822581830462197
+      }
+    },
+    {
+      "video_file": "19643383002170656-YOU.mp4",
+      "participant_id": "P21",
+      "gloss": "YOU",
+      "split": "val",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 7528,
+      "probe_frame_index": 20,
+      "dominant_slot": 0,
+      "metrics": {
+        "slot": 0,
+        "palm_size_pixels": 44.45683479309082,
+        "projected_tip_to_mcp_over_palm": 0.883584457562869,
+        "projected_tip_to_wrist_over_palm": 2.6981032628666712,
+        "projected_index_chord_over_bone_path": 0.9711166620254517,
+        "estimated_local_index_z_span_over_palm": 0.9384844851711963
+      }
+    },
+    {
+      "video_file": "298155207775465-YOU.mp4",
+      "participant_id": "P26",
+      "gloss": "YOU",
+      "split": "val",
+      "class_id": 6,
+      "parent_class_id": 2719,
+      "parent_index": 9626,
+      "probe_frame_index": 19,
+      "dominant_slot": 1,
+      "metrics": {
+        "slot": 1,
+        "palm_size_pixels": 66.37730598449707,
+        "projected_tip_to_mcp_over_palm": 0.6568469281978229,
+        "projected_tip_to_wrist_over_palm": 1.879244673078871,
+        "projected_index_chord_over_bone_path": 0.9957242012023926,
+        "estimated_local_index_z_span_over_palm": 0.5951340234031808
+      }
+    }
+  ],
+  "statistics": {
+    "YOU": {
+      "probes": 19,
+      "features": {
+        "projected_tip_to_mcp_over_palm": {
+          "min": 0.11396164192201039,
+          "p10": 0.48558890857656006,
+          "median": 0.883584457562869,
+          "p90": 1.5346105187756691,
+          "max": 2.116004355592532
+        },
+        "projected_tip_to_wrist_over_palm": {
+          "min": 0.8583147072070623,
+          "p10": 0.9002406186239469,
+          "median": 2.0944326468919714,
+          "p90": 2.731022037075553,
+          "max": 2.8921430879337175
+        },
+        "projected_index_chord_over_bone_path": {
+          "min": 0.5000118613243103,
+          "p10": 0.6458327531814575,
+          "median": 0.9866566061973572,
+          "p90": 0.9996966361999512,
+          "max": 0.999800443649292
+        },
+        "estimated_local_index_z_span_over_palm": {
+          "min": 0.3020533333732783,
+          "p10": 0.41503512063969805,
+          "median": 0.6497725131027052,
+          "p90": 1.0755079214641046,
+          "max": 1.3259202795949834
+        }
+      }
+    },
+    "YES": {
+      "probes": 20,
+      "features": {
+        "projected_tip_to_mcp_over_palm": {
+          "min": 0.31996090194208165,
+          "p10": 0.383577039556219,
+          "median": 0.6030229488890255,
+          "p90": 0.9227814490109912,
+          "max": 1.4247812436057607
+        },
+        "projected_tip_to_wrist_over_palm": {
+          "min": 0.6352208782633295,
+          "p10": 0.7060577786410169,
+          "median": 0.7768948078435833,
+          "p90": 1.715109437822493,
+          "max": 2.4651736111325753
+        },
+        "projected_index_chord_over_bone_path": {
+          "min": 0.5448086261749268,
+          "p10": 0.6319886684417725,
+          "median": 0.7775118350982666,
+          "p90": 0.9459338307380677,
+          "max": 0.9934414029121399
+        },
+        "estimated_local_index_z_span_over_palm": {
+          "min": 0.12777968969553252,
+          "p10": 0.32848738625089824,
+          "median": 0.4168591214170816,
+          "p90": 0.5136712999365912,
+          "max": 0.7622808029128644
+        }
+      }
+    }
+  },
+  "selection": "Middle tracked frame, then dominant slot from whole-clip hand presence; fixed before viewing metrics. Train and val only.",
+  "limits": [
+    "A tracked frame can be rest or transition, not verified sign posture.",
+    "Projected hand ratios are view-dependent; local hand z is a model estimate, not measured physical depth.",
+    "Descriptor overlap is not a classifier or a proof of cause."
+  ],
+  "geometry_disabled": false,
+  "model_inference_performed": false,
+  "training": false,
+  "test_read": false,
+  "protected_sha256": {
+    "data\\training\\asl-fifteen-signs-128-v1\\train-features.npy": "c7b42d8f89506b897b9a9b0a2d8013f80ff2e96cab55beef7e2d9ecac2e5f7e4",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-index.json": "a6cb97bfdf4792e4c22b0021bd13e12dfb239f7f91dac5bf84873a5212b6ec66",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-lengths.npy": "d5db11b40cdbd08b3e580ad6f31e7eb5ae4b20bd89598d0a3c4700b40c0bac37",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-targets.npy": "a75234b745b1cc5bbc42874736878e52ecea38403d29f919d6d4630b657ae431",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-features.npy": "a08b031024373df7b0e70532de5c3ce5cb2a0a1db36cb2820f47b80dca0f9c3f",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-index.json": "bb41457bd8f6f2c64b9d4921f6a78a2f205a982a23183310dc4b155e554d84e5",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-lengths.npy": "a02313c8d30c7222b4b6c87181163fbed6cf0c2078b559ba2948187395a8ac96",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-targets.npy": "31415eac6bd1e97fe9a3cd09d9e7b8e5ea15599596511b13fd14ac94580c001a",
+    "models\\asl-gru-fifteen-signs-trajectory-readout-c01\\best.pt": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00006.zip": "e28ce0436a2b9c3fd238355a23394460592347a95fc1d0ac5af162d2222ef8eb",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00015.zip": "352dcc5d105bff2ec109fccfa5f3479b6e4cdea52cf97a0094aa73356ea7ad17",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00019.zip": "7bbd3a677fdef67239edec9d51bac9e1cc2d7bed35310c6aed42dbb24b469465",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00039.zip": "145fdb88f55283227869ae667b402435adca6d3cb67f84973ff8077001ce37ff",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00065.zip": "5c44b026f1a241b9f334858e013f4e7dd39e068369bba115e03fac9f9c562405",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00070.zip": "b3490abedb12887806da279a0efacdb5eb59c6ce517a709cdc611ce54b4fb0ec",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00071.zip": "0a4f463be101d3d7b3e973134deb0c4bf9875a3919adafd075bc7c5fb6f8a467",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00080.zip": "4d7b302f6d4f8457f1b321802751857e7cae4f25a8de2d01ad16de287ac2d6fb",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00083.zip": "170fae9e817f22a0ca02e8ca2264f13bca9229d6323c6e80629e5f791857d5f2",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00116.zip": "532fccd3c5c2cca1c37f349878720b38dbb79a30d04bc6882309c3e52632c1c1",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00117.zip": "93cea5bcaee1c37a42dd220682c2841cdd59a55fe6af213a1f723bf068a69737",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00128.zip": "5dd18559e76c432cf457b799c60848ed42c2b73863521d43fd44e82ffa890835",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00141.zip": "3ec45c97321180e9f2a19b78842c0dee20832acbc0da1c65f88dc05c88579d49",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00148.zip": "f61249547f6fb3d2e29ada733fc6b263ba9988eadb78b3ce9825d112d2ade1a2",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00158.zip": "c2877f289c75deae75be17f511ba95ceabebbdcec136ebacccd18614ebef8b8f",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00175.zip": "c96baa87c533aae187179254bf8f1eb2946eff48f656c0a45736bea5bd882757",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00184.zip": "d4394e2a2ec08358db29a117bde9a8070b5b17530455dff5adcd6c9ccecb8164",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00229.zip": "1c55a7f4036f513724ee104409760ea0d57e0a858ebdc5afc481a81063d366e0",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00245.zip": "7d3c4122fec6b300a465d71ed90ab342b34e76433327f5433f2cc1615ac6b360",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00275.zip": "e7fc952718461eb8e5155e09c653db52981a7a12a1c5053d12fee9569c13ed4d",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00306.zip": "29fe06651cf9507ea33b588758d8c016c07ca8fbf088bf54b7ee80d2abe425cd",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00311.zip": "18f178c68d4983303265953a869685b707b66b44e7bbcb304581e0f24e58713a",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00341.zip": "d77bf41c6d23895b1f501ae7b5bd4d3e5565bcb556d152ea58d001a1d19c9d74",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00345.zip": "44a006db68b81861f5babc3df81c468f3d31fbc23bf0e6f864a22fcc2f4b1255",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00359.zip": "591442f2bc56c699f9b3db07d65ba2c79584f4a63e6a5e7354af87388d277f9e",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00377.zip": "890fb9036d84bc73bb2e07b118f71af312120726182eca931c5c8a81e69ebb1e",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00380.zip": "0ddc7c32cab470509e299651a69de8347685a81ae37b7b83e57dff2ddd0bbf9c",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00398.zip": "f5cf3e70a59b622b6a36be428093f75c994fab020efc9cd9fd6e91ae52947732",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00001.zip": "0b0a01c6a25d57c5036360e64f6065a46d4f081ae0dfd6082e3461f8e0ebeb3d",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00002.zip": "4a0d8f2496e886d2ad071e1ebdcd496b2cb3c4b8bece3d2522890d1d0f84ad10",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00004.zip": "5b54005bfd1ab0a8e2fbe500a98fed699ce234685484e1eed8b054ae35cddf4f",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00021.zip": "1646b0619686389aa5a87083e955e796e0d7ec86a2231ac6dae63fa697869735",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00041.zip": "e292b4f0aeba896d79541f116f2144944eaae74e359961d23d69fac042ad64f3",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00059.zip": "a2c5433b98ee02034f736c81731315eae97b25dfd1f99546a79d9b72ead31f31",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00069.zip": "92819980634f3488f0de83215fefa7816a0b397fc86bf018b5f4e976b3c4f045",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00075.zip": "99c06cfb7bfb3a4d2d97b1e7b38fb66512b2d54c5f5c60c7e9ff58b64edd0a9d",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00096.zip": "4e300b80b04e8c1ceb9f167cb10e69ffee0aeab62c1b4162a6e7c046330be8d8"
+  },
+  "protected_unchanged": true
+}

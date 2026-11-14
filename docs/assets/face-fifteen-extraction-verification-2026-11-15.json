@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "clips": 461,
+  "splits": {
+    "test": 182,
+    "train": 219,
+    "val": 60
+  },
+  "frames": 36079,
+  "face_present_frames": 36076,
+  "frames_without_face": 3,
+  "missing_face_clips": [
+    {
+      "video_file": "19741660770603775-YOUR.mp4",
+      "split": "train",
+      "absent_frames": [
+        0
+      ]
+    },
+    {
+      "video_file": "7616988400005291-HELP.mp4",
+      "split": "train",
+      "absent_frames": [
+        0
+      ]
+    },
+    {
+      "video_file": "9953610281521326-YES.mp4",
+      "split": "train",
+      "absent_frames": [
+        383
+      ]
+    }
+  ],
+  "arrays_checksums_timestamps_and_indices_verified": true,
+  "missing_mask_and_zero_fill_verified": true,
+  "feature_bytes": 197246818,
+  "face_presence_is_not_accuracy": true,
+  "session_seconds": 211.63999999999942
+}

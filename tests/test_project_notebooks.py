@@ -138,3 +138,51 @@ class NotebookTests(unittest.TestCase):
             images=sum(o['output_type']=='display_data' for c in result['cells'] for o in c.get('outputs',[]))
             self.assertEqual(images,4)
             self.assertTrue(all(c['execution_count'] for c in result['cells'] if c['cell_type']=='code'))
+
+    def test_pronoun_diagnosis_renders_offline_evidence_without_claiming_live_results(self):
+        item={'gloss':'ME','participant_id':'fixture signer','video_file':'fixture.mp4',
+              'actual_margin':-.4,'components':{'bias':.1,'pooled_gru':-.3,'original_17_geometry':-.1,'six_path_geometry':-.1}}
+        data={'status':'offline_complete_live_pending','counts':{'train':{'ME':1,'WE':1},'val':{'ME':1,'WE':1}},
+              'protected_inputs_unchanged':True,'full_validation_reproduction':{'correct':1,'maximum_score_difference':0},
+              'offline_controls':{'val':{'original/current':{'ME':{'correct':1,'support':1},'WE':{'correct':1,'support':1}}}},
+              'offline_validation_margins':[item],'live':None}
+        snapshot={'generated_utc':'SYNTHETIC PRONOUN FIXTURE','models':{},'stgcn_complete':False,'pronoun_investigation':data}
+        notebook=self.builder.Notebook('pronoun-fixture');notebook.code(self.builder.SETUP)
+        self.builder.append_pronoun_diagnosis(notebook,snapshot)
+        forbidden={'run','Popen','train','evaluate','VideoCapture','write_text','save','savez','torch_load'}
+        for cell in notebook.cells:
+            if cell['cell_type']=='code':
+                for node in ast.walk(ast.parse(''.join(cell['source']))):
+                    if isinstance(node,ast.Call):
+                        name=node.func.attr if isinstance(node.func,ast.Attribute) else getattr(node.func,'id','')
+                        self.assertNotIn(name,forbidden)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'artifacts').mkdir()
+            (root/'artifacts/experiment_snapshot.json').write_text(json.dumps(snapshot))
+            result=notebook.execute(root,root/'figures')
+            self.assertEqual(sum(o['output_type']=='display_data' for c in result['cells'] for o in c.get('outputs',[])),1)
+            stdout=''.join(o.get('text','') for c in result['cells'] for o in c.get('outputs',[]) if o['output_type']=='stream')
+            self.assertIn('no new live accuracy conclusion',stdout)
+
+    def test_pending_capture_timing_report_does_not_draw_invented_accuracy(self):
+        data={'status':'preflight_complete_live_pending','verified_dataset_clips':37,
+              'protected_inputs_unchanged':True,'checkpoint_sha256':'synthetic checkpoint identity','live':None}
+        snapshot={'generated_utc':'SYNTHETIC TIMING FIXTURE','models':{},'stgcn_complete':False,
+                  'capture_timing_normalization':data}
+        notebook=self.builder.Notebook('timing-fixture');notebook.code(self.builder.SETUP)
+        self.builder.append_capture_timing(notebook,snapshot)
+        forbidden={'run','Popen','train','evaluate','VideoCapture','write_text','save','savez'}
+        for cell in notebook.cells:
+            if cell['cell_type']=='code':
+                for node in ast.walk(ast.parse(''.join(cell['source']))):
+                    if isinstance(node,ast.Call):
+                        name=node.func.attr if isinstance(node.func,ast.Attribute) else getattr(node.func,'id','')
+                        self.assertNotIn(name,forbidden)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'artifacts').mkdir()
+            (root/'artifacts/experiment_snapshot.json').write_text(json.dumps(snapshot))
+            result=notebook.execute(root,root/'figures')
+            images=sum(o['output_type']=='display_data' for c in result['cells'] for o in c.get('outputs',[]))
+            self.assertEqual(images,0)
+            stdout=''.join(o.get('text','') for c in result['cells'] for o in c.get('outputs',[]) if o['output_type']=='stream')
+            self.assertIn('pending confirmation',stdout)

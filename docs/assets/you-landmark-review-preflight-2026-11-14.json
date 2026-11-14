@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "public_video": "6229294436435182-YOU.mp4",
+  "first_prediction": {
+    "label": "YOU",
+    "score": 0.8405415415763855
+  },
+  "geometry_enabled": true,
+  "standardized_geometry_features": 23,
+  "classifier_inputs": 279,
+  "forward_kwargs": {},
+  "normal_forward_calls": 1,
+  "ram_boards": 2,
+  "images_written_to_files": false,
+  "checkpoint_unchanged": true
+}

@@ -1,6 +1,74 @@
 # Project records and model results
 
+[Notebook 08](08_15_sign_face_gru_50epochs.ipynb) records the separately trained
+50-epoch face-aware GRU without early stopping, with the original validation
+selection rule, plots, metrics and comparison with the earlier face-aware run.
+
+[Notebook 07](07_15_sign_face_gru.ipynb) implements the separately trained
+15-sign hands/pose/face GRU, its frame alignment and augmentation, training,
+frozen readout, metrics and graphs. Its saved model and report are under
+`models/asl-gru-fifteen-signs-face-v1/`; it has not yet been connected to the
+webcam. The same previously inspected test clips are used as the baseline.
+
+The [700-sign classifier comparison](06_700_sign_classifier_comparison.ipynb)
+freezes the selected 2×256 GRU and compares its original linear classifier, a
+new linear control and a new two-layer classifier. It includes head training,
+validation-loss selection, learning curves and previously inspected test-split
+metrics. The separately exported combined model and reports are in
+`models/asl-700-sign-gru-2x256-two-layer-head-v1/`; webcam integration is pending.
+
+The [700-sign GRU comparison](05_700_signs_gru_comparison.ipynb) implements
+separate two-layer/256-unit and five-layer/512-unit GRUs, training and
+evaluation on the same selected ASL Citizen classes. It records its class
+selection, official signer-disjoint splits, learning curves and metrics in the
+notebook and under `models/asl-700-sign-gru-comparison-v1/` as the run proceeds.
+The restarted run uses a maximum of 300 epochs, 150 batches of four clips per
+epoch, and a shuffled sampler that continues across epoch boundaries. It applies
+validation-loss early stopping after a minimum of 38 epochs.
+Each sequence is limited to 83 cached landmark frames for training, validation
+and test. Clips originally longer than 128 frames were already sampled once
+when the source cache was created, before the new 83-frame sampling step.
+
+The independent [five-layer, 512-unit GRU experiment](04_deep_gru_5layer_512.ipynb)
+contains its model definition, training and frozen-readout code, per-epoch
+accuracy/loss/F1 graphs and final per-class evaluation. Its checkpoint and
+metrics are stored under `models/asl-gru-fifteen-signs-5layer-512-v1/`; the
+notebook refuses to overwrite that directory on another run. The official test
+split has already been inspected during earlier development.
+The project `.venv` currently lacks `ipykernel`; select a compatible Jupyter
+kernel with the project dependencies, or install a kernel into the environment
+before running the notebook in VS Code. The saved notebook already includes the
+completed outputs and plots.
+
+**Working rule:** all new model architecture design and training implementation
+belongs in Jupyter notebooks, including real definitions/training code rather
+than wrappers around training scripts. Webcam integration and shared runtime
+inference helpers remain Python files. Historical training scripts and the
+read-only reporting notebooks remain records; updating a notebook does not
+authorize starting training.
+
+The [2026-11-14 retention record](../docs/model-retention-2026-11-14.md) lists
+the seven checkpoints kept after pruning 178 duplicate, weak or marginal
+snapshots. Both reporting notebooks show the retained-model table. Historical
+curves still load preserved metrics; their presence does not mean those weights
+remain installed.
+
 Three generated reporting notebooks accompany the existing Colab extraction notebook:
+
+Notebook 02 also records the independent **official pretrained ASL Citizen
+I3D** baseline: original 2,731-label predictions, explicitly restricted five/
+fifteen-label comparisons on identical test videos, and four confirmed webcam
+trials. No MediaPipe input, training or existing-recognizer replacement is used.
+See [the source and protocol](../docs/official-asl-citizen-baseline-2026-11-14.md).
+
+Notebook 02 now starts with the completed **2026-11-14 official-test sweep**:
+all 152 saved five/fifteen-sign checkpoint paths (133 distinct files), including
+every stored epoch. It records selected-snapshot metrics, all-epoch test curves
+and reference confusion matrices. Selected five-sign geometry epoch 8 scores
+51/60; stored epoch 5 scores 59/60 retrospectively. Current fifteen-sign C=0.1
+scores 147/182. These are historical sweep results; subsequent curation retains
+the geometry epoch-5 checkpoint under its original filename and removes others.
+See [the full record](../docs/small-vocab-snapshot-test-2026-11-14.md).
 
 - `01_project_workflow_and_investigation.ipynb`: scope/history, data splits,
   extraction/recovery/benchmarks, normalization, model design, training steps,
@@ -28,8 +96,20 @@ They explain augmentation order and the separate training/inference paths.
 Notebook 02 includes completed matched temporal/control curves, class recall
 and confusion matrices. The selected temporal model scored 50/60 validation
 versus 49/60 for the control; both missed all four validation PLEASE examples.
-Neither development comparison has a new 15-class webcam or official-test evaluation.
+Those original training comparisons used train/validation only. Subsequent
+live diagnostics and the frozen test sweep above provide the current status.
 Historical full-vocabulary GRU/ST-GCN results are labeled separately.
+
+Notebook 02 also records the **2026-11-14 ME/WE investigation**: all 37 relevant
+training/validation clips, exact checkpoint/input reproduction, additive
+classifier contributions, matched controls and nine confirmed live trials.
+The user subsequently clarified that WE was misunderstood in both sessions;
+WE captures 2, 5 and 8 are excluded, and earlier WE-failure conclusions are
+withdrawn. The instrumented follow-up retains about 29.7 FPS but still gets
+ME 1/3 and PLEASE 2/3. Matched prefix windows with refitted versus fixed
+normalization both give ME 0/3 and PLEASE 3/3. These results keep the remaining
+ME failure visible. No model/default change, personal media, landmark arrays
+or embeddings are introduced.
 
 Graphs and tables are embedded. The notebooks can be read without the videos,
 checkpoints or raw feature cache. The first two use
@@ -50,8 +130,8 @@ The first two notebooks contain **completed ST-GCN results**, after successful
 training and frozen test evaluation on 2026-11-11 (Asia/Tashkent). The metrics
 notebook explains epoch-39 selection versus the final epoch 49 and compares
 aggregate metrics and individual classes with the GRU. Aggregate gains do not
-imply gains for every sign. There are now **23 embedded figures** across the
-first two notebooks: six in notebook 01 and seventeen in notebook 02. The
+imply gains for every sign. There are now **25 embedded figures** across the
+first two notebooks: six in notebook 01 and nineteen in notebook 02. The
 dataset-distribution notebook and its separate snapshot remain unchanged.
 
 The completion pipeline generated the first final version automatically.

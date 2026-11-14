@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "public_video": "6229294436435182-YOU.mp4",
+  "exact_pixel_tensor_match_to_upstream": true,
+  "input_shape": [
+    3,
+    64,
+    224,
+    224
+  ],
+  "full_first_guess": "YOU",
+  "camera_opened": false,
+  "media_written": false,
+  "training": false
+}

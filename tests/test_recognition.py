@@ -217,3 +217,43 @@ class RecognitionTests(unittest.TestCase):
         self.assertTrue(report['automatic_capture_finish'])
         self.assertFalse(report['camera_open'])
         self.assertFalse(report['media_saved'])
+
+    def test_default_three_second_capture_excludes_late_camera_frame_and_needs_no_stop_key(self):
+        received={}
+        def predict(frames,timestamps):
+            received.update(ids=[int(f[0,0,0]) for f in frames],timestamps=list(timestamps))
+            return {'top5':[{'label':'ME','score':1.}], 'captured_frames':len(frames),
+                    'quality':{'frames_with_hands':len(frames),'frames_with_body_anchor':len(frames)}}
+        recognizer=SimpleNamespace(checkpoint=Path('best.pt'),checkpoint_sha256='hash',epoch=13,
+            names=['ME'],device='cpu',hand_model=Path('hands.task'),predict_frames=predict)
+        source=iter(np.full((8,8,3),i,np.uint8) for i in range(34))
+        camera=SimpleNamespace(isOpened=lambda:True,set=lambda *a:False,get=lambda *a:30.,
+            read=lambda:(True,next(source)),release=lambda:None)
+        preview=SimpleNamespace(draw=lambda frame,stamp:(frame,1),close=lambda:None)
+        class ImmediatePool:
+            def __init__(self,*args,**kwargs):pass
+            def submit(self,fn,*args):
+                future=Future()
+                try:future.set_result(fn(*args))
+                except Exception as exc:future.set_exception(exc)
+                return future
+            def shutdown(self,**kwargs):pass
+        # Sign frames cover 0..2.9 seconds. The next read is late at 3.2s;
+        # it must trigger prediction without retaining that extra frame.
+        clock=[0.,0.]+[1.5+i*.1 for i in range(30)]+[4.7,4.8,4.9]
+        with tempfile.TemporaryDirectory() as directory,\
+             patch('sign_language.recognition_webcam.cv2.VideoCapture',return_value=camera),\
+             patch('sign_language.recognition_webcam.SkeletonPreview',return_value=preview),\
+             patch('sign_language.recognition_webcam.ThreadPoolExecutor',ImmediatePool),\
+             patch('sign_language.recognition_webcam.time.perf_counter',side_effect=clock),\
+             patch('sign_language.recognition_webcam.cv2.waitKey',side_effect=[32]+[-1]*31+[ord('q')]),\
+             patch('sign_language.recognition_webcam.cv2.getWindowProperty',return_value=1),\
+             patch('sign_language.recognition_webcam.cv2.imshow'),\
+             patch('sign_language.recognition_webcam.cv2.destroyAllWindows'):
+            report=run_recognition(recognizer,Path(directory)/'report.json')
+        self.assertEqual(received['ids'],list(range(1,31)))
+        self.assertEqual(received['timestamps'],list(range(0,3000,100)))
+        self.assertTrue(report['automatic_capture_finish']);self.assertEqual(report['max_capture_seconds'],3.)
+        self.assertEqual(report['trials'][0]['capture_stop_reason'],'time_limit')
+        self.assertAlmostEqual(report['trials'][0]['capture_wall_seconds'],3.2)
+        self.assertLessEqual(max(received['timestamps']),3000)

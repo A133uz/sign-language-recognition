@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "tests": 183,
+  "test_log_sha256": "3da51bd962e3396e50d14ceb9e8ecd09393050b041d8b93a925abd02ec4875c8",
+  "snapshot_paths": 152,
+  "unique_inference_reports": 133,
+  "all_prediction_confusions_verified": true,
+  "historical_gru_stgcn_confusions_reproduced": true,
+  "official_csv_hashes_unchanged": true,
+  "protected_files_unchanged_after_tests": true,
+  "protected_file_count": 375,
+  "no_training": true,
+  "no_model_selection_change": true,
+  "no_geometry_interventions": true
+}

@@ -1,12 +1,26 @@
 # ASL webcam test: ST-GCN and GRU
 
+**Current selection:** the retained 15-sign trajectory-readout GRU, epoch 13.
+For a single bottom-centered prediction, run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/webcam_15_subtitles.py
+```
+
+Press Space, wait for SIGN NOW and sign once; capture stops after three seconds.
+Q closes the window. This is a closed-set, isolated-sign test. It displays one
+guess and saves predictions/timing, not video or landmark coordinates. The
+older multi-guess `recognize_webcam.py` command now also defaults to the same
+15-sign checkpoint. Earlier descriptions below are historical; checkpoints
+removed during later curation may no longer be installed.
+
 Run with the project environment:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/recognize_webcam.py
 ```
 
-The default checkpoint is now
+Before the current 15-sign selection, the default checkpoint was
 `models/asl-gru-five-signs-early-v2/regularized/best.pt` (regularized GRU,
 epoch 18, five labels), as requested for the current webcam test.
 To select the preserved full-vocabulary ST-GCN, pass
@@ -16,7 +30,7 @@ Those full-vocabulary checkpoints predict across all 2,731 ASL Citizen labels.
 They do not apply a restricted vocabulary or automatic unknown-sign rejection. This is a test
 of manually bounded isolated signs, rather than continuous signing.
 
-The explicit equivalent of the default **five-sign GRU pilot** is:
+The explicit command for the earlier **five-sign GRU pilot** is:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/recognize_webcam.py --checkpoint models/asl-gru-five-signs-early-v2/regularized/best.pt
@@ -67,13 +81,15 @@ epoch 4, five labels. It is not a different pooling architecture or the default.
 1. Keep your face, shoulders and hands visible, with room for the full motion.
 2. Focus the camera window and press **Space**. After the brief preparation
    countdown, wait for **SIGN NOW**, then perform one complete sign.
-3. Press **Space** again immediately after the sign. Capture automatically
-   ends after eight seconds. **R** cancels a capture or clears previous guesses.
+3. Complete the sign within **three seconds**. Capture stops automatically;
+   no second Space press is needed. The countdown precedes this capture window.
+   Frames arriving after the deadline are excluded even if a camera/UI cycle
+   is late. **R** cancels a capture or clears previous guesses.
 4. Wait for landmark processing and the five ranked predictions. **Q** or
    Escape closes the window. Repeat with another isolated sign.
 
 Use `--camera 1` to select another webcam, `--device cpu` to explicitly use CPU
-classification, or `--max-seconds 5` to change the capture cap (1–10 seconds).
+classification, or `--max-seconds 2` for a shorter capture (1–3 seconds).
 The capture buffer now targets **30 FPS** by default. Use `--capture-fps 30`
 to specify the same limit explicitly (valid range 1–60).
 Scores are softmax outputs, not calibrated confidence. Numbered gloss variants

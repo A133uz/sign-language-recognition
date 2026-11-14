@@ -1,0 +1,598 @@
+{
+  "date_local": "2026-11-14",
+  "session_id": "webcam-trajectory-auto3-20261114-124328",
+  "source_report": ".cache/webcam-trajectory-auto3-20261114-124328.json",
+  "source_sha256": "a71003c1d20b8989ac53850b802ded29ae4d2c506f2f837fe6964fa825e914b9",
+  "checkpoint_sha256": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+  "capture_limit_seconds": 3,
+  "confirmed_intended_labels": 0,
+  "accuracy": null,
+  "user_feedback": {
+    "ME": "Sometimes recognized; confused with WE or PLEASE. The approximate 50% statement is qualitative, not measured accuracy.",
+    "WE": "User reports correct first guesses with the corrected gesture.",
+    "YOU": "User reports PLEASE or YES predictions.",
+    "capture_id_recall": "User does not remember which capture IDs correspond to these signs."
+  },
+  "interpretation": "No per-class live accuracy or causal conclusion can be calculated from unassigned captures. Follow up with explicitly prompted ME, WE and YOU trials; all 15 labels still compete.",
+  "trials": [
+    {
+      "capture_id": 1,
+      "top5": [
+        {
+          "label": "WE",
+          "score": 0.7494797706604004
+        },
+        {
+          "label": "LOVE",
+          "score": 0.08905036747455597
+        },
+        {
+          "label": "ME",
+          "score": 0.08668477088212967
+        },
+        {
+          "label": "OUR",
+          "score": 0.014978631399571896
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.010203160345554352
+        }
+      ],
+      "quality": {
+        "frames": 89,
+        "frames_with_hands": 48,
+        "frames_with_body_anchor": 89
+      },
+      "capture_seconds": 2.971,
+      "input_frames": 89,
+      "captured_frames": 89,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          0.13636363636363635,
+          0.0
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 0,
+        "hand_frame_fraction": 0.5393258426966292
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 2,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.6274759769439697
+        },
+        {
+          "label": "NEED",
+          "score": 0.2979515790939331
+        },
+        {
+          "label": "THANKYOU",
+          "score": 0.026021862402558327
+        },
+        {
+          "label": "YES",
+          "score": 0.017837798222899437
+        },
+        {
+          "label": "WE",
+          "score": 0.012998542748391628
+        }
+      ],
+      "quality": {
+        "frames": 86,
+        "frames_with_hands": 86,
+        "frames_with_body_anchor": 86
+      },
+      "capture_seconds": 2.971,
+      "input_frames": 86,
+      "captured_frames": 86,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 1.0
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 3,
+      "top5": [
+        {
+          "label": "HELLO",
+          "score": 0.8477976322174072
+        },
+        {
+          "label": "NEED",
+          "score": 0.08576365560293198
+        },
+        {
+          "label": "YES",
+          "score": 0.03183828666806221
+        },
+        {
+          "label": "NO",
+          "score": 0.009927480481564999
+        },
+        {
+          "label": "WE",
+          "score": 0.006757226772606373
+        }
+      ],
+      "quality": {
+        "frames": 89,
+        "frames_with_hands": 84,
+        "frames_with_body_anchor": 89
+      },
+      "capture_seconds": 2.968,
+      "input_frames": 89,
+      "captured_frames": 89,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.9565217391304348,
+          1.0,
+          1.0,
+          0.8181818181818182
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 6,
+        "hand_frame_fraction": 0.9438202247191011
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 4,
+      "top5": [
+        {
+          "label": "NEED",
+          "score": 0.6919110417366028
+        },
+        {
+          "label": "YES",
+          "score": 0.20713233947753906
+        },
+        {
+          "label": "WE",
+          "score": 0.060171425342559814
+        },
+        {
+          "label": "HELLO",
+          "score": 0.01484821829944849
+        },
+        {
+          "label": "NO",
+          "score": 0.012450041249394417
+        }
+      ],
+      "quality": {
+        "frames": 86,
+        "frames_with_hands": 58,
+        "frames_with_body_anchor": 86
+      },
+      "capture_seconds": 2.97,
+      "input_frames": 86,
+      "captured_frames": 86,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.9545454545454546,
+          0.9545454545454546,
+          0.5714285714285714,
+          0.19047619047619047
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 1,
+        "hand_frame_fraction": 0.6744186046511628
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 5,
+      "top5": [
+        {
+          "label": "YES",
+          "score": 0.7950552701950073
+        },
+        {
+          "label": "NEED",
+          "score": 0.12704582512378693
+        },
+        {
+          "label": "NO",
+          "score": 0.06062933802604675
+        },
+        {
+          "label": "YOU",
+          "score": 0.007582560647279024
+        },
+        {
+          "label": "HELLO",
+          "score": 0.0028816473204642534
+        }
+      ],
+      "quality": {
+        "frames": 85,
+        "frames_with_hands": 52,
+        "frames_with_body_anchor": 85
+      },
+      "capture_seconds": 2.967,
+      "input_frames": 85,
+      "captured_frames": 85,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          0.42857142857142855,
+          0.0
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 0,
+        "hand_frame_fraction": 0.611764705882353
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 6,
+      "top5": [
+        {
+          "label": "NEED",
+          "score": 0.590877890586853
+        },
+        {
+          "label": "YES",
+          "score": 0.26772236824035645
+        },
+        {
+          "label": "YOU",
+          "score": 0.06075997278094292
+        },
+        {
+          "label": "NO",
+          "score": 0.04158715158700943
+        },
+        {
+          "label": "HELP",
+          "score": 0.016584109514951706
+        }
+      ],
+      "quality": {
+        "frames": 85,
+        "frames_with_hands": 72,
+        "frames_with_body_anchor": 85
+      },
+      "capture_seconds": 2.937,
+      "input_frames": 85,
+      "captured_frames": 85,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.6363636363636364,
+          0.9523809523809523,
+          1.0,
+          0.8095238095238095
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 6,
+        "hand_frame_fraction": 0.8470588235294118
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 7,
+      "top5": [
+        {
+          "label": "LOVE",
+          "score": 0.9312746524810791
+        },
+        {
+          "label": "MY",
+          "score": 0.0552353672683239
+        },
+        {
+          "label": "OUR",
+          "score": 0.00759095000103116
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.0019476029556244612
+        },
+        {
+          "label": "GOOD",
+          "score": 0.0017794682644307613
+        }
+      ],
+      "quality": {
+        "frames": 81,
+        "frames_with_hands": 81,
+        "frames_with_body_anchor": 81
+      },
+      "capture_seconds": 2.977,
+      "input_frames": 81,
+      "captured_frames": 81,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 1.0
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 8,
+      "top5": [
+        {
+          "label": "MY",
+          "score": 0.9090936183929443
+        },
+        {
+          "label": "LOVE",
+          "score": 0.05862965062260628
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.01707976683974266
+        },
+        {
+          "label": "GOOD",
+          "score": 0.006084010936319828
+        },
+        {
+          "label": "OUR",
+          "score": 0.003383997129276395
+        }
+      ],
+      "quality": {
+        "frames": 80,
+        "frames_with_hands": 76,
+        "frames_with_body_anchor": 80
+      },
+      "capture_seconds": 2.995,
+      "input_frames": 80,
+      "captured_frames": 80,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.8,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 0.95
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 9,
+      "top5": [
+        {
+          "label": "WE",
+          "score": 0.7579402327537537
+        },
+        {
+          "label": "ME",
+          "score": 0.19205737113952637
+        },
+        {
+          "label": "NEED",
+          "score": 0.01591983065009117
+        },
+        {
+          "label": "LOVE",
+          "score": 0.010151664726436138
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.005741524510085583
+        }
+      ],
+      "quality": {
+        "frames": 77,
+        "frames_with_hands": 77,
+        "frames_with_body_anchor": 77
+      },
+      "capture_seconds": 2.97,
+      "input_frames": 77,
+      "captured_frames": 77,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 1.0
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 10,
+      "top5": [
+        {
+          "label": "ME",
+          "score": 0.6168256998062134
+        },
+        {
+          "label": "WE",
+          "score": 0.3481646776199341
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.007515998091548681
+        },
+        {
+          "label": "MY",
+          "score": 0.005139973480254412
+        },
+        {
+          "label": "LOVE",
+          "score": 0.00426202267408371
+        }
+      ],
+      "quality": {
+        "frames": 89,
+        "frames_with_hands": 37,
+        "frames_with_body_anchor": 89
+      },
+      "capture_seconds": 2.97,
+      "input_frames": 89,
+      "captured_frames": 89,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.7391304347826086,
+          0.9090909090909091,
+          0.0,
+          0.0
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 0,
+        "hand_frame_fraction": 0.4157303370786517
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 11,
+      "top5": [
+        {
+          "label": "PLEASE",
+          "score": 0.44694265723228455
+        },
+        {
+          "label": "MY",
+          "score": 0.2619531750679016
+        },
+        {
+          "label": "ME",
+          "score": 0.18813078105449677
+        },
+        {
+          "label": "LOVE",
+          "score": 0.03800284117460251
+        },
+        {
+          "label": "WE",
+          "score": 0.021719766780734062
+        }
+      ],
+      "quality": {
+        "frames": 90,
+        "frames_with_hands": 72,
+        "frames_with_body_anchor": 90
+      },
+      "capture_seconds": 2.978,
+      "input_frames": 90,
+      "captured_frames": 90,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.34782608695652173,
+          1.0,
+          1.0,
+          0.8636363636363636
+        ],
+        "final_frame_has_hand": false,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 7,
+        "hand_frame_fraction": 0.8
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    },
+    {
+      "capture_id": 12,
+      "top5": [
+        {
+          "label": "YES",
+          "score": 0.34933027625083923
+        },
+        {
+          "label": "NEED",
+          "score": 0.3436459004878998
+        },
+        {
+          "label": "PLEASE",
+          "score": 0.06618376821279526
+        },
+        {
+          "label": "WE",
+          "score": 0.051506076008081436
+        },
+        {
+          "label": "HELLO",
+          "score": 0.04014355689287186
+        }
+      ],
+      "quality": {
+        "frames": 90,
+        "frames_with_hands": 69,
+        "frames_with_body_anchor": 90
+      },
+      "capture_seconds": 2.968,
+      "input_frames": 90,
+      "captured_frames": 90,
+      "tracking_summary": {
+        "hand_presence_by_quarter": [
+          0.08695652173913043,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "final_frame_has_hand": true,
+        "final_window_frames": 10,
+        "final_window_hand_frames": 10,
+        "hand_frame_fraction": 0.7666666666666667
+      },
+      "capture_stop_reason": "time_limit",
+      "intended_label": null,
+      "label_status": "unassigned_user_cannot_recall"
+    }
+  ],
+  "media_saved": false,
+  "coordinates_saved": false,
+  "training_performed": false
+}

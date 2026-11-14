@@ -1,7 +1,30 @@
 # ASL Citizen landmark recognition
 
+Detailed face landmarks and blendshape features for the existing 15-sign pilot
+have been extracted separately and aligned with the raw hand/pose cache. See
+the [extraction and verification record](docs/face-landmark-extraction-15-signs-2026-11-15.md).
+A separate face-aware 15-sign GRU has now been trained; its results and limits
+are in the [face-GRU experiment](docs/face-gru-fifteen-signs-2026-11-15.md).
+The [50-epoch follow-up](docs/face-gru-fifty-epochs-2026-11-15.md) trained
+without early stopping and kept its selected checkpoint separately.
+The user prefers its face-aware epoch-36 checkpoint for current field tests;
+run `python scripts/webcam_15_face_subtitles.py` for its single-guess subtitle
+window. Model weights and detector assets remain local and are not in Git.
+
+New model design and training are implemented in **Jupyter notebooks**;
+webcam/inference integration remains in Python. See [project rules](AGENTS.md).
+The [curated model inventory](docs/model-retention-2026-11-14.md) retains seven
+distinct useful references; rejected and duplicate snapshot weights were removed
+while their metrics and source records remain available.
+
+A separate [five-layer, 512-unit GRU experiment](notebooks/04_deep_gru_5layer_512.ipynb)
+was trained after that inventory. Its 15-sign test accuracy is 138/182 (75.82%)
+on a previously inspected test split, compared with 147/182 (80.77%) for the
+earlier two-layer trajectory readout. The larger model is stored separately
+and is not part of the older seven-checkpoint backup.
+
 The application provides a live hand-skeleton preview and an experimental
-isolated-sign webcam test using the five-sign regularized GRU by default
+isolated-sign webcam test using the 15-sign trajectory-readout GRU by default
 (ST-GCN and full-vocabulary models are explicitly selectable).
 The dataset is
 Microsoft ASL Citizen. The WLASL/I3D implementation was removed.
@@ -15,13 +38,29 @@ signs and the selected checkpoint; live recognition remains unreliable in
 the user checks. See [ST-GCN live feedback](docs/stgcn-webcam-test-2026-11-11.md).
 The RSL extension is planned.
 
+An independent [official pretrained ASL Citizen I3D baseline](docs/official-asl-citizen-baseline-2026-11-14.md)
+is installed with pinned authors' weights and preprocessing. It reads video
+pixels directly. On the same 182 test clips it scores **64.29% across all 2,731
+labels**, or **90.66% restricted to our 15 labels** (five-label view: 58/60).
+Its four confirmed webcam attempts give 0/4 full-vocabulary and 2/4 in the
+15-label view. These are separate output tasks; no model/default replacement
+or retraining occurred. See the linked protocol and notebook for limits.
+
+The [2026-11-14 frozen test benchmark](docs/small-vocab-snapshot-test-2026-11-14.md)
+evaluates all 152 stored five/fifteen-sign checkpoint paths (133 distinct files).
+Previously selected five-sign geometry GRU epoch 8 scores **51/60 (85%)**; its
+stored epoch 5 scores **59/60 (98.33%)** retrospectively. Current fifteen-sign
+C=0.1 scores **147/182 (80.77%)**, tied with several readouts. Weights, trained
+geometry paths and default selections were preserved. Dataset scores do not
+establish webcam accuracy.
+
 The 15-sign experiment adds ME, YOU, WE,
 MY, YOUR, OUR, HELP, GOOD, NEED and LOVE. It compares mean-pool GRU + explicit
 hand geometry with and without training-only temporal augmentation on 219/60
 official train/validation clips. See the
 [protocol and results](docs/fifteen-sign-temporal-2026-11-12.md). Existing
-five-sign models and webcam defaults are preserved; this experiment reads no
-official test data.
+five-sign models and webcam defaults are preserved. Original training used
+train/validation only; the later benchmark above adds official test results.
 The temporal candidate selected epoch 13: **50/60 validation correct (83.33%)**
 versus 49/60 for the matched control. Both miss all four validation PLEASE
 examples; this is not a demonstrated webcam improvement. The notebook update
@@ -35,6 +74,14 @@ of their eight source videos. One GOOD clip regresses. These cases informed
 tuning; webcam/generalization improvement remains unverified. The notebooks
 record the new 279-input head and checks. Prior models/defaults are preserved.
 
+The [ME/WE investigation](docs/pronoun-investigation-2026-11-14.md) audits all
+37 related train/validation clips and the first live diagnostic session.
+The user later clarified that WE was misunderstood in both sessions; those
+attempts and the earlier WE-failure conclusions are excluded. ME and PLEASE
+remain valid. The [instrumented follow-up](docs/capture-timing-normalization-2026-11-14.md)
+retains about 29.7 FPS but scores ME 1/3 and PLEASE 2/3; holding normalization
+fixed does not repair ME. No retraining, cleaning or default changes occurred.
+
 The earlier supervisor-directed experiment uses **five signs: HELLO, NO, PLEASE,
 THANKYOU and YES**, with earlier checkpoint selection. Its regularized GRU selected
 epoch 18 (88.0% clean training, 78.95% validation, 70.0% test on 60 clips); NO
@@ -44,8 +91,7 @@ A matching **five-sign ST-GCN27** selected epoch 4 and stopped after epoch 7:
 (39/60). See [the ST-GCN pilot comparison](docs/five-sign-stgcn-2026-11-11.md)
 for learning curves, confusion matrices and its explicit webcam command.
 The larger video/feature audit was stopped at the user's request; no source data
-was cleaned or removed. The regularized GRU epoch-18 pilot is now the default;
-both commands below select it:
+was cleaned or removed. The following selects the historical five-sign pilot:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/recognize_webcam.py --checkpoint models/asl-gru-five-signs-early-v2/regularized/best.pt
@@ -55,7 +101,11 @@ both commands below select it:
 .\.venv\Scripts\python.exe scripts/recognize_webcam.py
 ```
 
-Press Space, wait for SIGN NOW, perform one sign, then press Space again.
+The second command now selects the 15-sign trajectory-readout model. For the
+single-guess subtitle window use `python scripts/webcam_15_subtitles.py`.
+
+Press Space, wait for SIGN NOW, and perform one sign within three seconds.
+Capture stops automatically; no second Space press is needed.
 Q closes the window. The default model chooses among HELLO, NO, PLEASE,
 THANKYOU and YES; other checkpoints can have a different vocabulary.
 Capture is limited to a 30-FPS budget by default (`--capture-fps 30`), with actual
@@ -96,17 +146,17 @@ first guesses for hello, thank you, no, me and yes. See
 [ST-GCN settings and controls](docs/stgcn-training.md).
 
 Two [reporting notebooks](notebooks/README.md) record the workflow/investigation
-and model metrics, with 23 embedded graphs, the targeted trajectory-readout
+and model metrics, with 25 embedded graphs, the targeted trajectory-readout
 checks and historical completed ST-GCN test results.
 A third [dataset-distribution notebook](notebooks/03_asl_citizen_class_balance_and_distribution.ipynb)
 covers all 2,731 ASL Citizen classes with verified class/split counts, seven
 embedded graphs, signer coverage and a full-class table. Its portable snapshot
 and regeneration command are described in the notebook guide.
 
-All retained model checkpoints are preserved in the verified local
-`models/archives/all-model-checkpoints-2026-11-12.zip` archive (120 checkpoint
-files plus MediaPipe assets and source/config snapshots). The ZIP remains
-Git-ignored; its [complete checksum catalog and restore guide](docs/model-archive-2026-11-12.md)
+The seven retained checkpoints are backed up locally in
+`models/archives/curated-models-2026-11-14.zip`, with detector assets, notebook/
+Python sources and historical metadata. Older overlapping archives were removed.
+The ZIP remains Git-ignored; its [catalog and retention record](docs/model-retention-2026-11-14.md)
 are tracked. A repository clone alone does not contain the model binaries.
 
 The first local baseline completed. A separate signer-grouped CV study with

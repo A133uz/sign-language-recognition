@@ -1,0 +1,3635 @@
+{
+  "status": "verified",
+  "date_local": "2026-11-14",
+  "config": {
+    "version": "capture-timing-normalization-v1",
+    "target_fps": 30.0,
+    "stage_units": "milliseconds",
+    "normalization_context": "full capture before cropping and 128-frame sampling",
+    "limits": "Arrival times are application delivery, not hardware exposure timestamps. No synthetic frames or limiter changes."
+  },
+  "rows": [
+    {
+      "video_file": "6421087005073287-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.45677152276039124,
+            "palm_median_sizes": [
+              0.1513954997062683,
+              0.12954646348953247
+            ],
+            "quality": {
+              "frames": 73,
+              "frames_with_hands": 10,
+              "frames_with_body_anchor": 73
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4581570327281952,
+            "palm_median_sizes": [
+              0.1513954997062683,
+              0.12954646348953247
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 10,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0011177011674323072,
+              "max_abs_difference": 0.0048828125
+            },
+            "body_hands": {
+              "rms_difference": 0.00020999235443774003,
+              "max_abs_difference": 0.001953125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 28,
+          "full_context": {
+            "shoulder_median_width": 0.45677152276039124,
+            "palm_median_sizes": [
+              0.1513954997062683,
+              0.12954646348953247
+            ],
+            "quality": {
+              "frames": 73,
+              "frames_with_hands": 10,
+              "frames_with_body_anchor": 73
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.43460357189178467,
+            "palm_median_sizes": [
+              0.1513954997062683,
+              0.12954646348953247
+            ],
+            "quality": {
+              "frames": 28,
+              "frames_with_hands": 10,
+              "frames_with_body_anchor": 28
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.02089503564252636,
+              "max_abs_difference": 0.06640625
+            },
+            "body_hands": {
+              "rms_difference": 0.0051442041555527125,
+              "max_abs_difference": 0.0341796875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "8279377520732154-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.45233118534088135,
+            "palm_median_sizes": [
+              0.1145782396197319,
+              0.13929249346256256
+            ],
+            "quality": {
+              "frames": 87,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 87
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.45629942417144775,
+            "palm_median_sizes": [
+              0.1145782396197319,
+              0.13929249346256256
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0029155253506054435,
+              "max_abs_difference": 0.0078125
+            },
+            "body_hands": {
+              "rms_difference": 0.0013920606459322288,
+              "max_abs_difference": 0.0078125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 32,
+          "full_context": {
+            "shoulder_median_width": 0.45233118534088135,
+            "palm_median_sizes": [
+              0.1145782396197319,
+              0.13929249346256256
+            ],
+            "quality": {
+              "frames": 87,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 87
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4619354009628296,
+            "palm_median_sizes": [
+              0.1145782396197319,
+              0.13929249346256256
+            ],
+            "quality": {
+              "frames": 32,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 32
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.007245279358852465,
+              "max_abs_difference": 0.0185546875
+            },
+            "body_hands": {
+              "rms_difference": 0.004550893606190375,
+              "max_abs_difference": 0.0185546875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "8334054758517455-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3857543170452118,
+            "palm_median_sizes": [
+              null,
+              0.11829905211925507
+            ],
+            "quality": {
+              "frames": 160,
+              "frames_with_hands": 45,
+              "frames_with_body_anchor": 160
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37796923518180847,
+            "palm_median_sizes": [
+              null,
+              0.1384314000606537
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 9,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.005949507416895274,
+              "max_abs_difference": 0.0185546875
+            },
+            "body_hands": {
+              "rms_difference": 0.0017846682860598218,
+              "max_abs_difference": 0.01806640625
+            },
+            "local_hands": {
+              "rms_difference": 0.027318908963054046,
+              "max_abs_difference": 0.2626953125
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 45,
+          "full_context": {
+            "shoulder_median_width": 0.3857543170452118,
+            "palm_median_sizes": [
+              null,
+              0.11829905211925507
+            ],
+            "quality": {
+              "frames": 160,
+              "frames_with_hands": 45,
+              "frames_with_body_anchor": 160
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.38691475987434387,
+            "palm_median_sizes": [
+              null,
+              0.11829905211925507
+            ],
+            "quality": {
+              "frames": 45,
+              "frames_with_hands": 45,
+              "frames_with_body_anchor": 45
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0010375711379874706,
+              "max_abs_difference": 0.00390625
+            },
+            "body_hands": {
+              "rms_difference": 0.0006506360441689325,
+              "max_abs_difference": 0.0029296875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "36753258402615074-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.47575995326042175,
+            "palm_median_sizes": [
+              0.09279613941907883,
+              0.1195593997836113
+            ],
+            "quality": {
+              "frames": 117,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 117
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.46568912267684937,
+            "palm_median_sizes": [
+              0.09279613941907883,
+              0.1195593997836113
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.006865740290191182,
+              "max_abs_difference": 0.0146484375
+            },
+            "body_hands": {
+              "rms_difference": 0.0017072890038746925,
+              "max_abs_difference": 0.009521484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 14,
+          "full_context": {
+            "shoulder_median_width": 0.47575995326042175,
+            "palm_median_sizes": [
+              0.09279613941907883,
+              0.1195593997836113
+            ],
+            "quality": {
+              "frames": 117,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 117
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.43469321727752686,
+            "palm_median_sizes": [
+              0.09279613941907883,
+              0.1195593997836113
+            ],
+            "quality": {
+              "frames": 14,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 14
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.028014377806483512,
+              "max_abs_difference": 0.05517578125
+            },
+            "body_hands": {
+              "rms_difference": 0.015454265845068598,
+              "max_abs_difference": 0.041259765625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "2803881528625629-seedWE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.35941100120544434,
+            "palm_median_sizes": [
+              0.10126933455467224,
+              0.09590074419975281
+            ],
+            "quality": {
+              "frames": 119,
+              "frames_with_hands": 27,
+              "frames_with_body_anchor": 119
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.35626715421676636,
+            "palm_median_sizes": [
+              0.10126933455467224,
+              0.09578493982553482
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 26,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0035299005749948324,
+              "max_abs_difference": 0.01171875
+            },
+            "body_hands": {
+              "rms_difference": 0.0011579364302613606,
+              "max_abs_difference": 0.0068359375
+            },
+            "local_hands": {
+              "rms_difference": 0.0003855924917147311,
+              "max_abs_difference": 0.0029296875
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 28,
+          "full_context": {
+            "shoulder_median_width": 0.35941100120544434,
+            "palm_median_sizes": [
+              0.10126933455467224,
+              0.09590074419975281
+            ],
+            "quality": {
+              "frames": 119,
+              "frames_with_hands": 27,
+              "frames_with_body_anchor": 119
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.33478277921676636,
+            "palm_median_sizes": [
+              0.10126933455467224,
+              0.09590074419975281
+            ],
+            "quality": {
+              "frames": 28,
+              "frames_with_hands": 27,
+              "frames_with_body_anchor": 28
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.030617185383409812,
+              "max_abs_difference": 0.09765625
+            },
+            "body_hands": {
+              "rms_difference": 0.014745550296151246,
+              "max_abs_difference": 0.0576171875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "5706413352425115-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 50,
+          "full_context": {
+            "shoulder_median_width": 0.3641652464866638,
+            "palm_median_sizes": [
+              0.11767130345106125,
+              0.12013829499483109
+            ],
+            "quality": {
+              "frames": 50,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 50
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3641652464866638,
+            "palm_median_sizes": [
+              0.11767130345106125,
+              0.12013829499483109
+            ],
+            "quality": {
+              "frames": 50,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 50
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 16,
+          "full_context": {
+            "shoulder_median_width": 0.3641652464866638,
+            "palm_median_sizes": [
+              0.11767130345106125,
+              0.12013829499483109
+            ],
+            "quality": {
+              "frames": 50,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 50
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37547218799591064,
+            "palm_median_sizes": [
+              0.11767130345106125,
+              0.12013829499483109
+            ],
+            "quality": {
+              "frames": 16,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 16
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.012378890268473101,
+              "max_abs_difference": 0.03515625
+            },
+            "body_hands": {
+              "rms_difference": 0.006661154020460879,
+              "max_abs_difference": 0.03076171875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "6882259554153813-seedME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 62,
+          "full_context": {
+            "shoulder_median_width": 0.3789200782775879,
+            "palm_median_sizes": [
+              null,
+              0.10584151744842529
+            ],
+            "quality": {
+              "frames": 149,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 149
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3802473545074463,
+            "palm_median_sizes": [
+              null,
+              0.1255921572446823
+            ],
+            "quality": {
+              "frames": 62,
+              "frames_with_hands": 15,
+              "frames_with_body_anchor": 62
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0012664995578297266,
+              "max_abs_difference": 0.0029296875
+            },
+            "body_hands": {
+              "rms_difference": 0.0002634218385073341,
+              "max_abs_difference": 0.00244140625
+            },
+            "local_hands": {
+              "rms_difference": 0.036159524725034406,
+              "max_abs_difference": 0.2568359375
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 24,
+          "full_context": {
+            "shoulder_median_width": 0.3789200782775879,
+            "palm_median_sizes": [
+              null,
+              0.10584151744842529
+            ],
+            "quality": {
+              "frames": 149,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 149
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37678420543670654,
+            "palm_median_sizes": [
+              null,
+              0.10584151744842529
+            ],
+            "quality": {
+              "frames": 24,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 24
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0022640854851051335,
+              "max_abs_difference": 0.00439453125
+            },
+            "body_hands": {
+              "rms_difference": 0.0009168099916448053,
+              "max_abs_difference": 0.00439453125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "5691724461344478-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4238336384296417,
+            "palm_median_sizes": [
+              0.12629561126232147,
+              null
+            ],
+            "quality": {
+              "frames": 89,
+              "frames_with_hands": 39,
+              "frames_with_body_anchor": 89
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4242846965789795,
+            "palm_median_sizes": [
+              0.1272110790014267,
+              null
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 28,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0003993497371102181,
+              "max_abs_difference": 0.0009765625
+            },
+            "body_hands": {
+              "rms_difference": 8.029675983558569e-05,
+              "max_abs_difference": 0.0009765625
+            },
+            "local_hands": {
+              "rms_difference": 0.002057959639861104,
+              "max_abs_difference": 0.0126953125
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 57,
+          "full_context": {
+            "shoulder_median_width": 0.4238336384296417,
+            "palm_median_sizes": [
+              0.12629561126232147,
+              null
+            ],
+            "quality": {
+              "frames": 89,
+              "frames_with_hands": 39,
+              "frames_with_body_anchor": 89
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4238336384296417,
+            "palm_median_sizes": [
+              0.12629561126232147,
+              null
+            ],
+            "quality": {
+              "frames": 57,
+              "frames_with_hands": 39,
+              "frames_with_body_anchor": 57
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "5346957049353451-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3820649981498718,
+            "palm_median_sizes": [
+              0.12589535117149353,
+              0.10323573648929596
+            ],
+            "quality": {
+              "frames": 121,
+              "frames_with_hands": 120,
+              "frames_with_body_anchor": 121
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3798600435256958,
+            "palm_median_sizes": [
+              0.12313579022884369,
+              0.10744650661945343
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 59,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.002634853771652717,
+              "max_abs_difference": 0.0087890625
+            },
+            "body_hands": {
+              "rms_difference": 0.003063168047709694,
+              "max_abs_difference": 0.0068359375
+            },
+            "local_hands": {
+              "rms_difference": 0.02157101792109315,
+              "max_abs_difference": 0.123046875
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 121,
+          "full_context": {
+            "shoulder_median_width": 0.3820649981498718,
+            "palm_median_sizes": [
+              0.12589535117149353,
+              0.10323573648929596
+            ],
+            "quality": {
+              "frames": 121,
+              "frames_with_hands": 120,
+              "frames_with_body_anchor": 121
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3820649981498718,
+            "palm_median_sizes": [
+              0.12589535117149353,
+              0.10323573648929596
+            ],
+            "quality": {
+              "frames": 121,
+              "frames_with_hands": 120,
+              "frames_with_body_anchor": 121
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "7227128162421703-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 47,
+          "full_context": {
+            "shoulder_median_width": 0.48460882902145386,
+            "palm_median_sizes": [
+              null,
+              0.16157060861587524
+            ],
+            "quality": {
+              "frames": 47,
+              "frames_with_hands": 22,
+              "frames_with_body_anchor": 47
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.48460882902145386,
+            "palm_median_sizes": [
+              null,
+              0.16157060861587524
+            ],
+            "quality": {
+              "frames": 47,
+              "frames_with_hands": 22,
+              "frames_with_body_anchor": 47
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 22,
+          "full_context": {
+            "shoulder_median_width": 0.48460882902145386,
+            "palm_median_sizes": [
+              null,
+              0.16157060861587524
+            ],
+            "quality": {
+              "frames": 47,
+              "frames_with_hands": 22,
+              "frames_with_body_anchor": 47
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4844658374786377,
+            "palm_median_sizes": [
+              null,
+              0.16157060861587524
+            ],
+            "quality": {
+              "frames": 22,
+              "frames_with_hands": 22,
+              "frames_with_body_anchor": 22
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.00015674217817122872,
+              "max_abs_difference": 0.00048828125
+            },
+            "body_hands": {
+              "rms_difference": 8.341984626816494e-05,
+              "max_abs_difference": 0.00048828125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "6257769266405475-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3879273235797882,
+            "palm_median_sizes": [
+              0.06292994320392609,
+              0.08717465400695801
+            ],
+            "quality": {
+              "frames": 93,
+              "frames_with_hands": 41,
+              "frames_with_body_anchor": 93
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.38925063610076904,
+            "palm_median_sizes": [
+              0.0359770730137825,
+              0.09142819792032242
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0012559819683274187,
+              "max_abs_difference": 0.0048828125
+            },
+            "body_hands": {
+              "rms_difference": 0.0005767754755173773,
+              "max_abs_difference": 0.00341796875
+            },
+            "local_hands": {
+              "rms_difference": 0.04212181628779108,
+              "max_abs_difference": 0.962890625
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 43,
+          "full_context": {
+            "shoulder_median_width": 0.3879273235797882,
+            "palm_median_sizes": [
+              0.06292994320392609,
+              0.08717465400695801
+            ],
+            "quality": {
+              "frames": 93,
+              "frames_with_hands": 41,
+              "frames_with_body_anchor": 93
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.35016000270843506,
+            "palm_median_sizes": [
+              0.06292994320392609,
+              0.08717465400695801
+            ],
+            "quality": {
+              "frames": 43,
+              "frames_with_hands": 41,
+              "frames_with_body_anchor": 43
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.04057187175929937,
+              "max_abs_difference": 0.150390625
+            },
+            "body_hands": {
+              "rms_difference": 0.024701667013981375,
+              "max_abs_difference": 0.103515625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "5641210498834153-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3756786584854126,
+            "palm_median_sizes": [
+              0.07582391053438187,
+              0.11369176208972931
+            ],
+            "quality": {
+              "frames": 206,
+              "frames_with_hands": 54,
+              "frames_with_body_anchor": 206
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3714001178741455,
+            "palm_median_sizes": [
+              null,
+              null
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 0,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.004023783356227299,
+              "max_abs_difference": 0.0126953125
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 58,
+          "full_context": {
+            "shoulder_median_width": 0.3756786584854126,
+            "palm_median_sizes": [
+              0.07582391053438187,
+              0.11369176208972931
+            ],
+            "quality": {
+              "frames": 206,
+              "frames_with_hands": 54,
+              "frames_with_body_anchor": 206
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3490573763847351,
+            "palm_median_sizes": [
+              0.07582391053438187,
+              0.11369176208972931
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 54,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.031208283805742847,
+              "max_abs_difference": 0.0947265625
+            },
+            "body_hands": {
+              "rms_difference": 0.019584527584353008,
+              "max_abs_difference": 0.09765625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "7378759651365803-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4436904191970825,
+            "palm_median_sizes": [
+              0.12992167472839355,
+              0.14000558853149414
+            ],
+            "quality": {
+              "frames": 72,
+              "frames_with_hands": 20,
+              "frames_with_body_anchor": 72
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.44316112995147705,
+            "palm_median_sizes": [
+              0.12992167472839355,
+              0.14000558853149414
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 20,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0003992250326853185,
+              "max_abs_difference": 0.0009765625
+            },
+            "body_hands": {
+              "rms_difference": 0.00011072870822553753,
+              "max_abs_difference": 0.0009765625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 20,
+          "full_context": {
+            "shoulder_median_width": 0.4436904191970825,
+            "palm_median_sizes": [
+              0.12992167472839355,
+              0.14000558853149414
+            ],
+            "quality": {
+              "frames": 72,
+              "frames_with_hands": 20,
+              "frames_with_body_anchor": 72
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42801791429519653,
+            "palm_median_sizes": [
+              0.12992167472839355,
+              0.14000558853149414
+            ],
+            "quality": {
+              "frames": 20,
+              "frames_with_hands": 20,
+              "frames_with_body_anchor": 20
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.012473269615668366,
+              "max_abs_difference": 0.02734375
+            },
+            "body_hands": {
+              "rms_difference": 0.005670193209481992,
+              "max_abs_difference": 0.021484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "8865858542977822-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3600394129753113,
+            "palm_median_sizes": [
+              null,
+              0.10655878484249115
+            ],
+            "quality": {
+              "frames": 183,
+              "frames_with_hands": 58,
+              "frames_with_body_anchor": 183
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.36398810148239136,
+            "palm_median_sizes": [
+              null,
+              0.1121244728565216
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.004159128695321687,
+              "max_abs_difference": 0.01171875
+            },
+            "body_hands": {
+              "rms_difference": 0.0018923583472076698,
+              "max_abs_difference": 0.009765625
+            },
+            "local_hands": {
+              "rms_difference": 0.015018778853147487,
+              "max_abs_difference": 0.07421875
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 62,
+          "full_context": {
+            "shoulder_median_width": 0.3600394129753113,
+            "palm_median_sizes": [
+              null,
+              0.10655878484249115
+            ],
+            "quality": {
+              "frames": 183,
+              "frames_with_hands": 58,
+              "frames_with_body_anchor": 183
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.35872238874435425,
+            "palm_median_sizes": [
+              null,
+              0.10655878484249115
+            ],
+            "quality": {
+              "frames": 62,
+              "frames_with_hands": 58,
+              "frames_with_body_anchor": 62
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0014126088154818865,
+              "max_abs_difference": 0.0048828125
+            },
+            "body_hands": {
+              "rms_difference": 0.0007195043965983818,
+              "max_abs_difference": 0.00341796875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "193766215011427-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4677700698375702,
+            "palm_median_sizes": [
+              0.1308668851852417,
+              0.12369087338447571
+            ],
+            "quality": {
+              "frames": 95,
+              "frames_with_hands": 43,
+              "frames_with_body_anchor": 95
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.48085564374923706,
+            "palm_median_sizes": [
+              0.13630002737045288,
+              null
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 23,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.009478182068454922,
+              "max_abs_difference": 0.0322265625
+            },
+            "body_hands": {
+              "rms_difference": 0.0028609629007510513,
+              "max_abs_difference": 0.01904296875
+            },
+            "local_hands": {
+              "rms_difference": 0.013978352838830132,
+              "max_abs_difference": 0.1171875
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 43,
+          "full_context": {
+            "shoulder_median_width": 0.4677700698375702,
+            "palm_median_sizes": [
+              0.1308668851852417,
+              0.12369087338447571
+            ],
+            "quality": {
+              "frames": 95,
+              "frames_with_hands": 43,
+              "frames_with_body_anchor": 95
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4563525915145874,
+            "palm_median_sizes": [
+              0.1308668851852417,
+              0.12369087338447571
+            ],
+            "quality": {
+              "frames": 43,
+              "frames_with_hands": 43,
+              "frames_with_body_anchor": 43
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.009179857327930084,
+              "max_abs_difference": 0.029296875
+            },
+            "body_hands": {
+              "rms_difference": 0.004632630869168521,
+              "max_abs_difference": 0.0205078125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "6411588958209695-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 44,
+          "full_context": {
+            "shoulder_median_width": 0.505523681640625,
+            "palm_median_sizes": [
+              0.052246324717998505,
+              0.13617324829101562
+            ],
+            "quality": {
+              "frames": 44,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 44
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.505523681640625,
+            "palm_median_sizes": [
+              0.052246324717998505,
+              0.13617324829101562
+            ],
+            "quality": {
+              "frames": 44,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 44
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 26,
+          "full_context": {
+            "shoulder_median_width": 0.505523681640625,
+            "palm_median_sizes": [
+              0.052246324717998505,
+              0.13617324829101562
+            ],
+            "quality": {
+              "frames": 44,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 44
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.504679799079895,
+            "palm_median_sizes": [
+              0.052246324717998505,
+              0.13617324829101562
+            ],
+            "quality": {
+              "frames": 26,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 26
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0004992930130344915,
+              "max_abs_difference": 0.0009765625
+            },
+            "body_hands": {
+              "rms_difference": 0.00023796349482434082,
+              "max_abs_difference": 0.0009765625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "2541378389097124-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 46,
+          "full_context": {
+            "shoulder_median_width": 0.4240994155406952,
+            "palm_median_sizes": [
+              0.057277292013168335,
+              0.1451670229434967
+            ],
+            "quality": {
+              "frames": 46,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 46
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4240994155406952,
+            "palm_median_sizes": [
+              0.057277292013168335,
+              0.1451670229434967
+            ],
+            "quality": {
+              "frames": 46,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 46
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 26,
+          "full_context": {
+            "shoulder_median_width": 0.4240994155406952,
+            "palm_median_sizes": [
+              0.057277292013168335,
+              0.1451670229434967
+            ],
+            "quality": {
+              "frames": 46,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 46
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42093443870544434,
+            "palm_median_sizes": [
+              0.057277292013168335,
+              0.1451670229434967
+            ],
+            "quality": {
+              "frames": 26,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 26
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0025753076886281985,
+              "max_abs_difference": 0.00537109375
+            },
+            "body_hands": {
+              "rms_difference": 0.0017593969467283993,
+              "max_abs_difference": 0.00634765625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "22192344699736766-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 39,
+          "full_context": {
+            "shoulder_median_width": 0.45368021726608276,
+            "palm_median_sizes": [
+              0.13672448694705963,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.45368021726608276,
+            "palm_median_sizes": [
+              0.13672448694705963,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 14,
+          "full_context": {
+            "shoulder_median_width": 0.45368021726608276,
+            "palm_median_sizes": [
+              0.13672448694705963,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4487922787666321,
+            "palm_median_sizes": [
+              0.13672448694705963,
+              null
+            ],
+            "quality": {
+              "frames": 14,
+              "frames_with_hands": 14,
+              "frames_with_body_anchor": 14
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0039013724995147258,
+              "max_abs_difference": 0.0107421875
+            },
+            "body_hands": {
+              "rms_difference": 0.0025818957428416266,
+              "max_abs_difference": 0.0068359375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "4545746926162382-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4268185794353485,
+            "palm_median_sizes": [
+              0.13544787466526031,
+              0.08975745737552643
+            ],
+            "quality": {
+              "frames": 97,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 97
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4245159327983856,
+            "palm_median_sizes": [
+              0.13848432898521423,
+              0.08975745737552643
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 12,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0017912945192405474,
+              "max_abs_difference": 0.00390625
+            },
+            "body_hands": {
+              "rms_difference": 0.0004944315513679846,
+              "max_abs_difference": 0.00341796875
+            },
+            "local_hands": {
+              "rms_difference": 0.0037041236717715036,
+              "max_abs_difference": 0.0263671875
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 25,
+          "full_context": {
+            "shoulder_median_width": 0.4268185794353485,
+            "palm_median_sizes": [
+              0.13544787466526031,
+              0.08975745737552643
+            ],
+            "quality": {
+              "frames": 97,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 97
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4199306070804596,
+            "palm_median_sizes": [
+              0.13544787466526031,
+              0.08975745737552643
+            ],
+            "quality": {
+              "frames": 25,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 25
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.005441960148333958,
+              "max_abs_difference": 0.0107421875
+            },
+            "body_hands": {
+              "rms_difference": 0.0033175614223591105,
+              "max_abs_difference": 0.01025390625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "4544218531641271-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4193972945213318,
+            "palm_median_sizes": [
+              0.1553744077682495,
+              0.11386153101921082
+            ],
+            "quality": {
+              "frames": 92,
+              "frames_with_hands": 57,
+              "frames_with_body_anchor": 92
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42171695828437805,
+            "palm_median_sizes": [
+              0.1553744077682495,
+              0.11386153101921082
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 57,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.002270176453290127,
+              "max_abs_difference": 0.0078125
+            },
+            "body_hands": {
+              "rms_difference": 0.0013852999137760123,
+              "max_abs_difference": 0.00537109375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.4193972945213318,
+            "palm_median_sizes": [
+              0.1553744077682495,
+              0.11386153101921082
+            ],
+            "quality": {
+              "frames": 92,
+              "frames_with_hands": 57,
+              "frames_with_body_anchor": 92
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42171695828437805,
+            "palm_median_sizes": [
+              0.1553744077682495,
+              0.11386153101921082
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 57,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.002270176453290127,
+              "max_abs_difference": 0.0078125
+            },
+            "body_hands": {
+              "rms_difference": 0.0013852999137760123,
+              "max_abs_difference": 0.00537109375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "2576140497310784-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 38,
+          "full_context": {
+            "shoulder_median_width": 0.37486693263053894,
+            "palm_median_sizes": [
+              null,
+              0.12302292883396149
+            ],
+            "quality": {
+              "frames": 38,
+              "frames_with_hands": 11,
+              "frames_with_body_anchor": 38
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37486693263053894,
+            "palm_median_sizes": [
+              null,
+              0.12302292883396149
+            ],
+            "quality": {
+              "frames": 38,
+              "frames_with_hands": 11,
+              "frames_with_body_anchor": 38
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 11,
+          "full_context": {
+            "shoulder_median_width": 0.37486693263053894,
+            "palm_median_sizes": [
+              null,
+              0.12302292883396149
+            ],
+            "quality": {
+              "frames": 38,
+              "frames_with_hands": 11,
+              "frames_with_body_anchor": 38
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.38365691900253296,
+            "palm_median_sizes": [
+              null,
+              0.12302292883396149
+            ],
+            "quality": {
+              "frames": 11,
+              "frames_with_hands": 11,
+              "frames_with_body_anchor": 11
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.009132954261688095,
+              "max_abs_difference": 0.02099609375
+            },
+            "body_hands": {
+              "rms_difference": 0.005697985067279801,
+              "max_abs_difference": 0.017578125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "16994877911771145-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.36949920654296875,
+            "palm_median_sizes": [
+              0.09074672311544418,
+              0.08565152436494827
+            ],
+            "quality": {
+              "frames": 84,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 84
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3630397319793701,
+            "palm_median_sizes": [
+              0.09074672311544418,
+              0.08565152436494827
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.006225274984398013,
+              "max_abs_difference": 0.01953125
+            },
+            "body_hands": {
+              "rms_difference": 0.002407551448435202,
+              "max_abs_difference": 0.0146484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 31,
+          "full_context": {
+            "shoulder_median_width": 0.36949920654296875,
+            "palm_median_sizes": [
+              0.09074672311544418,
+              0.08565152436494827
+            ],
+            "quality": {
+              "frames": 84,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 84
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3379301428794861,
+            "palm_median_sizes": [
+              0.09074672311544418,
+              0.08565152436494827
+            ],
+            "quality": {
+              "frames": 31,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 31
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.03287674048102581,
+              "max_abs_difference": 0.10546875
+            },
+            "body_hands": {
+              "rms_difference": 0.017597498518157253,
+              "max_abs_difference": 0.078125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "0035172227152260316-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 56,
+          "full_context": {
+            "shoulder_median_width": 0.4234175682067871,
+            "palm_median_sizes": [
+              0.12462203204631805,
+              0.14615482091903687
+            ],
+            "quality": {
+              "frames": 56,
+              "frames_with_hands": 6,
+              "frames_with_body_anchor": 56
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4234175682067871,
+            "palm_median_sizes": [
+              0.12462203204631805,
+              0.14615482091903687
+            ],
+            "quality": {
+              "frames": 56,
+              "frames_with_hands": 6,
+              "frames_with_body_anchor": 56
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 24,
+          "full_context": {
+            "shoulder_median_width": 0.4234175682067871,
+            "palm_median_sizes": [
+              0.12462203204631805,
+              0.14615482091903687
+            ],
+            "quality": {
+              "frames": 56,
+              "frames_with_hands": 6,
+              "frames_with_body_anchor": 56
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42195820808410645,
+            "palm_median_sizes": [
+              0.12462203204631805,
+              0.14615482091903687
+            ],
+            "quality": {
+              "frames": 24,
+              "frames_with_hands": 6,
+              "frames_with_body_anchor": 24
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0011172279405198924,
+              "max_abs_difference": 0.00244140625
+            },
+            "body_hands": {
+              "rms_difference": 0.0002676567244662658,
+              "max_abs_difference": 0.00146484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "6366246076484883-ME.mp4",
+      "split": "train",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.38361281156539917,
+            "palm_median_sizes": [
+              0.13996347784996033,
+              0.15060093998908997
+            ],
+            "quality": {
+              "frames": 82,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 82
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.39853614568710327,
+            "palm_median_sizes": [
+              0.13996347784996033,
+              0.15060093998908997
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.015297969311673383,
+              "max_abs_difference": 0.0478515625
+            },
+            "body_hands": {
+              "rms_difference": 0.006578599952614219,
+              "max_abs_difference": 0.041015625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 46,
+          "full_context": {
+            "shoulder_median_width": 0.38361281156539917,
+            "palm_median_sizes": [
+              0.13996347784996033,
+              0.15060093998908997
+            ],
+            "quality": {
+              "frames": 82,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 82
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3998356759548187,
+            "palm_median_sizes": [
+              0.13996347784996033,
+              0.15060093998908997
+            ],
+            "quality": {
+              "frames": 46,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 46
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.01717347293900622,
+              "max_abs_difference": 0.052734375
+            },
+            "body_hands": {
+              "rms_difference": 0.00814375122184319,
+              "max_abs_difference": 0.0439453125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "3468501303620588-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 45,
+          "full_context": {
+            "shoulder_median_width": 0.3830622732639313,
+            "palm_median_sizes": [
+              null,
+              0.12381881475448608
+            ],
+            "quality": {
+              "frames": 45,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 45
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3830622732639313,
+            "palm_median_sizes": [
+              null,
+              0.12381881475448608
+            ],
+            "quality": {
+              "frames": 45,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 45
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 16,
+          "full_context": {
+            "shoulder_median_width": 0.3830622732639313,
+            "palm_median_sizes": [
+              null,
+              0.12381881475448608
+            ],
+            "quality": {
+              "frames": 45,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 45
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.39064401388168335,
+            "palm_median_sizes": [
+              null,
+              0.12381881475448608
+            ],
+            "quality": {
+              "frames": 16,
+              "frames_with_hands": 16,
+              "frames_with_body_anchor": 16
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.007703115234177289,
+              "max_abs_difference": 0.017578125
+            },
+            "body_hands": {
+              "rms_difference": 0.004218297923163182,
+              "max_abs_difference": 0.01416015625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "8906582989498535-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 58,
+          "full_context": {
+            "shoulder_median_width": 0.40313708782196045,
+            "palm_median_sizes": [
+              0.12872202694416046,
+              0.11767946183681488
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 32,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.40313708782196045,
+            "palm_median_sizes": [
+              0.12872202694416046,
+              0.11767946183681488
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 32,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 40,
+          "full_context": {
+            "shoulder_median_width": 0.40313708782196045,
+            "palm_median_sizes": [
+              0.12872202694416046,
+              0.11767946183681488
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 32,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.40872281789779663,
+            "palm_median_sizes": [
+              0.12872202694416046,
+              0.11767946183681488
+            ],
+            "quality": {
+              "frames": 40,
+              "frames_with_hands": 32,
+              "frames_with_body_anchor": 40
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.005358061908706012,
+              "max_abs_difference": 0.0166015625
+            },
+            "body_hands": {
+              "rms_difference": 0.002080755316013842,
+              "max_abs_difference": 0.0107421875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "7484839279145117-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.43060001730918884,
+            "palm_median_sizes": [
+              0.12481937557458878,
+              0.13558515906333923
+            ],
+            "quality": {
+              "frames": 74,
+              "frames_with_hands": 29,
+              "frames_with_body_anchor": 74
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4284740090370178,
+            "palm_median_sizes": [
+              0.12481937557458878,
+              0.13558515906333923
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 29,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0017311320599277995,
+              "max_abs_difference": 0.0048828125
+            },
+            "body_hands": {
+              "rms_difference": 0.0006669015198712333,
+              "max_abs_difference": 0.00439453125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 29,
+          "full_context": {
+            "shoulder_median_width": 0.43060001730918884,
+            "palm_median_sizes": [
+              0.12481937557458878,
+              0.13558515906333923
+            ],
+            "quality": {
+              "frames": 74,
+              "frames_with_hands": 29,
+              "frames_with_body_anchor": 74
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.43052417039871216,
+            "palm_median_sizes": [
+              0.12481937557458878,
+              0.13558515906333923
+            ],
+            "quality": {
+              "frames": 29,
+              "frames_with_hands": 29,
+              "frames_with_body_anchor": 29
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.00013037944065086407,
+              "max_abs_difference": 0.00048828125
+            },
+            "body_hands": {
+              "rms_difference": 6.78661482952949e-05,
+              "max_abs_difference": 0.00048828125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "9375717470846778-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.30110424757003784,
+            "palm_median_sizes": [
+              null,
+              0.08777666091918945
+            ],
+            "quality": {
+              "frames": 81,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 81
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.2991117835044861,
+            "palm_median_sizes": [
+              null,
+              0.08777666091918945
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0033624143925605984,
+              "max_abs_difference": 0.0087890625
+            },
+            "body_hands": {
+              "rms_difference": 0.0011765742498557991,
+              "max_abs_difference": 0.005859375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 30,
+          "full_context": {
+            "shoulder_median_width": 0.30110424757003784,
+            "palm_median_sizes": [
+              null,
+              0.08777666091918945
+            ],
+            "quality": {
+              "frames": 81,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 81
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.2962535619735718,
+            "palm_median_sizes": [
+              null,
+              0.08777666091918945
+            ],
+            "quality": {
+              "frames": 30,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 30
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.008160442902393627,
+              "max_abs_difference": 0.0205078125
+            },
+            "body_hands": {
+              "rms_difference": 0.004090747926702487,
+              "max_abs_difference": 0.0146484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "274934874875824-WE.mp4",
+      "split": "train",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 58,
+          "full_context": {
+            "shoulder_median_width": 0.4573076367378235,
+            "palm_median_sizes": [
+              null,
+              0.1472727358341217
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4573076367378235,
+            "palm_median_sizes": [
+              null,
+              0.1472727358341217
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 30,
+          "full_context": {
+            "shoulder_median_width": 0.4573076367378235,
+            "palm_median_sizes": [
+              null,
+              0.1472727358341217
+            ],
+            "quality": {
+              "frames": 58,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 58
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4734877347946167,
+            "palm_median_sizes": [
+              null,
+              0.1472727358341217
+            ],
+            "quality": {
+              "frames": 30,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 30
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.012449576224015208,
+              "max_abs_difference": 0.04296875
+            },
+            "body_hands": {
+              "rms_difference": 0.007213881014758333,
+              "max_abs_difference": 0.02685546875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "03554605558492718-ME.mp4",
+      "split": "val",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 55,
+          "full_context": {
+            "shoulder_median_width": 0.4158264696598053,
+            "palm_median_sizes": [
+              0.07012256979942322,
+              0.09006178379058838
+            ],
+            "quality": {
+              "frames": 55,
+              "frames_with_hands": 17,
+              "frames_with_body_anchor": 55
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4158264696598053,
+            "palm_median_sizes": [
+              0.07012256979942322,
+              0.09006178379058838
+            ],
+            "quality": {
+              "frames": 55,
+              "frames_with_hands": 17,
+              "frames_with_body_anchor": 55
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 21,
+          "full_context": {
+            "shoulder_median_width": 0.4158264696598053,
+            "palm_median_sizes": [
+              0.07012256979942322,
+              0.09006178379058838
+            ],
+            "quality": {
+              "frames": 55,
+              "frames_with_hands": 17,
+              "frames_with_body_anchor": 55
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42616814374923706,
+            "palm_median_sizes": [
+              0.07012256979942322,
+              0.09006178379058838
+            ],
+            "quality": {
+              "frames": 21,
+              "frames_with_hands": 17,
+              "frames_with_body_anchor": 21
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.008942244976536035,
+              "max_abs_difference": 0.0185546875
+            },
+            "body_hands": {
+              "rms_difference": 0.002750127803498878,
+              "max_abs_difference": 0.0126953125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "35429744496101856-ME.mp4",
+      "split": "val",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 52,
+          "full_context": {
+            "shoulder_median_width": 0.42483633756637573,
+            "palm_median_sizes": [
+              0.13245855271816254,
+              null
+            ],
+            "quality": {
+              "frames": 52,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 52
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42483633756637573,
+            "palm_median_sizes": [
+              0.13245855271816254,
+              null
+            ],
+            "quality": {
+              "frames": 52,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 52
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 30,
+          "full_context": {
+            "shoulder_median_width": 0.42483633756637573,
+            "palm_median_sizes": [
+              0.13245855271816254,
+              null
+            ],
+            "quality": {
+              "frames": 52,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 52
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.42483633756637573,
+            "palm_median_sizes": [
+              0.13245855271816254,
+              null
+            ],
+            "quality": {
+              "frames": 30,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 30
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "11801482805093366-WE.mp4",
+      "split": "val",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3886638283729553,
+            "palm_median_sizes": [
+              0.05317320674657822,
+              0.10949470847845078
+            ],
+            "quality": {
+              "frames": 106,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 106
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3885924220085144,
+            "palm_median_sizes": [
+              0.05317320674657822,
+              0.10767209529876709
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 25,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.00013201198407664276,
+              "max_abs_difference": 0.0009765625
+            },
+            "body_hands": {
+              "rms_difference": 5.164320895170946e-05,
+              "max_abs_difference": 0.00048828125
+            },
+            "local_hands": {
+              "rms_difference": 0.005209174511350174,
+              "max_abs_difference": 0.037109375
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 40,
+          "full_context": {
+            "shoulder_median_width": 0.3886638283729553,
+            "palm_median_sizes": [
+              0.05317320674657822,
+              0.10949470847845078
+            ],
+            "quality": {
+              "frames": 106,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 106
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37414658069610596,
+            "palm_median_sizes": [
+              0.05317320674657822,
+              0.10949470847845078
+            ],
+            "quality": {
+              "frames": 40,
+              "frames_with_hands": 40,
+              "frames_with_body_anchor": 40
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.015437002692613565,
+              "max_abs_difference": 0.0498046875
+            },
+            "body_hands": {
+              "rms_difference": 0.008660883877104187,
+              "max_abs_difference": 0.0390625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "4372505087382914-ME.mp4",
+      "split": "val",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.38193178176879883,
+            "palm_median_sizes": [
+              0.12112437188625336,
+              0.1499897837638855
+            ],
+            "quality": {
+              "frames": 88,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 88
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37755805253982544,
+            "palm_median_sizes": [
+              0.12112437188625336,
+              0.1499897837638855
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.004810782755135177,
+              "max_abs_difference": 0.01025390625
+            },
+            "body_hands": {
+              "rms_difference": 0.0021471781591389217,
+              "max_abs_difference": 0.01025390625
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 31,
+          "full_context": {
+            "shoulder_median_width": 0.38193178176879883,
+            "palm_median_sizes": [
+              0.12112437188625336,
+              0.1499897837638855
+            ],
+            "quality": {
+              "frames": 88,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 88
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3730558156967163,
+            "palm_median_sizes": [
+              0.12112437188625336,
+              0.1499897837638855
+            ],
+            "quality": {
+              "frames": 31,
+              "frames_with_hands": 31,
+              "frames_with_body_anchor": 31
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.010416426206311162,
+              "max_abs_difference": 0.02001953125
+            },
+            "body_hands": {
+              "rms_difference": 0.006137343956486419,
+              "max_abs_difference": 0.021484375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "14563849425095032-WE.mp4",
+      "split": "val",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 39,
+          "full_context": {
+            "shoulder_median_width": 0.4569931626319885,
+            "palm_median_sizes": [
+              0.12456197291612625,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 21,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4569931626319885,
+            "palm_median_sizes": [
+              0.12456197291612625,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 21,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 22,
+          "full_context": {
+            "shoulder_median_width": 0.4569931626319885,
+            "palm_median_sizes": [
+              0.12456197291612625,
+              null
+            ],
+            "quality": {
+              "frames": 39,
+              "frames_with_hands": 21,
+              "frames_with_body_anchor": 39
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.46002450585365295,
+            "palm_median_sizes": [
+              0.12456197291612625,
+              null
+            ],
+            "quality": {
+              "frames": 22,
+              "frames_with_hands": 21,
+              "frames_with_body_anchor": 22
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0024228408133241527,
+              "max_abs_difference": 0.00634765625
+            },
+            "body_hands": {
+              "rms_difference": 0.0008347475039271719,
+              "max_abs_difference": 0.0048828125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "5724078705072562-ME.mp4",
+      "split": "val",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 60,
+          "full_context": {
+            "shoulder_median_width": 0.3820192813873291,
+            "palm_median_sizes": [
+              0.05631513148546219,
+              0.115324467420578
+            ],
+            "quality": {
+              "frames": 109,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 109
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.3862563967704773,
+            "palm_median_sizes": [
+              null,
+              0.12219969183206558
+            ],
+            "quality": {
+              "frames": 60,
+              "frames_with_hands": 11,
+              "frames_with_body_anchor": 60
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0038549590447281095,
+              "max_abs_difference": 0.01123046875
+            },
+            "body_hands": {
+              "rms_difference": 0.0007751358879212784,
+              "max_abs_difference": 0.005859375
+            },
+            "local_hands": {
+              "rms_difference": 0.009920109291827576,
+              "max_abs_difference": 0.08203125
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 30,
+          "full_context": {
+            "shoulder_median_width": 0.3820192813873291,
+            "palm_median_sizes": [
+              0.05631513148546219,
+              0.115324467420578
+            ],
+            "quality": {
+              "frames": 109,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 109
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.37594538927078247,
+            "palm_median_sizes": [
+              0.05631513148546219,
+              0.115324467420578
+            ],
+            "quality": {
+              "frames": 30,
+              "frames_with_hands": 30,
+              "frames_with_body_anchor": 30
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.005766256633186214,
+              "max_abs_difference": 0.01611328125
+            },
+            "body_hands": {
+              "rms_difference": 0.003038035371311985,
+              "max_abs_difference": 0.013671875
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "6868122993341472-WE.mp4",
+      "split": "val",
+      "gloss": "WE",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 61,
+          "full_context": {
+            "shoulder_median_width": 0.45651575922966003,
+            "palm_median_sizes": [
+              0.09442494809627533,
+              0.09562766551971436
+            ],
+            "quality": {
+              "frames": 61,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 61
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.45651575922966003,
+            "palm_median_sizes": [
+              0.09442494809627533,
+              0.09562766551971436
+            ],
+            "quality": {
+              "frames": 61,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 61
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "body_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 28,
+          "full_context": {
+            "shoulder_median_width": 0.45651575922966003,
+            "palm_median_sizes": [
+              0.09442494809627533,
+              0.09562766551971436
+            ],
+            "quality": {
+              "frames": 61,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 61
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.44588494300842285,
+            "palm_median_sizes": [
+              0.09442494809627533,
+              0.09562766551971436
+            ],
+            "quality": {
+              "frames": 28,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 28
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.007898489298300093,
+              "max_abs_difference": 0.01611328125
+            },
+            "body_hands": {
+              "rms_difference": 0.003124860551666704,
+              "max_abs_difference": 0.01708984375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    },
+    {
+      "video_file": "34076966817997323-ME.mp4",
+      "split": "val",
+      "gloss": "ME",
+      "full_adapter_equals_production_and_prepared": true,
+      "raw_arrays_unchanged": true,
+      "windows": {
+        "first_two_seconds": {
+          "status": "verified",
+          "raw_frames": 61,
+          "full_context": {
+            "shoulder_median_width": 0.42444634437561035,
+            "palm_median_sizes": [
+              0.11268079280853271,
+              0.08988288044929504
+            ],
+            "quality": {
+              "frames": 70,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 70
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.41919058561325073,
+            "palm_median_sizes": [
+              0.11268079280853271,
+              0.08988288044929504
+            ],
+            "quality": {
+              "frames": 61,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 61
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.004359701640345711,
+              "max_abs_difference": 0.00927734375
+            },
+            "body_hands": {
+              "rms_difference": 0.0007177903845342423,
+              "max_abs_difference": 0.0068359375
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        },
+        "detected_hand_envelope": {
+          "status": "verified",
+          "raw_frames": 29,
+          "full_context": {
+            "shoulder_median_width": 0.42444634437561035,
+            "palm_median_sizes": [
+              0.11268079280853271,
+              0.08988288044929504
+            ],
+            "quality": {
+              "frames": 70,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 70
+            }
+          },
+          "window_context": {
+            "shoulder_median_width": 0.4148470163345337,
+            "palm_median_sizes": [
+              0.11268079280853271,
+              0.08988288044929504
+            ],
+            "quality": {
+              "frames": 29,
+              "frames_with_hands": 24,
+              "frames_with_body_anchor": 29
+            }
+          },
+          "feature_differences": {
+            "body_pose": {
+              "rms_difference": 0.007862393300005752,
+              "max_abs_difference": 0.0166015625
+            },
+            "body_hands": {
+              "rms_difference": 0.001920392429345556,
+              "max_abs_difference": 0.0126953125
+            },
+            "local_hands": {
+              "rms_difference": 0.0,
+              "max_abs_difference": 0.0
+            },
+            "mask_disagreement_fraction": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "protected_sha256": {
+    "data\\training\\asl-fifteen-signs-128-v1\\train-features.npy": "c7b42d8f89506b897b9a9b0a2d8013f80ff2e96cab55beef7e2d9ecac2e5f7e4",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-index.json": "a6cb97bfdf4792e4c22b0021bd13e12dfb239f7f91dac5bf84873a5212b6ec66",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-lengths.npy": "d5db11b40cdbd08b3e580ad6f31e7eb5ae4b20bd89598d0a3c4700b40c0bac37",
+    "data\\training\\asl-fifteen-signs-128-v1\\train-targets.npy": "a75234b745b1cc5bbc42874736878e52ecea38403d29f919d6d4630b657ae431",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-features.npy": "a08b031024373df7b0e70532de5c3ce5cb2a0a1db36cb2820f47b80dca0f9c3f",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-index.json": "bb41457bd8f6f2c64b9d4921f6a78a2f205a982a23183310dc4b155e554d84e5",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-lengths.npy": "a02313c8d30c7222b4b6c87181163fbed6cf0c2078b559ba2948187395a8ac96",
+    "data\\training\\asl-fifteen-signs-128-v1\\val-targets.npy": "31415eac6bd1e97fe9a3cd09d9e7b8e5ea15599596511b13fd14ac94580c001a",
+    "models\\asl-gru-fifteen-signs-trajectory-readout-c01\\best.pt": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+    "models\\asl-gru-fifteen-signs-temporal-v1\\temporal\\best.pt": "0921e10a193044e5cbc92e29b386b370b827431b6850f0bc49f6e64ea4441843",
+    "models\\archives\\asl-gru-fifteen-signs-trajectory-readout-c01-2026-11-12.zip": "8b5fe5e4d052651aeeaf2bcf2a0926a697c89f021b2f7e5e64f35d7f6c6538bb",
+    "src\\sign_language\\gru_model.py": "0a75fb23d594bfdbc27f4ade5c4b3d6aaeb955f781c20d9909ad4b905ec36c9c",
+    "src\\sign_language\\gru_mean_pool_model.py": "7637a8545a762f9f1bb2243d6794b06eb1e05ee2a4dc0d34efba3928912bd4ce",
+    "src\\sign_language\\gru_geometry_model.py": "ecd43f062a266410a031208034359bc7ae16cb3aff6c87e96e93b1c663e0aebf",
+    "src\\sign_language\\hand_articulation.py": "0f45f5f4a97d7fa34dce2a1c319106e1fc6ae32984d731b61ed6dec5ac9144d5",
+    "src\\sign_language\\gru_trajectory_model.py": "f303422f3d58a566102bf00e61b2a8836a1c278f98a2928ab1294e1a9fabaae9",
+    "src\\sign_language\\trajectory_geometry.py": "f37eab984481d07616f33727d75d13907694b6d0fc1754a3387d075c1a4b786d",
+    "src\\sign_language\\wrist_trajectory.py": "43fa498135e09e0a86b8fb328a32fa7c981bf39d7f0e358fc62ea6afeb33152e",
+    "src\\sign_language\\gru_trajectory_readout.py": "7a2029cbe847aa60bcc382f6411a653a89661d8b95086fc4790948c9b3d4311b",
+    "src\\sign_language\\preprocessing.py": "51deb87625ecb587372d7439792f2892f729b3a29e03f93348f5290562a53988",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00002.zip": "278467c2b98701cdebf98ba7548a925880dd0ba656cfc78a7526f6c62b32612f",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6421087005073287-ME.mp4": "2ea2300d966b11f5ea38e25ad5db6faf308ed9d9f80c54d353d12d1ddba4c6d2",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00004.zip": "1fef46e5ccd870a20b3ad159d819d4061b68716a4b9645833dcae31c15ff73c3",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\8279377520732154-WE.mp4": "4817f085e397f067b5ce3adada531a0cf809e8dbe45b1dfb613dde3439358d1f",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00019.zip": "7bbd3a677fdef67239edec9d51bac9e1cc2d7bed35310c6aed42dbb24b469465",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\8334054758517455-ME.mp4": "1f8125ebdbd4b4f37dbd2426d826000faa669c74723f902eae9007bfe70173ac",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00029.zip": "bfa675a53bfaa9410f93cad694ca9f607d374eecc8d1cc9575933a9ea9f3f5f2",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\36753258402615074-WE.mp4": "604cef47cd5061264a19bd9b6548aee1af3d8844f340054ce8237a7756f35162",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00059.zip": "734bdfc6ad11f4d9ab9253702e5239e234ae57460e728d2e6c3584209d4d3349",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\2803881528625629-seedWE.mp4": "e4c1eb6fcb7c839249bf4387a0b4cc5d4f31d13383103552c82a5516e06acd5c",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00130.zip": "c838bb3e214f60e50dcd8bc30cf80be221b06fe4fec4af6af8e777e2675be37b",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\5706413352425115-ME.mp4": "4afc9f766789a1ac2a6b1ac3f9a566a8291adb654aa6d8c05b79c5bf3426df32",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00145.zip": "504fd43cd5b6b6740d3d0e879872a3c9202d83bdfbfa4d051eeee5958a572b5c",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6882259554153813-seedME.mp4": "a6a346b76a7388400ff0ca2bd010155e139adaece56e9085d14fe69b540ef242",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00162.zip": "52eaaa44f7ed818e0204f1aab708c9beb1bad5208680699d0255961d3662d8e7",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\5691724461344478-ME.mp4": "d36e1d6aaaa84caed489831cefa80d22b9e44c18f879f48fdabb058e2d2151be",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00165.zip": "b2cad1bf2ab2fa12b5d5299a04950dcb3d170534870d562204c387c223f48c6d",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\5346957049353451-WE.mp4": "91af588227f7fbcc970184d7dd1b409f36f92bc6810f6633a6f7424e121089d1",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00167.zip": "e8265a2f1363a85459e9de9fc775d49543552815f0976935ed245e60399767ec",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\7227128162421703-ME.mp4": "544de634b29ce54e244f13222e6b180983c49ecaf214de9522f2a25300628f9f",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00168.zip": "ef6b7eaed8eec2344725848fe6356ff12b54db3fb2cbfc6a79220ac740137e3f",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6257769266405475-WE.mp4": "c73904534a248062c7165bfeb84b2cb40f8de7b12674bec97d6cebe185be82ef",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00186.zip": "68a11939509f0154aa9661f8098827868938e71a8a7aeeeb5b6165fa6eabd47d",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\5641210498834153-WE.mp4": "09b1148a225b0dc73cd123b890379123a1e53ec7d205f26a8b860c045b01895c",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00197.zip": "f2893b1677764c661f8f1c9b80c48541e02b97ed4aae90e71da6448b0f03682c",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\7378759651365803-ME.mp4": "cd358047e27acd35f946af9570b73a61117d8309ee2c6ce8d8827264ac276e9a",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00213.zip": "7945765336171394bd33a30575d568cc6ee6ab712703f2073dd67e874c970b95",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\8865858542977822-WE.mp4": "0e618d020723a7e9d207f4b934cb4bd045603cb4bcd9a44ab998f924c801aca5",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00233.zip": "92f66b44fe630b7a12dd4df0c7e713c7153bfd02cafa55d585cf33d3d54ed9f1",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\193766215011427-WE.mp4": "6a0744c68f3922fd1ddf3f1f6b9723b3872f5834abae867d7af73b3e245e32c3",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00240.zip": "358d1ab40f7ca92a39f11930528a7d7d6ec4f0a8528a5ff78f1867a80f183dee",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6411588958209695-ME.mp4": "35e67c3166a7e95f8ca1f543db7c2d98b5616414328b3d4c90bfcfc665fb0e5e",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00286.zip": "53a94d27aac0cd2e63a5a4a44dd82532744e30d122b663331f77a59a552292a6",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\2541378389097124-WE.mp4": "2116b13c9109d718b43d9b207b454d3a1c704b22abe42f0fbe317dd11eadd279",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00317.zip": "3cb13342cb24665c1ec41469ec875975785fcce93aa3c220dc3c8972e90b957f",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\22192344699736766-ME.mp4": "4634f87374e2bd33434579f6322cb5b394776649db9a98d108a3f39ed2c0cbba",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00323.zip": "02bfd923797cd488b3bd3da139556c377f451ffd8552d2e7cb1f53a1abd80852",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\4545746926162382-ME.mp4": "121cbf09f3f5a06ddb139b1b6fb146a30e1882cd38267997a6a70b9f191aa1c0",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00324.zip": "d141f949e106fb2360b8855b88bf2bfbe9d90f97c66c546b1cc51f337dc3bb49",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\4544218531641271-WE.mp4": "42f0eba8c6cfdb45e5ac138855f92f9455e2a14310d71990d906c8fb95ce3e53",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00332.zip": "f3c68de1f8fa72a0ec6cd0d0b8d76d8854e6f212df4613b352a0b4dfb717bc4a",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\2576140497310784-ME.mp4": "8286313eb44d424b7c2f03b48852a34f5ea481fcfc3b185d9bb61ae2011b7023",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00335.zip": "94df828f30e81e6ec29c0e632a86ad3ef9604e580550daecf3ddfe06007e3663",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\16994877911771145-WE.mp4": "4bc0f4df7d1d1157c785bc0380b8e7a0aea364c7d69d7c222ca4097d5ca5a680",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00344.zip": "b2c9f98600b6a5d1463dc64053c9ed343bbce034f789207ba277b53d2fa78da6",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\0035172227152260316-ME.mp4": "8b7ef208a6bf38f01d408e22167ee9f0c1bb62e6a4485e825c9e7a5283876388",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00356.zip": "df8e5483828d4fcd270a7272b21450e1ed297de1a8ac3f7257d619858ec6ca32",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6366246076484883-ME.mp4": "30643166b549d464fc3d31b9548f8ed30fee6fbfa3e8df6322ef764a299f48f1",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\3468501303620588-WE.mp4": "529fc81e37063469c14480c40e5120822b76108544bf8249b882258d2232781b",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00381.zip": "3cf55de139388a66e9d6808c432d6614b8acd9592288233f708327f2a2c87233",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\8906582989498535-WE.mp4": "ac095a58740c78eed57b7fc35d373fb77d20f8fa75f7f686d5f81d1aacac966d",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00382.zip": "aed394e8d341638daf89f430da1275d666a750b32b3758c36c8de13b722a0ce2",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\7484839279145117-WE.mp4": "5b03a2f6558fb38e09c534ffe10f8ce0ee4bb3d5480affc2b6216e9400db7d67",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\9375717470846778-WE.mp4": "04d8b2d46ac23449110163f0316dfe688269577df71437d7625ba4b648ac16c1",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\train-00393.zip": "9aa595057a39cbbf2648da5f33c9867095beafb283f2b179b7cc9e76dff9fd5e",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\274934874875824-WE.mp4": "fac2e4a7184891fe6225a2008cc2014200783ac4eaa94b9d96b5a46f9cfa6559",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00002.zip": "4a0d8f2496e886d2ad071e1ebdcd496b2cb3c4b8bece3d2522890d1d0f84ad10",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\03554605558492718-ME.mp4": "35203ca06b7d8ce59b9f5c0d451fabdfdc81a09dd98767cb3c6d3f2784880710",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00004.zip": "5b54005bfd1ab0a8e2fbe500a98fed699ce234685484e1eed8b054ae35cddf4f",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\35429744496101856-ME.mp4": "a3e63804ad57aecc4c82d6912afedb4c2dcc2761659343e0f84bc73ccccfcbe7",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00005.zip": "045041a5f252c075c23feac446d02d3f5edc00985c7db1bd3238a111dcfc9d00",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\11801482805093366-WE.mp4": "beff20c2302a8ecef5f1fa4395269d3529be86e23cee32180284943799bc7522",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00057.zip": "720444e1b5f041e1630360788b616fa5e8e0b860e9c212ea190af5a7a89b1ee9",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\4372505087382914-ME.mp4": "1adf53b303234508cba6b9388d198357e53af34d19ca8f52742379c0b77db57b",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00060.zip": "b218423d80b6b7c0ef4997e6017a91df90033d5c16008bc51cc14809bfce49e2",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\14563849425095032-WE.mp4": "1b1867c64c94e18b3af101691df2513a32ddf5fe14e9cd8990f8342c8fddd6a6",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00068.zip": "72dc034191e5a9df9f085a50a58533c656e9be67677ca7fdefad2e4547b6a8fa",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\5724078705072562-ME.mp4": "3cda087c6f27f361fd414c68cb1fc69d165dd11fcf8e38fe6e3ded476df95b43",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00087.zip": "76e72258b67e7a5fb9579bfb8699179c18681fadfcd9503e12e7cbd03cb6f169",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\6868122993341472-WE.mp4": "03aaf2f5db27f7e96e934456ab3a10fc8ea113d4f9f7df549c882a58bf924386",
+    "data\\landmarks\\asl-citizen-raw-v1-cpu-hands-pose\\val-00100.zip": "78c4cb42cc3682cc388d6f8f1c970569b29e3a0097c0a8042bdc1e3db4f85291",
+    "data\\asl_citizen\\ASL_Citizen\\videos\\34076966817997323-ME.mp4": "ca9d05fd9bdfa2dc482bcb7ec77e9d0afdc0cadda40378d6bd4cc8e1da68d78e",
+    "src/sign_language/frame_rate.py": "ed7b47d84fc0d963d4b58f511fa5fbb19d25e6dfdde2783537e04c778b60c0b6",
+    "src/sign_language/recognition.py": "a348b4a4f17d70169e9a1b6cbde1da71c3f78db39a6a498cdc5d5defdac01094",
+    "src/sign_language/recognition_webcam.py": "2d372b4950b44c697466bfb5007a9f26cac12dad5b49e9b3e057d84495cfbb3c",
+    "scripts/recognize_webcam.py": "37dc6c2b0cb934892254f355e45f48f9bb80636bc0b3b58e3a28d4b88733d82d"
+  },
+  "protected_inputs_unchanged": true,
+  "checkpoint_sha256": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+  "baseline_checkpoint_sha256": "0921e10a193044e5cbc92e29b386b370b827431b6850f0bc49f6e64ea4441843",
+  "training_performed": false,
+  "test_read": false,
+  "new_extraction": false,
+  "webcam_opened": false,
+  "limiter_changed": false,
+  "production_preprocessing_changed": false
+}

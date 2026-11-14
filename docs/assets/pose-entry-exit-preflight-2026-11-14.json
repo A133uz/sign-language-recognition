@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "public_video": "35038040842137197-YOU.mp4",
+  "recognition_tracking_passes": 1,
+  "window_status": {
+    "full": "scored",
+    "first_two_seconds": "scored",
+    "detected_hand_envelope": "scored",
+    "first_second": "unavailable",
+    "middle_second": "scored",
+    "last_second": "scored",
+    "last_two_seconds": "scored",
+    "first_two_seconds_fixed_normalization": "scored",
+    "detected_hand_envelope_fixed_normalization": "scored",
+    "first_second_fixed_normalization": "unavailable",
+    "middle_second_fixed_normalization": "scored",
+    "last_second_fixed_normalization": "scored",
+    "last_two_seconds_fixed_normalization": "scored"
+  },
+  "max_margin_residual": 3.572752710345739e-07,
+  "all_58_protected_hashes_unchanged": true,
+  "webcam_opened": false,
+  "new_extraction": false,
+  "training": false
+}

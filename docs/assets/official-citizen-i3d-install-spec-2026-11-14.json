@@ -1,0 +1,27 @@
+{
+  "architecture": "official-asl-citizen-i3d",
+  "repository": "https://github.com/microsoft/ASL-citizen-code",
+  "commit": "17f0148b00ef87a5957ec103da8d10bd8eb1fa23",
+  "release": "checkpoints_v1",
+  "release_url": "https://github.com/microsoft/ASL-citizen-code/releases/download/checkpoints_v1/ASL_citizen_I3D_weights.zip",
+  "zip_sha256": "42c5349f95595fac79af77a902584510da92290e802903f3c96c4689a4b19a48",
+  "checkpoint_sha256": "3538319620331d5ba731e0f9ac79161deeb37a895b7680d215864fc00a14477d",
+  "upstream_directory": "tools/asl-citizen-code-official",
+  "source_sha256": {
+    "I3D/pytorch_i3d.py": "4065a3950ab087c62e369251a29ab8c7acc9ab8d1349f0d013442a70d52a2522",
+    "I3D/aslcitizen_dataset.py": "e30132340c22ec67cd9893bceb54ec4379c0a7e4d1351c778805c1e82365d0c1",
+    "I3D/videotransforms.py": "50915b188f9692790bf03cc96f2aee0f23383345713d9ad41f8d1eceec0d1ea4",
+    "I3D/aslcitizen_testing.py": "1f3940c24353d054c6c7fad0056e7072d79393c6bbe1bbbd9664c193c4ee6a4c",
+    "I3D/README.md": "160bd4d8faab79a99153f79c30cdb4e4f5253e5d675b8f496dabb7f96c5fc41e",
+    "LICENSE": "9906940f61b1f0b533fa7d99baf55178b2808fbe113ea51dfbfad8572ccd5f2b"
+  },
+  "labels_source": "Sorted unique stripped glosses from official training CSV, as upstream Dataset does.",
+  "train_csv_sha256": "87a105649b98ea577182ebfce49d59fe9ca834a2489384f6fe7bc03f14966329",
+  "classes": 2731,
+  "frames": 64,
+  "crop_size": 224,
+  "preprocessing": "Unmodified upstream video loader, pad and CenterCrop; retains OpenCV BGR order despite RGB name.",
+  "temporal_readout": "Linear interpolation to 64 frame logits, then temporal maximum, as official testing code.",
+  "training_performed": false,
+  "existing_models_modified": false
+}

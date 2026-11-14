@@ -1,5 +1,15 @@
 # Model archive and Git delivery — 2026-11-12
 
+> Historical record. The ZIPs described below were removed during the user's
+> 2026-11-14 snapshot cleanup. Their manifests remain as provenance. Current
+> retained weights and their replacement backup are documented in the
+> [curated model inventory](model-retention-2026-11-14.md).
+
+The later **latest-tested-model backup** is documented separately in the
+[15-sign trajectory-readout archive guide](trajectory-readout-model-archive-2026-11-12.md).
+It preserves the exact C=0.1 webcam checkpoint in a 13.52 MiB ZIP; the complete
+older archive described below remains unchanged.
+
 The user requested pushing all project changes and archiving all new models'
 weights. The previous archive was local and Git-ignored; this backup follows
 that arrangement. Model ZIP bytes remain local, while this guide, the complete

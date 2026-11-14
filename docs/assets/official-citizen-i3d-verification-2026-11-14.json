@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "tests": 189,
+  "full_test_log_sha256": "b6ebde1fee106113323b759f8b97249d32c9190b649422528e6cea165d073fca",
+  "protected_file_count": 567,
+  "all_prior_weights_archives_caches_and_official_sources_unchanged": true,
+  "baseline_logits_and_ranks_verified": true,
+  "webcam_preprocessing_matches_official_on_synthetic_boundaries_and_real_video": true,
+  "notebook_artifact_hashes_verified": 35,
+  "camera_closed": true,
+  "personal_media_or_coordinates_saved": false,
+  "training_performed": false,
+  "existing_geometry_or_defaults_changed": false
+}

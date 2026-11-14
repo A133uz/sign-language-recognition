@@ -1,8 +1,8 @@
-"""Create/verify a complete, immutable local model archive with per-file SHA256.
+"""Create/verify an immutable local model archive with per-file SHA256.
 
-Includes selected, last and per-epoch weights, attempted/smoke runs, configs,
-labels, reports, model source snapshots and MediaPipe tasks. Original files stay
-in place. Data, webcam media, old archives and locks are excluded.
+With a retention catalog, include exactly its registered checkpoints plus
+metadata history, notebook/Python sources and MediaPipe tasks. Older uncataloged
+projects preserve the selected model tree. Datasets and webcam media are excluded.
 """
 import argparse
 import hashlib
@@ -29,23 +29,59 @@ def safe_member(name):
     return path
 
 
-def inventory(root):
+def inventory(root,run=None):
     root=Path(root).resolve();models=root/'models';files={}
-    for current,dirs,names in os.walk(models):
+    selected=models
+    if run is not None:
+        candidate=Path(run)
+        selected=(candidate if candidate.is_absolute() else models/candidate).resolve()
+        if selected==models or not selected.is_relative_to(models) or any(
+                part in ('archives','locks','__pycache__') for part in selected.relative_to(models).parts):
+            raise ValueError('Selected model run must remain inside a model run directory')
+        if not selected.is_dir() or not (selected/'best.pt').is_file():
+            raise ValueError('Selected model run needs a best.pt checkpoint')
+    for current,dirs,names in os.walk(selected):
         dirs[:]=sorted(d for d in dirs if d not in ('archives','locks','__pycache__','.git'))
         for name in sorted(names):
             path=Path(current)/name
             if path.suffix.lower() in ('.pyc','.pyo','.lock','.tmp','.part'):continue
             if path.is_symlink() or not path.resolve().is_relative_to(root):raise ValueError('Model path leaves workspace')
             files[path.relative_to(root).as_posix()]=path
+    if run is not None:
+        for path in sorted(models.glob('*.task')):
+            if path.is_symlink() or not path.resolve().is_relative_to(root):raise ValueError('Task path leaves workspace')
+            files[path.relative_to(root).as_posix()]=path
     for folder in ('src','scripts','tests'):
         for path in sorted((root/folder).rglob('*.py')):
             if '__pycache__' in path.parts:continue
             if path.is_symlink() or not path.resolve().is_relative_to(root):raise ValueError('Source path leaves workspace')
             files['project_source/'+path.relative_to(root).as_posix()]=path
-    for name in ('pyproject.toml','uv.lock','.gitattributes','.gitignore'):
+    for path in sorted((root/'notebooks').rglob('*.ipynb')):
+        if '.ipynb_checkpoints' in path.parts:continue
+        if path.is_symlink() or not path.resolve().is_relative_to(root):raise ValueError('Notebook leaves workspace')
+        files['project_source/'+path.relative_to(root).as_posix()]=path
+    for name in ('pyproject.toml','uv.lock','.gitattributes','.gitignore','AGENTS.md'):
         path=root/name
         if path.is_file():files['project_source/'+name]=path
+    catalog_path=models/'model-catalog.json'
+    if run is None and catalog_path.exists():
+        catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
+        history=(root/catalog.get('history_root','data/model-history')).resolve()
+        if not history.is_relative_to((root/'data/model-history').resolve()):raise ValueError('Metadata history outside expected directory')
+        text_extensions={'.json','.py','.md','.txt','.csv','.yaml','.yml','.toml','.sha256','.ps1','.ipynb'}
+        for path in sorted(history.rglob('*')):
+            if path.is_file() and path.suffix.lower() in text_extensions:
+                if path.is_symlink() or not path.resolve().is_relative_to(history):raise ValueError('Metadata history path leaves workspace')
+                files['metadata_history/'+path.relative_to(history).as_posix()]=path
+        for record in catalog['retained_models']:
+            config_path=(root/record['checkpoint']).with_name('config.json')
+            if not config_path.exists():continue
+            config=json.loads(config_path.read_text())
+            if 'upstream_directory' not in config:continue
+            for name,expected in config['source_sha256'].items():
+                path=(root/config['upstream_directory']/name).resolve()
+                if not path.is_relative_to(root) or path.is_symlink() or digest_file(path)!=expected:raise ValueError('Official upstream source differs')
+                files['project_source/'+path.relative_to(root).as_posix()]=path
     if not any(name.endswith(('.pt','.pth')) for name in files):raise ValueError('No checkpoints found')
     return dict(sorted(files.items()))
 
@@ -93,8 +129,8 @@ def checkpoint_catalog(files,records):
 
 RESTORE='''# Model archive restoration
 
-This archive preserves all retained model runs, including diagnostic, smoke,
-failed/incomplete attempts and per-epoch files. Inclusion is not endorsement.
+This archive preserves the model runs listed in MANIFEST.json. Check its scope
+and exact file list; inclusion is not endorsement of recognition quality.
 models/ paths restore original configs/labels/source snapshots alongside weights.
 project_source/ is a separate code/dependency snapshot; it is not an instruction
 to overwrite current code. Dataset videos and landmark caches are not included.
@@ -103,26 +139,41 @@ to overwrite current code. Dataset videos and landmark caches are not included.
 2. Run: python scripts/archive_model_weights.py --verify PATH_TO_ARCHIVE
 3. Expand into a NEW empty staging directory, not over existing model files.
 4. Copy the chosen models/<run> directory into a new local model directory.
-   Keep best.pt, config.json, labels.json and source snapshots together.
+   Keep the catalog's exact checkpoint filename, config.json and labels.json
+   together; not every checkpoint is named best.pt.
 5. Copy the MediaPipe .task files from models/ if they are not already installed.
-6. Use scripts/recognize_webcam.py --checkpoint models/<chosen-run>/best.pt.
+6. Use scripts/recognize_webcam.py --checkpoint <chosen-checkpoint-path> for
+   landmark models. The official pixel I3D uses its separate baseline runner.
+
+metadata_history/ contains only historical metrics/configurations/source records.
+Restore it under the catalog's history_root if historical reports need it; it
+does not contain the rejected model weights. Do not copy it into active models/.
 
 Runtime source-hash guards must match the archived configuration. Use the saved
 source snapshot for historical runs if required. Training resumption additionally
 requires the matching dataset/feature cache, which remains outside this archive.
 
-No training data or webcam imagery was added to this archive. Original model
-files were preserved. Verify MANIFEST.json for exact members and SHA256 values.
+No training data or webcam imagery was added to this archive. Archive creation
+does not modify retained weights. Verify MANIFEST.json for members and SHA256.
 '''
 
 
-def create_archive(root,output,catalog_path):
+def create_archive(root,output,catalog_path,run=None):
     root=Path(root).resolve();output=Path(output).resolve();catalog_path=Path(catalog_path)
     archive_root=(root/'models/archives').resolve()
     if not output.is_relative_to(archive_root):raise ValueError('Archive output must remain inside models/archives')
     partial=output.with_suffix(output.suffix+'.partial')
     if output.exists() or partial.exists():raise FileExistsError('Archive/partial exists; use a new version')
-    files=inventory(root);total=sum(p.stat().st_size for p in files.values())
+    files=inventory(root,run=run)
+    curated_path=root/'models/model-catalog.json';curated=None
+    if run is None and curated_path.exists():
+        curated=json.loads(curated_path.read_text(encoding='utf-8'))
+        registered={r['checkpoint'] for r in curated['retained_models']}
+        actual={name for name in files if name.startswith('models/') and Path(name).suffix in ('.pt','.pth','.pkl')}
+        if actual!=registered:raise ValueError('Curated archive contains missing or unregistered model weights')
+        for row in curated['retained_models']:
+            if digest_file(root/row['checkpoint'])!=row['checkpoint_sha256']:raise ValueError('Curated weight hash differs')
+    total=sum(p.stat().st_size for p in files.values())
     output.parent.mkdir(parents=True,exist_ok=True)
     if shutil.disk_usage(output.parent).free<total+128*1024**2:raise OSError('Insufficient free space for conservative archive budget')
     base_commit=subprocess.check_output(['git','-c',f'safe.directory={root.as_posix()}','rev-parse','HEAD'],cwd=root,text=True).strip()
@@ -139,13 +190,18 @@ def create_archive(root,output,catalog_path):
             if number%100==0:print(f'ARCHIVE_WRITE {number}/{len(files)} files',flush=True)
         restore=RESTORE.encode('utf-8');archive.writestr('README_RESTORE.md',restore)
         records.append({'member':'README_RESTORE.md','bytes':len(restore),'sha256':hashlib.sha256(restore).hexdigest()})
-        manifest={'schema':'sign-language-model-archive-v1','archive_date_local':'2026-11-12','timezone':'Asia/Tashkent',
-            'base_git_commit':base_commit,'git_worktree_snapshot':True,'scope':'Complete retained models tree plus project Python/dependency sources',
+        manifest={'schema':'sign-language-model-archive-v1','archive_date_local':curated['date_local'] if curated else '2026-11-12','timezone':'Asia/Tashkent',
+            'base_git_commit':base_commit,'git_worktree_snapshot':True,
+            'scope':('Curated checkpoints, metadata history and notebook/Python/dependency sources' if curated else
+                     'Complete retained models tree plus project Python/dependency sources' if run is None else
+                     'Selected run '+str(run)+' plus root MediaPipe tasks and project Python/dependency sources'),
             'exclusions':['models/archives','models/locks','__pycache__','compiled/temporary files','datasets/features','webcam media'],
             'checkpoint_files':sum(r['member'].startswith('models/') and r['member'].endswith(('.pt','.pth')) for r in records),
             'mediapipe_task_files':sum(r['member'].endswith('.task') for r in records),
             'selected_checkpoint_catalog':checkpoint_catalog(files,records),'files':records,
-            'limits':'Includes intermediate and failed/diagnostic runs for preservation; no model quality or deployment-readiness claim. MANIFEST.json is the only self-excluded member.'}
+            'limits':('Curated retained models only; rejected/per-epoch/failed weights excluded. Evaluation scopes differ and live reliability is unproven. ' if curated else
+                      'Includes intermediate and failed/diagnostic runs for preservation; no model quality or deployment-readiness claim. ')+
+                     'MANIFEST.json is the only self-excluded member.'}
         manifest_bytes=(json.dumps(manifest,indent=2,allow_nan=False)+'\n').encode('utf-8');archive.writestr('MANIFEST.json',manifest_bytes)
     print('ARCHIVE_VERIFY reading every member for CRC and SHA256',flush=True)
     verify_archive(partial)
@@ -166,10 +222,11 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--verify',type=Path)
     p.add_argument('--output',type=Path,default=ROOT/'models/archives/all-model-checkpoints-2026-11-12.zip')
     p.add_argument('--catalog',type=Path,default=ROOT/'docs/assets/model-archive-2026-11-12-manifest.json')
+    p.add_argument('--run',type=Path,help='Archive only this directory under models, plus task assets and project source; use a new output/catalog')
     a=p.parse_args()
     if a.verify:
         m=verify_archive(a.verify);print('ARCHIVE_VERIFIED',len(m['files']),'payload members',m['checkpoint_files'],'checkpoint files')
-    else:create_archive(ROOT,a.output,a.catalog)
+    else:create_archive(ROOT,a.output,a.catalog,run=a.run)
 
 
 if __name__=='__main__':main()

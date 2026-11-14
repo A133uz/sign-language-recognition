@@ -1,0 +1,20 @@
+{
+  "status": "running",
+  "date_local": "2026-11-14",
+  "timezone": "Asia/Tashkent",
+  "scope": "Exactly 19 YOU training and validation clips; all 60 validation predictions reproduced as a consistency check.",
+  "checkpoint_sha256": "34b766c393cf20a77b001004376195e60ffb58943d7b1f9661bd23edbab81c91",
+  "baseline_checkpoint_sha256": "0921e10a193044e5cbc92e29b386b370b827431b6850f0bc49f6e64ea4441843",
+  "cache_id": "63aa81227c6fef495bba0a25cc670871c3a570fa3cb3ba95b2bcf259c5dacbf4",
+  "records": [],
+  "protocol": {
+    "training": false,
+    "test_read": false,
+    "corpus_cleaning": false,
+    "defaults_changed": false,
+    "same_backbone": true,
+    "controls": "original, reverse, seeded shuffle, static frame, anatomical reflection, hand-slot swap; 3 standardized head-group interventions on each",
+    "windows": "full, first two seconds, detected-hand envelope; slice raw observations before normalization",
+    "limits": "Flagged tracking/geometry is a review lead, not measured joint error, semantic mislabeling or a fix."
+  }
+}

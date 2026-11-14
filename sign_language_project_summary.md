@@ -1,8 +1,52 @@
 # Real-Time Sign Language Recognition Using Computer Vision and Deep Learning
 
-Updated 2026-11-12. This summary records the agreed design, verified work and
+Updated 2026-11-14. This summary records the agreed design, verified work and
 remaining decisions. Historical implementations remain in Git history; they
 are not active fallback recognizers.
+
+**Notebook-first model work and retention (2026-11-14):** new model architecture
+and training implementation must be in Jupyter notebooks, including actual code,
+configuration and results; webcam/inference scripts remain Python files.
+Historical scripts and read-only reports remain records. The local inventory was
+curated from 185 checkpoint files to seven useful references: full-vocabulary
+regularized GRU and ST-GCN, five-sign plain/mean-pooled/geometry GRUs, the latest
+15-sign trajectory readout, and official I3D. Removed weights include unsuccessful
+runs, epoch duplicates and marginal variants. Metadata and evaluation history
+remain available; a curated-only backup replaces older overlapping archives.
+The existing webcam default is unchanged. No training or Git push was performed.
+See [retention record and catalog](docs/model-retention-2026-11-14.md).
+
+**Official pretrained reference (2026-11-14):** Microsoft ASL Citizen's released
+I3D is now installed separately, using pinned official code, the original
+2,731-output checkpoint and its 64-frame pixel preprocessing. It uses no
+MediaPipe landmarks. On the same 182 official test videos it scores 117/182
+(64.29%) with all labels competing; restricted views give 165/182 (90.66%) for
+15 labels and 58/60 (96.67%) for five. The original head/weights remain intact.
+This reference was trained on the full vocabulary, unlike the subset GRUs;
+the comparison is not an architecture-only ablation. Four confirmed webcam
+trials yield 0/4 full-vocabulary and 2/4 in the 15-label view (HELLO/ME correct;
+THANKYOU→GOOD, YOU→HELLO). Exact live failure causes remain unresolved. No
+training, geometry ablation, default change or personal-media storage occurred.
+See [the baseline record](docs/official-asl-citizen-baseline-2026-11-14.md).
+
+**Latest frozen test evaluation (2026-11-14):** all 152 saved five/fifteen-sign
+neural checkpoint paths (133 distinct files), including every stored epoch and
+minimum-validation-loss alternative, were evaluated without retraining or
+geometry interventions. The official test subsets contain 60 and 182 clips
+respectively, from 11 signers disjoint from training/validation. Previously
+validation-selected five-sign geometry GRU epoch 8 scores **51/60 (85.00%, macro
+F1 0.8407)**. Its stored epoch 5 reaches **59/60 (98.33%, macro F1 0.9808)**,
+discovered retrospectively; it has not replaced the existing selection. Current
+fifteen-sign C=0.1 readout scores **147/182 (80.77%, macro F1 0.8033)**, tied in
+top-1 with C=1, 10 and 100. Its test ME/YOU/WE recalls are 10/13, 11/12 and
+12/12; webcam failures remain separate evidence. All metrics, per-class results
+and confusion matrices are in the [complete benchmark](docs/small-vocab-snapshot-test-2026-11-14.md)
+and [all-snapshot CSV](docs/assets/small-vocab-snapshot-test-2026-11-14.csv).
+At benchmark completion, weights, archives, source caches and default selections
+were preserved; the later curation described above removes superseded weights. The
+test is now exposed for this retrospective sweep and is not a fresh holdout
+for future tuning. Earlier dated statements about unread test data describe
+the original experiments, not the current evaluation status.
 
 ## 1. Objective and scope
 
@@ -24,7 +68,8 @@ held-out test evaluation is part of this experiment. See the
 Both runs completed: control epoch 6 scored 49/60 validation clips (81.67%);
 temporal candidate epoch 13 scored 50/60 (83.33%). This is one net extra correct
 clip, with mixed per-class changes; both missed all four validation PLEASE
-examples. The expanded model has not yet had a webcam test or held-out test.
+examples. At that stage the expanded model had no webcam or test evaluation;
+subsequent dated diagnostics and the benchmark above supersede that status.
 The subsequent [PLEASE/MY experiment](docs/please-trajectory-fix-2026-11-12.md)
 freezes the temporal model's epoch-13 GRU and appends six wrist-path descriptors
 to the 17 hand/body summaries. A train-only L2-refitted linear head consumes
@@ -36,6 +81,18 @@ development cases informed feature design and validation tuning, so the result
 is not independent evidence. Failed attempts are preserved; no new official
 test or webcam evaluation occurred. No further GRU epochs or MediaPipe training
 were needed for this selected readout.
+The [2026-11-14 ME/WE investigation](docs/pronoun-investigation-2026-11-14.md)
+audits all 37 related training/validation clips and nine confirmed live trials
+without changing weights. The user corrected the gesture labels afterward:
+WE was misunderstood in both sessions, so those attempts and the earlier
+claimed WE recognition-failure mechanism are withdrawn. The earlier session's
+ME and PLEASE remain 3/3 each. The
+[instrumented follow-up](docs/capture-timing-normalization-2026-11-14.md)
+retains about 29.7 FPS but gets ME 1/3 and PLEASE 2/3. Both refitted and fixed
+normalization prefixes give ME 0/3 and PLEASE 3/3; fixed normalization alone
+does not repair ME. A correct, confirmed WE test is still needed. No model
+correction was trained or deployed; the old five ME failures cannot be replayed
+from count-only logs.
 The corpus audit/cleaning remains stopped at the user's request, at 214/836
 shards. No source videos/features were modified; full-vocabulary expansion
 remains a later target. Existing GRU/ST-GCN and five-sign weights are preserved.
@@ -327,7 +384,10 @@ loss **2.44304**. No training, augmentation or weight updates occurred; the
 checkpoint hash is unchanged. Original and 64-unit models have not been tested.
 See [the held-out test report](docs/test-evaluation-2026-11-10.md).
 
-### Archived regularized model (2026-11-10)
+### Historical regularized model archive (2026-11-10)
+
+The ZIP described in this historical section was superseded by the 2026-11-14
+curated backup. The regularized epoch-37 checkpoint remains retained.
 
 The selected epoch-37 weights and epoch-47 resume checkpoint are preserved in
 the local archive
