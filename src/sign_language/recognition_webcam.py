@@ -1,14 +1,43 @@
 """Interactive isolated-sign capture; frames/landmarks remain in memory only."""
 
 from concurrent.futures import ThreadPoolExecutor
+from functools import lru_cache
+from pathlib import Path
 import time
 
 import cv2
 import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 
 from sign_language.dataset import write_json
 from sign_language.hands import HandTracker, draw_hands
 from sign_language.frame_rate import FrameRateLimiter, capture_rate_metrics
+
+
+@lru_cache(maxsize=4)
+def _font(size):
+    candidates = (
+        Path(r"C:\Windows\Fonts\arial.ttf"),
+        Path(r"C:\Windows\Fonts\segoeui.ttf"),
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        Path("/System/Library/Fonts/Supplemental/Arial.ttf"),
+    )
+    for candidate in candidates:
+        if candidate.is_file():
+            return ImageFont.truetype(str(candidate), size)
+    return ImageFont.load_default()
+
+
+def draw_interface_text(frame, lines):
+    """Render Unicode labels with a system TrueType font, then return BGR."""
+    canvas = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    draw = ImageDraw.Draw(canvas)
+    font = _font(16)
+    for row, text in enumerate(lines):
+        color = (120, 255, 80) if row < 4 else (180, 235, 245)
+        draw.text((10, 8 + row * 22), text, font=font, fill=color,
+                  stroke_width=1, stroke_fill=(22, 22, 22))
+    return cv2.cvtColor(np.asarray(canvas), cv2.COLOR_RGB2BGR)
 
 
 class SkeletonPreview:
@@ -36,7 +65,8 @@ def model_display_name(recognizer):
             'SignTrajectoryReadoutGRU': 'Frozen GRU + trajectory readout'}.get(name, 'Unknown model')
 
 
-def state_headline(state, now, deadline, capture_started, model_name, auto_finish=True, max_seconds=3.):
+def state_headline(state, now, deadline, capture_started, model_name,
+                   auto_finish=True, max_seconds=3., input_mode='hands + body'):
     if state == 'countdown':
         return f'GET READY: {max(1, int(deadline-now)+1)}'
     if state == 'recording':
@@ -44,7 +74,7 @@ def state_headline(state, now, deadline, capture_started, model_name, auto_finis
             return f'SIGN NOW - auto stop in {max(0.,max_seconds-now+capture_started):.1f}s'
         return f'SIGN NOW - Space to finish ({now-capture_started:.1f}s)'
     if state == 'processing':
-        return f'PROCESSING hands + body, then {model_name}...'
+        return f'PROCESSING {input_mode}, then {model_name}...'
     return 'READY - Space, wait for SIGN NOW, perform ONE sign'
 
 
@@ -66,6 +96,8 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=3.0, capture_
     if expected_sign is not None and expected_sign not in recognizer.names:
         raise ValueError('Expected sign is not a checkpoint label')
     model_name = model_display_name(recognizer)
+    hands_only = getattr(recognizer, 'config', {}).get('dataset') == 'slovo'
+    input_mode = 'hands only' if hands_only else 'hands + body'
     session_id = report_path.stem
     report = {'status': 'starting', 'checkpoint': str(recognizer.checkpoint),
               'checkpoint_sha256': recognizer.checkpoint_sha256, 'epoch': recognizer.epoch,
@@ -151,8 +183,10 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=3.0, capture_
             h, w = frame.shape[:2]
             view = np.full((h+250, w, 3), 22, dtype=np.uint8)
             view[250:] = view_image
-            headline = state_headline(state, now, deadline, capture_started, model_name,auto_finish,max_seconds)
-            if expected_sign is not None:headline+=f' | sign {expected_sign}'
+            headline = state_headline(state, now, deadline, capture_started,
+                                      model_name, auto_finish, max_seconds, input_mode)
+            if expected_sign is not None:
+                headline += f' | sign {expected_sign}'
             capture_number = result['capture_id'] if result else len(report['trials'])+1
             lines = [f'MODEL: {model_name} | epoch {recognizer.epoch} | {str(recognizer.device).upper()} | {len(recognizer.names):,} labels',
                      headline, f'Capture #{capture_number} | '+('Space: start | auto stop' if auto_finish else 'Space: start/stop')+' | R: clear | Q: close',
@@ -163,21 +197,27 @@ def run_recognition(recognizer, report_path, camera=0, max_seconds=3.0, capture_
                 lines += [f'{i+1}. {item["label"]}   {item["score"]*100:.1f}%'
                           for i, item in enumerate(result['top5'])]
                 quality = result['quality']
-                lines += [f'Frames: {result["captured_frames"]} | hand frames: {quality["frames_with_hands"]}'
-                          f' | shoulder frames: {quality["frames_with_body_anchor"]}']
+                if hands_only:
+                    lines += [f'Frames: {result["captured_frames"]} | hand frames: {quality["frames_with_hands"]}'
+                              f' | two-hand frames: {quality["frames_with_two_hands"]}']
+                else:
+                    lines += [f'Frames: {result["captured_frames"]} | hand frames: {quality["frames_with_hands"]}'
+                              f' | shoulder frames: {quality["frames_with_body_anchor"]}']
                 measured = result.get('effective_capture_fps')
                 if measured is not None:
                     lines += [f'Capture: {measured:.1f} FPS | limit {capture_fps:g} | skipped {result["fps_limit_dropped_frames"]}']
             elif note:
                 lines += [note[:85]]
             else:
-                lines += ['Keep face, shoulders and both hands visible.',
-                          f'Capture target: {capture_fps:g} FPS; slower cameras are not upsampled.',
-                          'Two annotated stills saved for review; no video.' if getattr(recognizer,'review_stills',False)
-                          else 'Frames stay in memory; only predictions/timing saved.']
-            for row, text in enumerate(lines):
-                cv2.putText(view, text, (10, 22+row*22), cv2.FONT_HERSHEY_SIMPLEX,
-                            .47, (80, 255, 120) if row < 4 else (245, 235, 180), 1, cv2.LINE_AA)
+                if hands_only:
+                    lines += ['Keep the signing hand(s) visible in the camera frame.',
+                              'Frames stay in memory; only predictions/timing saved.']
+                else:
+                    lines += ['Keep face, shoulders and both hands visible.',
+                              f'Capture target: {capture_fps:g} FPS; slower cameras are not upsampled.',
+                              'Two annotated stills saved for review; no video.' if getattr(recognizer,'review_stills',False)
+                              else 'Frames stay in memory; only predictions/timing saved.']
+            view = draw_interface_text(view, lines)
             cv2.imshow(title, view)
             key = cv2.waitKey(1) & 0xff
             if key in (27, ord('q')) or cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1:

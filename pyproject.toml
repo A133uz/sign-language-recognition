@@ -7,6 +7,7 @@ dependencies = [
     "numpy==1.26.4",
     "opencv-contrib-python>=4.10,<4.12",
     "mediapipe==1.2.2",
+    "pillow>=13,<14",
 ]
 
 [project.optional-dependencies]

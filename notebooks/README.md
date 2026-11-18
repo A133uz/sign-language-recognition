@@ -53,7 +53,7 @@ snapshots. Both reporting notebooks show the retained-model table. Historical
 curves still load preserved metrics; their presence does not mean those weights
 remain installed.
 
-Three generated reporting notebooks accompany the existing Colab extraction notebook:
+Four generated reporting notebooks accompany the existing Colab extraction notebook:
 
 Notebook 02 also records the independent **official pretrained ASL Citizen
 I3D** baseline: original 2,731-label predictions, explicitly restricted five/
@@ -73,13 +73,16 @@ See [the full record](../docs/small-vocab-snapshot-test-2026-11-14.md).
 - `01_project_workflow_and_investigation.ipynb`: scope/history, data splits,
   extraction/recovery/benchmarks, normalization, model design, training steps,
   webcam failure investigation and remaining work.
-- `02_model_training_and_evaluation.ipynb`: actual learning curves, validation
+- `02_model_training_and_evaluation.ipynb`: ASL learning curves, validation
   and frozen-test metrics, grouped CV, per-signer/per-class analysis, focused
   confusion matrices, frequent confusions, runtime, capacity and LR schedules.
 - `03_asl_citizen_class_balance_and_distribution.ipynb`: all 2,731 classes and
   83,399 source clips; official split counts, count histograms, imbalance
   statistics, ranked/Lorenz plots, smallest/largest classes, signer distributions,
   the current five-sign subset, and an inspectable full-class table.
+- `03_slovo_training_and_evaluation.ipynb`: Slovo GRU run comparison, official and
+  unseen-signer test metrics, and split-coverage caveats. The notebook includes
+  model-design and training cells; it does not start training by default.
 
 Notebooks **01 and 02 now start with the trajectory-aware 15-class readout**:
 frozen epoch-13 two-layer 256-unit GRU, masked mean pooling, 17 hand/body + six
@@ -126,6 +129,11 @@ snapshot beside its notebook when copying files. Run All reads the snapshot;
 the final table's SEARCH/SORT_BY/LIMIT settings let you inspect every class.
 This report counts metadata/labels; it does not decode videos or audit landmarks.
 
+The Slovo report reads its saved epoch records, cache manifest and evaluation
+JSON. Its model definition and training loop are in the notebook, with training
+explicitly disabled by default. Saved outputs remain readable without checkpoints
+or feature arrays.
+
 The first two notebooks contain **completed ST-GCN results**, after successful
 training and frozen test evaluation on 2026-11-11 (Asia/Tashkent). The metrics
 notebook explains epoch-39 selection versus the final epoch 49 and compares
@@ -149,12 +157,13 @@ does not restart training or change weights.
 .\.venv\Scripts\python.exe scripts/build_dataset_distribution_notebook.py
 ```
 
-The generators execute authored analysis cells in a Python process and
-store actual stdout, tables and PNG outputs in notebook v4 format. They do not use a
-Jupyter kernel during generation; this execution method is recorded in notebook
-metadata. Every code cell is ordinary rerunnable Python. Run All reads its
-snapshot and plots data; it does not download/extract data, train/evaluate a
-model, open the camera or overwrite weights.
+The ASL generators execute authored analysis cells in a Python process and
+store actual stdout, tables and PNG outputs in notebook v4 format without a
+Jupyter kernel. Run All reads their snapshots and plots data. The Slovo report
+cells read its saved history, cache manifest and evaluation JSON; the separate
+training cells contain the GRU definition and training loop and are gated off by
+default. Viewing or rerunning the reports does not train/evaluate a model, open
+the camera or overwrite weights.
 
 Open the `.ipynb` files in VS Code's notebook editor. Select the project `.venv`
 when rerunning. Viewing the saved outputs needs no kernel installation. If VS

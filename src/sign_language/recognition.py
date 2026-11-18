@@ -64,8 +64,12 @@ class SignRecognizer:
         else:
             raise ValueError('Unknown checkpoint architecture')
         for name in ('preprocessing.py', *source_files):
-            digest = hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-            if digest != self.config['source_sha256'][name]:
+            source = Path(__file__).with_name(name).read_bytes()
+            digests = {
+                hashlib.sha256(source).hexdigest(),
+                hashlib.sha256(source.replace(b'\r\n', b'\n')).hexdigest(),
+            }
+            if self.config['source_sha256'][name] not in digests:
                 raise ValueError(f'Trained source differs: {name}')
         self.labels = state['labels']
         if self.labels != json.loads(self.checkpoint.with_name('labels.json').read_text()):

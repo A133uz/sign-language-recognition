@@ -24,3 +24,5 @@ models/
 
 # Weekly reports remain local and must not be included in repository delivery.
 /output/weekly_progress_reports/
+/SlovoDataset/
+/reports/

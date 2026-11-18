@@ -29,6 +29,12 @@ isolated-sign webcam test using the 15-sign trajectory-readout GRU by default
 The dataset is
 Microsoft ASL Citizen. The WLASL/I3D implementation was removed.
 
+Slovo Russian Sign Language support is available as a separate, additive
+workflow. ASL remains the existing default and its code, checkpoints, reports,
+and commands are retained. See the [Slovo RSL guide](docs/slovo-rsl.md) for the
+landmark audit, hands-only feature cache, signer-aware evaluation, and webcam
+entry point. Model training is opt-in through the Slovo notebook.
+
 Local GPU training was authorized on 2026-11-09. The GRU trainer and 128-frame
 landmark preprocessor are implemented; see [local training](docs/local-training.md)
 for settings, checkpoints and resume controls. MediaPipe supplies pretrained
@@ -36,7 +42,7 @@ landmark detectors, and the GRU with a linear head learns sign labels.
 The [webcam recognition test](docs/webcam-recognition.md) uses manually bounded
 signs and the selected checkpoint; live recognition remains unreliable in
 the user checks. See [ST-GCN live feedback](docs/stgcn-webcam-test-2026-11-11.md).
-The RSL extension is planned.
+The Slovo RSL path is additive; see [the RSL workflow](docs/slovo-rsl.md).
 
 An independent [official pretrained ASL Citizen I3D baseline](docs/official-asl-citizen-baseline-2026-11-14.md)
 is installed with pinned authors' weights and preprocessing. It reads video

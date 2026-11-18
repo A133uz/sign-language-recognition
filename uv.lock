@@ -330,6 +330,7 @@ dependencies = [
     { name = "mediapipe" },
     { name = "numpy" },
     { name = "opencv-contrib-python" },
+    { name = "pillow" },
 ]
 
 [package.optional-dependencies]
@@ -350,6 +351,7 @@ requires-dist = [
     { name = "mediapipe", specifier = "==1.2.2" },
     { name = "numpy", specifier = "==1.26.4" },
     { name = "opencv-contrib-python", specifier = ">=4.10,<4.12" },
+    { name = "pillow", specifier = ">=13,<14" },
     { name = "scikit-learn", marker = "extra == 'training'", specifier = ">=1.7,<2" },
     { name = "torch", marker = "extra == 'cpu'", specifier = "==2.11.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "sign-language-recognition", extra = "cpu" } },
     { name = "torch", marker = "extra == 'cuda'", specifier = "==2.11.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "sign-language-recognition", extra = "cuda" } },
