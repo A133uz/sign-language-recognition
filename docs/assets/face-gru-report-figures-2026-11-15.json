@@ -1,0 +1,19 @@
+{
+  "model": "asl-gru-fifteen-signs-face-50epochs-v1",
+  "selected_epoch": 36,
+  "training_executed": false,
+  "curve_scope": "Clean-training and validation metrics of each training-stage classifier, before frozen readout refitting. No per-epoch test scores.",
+  "sources": {
+    "models\\asl-gru-fifteen-signs-face-50epochs-v1\\history.json": "4485cf257318824b7899ec7727c0837dc8109658caacbb499b2d380cc69b4971",
+    "models\\asl-gru-fifteen-signs-face-50epochs-v1\\report.json": "6ca91b4efc4ce6292d1933bbe4b64069040d4de964fe86f3c48b330741678a0b",
+    "models\\asl-gru-fifteen-signs-face-50epochs-v1\\config.json": "c430bd335306875417852e917e54c7db6b88ac5c6ce6a8329a993860db0d25ad",
+    "notebooks\\08_15_sign_face_gru_50epochs.ipynb": "7cc14dbeb0906f59e90aa0c4f71a80f3934cb336fdc15dc0e0f9caa89618dafd",
+    "src\\sign_language\\face_gru_recognition.py": "21f1eedf318d4bca5e2206a646ec1d5db224fb4f78e581161bf67164c9603467"
+  },
+  "figures": {
+    "docs\\assets\\face-gru-report-pipeline-2026-11-15.png": "9eea3dc731d763393fe3f7c65ae8187d636cae1f0759c2374a07324504a0f840",
+    "docs\\assets\\face-gru-report-architecture-2026-11-15.png": "4b48f7184df78f885a59456e7aee5f8109cd9a9c8f5cf14ddda0e240682d244c",
+    "docs\\assets\\face-gru-50epochs-report-loss-2026-11-15.png": "9ccdbe93e872e88b2e77b55b25f9905568946a20d05ee65517710f7529bf3332",
+    "docs\\assets\\face-gru-50epochs-report-accuracy-2026-11-15.png": "ca58e9f60b185fedd7c7a98af39e7090856ac81d7234ffb2884abc161c186d0f"
+  }
+}

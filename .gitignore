@@ -22,7 +22,7 @@ models/
 *.zip
 *.download
 
-# Weekly reports remain local and must not be included in repository delivery.
-/output/weekly_progress_reports/
+# Project output may contain confidential documents and must remain local.
+/output/
 /SlovoDataset/
 /reports/

@@ -1,5 +1,34 @@
 # ASL webcam test: ST-GCN and GRU
 
+## Choose ASL or RSL in the webcam
+
+To open a separate language-selection window with the selected face-aware
+15-sign ASL model, run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/webcam_language_switch.py
+```
+
+Press **1** for ASL or **2** for RSL. Press **Space**, wait for SIGN NOW,
+and perform one sign during the automatic three-second capture. The active
+language appears at the top and a single predicted gloss appears at the bottom.
+Switching is only allowed between captures; an old prediction is cleared when
+the language changes. **Q** closes the window. This is manual language selection,
+not automatic language detection; each language uses its own model and labels.
+
+ASL loads `models/asl-gru-fifteen-signs-face-50epochs-v1/model.pt` (epoch 36).
+RSL needs a compatible trained SLOVO checkpoint at `models/slovo-gru-v1/best.pt`
+and its adjacent configuration and label files. The SLOVO checkpoint is not
+currently installed; selecting RSL displays an unavailable message and keeps
+ASL active. For the SLOVO data and training workflow see [Slovo RSL](slovo-rsl.md).
+The selector neither trains nor downloads models. Its session log records the
+language, model hash, prediction and timing; video and landmarks stay in memory.
+
+Use `--device cpu` or `--camera 1` when appropriate. The selected checkpoint is
+closed-set, so an unknown sign can still be assigned a known gloss.
+
+## Existing ASL commands
+
 **Current selection:** the retained 15-sign trajectory-readout GRU, epoch 13.
 For a single bottom-centered prediction, run:
 
